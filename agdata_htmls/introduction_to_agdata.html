@@ -1705,18 +1705,18 @@ $(document).ready(function () {
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1"><span class="co"># Spread data to wide format</span></a>
 <a class="sourceLine" id="cb12-2" title="2">xx <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="op">-</span>Unit) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">spread</span>(Measurement, Value) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(Year)</a></code></pre></div>
 <pre><code>## # A tibble: 587,214 x 6
-##    Area       Crop                       Year `Area harvested` Production  Yield
-##    &lt;fct&gt;      &lt;fct&gt;                     &lt;dbl&gt;            &lt;dbl&gt;      &lt;dbl&gt;  &lt;dbl&gt;
-##  1 Afghanist~ Apples                     1961             2220      15100  6.80 
-##  2 Afghanist~ Apricots                   1961             4820      32000  6.64 
-##  3 Afghanist~ Barley                     1961           350000     378000  1.08 
-##  4 Afghanist~ Cotton lint                1961               NA      17000 NA    
-##  5 Afghanist~ Cottonseed                 1961               NA      34000 NA    
-##  6 Afghanist~ Figs                       1961             3200       8000  2.5  
-##  7 Afghanist~ Grapes                     1961            50000     225000  4.5  
-##  8 Afghanist~ Linseed                    1961            46800      17000  0.363
-##  9 Afghanist~ Maize                      1961           500000     700000  1.4  
-## 10 Afghanist~ Melons, other (inc.canta~  1961             3300      15700  4.76 
+##    Area        Crop                             Year `Area harvested` Production  Yield
+##    &lt;fct&gt;       &lt;fct&gt;                           &lt;dbl&gt;            &lt;dbl&gt;      &lt;dbl&gt;  &lt;dbl&gt;
+##  1 Afghanistan Apples                           1961             2220      15100  6.80 
+##  2 Afghanistan Apricots                         1961             4820      32000  6.64 
+##  3 Afghanistan Barley                           1961           350000     378000  1.08 
+##  4 Afghanistan Cotton lint                      1961               NA      17000 NA    
+##  5 Afghanistan Cottonseed                       1961               NA      34000 NA    
+##  6 Afghanistan Figs                             1961             3200       8000  2.5  
+##  7 Afghanistan Grapes                           1961            50000     225000  4.5  
+##  8 Afghanistan Linseed                          1961            46800      17000  0.363
+##  9 Afghanistan Maize                            1961           500000     700000  1.4  
+## 10 Afghanistan Melons, other (inc.cantaloupes)  1961             3300      15700  4.76 
 ## # ... with 587,204 more rows</code></pre>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" title="1"><span class="co"># Prep data for an example plot</span></a>
 <a class="sourceLine" id="cb14-2" title="2">xx &lt;-<span class="st"> </span>xx <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Area <span class="op">==</span><span class="st"> &quot;World&quot;</span>, Crop <span class="op">==</span><span class="st"> &quot;Lentils&quot;</span>, Measurement <span class="op">==</span><span class="st"> &quot;Production&quot;</span>)</a>
@@ -1739,18 +1739,18 @@ $(document).ready(function () {
 <a class="sourceLine" id="cb16-2" title="2">xx &lt;-<span class="st"> </span>agData_FAO_LandUse <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as_tibble</span>()</a>
 <a class="sourceLine" id="cb16-3" title="3">xx</a></code></pre></div>
 <pre><code>## # A tibble: 163,603 x 6
-##    Area        Item                           Year Measurement Unit        Value
-##    &lt;fct&gt;       &lt;chr&gt;                         &lt;dbl&gt; &lt;fct&gt;       &lt;fct&gt;       &lt;dbl&gt;
-##  1 Afghanistan Country area                   1961 Area        1000 hecta~ 65286
-##  2 Afghanistan Land area                      1961 Area        1000 hecta~ 65286
-##  3 Afghanistan Agricultural area              1961 Area        1000 hecta~ 37700
-##  4 Afghanistan Arable land and Permanent cr~  1961 Area        1000 hecta~  7700
-##  5 Afghanistan Arable land                    1961 Area        1000 hecta~  7650
-##  6 Afghanistan Permanent crops                1961 Area        1000 hecta~    50
-##  7 Afghanistan Permanent meadows and pastur~  1961 Area        1000 hecta~ 30000
-##  8 Afghanistan Total area equipped for irri~  1961 Area        1000 hecta~  2380
-##  9 Albania     Country area                   1961 Area        1000 hecta~  2875
-## 10 Albania     Land area                      1961 Area        1000 hecta~  2740
+##    Area        Item                                Year Measurement Unit          Value
+##    &lt;fct&gt;       &lt;chr&gt;                              &lt;dbl&gt; &lt;fct&gt;       &lt;fct&gt;         &lt;dbl&gt;
+##  1 Afghanistan Country area                        1961 Area        1000 hectares 65286
+##  2 Afghanistan Land area                           1961 Area        1000 hectares 65286
+##  3 Afghanistan Agricultural area                   1961 Area        1000 hectares 37700
+##  4 Afghanistan Arable land and Permanent crops     1961 Area        1000 hectares  7700
+##  5 Afghanistan Arable land                         1961 Area        1000 hectares  7650
+##  6 Afghanistan Permanent crops                     1961 Area        1000 hectares    50
+##  7 Afghanistan Permanent meadows and pastures      1961 Area        1000 hectares 30000
+##  8 Afghanistan Total area equipped for irrigation  1961 Area        1000 hectares  2380
+##  9 Albania     Country area                        1961 Area        1000 hectares  2875
+## 10 Albania     Land area                           1961 Area        1000 hectares  2740
 ## # ... with 163,593 more rows</code></pre>
 <div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" title="1"><span class="co"># List Measurements</span></a>
 <a class="sourceLine" id="cb18-2" title="2">xx <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">distinct</span>(Measurement, Unit)</a></code></pre></div>
@@ -2037,19 +2037,19 @@ $(document).ready(function () {
 <div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb53-1" title="1"><span class="co"># Spread data to wide format</span></a>
 <a class="sourceLine" id="cb53-2" title="2">xx <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="op">-</span>Unit) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">spread</span>(Measurement, Value) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(Year)</a></code></pre></div>
 <pre><code>## # A tibble: 940 x 9
-##    Area  Animal  Year Beekeepers Colonies `Colonies/Beeke~ Production  Value
-##    &lt;fct&gt; &lt;chr&gt;  &lt;int&gt;      &lt;dbl&gt;    &lt;dbl&gt;            &lt;dbl&gt;      &lt;dbl&gt;  &lt;dbl&gt;
-##  1 Brit~ Honey~  1924       2410    14600             6.06    307989.  0.149
-##  2 Albe~ Honey~  1924        160       NA            NA        24948.  0.014
-##  3 Sask~ Honey~  1924        410     1200             2.93     35834.  0.018
-##  4 Mani~ Honey~  1924       1260    10840             8.60    295288.  0.098
-##  5 Onta~ Honey~  1924      10000   160000            16      4935081.  1.09 
-##  6 Queb~ Honey~  1924       7400    89830            12.1    1974032.  0.696
-##  7 New ~ Honey~  1924        360     2200             6.11     27669.  0.009
-##  8 Prin~ Honey~  1924          5       90            18         1361. NA    
-##  9 Nova~ Honey~  1924        200     1250             6.25     36287.  0.013
-## 10 Cana~ Honey~  1924      22205   280010            12.6    7638489.  2.08 
-## # ... with 930 more rows, and 1 more variable: Yield &lt;dbl&gt;</code></pre>
+##    Area                 Animal     Year Beekeepers Colonies `Colonies/Beekeeper` Production  Value Yield
+##    &lt;fct&gt;                &lt;chr&gt;     &lt;int&gt;      &lt;dbl&gt;    &lt;dbl&gt;                &lt;dbl&gt;      &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;
+##  1 British Columbia     Honeybees  1924       2410    14600                 6.06    307989.  0.149    21
+##  2 Alberta              Honeybees  1924        160       NA                NA        24948.  0.014    NA
+##  3 Saskatchewan         Honeybees  1924        410     1200                 2.93     35834.  0.018    30
+##  4 Manitoba             Honeybees  1924       1260    10840                 8.60    295288.  0.098    27
+##  5 Ontario              Honeybees  1924      10000   160000                16      4935081.  1.09     31
+##  6 Quebec               Honeybees  1924       7400    89830                12.1    1974032.  0.696    22
+##  7 New Brunswick        Honeybees  1924        360     2200                 6.11     27669.  0.009    13
+##  8 Prince Edward Island Honeybees  1924          5       90                18         1361. NA        15
+##  9 Nova Scotia          Honeybees  1924        200     1250                 6.25     36287.  0.013    29
+## 10 Canada               Honeybees  1924      22205   280010                12.6    7638489.  2.08     27
+## # ... with 930 more rows</code></pre>
 <div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb55-1" title="1"><span class="co"># Prep data for an example plot</span></a>
 <a class="sourceLine" id="cb55-2" title="2">xx &lt;-<span class="st"> </span>xx <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Area <span class="op">==</span><span class="st"> &quot;Saskatchewan&quot;</span>, Measurement <span class="op">==</span><span class="st"> &quot;Colonies&quot;</span>)</a>
 <a class="sourceLine" id="cb55-3" title="3"><span class="co"># Plot</span></a>
@@ -2169,18 +2169,18 @@ $(document).ready(function () {
 <div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb69-1" title="1"><span class="co"># Spread data to wide format</span></a>
 <a class="sourceLine" id="cb69-2" title="2">xx <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="op">-</span>Unit) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">spread</span>(Measurement, Value) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(Year)</a></code></pre></div>
 <pre><code>## # A tibble: 2,625 x 6
-##    Area    Animal      Year `Average number ~ `Number of anim~ `Number of farms~
-##    &lt;fct&gt;   &lt;fct&gt;      &lt;int&gt;             &lt;dbl&gt;            &lt;dbl&gt;             &lt;dbl&gt;
-##  1 Britis~ Horses an~  1921                 4            61385             14609
-##  2 Britis~ Total cat~  1921                NA           209207                NA
-##  3 Britis~ Total hen~  1921                NA          1967551                NA
-##  4 Britis~ Total pigs  1921                 6            41685              6878
-##  5 Britis~ Total she~  1921                58            61344              1052
-##  6 Alberta Horses an~  1921                11           806244             72992
-##  7 Alberta Total cat~  1921                NA          1383552                NA
-##  8 Alberta Total hen~  1921                NA          4921870                NA
-##  9 Alberta Total pigs  1921                10           423258             41029
-## 10 Alberta Total she~  1921               105           431464              4110
+##    Area             Animal                           Year `Average number of animals` `Number of animals` `Number of farms reporting`
+##    &lt;fct&gt;            &lt;fct&gt;                           &lt;int&gt;                       &lt;dbl&gt;               &lt;dbl&gt;                       &lt;dbl&gt;
+##  1 British Columbia Horses and ponies                1921                           4               61385                       14609
+##  2 British Columbia Total cattle and calves          1921                          NA              209207                          NA
+##  3 British Columbia Total hens and chickens (birds)  1921                          NA             1967551                          NA
+##  4 British Columbia Total pigs                       1921                           6               41685                        6878
+##  5 British Columbia Total sheep and lambs            1921                          58               61344                        1052
+##  6 Alberta          Horses and ponies                1921                          11              806244                       72992
+##  7 Alberta          Total cattle and calves          1921                          NA             1383552                          NA
+##  8 Alberta          Total hens and chickens (birds)  1921                          NA             4921870                          NA
+##  9 Alberta          Total pigs                       1921                          10              423258                       41029
+## 10 Alberta          Total sheep and lambs            1921                         105              431464                        4110
 ## # ... with 2,615 more rows</code></pre>
 <div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb71-1" title="1"><span class="co"># Prep data for an example plot</span></a>
 <a class="sourceLine" id="cb71-2" title="2">xx &lt;-<span class="st"> </span>xx <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Area <span class="op">==</span><span class="st"> &quot;Saskatchewan&quot;</span>, Measurement <span class="op">==</span><span class="st"> &quot;Number of animals&quot;</span>,</a>
