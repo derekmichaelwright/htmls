@@ -4,6 +4,20 @@ library(rmarkdown); library(rmdformats)
 myhtml <- readthedown(gallery = T, lightbox= T, self_contained = T, code_folding = "show",
                       css = "../../../assets/images/custom.css") #""
 ##########################################################################################
+# agile
+##########################################################################################
+setwd("C:/gitfolder/myblog/content/agile/correlation_coefficients")
+render(input = "index.Rmd", output_format = "pdf_document",
+       output_file = "../../agile_pdfs/correlation_coefficients.pdf")
+render(input = "index.Rmd", output_format = myhtml,
+       output_file = "../../../../htmls/agile_htmls/correlation_coefficients.html")
+#
+setwd("C:/gitfolder/myblog/content/agile/r_tutorial")
+render(input = "index.Rmd", output_format = "pdf_document",
+       output_file = "../../agile_pdfs/r_tutorial.pdf")
+render(input = "index.Rmd", output_format = myhtml,
+       output_file = "../../../../htmls/agile_htmls/r_tutorial.html")
+##########################################################################################
 # dblogr
 ##########################################################################################
 setwd("C:/gitfolder/myblog/content/dblogr/2019_canadian_election_results")
@@ -30,23 +44,11 @@ render(input = "index.Rmd", output_format = "pdf_document",
 render(input = "index.Rmd", output_format = myhtml,
        output_file = "../../../../htmls/dblogr_htmls/cbc_finances.html")
 #
-setwd("C:/gitfolder/myblog/content/dblogr/correlation_coefficients")
-render(input = "index.Rmd", output_format = "pdf_document",
-       output_file = "../../dblogr_pdfs/correlation_coefficients.pdf")
-render(input = "index.Rmd", output_format = myhtml,
-       output_file = "../../../../htmls/dblogr_htmls/correlation_coefficients.html")
-#
 setwd("C:/gitfolder/myblog/content/dblogr/hex_stickers")
 render(input = "index.Rmd", output_format = "pdf_document",
        output_file = "../../dblogr_pdfs/hex_stickers.pdf")
 render(input = "index.Rmd", output_format = myhtml,
        output_file = "../../../../htmls/dblogr_htmls/hex_stickers.html")
-#
-setwd("C:/gitfolder/myblog/content/dblogr/r_tutorial")
-render(input = "index.Rmd", output_format = "pdf_document",
-       output_file = "../../dblogr_pdfs/r_tutorial.pdf")
-render(input = "index.Rmd", output_format = myhtml,
-       output_file = "../../../../htmls/dblogr_htmls/r_tutorial.html")
 #
 setwd("C:/gitfolder/myblog/content/dblogr/roys_creed")
 render(input = "index.Rmd", output_format = "pdf_document",
@@ -59,7 +61,6 @@ render(input = "index.Rmd", output_format = "pdf_document",
        output_file = "../../dblogr_pdfs/street_maps.pdf")
 render(input = "index.Rmd", output_format = myhtml,
        output_file = "../../../../htmls/dblogr_htmls/street_maps.html")
-
 ##########################################################################################
 # agData
 ##########################################################################################
@@ -170,7 +171,6 @@ render(input = "index.Rmd", output_format = "pdf_document",
        output_file = "../../agdata_pdfs/wheat_mexico_fao.pdf")
 render(input = "index.Rmd", output_format = myhtml,
        output_file = "../../../../htmls/agdata_htmls/wheat_mexico_fao.html")
-
 ##########################################################################################
 # Special pdf cases
 ##########################################################################################
