@@ -2,20 +2,21 @@
 library(rmarkdown); library(rmdformats)
 #
 myhtml1 <- readthedown(gallery = T, lightbox= T, self_contained = T, code_folding = "show",
-                      css = "../../../assets/images/custom_dblogr.css") #""
+                       css = "../../../assets/images/custom_dblogr.css") #""
 myhtml2 <- readthedown(gallery = T, lightbox= T, self_contained = T, code_folding = "show",
-                      css = "../../../assets/images/custom_agile.css")
+                       css = "../../../assets/images/custom_agile.css")
+mypdf <- pdf_document(toc = T, fig_caption = F)
 ##########################################################################################
 # agile
 ##########################################################################################
 setwd("C:/gitfolder/myblog/content/research/correlation_coefficients")
-render(input = "index.Rmd", output_format = "pdf_document",
+render(input = "index.Rmd", output_format = mypdf,
        output_file = "../../research_pdfs/correlation_coefficients.pdf")
 render(input = "index.Rmd", output_format = myhtml2,
        output_file = "../../../../htmls/research_htmls/correlation_coefficients.html")
 #
 setwd("C:/gitfolder/myblog/content/research/envdata")
-render(input = "index.Rmd", output_format = "pdf_document",
+render(input = "index.Rmd", output_format = mypdf,
        output_file = "../../research_pdfs/envdata.pdf")
 render(input = "index.Rmd", output_format = myhtml2,
        output_file = "../../../../htmls/research_htmls/envdata.html")
@@ -29,7 +30,7 @@ render(input = "index.Rmd", output_format = myhtml1,
        output_file = "../../../../htmls/dblogr_htmls/2019_canadian_election_results.html")
 #
 setwd("C:/gitfolder/myblog/content/dblogr/amazon_fires")
-render(input = "index.Rmd", output_format = "pdf_document",
+render(input = "index.Rmd", output_format = mypdf,
        output_file = "../../dblogr_pdfs/amazon_fires.pdf")
 render(input = "index.Rmd", output_format = myhtml1,
        output_file = "../../../../htmls/dblogr_htmls/amazon_fires.html")
@@ -187,25 +188,25 @@ setwd("C:/gitfolder/myblog/content/dblogr/candian_federal_elections")
 render(input = "index.Rmd", output_format = myhtml1,
        output_file = "../../../../htmls/dblogr_htmls/candian_federal_elections.html")
 #
-setwd("C:/gitfolder/myblog/content/dblogr/population_demographics_canada")
-render(input = "index.Rmd", output_format = myhtml1,
-       output_file = "../../../../htmls/dblogr_htmls/population_demographics_canada.html")
+#setwd("C:/gitfolder/myblog/content/dblogr/population_demographics_canada")
+#render(input = "index.Rmd", output_format = myhtml1,
+#       output_file = "../../../../htmls/dblogr_htmls/population_demographics_canada.html")
 #
 setwd("C:/gitfolder/myblog/content/dblogr/gapminder")
 render(input = "index.Rmd", output_format = myhtml1,
        output_file = "../../../../htmls/dblogr_htmls/gapminder.html")
 # pdfs
-#setwd("C:/gitfolder/myblog/content/dblogr/candian_federal_elections")
-#render(input = "index.Rmd", output_format = "pdf_document",
-#       output_file = "../../dblogr_pdfs/Candian_federal_elections.pdf")
+setwd("C:/gitfolder/myblog/content/dblogr/candian_federal_elections")
+render(input = "index.Rmd", output_format = mypdf,
+       output_file = "../../dblogr_pdfs/candian_federal_elections.pdf")
 #
-#setwd("C:/gitfolder/myblog/content/dblogr/population_demographics_canada")
-#render(input = "index.Rmd", output_format = "pdf_document",
-#       output_file = "../../dblogr_pdfs/population_demographics_canada.pdf")
+setwd("C:/gitfolder/myblog/content/dblogr/gapminder")
+render(input = "index.Rmd", output_format = mypdf,
+       output_file = "../../dblogr_pdfs/gapminder.pdf")
 #
-#setwd("C:/gitfolder/myblog/content/dblogr/gapminder")
+#setwd("C:/gitfolder/myblog/content/dblogr/population_demographics_canada_1")
 #render(input = "index.Rmd", output_format = "pdf_document",
-#       output_file = "../../dblogr_pdfs/gapminder.pdf")
+#       output_file = "../../dblogr_pdfs/population_demographics_canada_1.pdf")
 ##########################################################################################
 # Bind pdfs
 ##########################################################################################
