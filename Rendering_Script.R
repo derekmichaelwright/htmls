@@ -211,21 +211,11 @@ render(input = "index.Rmd", output_format = mypdf,
 # Bind pdfs
 ##########################################################################################
 setwd("C:/gitfolder/myblog/content")
-fnames_dglogr <- c("dblogr/2019_Canadian_Election_Results/2019_Canadian_Election_Results.pdf",
-            "dblogr/Amazon_Fires/Amazon_Fires.pdf",
-            "dblogr/Calendar_Creation_With_R/Calendar_Creation_With_R.pdf",
-            "dblogr/Candian_Federal_Elections/Candian_Federal_Elections.pdf",
-            "dblogr/CBC_Funding/CBC_Funding.pdf",
-            "dblogr/Correlation_Coefficients/Correlation_Coefficients.pdf",
-            "dblogr/Gapminder/Gapminder.pdf",
-            "dblogr/Hex_Stickers/Hex_Stickers.pdf",
-            "dblogr/Population_Demographics_In_Canada/Population_Demographics_In_Canada.pdf",
-            "dblogr/Roys_Creed/dblogr/Roys_Creed.pdf",
-            "dblogr/Street_Maps_With_R/Street_Maps_With_R.pdf"
-            )
-staplr::staple_pdf(input_files = fnames_dblogr,
-                   output_filepath = "dblogr.pdf", 
-                   overwrite = TRUE)
+#
+fnames_dblogr <- list.files("dblogr_pdfs")
+#
+staplr::staple_pdf(input_directory = "C:/gitfolder/myblog/content/dblogr_pdfs",
+                   output_filepath = "C:/gitfolder/myblog/content/dblogr.pdf", overwrite = TRUE)
 #
 fnames_agdata <- c("agData/Crop_Production_Saskatchewan/Crop_Production_Saskatchewan.pdf",
             "agData/Crop_Production_World/Crop_Production_World.pdf",
