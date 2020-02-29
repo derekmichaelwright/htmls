@@ -17,42 +17,6 @@ setwd("C:/gitfolder/myblog/content/research/envdata")
 render(input = "index.Rmd", output_format = myhtml2,
        output_file = "../../../../htmls/research_htmls/envdata.html")
 ##########################################################################################
-# dblogr
-##########################################################################################
-setwd("C:/gitfolder/myblog/content/dblogr/2019_canadian_election_results")
-render(input = "index.Rmd", output_format = myhtml1,
-       output_file = "../../../../htmls/dblogr_htmls/2019_canadian_election_results.html")
-#
-setwd("C:/gitfolder/myblog/content/dblogr/amazon_fires")
-render(input = "index.Rmd", output_format = myhtml1,
-       output_file = "../../../../htmls/dblogr_htmls/amazon_fires.html")
-#
-setwd("C:/gitfolder/myblog/content/dblogr/calendar_creation")
-render(input = "index.Rmd", output_format = myhtml1,
-       output_file = "../../../../htmls/dblogr_htmls/calendar_creation.html")
-#
-setwd("C:/gitfolder/myblog/content/dblogr/cbc_finances")
-render(input = "index.Rmd", output_format = mypdf,
-       output_file = "../../dblogr_pdfs/cbc_finances.pdf")
-render(input = "index.Rmd", output_format = myhtml1,
-       output_file = "../../../../htmls/dblogr_htmls/cbc_finances.html")
-#
-setwd("C:/gitfolder/myblog/content/dblogr/hex_stickers")
-render(input = "index.Rmd", output_format = myhtml1,
-       output_file = "../../../../htmls/dblogr_htmls/hex_stickers.html")
-#
-setwd("C:/gitfolder/myblog/content/dblogr/r_tutorial")
-render(input = "index.Rmd", output_format = myhtml1,
-       output_file = "../../../../htmls/dblogr_htmls/r_tutorial.html")
-#
-setwd("C:/gitfolder/myblog/content/dblogr/roys_creed")
-render(input = "index.Rmd", output_format = myhtml1,
-       output_file = "../../../../htmls/dblogr_htmls/roys_creed.html")
-#
-setwd("C:/gitfolder/myblog/content/dblogr/street_maps")
-render(input = "index.Rmd", output_format = myhtml1,
-       output_file = "../../../../htmls/dblogr_htmls/street_maps.html")
-##########################################################################################
 # agData
 ##########################################################################################
 setwd("C:/gitfolder/myblog/content/agdata/cotton_fao")
@@ -127,6 +91,38 @@ setwd("C:/gitfolder/myblog/content/agdata/wheat_mexico_fao")
 render(input = "index.Rmd", output_format = myhtml1,
        output_file = "../../../../htmls/agdata_htmls/wheat_mexico_fao.html")
 ##########################################################################################
+# dblogr
+##########################################################################################
+setwd("C:/gitfolder/myblog/content/dblogr/2019_canadian_election_results")
+render(input = "index.Rmd", output_format = myhtml1,
+       output_file = "../../../../htmls/dblogr_htmls/2019_canadian_election_results.html")
+#
+setwd("C:/gitfolder/myblog/content/dblogr/amazon_fires")
+render(input = "index.Rmd", output_format = myhtml1,
+       output_file = "../../../../htmls/dblogr_htmls/amazon_fires.html")
+#
+setwd("C:/gitfolder/myblog/content/dblogr/calendar_creation")
+render(input = "index.Rmd", output_format = myhtml1,
+       output_file = "../../../../htmls/dblogr_htmls/calendar_creation.html")
+#
+setwd("C:/gitfolder/myblog/content/dblogr/cbc_finances")
+render(input = "index.Rmd", output_format = mypdf,
+       output_file = "../../dblogr_pdfs/cbc_finances.pdf")
+render(input = "index.Rmd", output_format = myhtml1,
+       output_file = "../../../../htmls/dblogr_htmls/cbc_finances.html")
+#
+setwd("C:/gitfolder/myblog/content/dblogr/hex_stickers")
+render(input = "index.Rmd", output_format = myhtml1,
+       output_file = "../../../../htmls/dblogr_htmls/hex_stickers.html")
+#
+setwd("C:/gitfolder/myblog/content/dblogr/r_tutorial")
+render(input = "index.Rmd", output_format = myhtml1,
+       output_file = "../../../../htmls/dblogr_htmls/r_tutorial.html")
+#
+setwd("C:/gitfolder/myblog/content/dblogr/roys_creed")
+render(input = "index.Rmd", output_format = myhtml1,
+       output_file = "../../../../htmls/dblogr_htmls/roys_creed.html")
+##########################################################################################
 # Special pdf cases
 ##########################################################################################
 # htmls
@@ -141,6 +137,10 @@ render(input = "index.Rmd", output_format = myhtml1,
 setwd("C:/gitfolder/myblog/content/dblogr/gapminder")
 render(input = "index.Rmd", output_format = myhtml1,
        output_file = "../../../../htmls/dblogr_htmls/gapminder.html")
+#
+setwd("C:/gitfolder/myblog/content/dblogr/street_maps")
+render(input = "index.Rmd", output_format = myhtml1,
+       output_file = "../../../../htmls/dblogr_htmls/street_maps.html")
 ##########################################################################################
 # pdfs
 setwd("C:/gitfolder/myblog/content/dblogr/candian_federal_elections")
@@ -164,40 +164,7 @@ render(input = "index.Rmd", output_format = mypdf,
 setwd("C:/gitfolder/myblog/content/research/envdata")
 render(input = "index.Rmd", output_format = mypdf,
        output_file = "../../research_pdfs/envdata.pdf")
-##########################################################################################
-# dblogr
-##########################################################################################
-setwd("C:/gitfolder/myblog/content/dblogr/2019_canadian_election_results")
-render(input = "index.Rmd", output_format = mypdf,
-       output_file = "../../dblogr_pdfs/2019_canadian_election_results.pdf")
-#
-setwd("C:/gitfolder/myblog/content/dblogr/amazon_fires")
-render(input = "index.Rmd", output_format = mypdf,
-       output_file = "../../dblogr_pdfs/amazon_fires.pdf")
-#
-setwd("C:/gitfolder/myblog/content/dblogr/calendar_creation")
-render(input = "index.Rmd", output_format = mypdf,
-       output_file = "../../dblogr_pdfs/calendar_creation.pdf")
-#
-setwd("C:/gitfolder/myblog/content/dblogr/cbc_finances")
-render(input = "index.Rmd", output_format = mypdf,
-       output_file = "../../dblogr_pdfs/cbc_finances.pdf")
-#
-setwd("C:/gitfolder/myblog/content/dblogr/hex_stickers")
-render(input = "index.Rmd", output_format = mypdf,
-       output_file = "../../dblogr_pdfs/hex_stickers.pdf")
-#
-setwd("C:/gitfolder/myblog/content/dblogr/r_tutorial")
-render(input = "index.Rmd", output_format = mypdf,
-       output_file = "../../dblogr_pdfs/r_tutorial.pdf")
-#
-setwd("C:/gitfolder/myblog/content/dblogr/roys_creed")
-render(input = "index.Rmd", output_format = mypdf,
-       output_file = "../../dblogr_pdfs/roys_creed.pdf")
-#
-setwd("C:/gitfolder/myblog/content/dblogr/street_maps")
-render(input = "index.Rmd", output_format = mypdf,
-       output_file = "../../dblogr_pdfs/street_maps.pdf")
+
 ##########################################################################################
 # agData
 ##########################################################################################
@@ -272,6 +239,40 @@ render(input = "index.Rmd", output_format = mypdf,
 setwd("C:/gitfolder/myblog/content/agdata/wheat_mexico_fao")
 render(input = "index.Rmd", output_format = mypdf,
        output_file = "../../agdata_pdfs/wheat_mexico_fao.pdf")
+##########################################################################################
+# dblogr
+##########################################################################################
+setwd("C:/gitfolder/myblog/content/dblogr/2019_canadian_election_results")
+render(input = "index.Rmd", output_format = mypdf,
+       output_file = "../../dblogr_pdfs/2019_canadian_election_results.pdf")
+#
+setwd("C:/gitfolder/myblog/content/dblogr/amazon_fires")
+render(input = "index.Rmd", output_format = mypdf,
+       output_file = "../../dblogr_pdfs/amazon_fires.pdf")
+#
+setwd("C:/gitfolder/myblog/content/dblogr/calendar_creation")
+render(input = "index.Rmd", output_format = mypdf,
+       output_file = "../../dblogr_pdfs/calendar_creation.pdf")
+#
+setwd("C:/gitfolder/myblog/content/dblogr/cbc_finances")
+render(input = "index.Rmd", output_format = mypdf,
+       output_file = "../../dblogr_pdfs/cbc_finances.pdf")
+#
+setwd("C:/gitfolder/myblog/content/dblogr/hex_stickers")
+render(input = "index.Rmd", output_format = mypdf,
+       output_file = "../../dblogr_pdfs/hex_stickers.pdf")
+#
+setwd("C:/gitfolder/myblog/content/dblogr/r_tutorial")
+render(input = "index.Rmd", output_format = mypdf,
+       output_file = "../../dblogr_pdfs/r_tutorial.pdf")
+#
+setwd("C:/gitfolder/myblog/content/dblogr/roys_creed")
+render(input = "index.Rmd", output_format = mypdf,
+       output_file = "../../dblogr_pdfs/roys_creed.pdf")
+#
+setwd("C:/gitfolder/myblog/content/dblogr/street_maps")
+render(input = "index.Rmd", output_format = mypdf,
+       output_file = "../../dblogr_pdfs/street_maps.pdf")
 ##########################################################################################
 # Bind pdfs
 ##########################################################################################
