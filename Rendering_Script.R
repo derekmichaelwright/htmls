@@ -16,6 +16,10 @@ render(input = "index.Rmd", output_format = myhtml2,
 setwd("C:/gitfolder/myblog/content/research/envdata")
 render(input = "index.Rmd", output_format = myhtml2,
        output_file = "../../../../htmls/research_htmls/envdata.html")
+#
+setwd("C:/gitfolder/myblog/content/research/envdata")
+render(input = "index.Rmd", output_format = myhtml2,
+       output_file = "../../../../htmls/research_htmls/envdata.html")
 ##########################################################################################
 # agData
 ##########################################################################################
@@ -106,14 +110,20 @@ render(input = "index.Rmd", output_format = myhtml1,
        output_file = "../../../../htmls/dblogr_htmls/calendar_creation.html")
 #
 setwd("C:/gitfolder/myblog/content/dblogr/cbc_finances")
-render(input = "index.Rmd", output_format = mypdf,
-       output_file = "../../dblogr_pdfs/cbc_finances.pdf")
 render(input = "index.Rmd", output_format = myhtml1,
        output_file = "../../../../htmls/dblogr_htmls/cbc_finances.html")
+#
+setwd("C:/gitfolder/myblog/content/dblogr/dual_y_axis")
+render(input = "index.Rmd", output_format = myhtml1,
+       output_file = "../../../../htmls/dblogr_htmls/dual_y_axis.html")
 #
 setwd("C:/gitfolder/myblog/content/dblogr/hex_stickers")
 render(input = "index.Rmd", output_format = myhtml1,
        output_file = "../../../../htmls/dblogr_htmls/hex_stickers.html")
+#
+setwd("C:/gitfolder/myblog/content/dblogr/organic_autism")
+render(input = "index.Rmd", output_format = myhtml1,
+       output_file = "../../../../htmls/dblogr_htmls/organic_autism.html")
 #
 setwd("C:/gitfolder/myblog/content/dblogr/r_tutorial")
 render(input = "index.Rmd", output_format = myhtml1,
@@ -258,9 +268,17 @@ setwd("C:/gitfolder/myblog/content/dblogr/cbc_finances")
 render(input = "index.Rmd", output_format = mypdf,
        output_file = "../../dblogr_pdfs/cbc_finances.pdf")
 #
+setwd("C:/gitfolder/myblog/content/dblogr/dual_y_axis")
+render(input = "index.Rmd", output_format = mypdf,
+       output_file = "../../dblogr_pdfs/dual_y_axis.pdf")
+#
 setwd("C:/gitfolder/myblog/content/dblogr/hex_stickers")
 render(input = "index.Rmd", output_format = mypdf,
        output_file = "../../dblogr_pdfs/hex_stickers.pdf")
+#
+setwd("C:/gitfolder/myblog/content/dblogr/organic_autism")
+render(input = "index.Rmd", output_format = mypdf,
+       output_file = "../../dblogr_pdfs/organic_autism.pdf")
 #
 setwd("C:/gitfolder/myblog/content/dblogr/r_tutorial")
 render(input = "index.Rmd", output_format = mypdf,
