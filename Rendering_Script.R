@@ -17,10 +17,6 @@ render(input = "index.Rmd", output_format = myhtml2,
 setwd("C:/gitfolder/myblog/content/research/envdata")
 render(input = "index.Rmd", output_format = myhtml2,
        output_file = "../../../../htmls/research_htmls/envdata.html")
-#
-setwd("C:/gitfolder/myblog/content/research/envdata")
-render(input = "index.Rmd", output_format = myhtml2,
-       output_file = "../../../../htmls/research_htmls/envdata.html")
 ##########################################################################################
 # agData
 ##########################################################################################
