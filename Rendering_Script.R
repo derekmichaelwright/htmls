@@ -76,6 +76,10 @@ setwd("C:/gitfolder/myblog/content/agdata/maize_usda")
 render(input = "index.Rmd", output_format = myhtml1,
        output_file = "../../../../htmls/agdata_htmls/maize_usda.html")
 #
+setwd("C:/gitfolder/myblog/content/agdata/nue_fao")
+render(input = "index.Rmd", output_format = myhtml1,
+       output_file = "../../../../htmls/agdata_htmls/neu_fao.html")
+#
 setwd("C:/gitfolder/myblog/content/agdata/potatoes_fao")
 render(input = "index.Rmd", output_format = myhtml1,
        output_file = "../../../../htmls/agdata_htmls/potatoes_fao.html")
@@ -114,6 +118,10 @@ setwd("C:/gitfolder/myblog/content/dblogr/dual_y_axis")
 render(input = "index.Rmd", output_format = myhtml1,
        output_file = "../../../../htmls/dblogr_htmls/dual_y_axis.html")
 #
+setwd("C:/gitfolder/myblog/content/dblogr/gapminder")
+render(input = "index.Rmd", output_format = myhtml1,
+       output_file = "../../../../htmls/dblogr_htmls/gapminder.html")
+#
 setwd("C:/gitfolder/myblog/content/dblogr/hex_stickers")
 render(input = "index.Rmd", output_format = myhtml1,
        output_file = "../../../../htmls/dblogr_htmls/hex_stickers.html")
@@ -130,37 +138,7 @@ setwd("C:/gitfolder/myblog/content/dblogr/roys_creed")
 render(input = "index.Rmd", output_format = myhtml1,
        output_file = "../../../../htmls/dblogr_htmls/roys_creed.html")
 ##########################################################################################
-# Special pdf cases
-##########################################################################################
-# htmls
-setwd("C:/gitfolder/myblog/content/dblogr/candian_federal_elections")
-render(input = "index.Rmd", output_format = myhtml1,
-       output_file = "../../../../htmls/dblogr_htmls/candian_federal_elections.html")
-#
-#setwd("C:/gitfolder/myblog/content/dblogr/population_demographics_canada")
-#render(input = "index.Rmd", output_format = myhtml1,
-#       output_file = "../../../../htmls/dblogr_htmls/population_demographics_canada.html")
-#
-setwd("C:/gitfolder/myblog/content/dblogr/gapminder")
-render(input = "index.Rmd", output_format = myhtml1,
-       output_file = "../../../../htmls/dblogr_htmls/gapminder.html")
-#
-setwd("C:/gitfolder/myblog/content/dblogr/street_maps")
-render(input = "index.Rmd", output_format = myhtml1,
-       output_file = "../../../../htmls/dblogr_htmls/street_maps.html")
-##########################################################################################
-# pdfs
-setwd("C:/gitfolder/myblog/content/dblogr/candian_federal_elections")
-render(input = "index.Rmd", output_format = mypdf1,
-       output_file = "../../dblogr_pdfs/candian_federal_elections.pdf")
-#
-setwd("C:/gitfolder/myblog/content/dblogr/gapminder")
-render(input = "index.Rmd", output_format = mypdf1,
-       output_file = "../../dblogr_pdfs/gapminder.pdf")
-#
-#setwd("C:/gitfolder/myblog/content/dblogr/population_demographics_canada_1")
-#render(input = "index.Rmd", output_format = mypdf,
-#       output_file = "../../dblogr_pdfs/population_demographics_canada_1.pdf")
+######################################### PDFs ###########################################
 ##########################################################################################
 # agile
 ##########################################################################################
@@ -171,7 +149,6 @@ render(input = "index.Rmd", output_format = mypdf1,
 setwd("C:/gitfolder/myblog/content/research/envdata")
 render(input = "index.Rmd", output_format = mypdf1,
        output_file = "../../research_pdfs/envdata.pdf")
-
 ##########################################################################################
 # agData
 ##########################################################################################
@@ -231,6 +208,10 @@ setwd("C:/gitfolder/myblog/content/agdata/maize_usda")
 render(input = "index.Rmd", output_format = mypdf1,
        output_file = "../../agdata_pdfs/maize_usda.pdf")
 #
+setwd("C:/gitfolder/myblog/content/agdata/nue_fao")
+render(input = "index.Rmd", output_format = mypdf1,
+       output_file = "../../agdata_pdfs/nue_fao.pdf")
+#
 setwd("C:/gitfolder/myblog/content/agdata/potatoes_fao")
 render(input = "index.Rmd", output_format = mypdf1,
        output_file = "../../agdata_pdfs/potatoes_fao.pdf")
@@ -269,6 +250,10 @@ setwd("C:/gitfolder/myblog/content/dblogr/dual_y_axis")
 render(input = "index.Rmd", output_format = mypdf2,
        output_file = "../../dblogr_pdfs/dual_y_axis.pdf")
 #
+setwd("C:/gitfolder/myblog/content/dblogr/gapminder")
+render(input = "index.Rmd", output_format = mypdf1,
+       output_file = "../../dblogr_pdfs/gapminder.pdf")
+#
 setwd("C:/gitfolder/myblog/content/dblogr/hex_stickers")
 render(input = "index.Rmd", output_format = mypdf1,
        output_file = "../../dblogr_pdfs/hex_stickers.pdf")
@@ -284,6 +269,35 @@ render(input = "index.Rmd", output_format = mypdf1,
 setwd("C:/gitfolder/myblog/content/dblogr/roys_creed")
 render(input = "index.Rmd", output_format = mypdf2,
        output_file = "../../dblogr_pdfs/roys_creed.pdf")
+
+##########################################################################################
+# Special pdf cases
+##########################################################################################
+# htmls
+setwd("C:/gitfolder/myblog/content/dblogr/candian_federal_elections")
+render(input = "index.Rmd", output_format = myhtml1,
+       output_file = "../../../../htmls/dblogr_htmls/candian_federal_elections.html")
+#
+setwd("C:/gitfolder/myblog/content/dblogr/candian_federal_elections")
+render(input = "index.Rmd", output_format = mypdf1,
+       output_file = "../../dblogr_pdfs/candian_federal_elections.pdf")
+#
+#setwd("C:/gitfolder/myblog/content/dblogr/population_demographics_canada")
+#render(input = "index.Rmd", output_format = myhtml1,
+#       output_file = "../../../../htmls/dblogr_htmls/population_demographics_canada.html")
+#
+
+##########################################################################################
+# pdfs
+
+#
+#setwd("C:/gitfolder/myblog/content/dblogr/population_demographics_canada_1")
+#render(input = "index.Rmd", output_format = mypdf,
+#       output_file = "../../dblogr_pdfs/population_demographics_canada_1.pdf")
+#
+setwd("C:/gitfolder/myblog/content/dblogr/street_maps")
+render(input = "index.Rmd", output_format = myhtml1,
+       output_file = "../../../../htmls/dblogr_htmls/street_maps.html")
 #
 setwd("C:/gitfolder/myblog/content/dblogr/street_maps") # restart R after running this one
 render(input = "index.Rmd", output_format = mypdf1,
