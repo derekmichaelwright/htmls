@@ -213,8 +213,6 @@ render(input = "index.Rmd", output_format = mypdf2,
 setwd("C:/gitfolder/myblog/content/dblogr_posts/candian_federal_elections")
 render(input = "index.Rmd", output_format = myhtml1,
        output_file = "../../../../htmls/dblogr_htmls/candian_federal_elections.html")
-#
-setwd("C:/gitfolder/myblog/content/dblogr_posts/candian_federal_elections")
 render(input = "index.Rmd", output_format = mypdf1,
        output_file = "../../dblogr_pdfs/candian_federal_elections.pdf")
 #
