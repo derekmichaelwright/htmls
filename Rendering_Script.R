@@ -147,7 +147,7 @@ render(input = "index.Rmd", output_format = myhtml1,
        output_file = "../../../../htmls/dblogr_htmls/2019_canadian_election_results.html")
 render(input = "index.Rmd", output_format = mypdf1,
        output_file = "../../dblogr_pdfs/2019_canadian_election_results.pdf")
-
+#
 setwd("C:/gitfolder/myblog/content/dblogr_posts/amazon_fires")
 render(input = "index.Rmd", output_format = myhtml1,
        output_file = "../../../../htmls/dblogr_htmls/amazon_fires.html")
