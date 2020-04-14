@@ -177,12 +177,7 @@ render(input = "index.Rmd", output_format = myhtml1,
        output_file = "../../../../htmls/dblogr_htmls/gapminder.html")
 render(input = "index.Rmd", output_format = mypdf1,
        output_file = "../../dblogr_pdfs/gapminder.pdf")
-#
-setwd("C:/gitfolder/myblog/content/dblogr_posts/hex_stickers")
-render(input = "index.Rmd", output_format = myhtml1,
-       output_file = "../../../../htmls/dblogr_htmls/hex_stickers.html")
-render(input = "index.Rmd", output_format = mypdf1,
-       output_file = "../../dblogr_pdfs/hex_stickers.pdf")
+
 #
 setwd("C:/gitfolder/myblog/content/dblogr_posts/organic_autism")
 render(input = "index.Rmd", output_format = myhtml1,
@@ -210,6 +205,13 @@ render(input = "index.Rmd", output_format = mypdf2,
 # Special pdf cases
 ##########################################################################################
 # htmls
+#
+setwd("C:/gitfolder/myblog/content/dblogr_posts/hex_stickers")
+render(input = "index.Rmd", output_format = myhtml1,
+       output_file = "../../../../htmls/dblogr_htmls/hex_stickers.html")
+render(input = "index.Rmd", output_format = mypdf1,
+       output_file = "../../dblogr_pdfs/hex_stickers.pdf")
+#
 setwd("C:/gitfolder/myblog/content/dblogr_posts/candian_federal_elections")
 render(input = "index.Rmd", output_format = myhtml1,
        output_file = "../../../../htmls/dblogr_htmls/candian_federal_elections.html")
