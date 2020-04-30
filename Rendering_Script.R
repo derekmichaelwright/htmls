@@ -10,17 +10,35 @@ mypdf2 <- pdf_document(toc = F, fig_caption = F)
 ##########################################################################################
 # agile
 ##########################################################################################
-setwd("C:/gitfolder/myblog/content/research_posts/correlation_coefficients")
+setwd("C:/gitfolder/myblog/content/academic_posts/augmented_designs")
 render(input = "index.Rmd", output_format = myhtml2,
-       output_file = "../../../../htmls/research_htmls/correlation_coefficients.html")
+       output_file = "../../../../htmls/academic_htmls/augmented_designs.html")
 render(input = "index.Rmd", output_format = mypdf1,
-       output_file = "../../research_pdfs/correlation_coefficients.pdf")
+       output_file = "../../academic_pdfs/augmented_designs.pdf")
 #
-setwd("C:/gitfolder/myblog/content/research_posts/envdata")
+setwd("C:/gitfolder/myblog/content/academic_posts/correlation_coefficients")
 render(input = "index.Rmd", output_format = myhtml2,
-       output_file = "../../../../htmls/research_htmls/envdata.html")
+       output_file = "../../../../htmls/academic_htmls/correlation_coefficients.html")
 render(input = "index.Rmd", output_format = mypdf1,
-       output_file = "../../research_pdfs/envdata.pdf")
+       output_file = "../../academic_pdfs/correlation_coefficients.pdf")
+#
+setwd("C:/gitfolder/myblog/content/academic_posts/dual_y_axis")
+render(input = "index.Rmd", output_format = myhtml1,
+       output_file = "../../../../htmls/academic_htmls/dual_y_axis.html")
+render(input = "index.Rmd", output_format = mypdf2,
+       output_file = "../../academic_pdfs/dual_y_axis.pdf")
+#
+#setwd("C:/gitfolder/myblog/content/academic_posts/envdata")
+#render(input = "index.Rmd", output_format = myhtml2,
+#       output_file = "../../../../htmls/academic_htmls/envdata.html")
+#render(input = "index.Rmd", output_format = mypdf1,
+#       output_file = "../../academic_pdfs/envdata.pdf")
+#
+setwd("C:/gitfolder/myblog/content/academic_posts/r_tutorial")
+render(input = "index.Rmd", output_format = myhtml1,
+       output_file = "../../../../htmls/academic_htmls/r_tutorial.html")
+render(input = "index.Rmd", output_format = mypdf1,
+       output_file = "../../academic_pdfs/r_tutorial.pdf")
 #
 ##########################################################################################
 # agData
@@ -172,30 +190,11 @@ render(input = "index.Rmd", output_format = myhtml1,
 render(input = "index.Rmd", output_format = mypdf1,
        output_file = "../../dblogr_pdfs/cbc_finances.pdf")
 #
-setwd("C:/gitfolder/myblog/content/dblogr_posts/dual_y_axis")
-render(input = "index.Rmd", output_format = myhtml1,
-       output_file = "../../../../htmls/dblogr_htmls/dual_y_axis.html")
-render(input = "index.Rmd", output_format = mypdf2,
-       output_file = "../../dblogr_pdfs/dual_y_axis.pdf")
-#
-setwd("C:/gitfolder/myblog/content/dblogr_posts/gapminder")
-render(input = "index.Rmd", output_format = myhtml1,
-       output_file = "../../../../htmls/dblogr_htmls/gapminder.html")
-render(input = "index.Rmd", output_format = mypdf1,
-       output_file = "../../dblogr_pdfs/gapminder.pdf")
-
-#
 setwd("C:/gitfolder/myblog/content/dblogr_posts/organic_autism")
 render(input = "index.Rmd", output_format = myhtml1,
        output_file = "../../../../htmls/dblogr_htmls/organic_autism.html")
 render(input = "index.Rmd", output_format = mypdf1,
        output_file = "../../dblogr_pdfs/organic_autism.pdf")
-#
-setwd("C:/gitfolder/myblog/content/dblogr_posts/r_tutorial")
-render(input = "index.Rmd", output_format = myhtml1,
-       output_file = "../../../../htmls/dblogr_htmls/r_tutorial.html")
-render(input = "index.Rmd", output_format = mypdf1,
-       output_file = "../../dblogr_pdfs/r_tutorial.pdf")
 #
 setwd("C:/gitfolder/myblog/content/dblogr_posts/roys_creed")
 render(input = "index.Rmd", output_format = myhtml1,
@@ -212,6 +211,12 @@ render(input = "index.Rmd", output_format = mypdf2,
 ##########################################################################################
 # htmls
 #
+setwd("C:/gitfolder/myblog/content/academic_posts/gapminder")
+render(input = "index.Rmd", output_format = myhtml1,
+       output_file = "../../../../htmls/academic_htmls/gapminder.html")
+render(input = "index.Rmd", output_format = mypdf1,
+       output_file = "../../academic_pdfs/gapminder.pdf")
+#
 setwd("C:/gitfolder/myblog/content/dblogr_posts/hex_stickers")
 render(input = "index.Rmd", output_format = myhtml1,
        output_file = "../../../../htmls/dblogr_htmls/hex_stickers.html")
@@ -224,6 +229,11 @@ render(input = "index.Rmd", output_format = myhtml1,
 render(input = "index.Rmd", output_format = mypdf1,
        output_file = "../../dblogr_pdfs/candian_federal_elections.pdf")
 #
+setwd("C:/gitfolder/myblog/content/dblogr_posts/street_maps") # restart R after running this one
+render(input = "index.Rmd", output_format = myhtml1,
+       output_file = "../../../../htmls/dblogr_htmls/street_maps.html")
+render(input = "index.Rmd", output_format = mypdf1,
+       output_file = "../../dblogr_pdfs/street_maps.pdf")
 #setwd("C:/gitfolder/myblog/content/dblogr_posts/population_demographics_canada")
 #render(input = "index.Rmd", output_format = myhtml1,
 #       output_file = "../../../../htmls/dblogr_htmls/population_demographics_canada.html")
@@ -235,17 +245,8 @@ render(input = "index.Rmd", output_format = mypdf1,
 #render(input = "index.Rmd", output_format = mypdf,
 #       output_file = "../../dblogr_pdfs/population_demographics_canada_1.pdf")
 #
-setwd("C:/gitfolder/myblog/content/dblogr_posts/gapminder_gifs")
-render(input = "index.Rmd", output_format = myhtml1,
-       output_file = "../../../../htmls/dblogr_htmls/gapminder_gifs.html")
-render(input = "index.Rmd", output_format = mypdf1,
-       output_file = "../../dblogr_pdfs/gapminder_gifs.pdf")
 #
-setwd("C:/gitfolder/myblog/content/dblogr_posts/street_maps") # restart R after running this one
-render(input = "index.Rmd", output_format = myhtml1,
-       output_file = "../../../../htmls/dblogr_htmls/street_maps.html")
-render(input = "index.Rmd", output_format = mypdf1,
-       output_file = "../../dblogr_pdfs/street_maps.pdf")
+
 ##########################################################################################
 # Bind pdfs
 ##########################################################################################
