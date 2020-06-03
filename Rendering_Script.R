@@ -43,6 +43,7 @@ render(input = "index.Rmd", output_format = mypdf1,
 ##########################################################################################
 # agData
 ##########################################################################################
+#
 setwd("C:/gitfolder/myblog/content/agdata_posts/cotton")
 render(input = "index.Rmd", output_format = myhtml1,
        output_file = "../../../../htmls/agdata_htmls/cotton.html")
@@ -61,11 +62,11 @@ render(input = "index.Rmd", output_format = myhtml1,
 render(input = "index.Rmd", output_format = mypdf1,
        output_file = "../../agdata_pdfs/crops_saskatchewan.pdf")
 #
-setwd("C:/gitfolder/myblog/content/agdata_posts/crops_usa_usa")
+setwd("C:/gitfolder/myblog/content/agdata_posts/crops_usa")
 render(input = "index.Rmd", output_format = myhtml1,
-       output_file = "../../../../htmls/agdata_htmls/crops_usa_usa.html")
+       output_file = "../../../../htmls/agdata_htmls/crops_usa.html")
 render(input = "index.Rmd", output_format = mypdf1,
-       output_file = "../../agdata_pdfs/crops_usa_usa.pdf")
+       output_file = "../../agdata_pdfs/crops_usa.pdf")
 #
 setwd("C:/gitfolder/myblog/content/agdata_posts/crops_world")
 render(input = "index.Rmd", output_format = myhtml1,
@@ -79,11 +80,11 @@ render(input = "index.Rmd", output_format = myhtml1,
 render(input = "index.Rmd", output_format = mypdf1,
        output_file = "../../agdata_pdfs/fertilizers.pdf")
 #
-setwd("C:/gitfolder/myblog/content/agdata_posts/ge_crops_isaaa")
+setwd("C:/gitfolder/myblog/content/agdata_posts/ge_crops")
 render(input = "index.Rmd", output_format = myhtml1,
-       output_file = "../../../../htmls/agdata_htmls/ge_crops_isaaa.html")
+       output_file = "../../../../htmls/agdata_htmls/ge_crops.html")
 render(input = "index.Rmd", output_format = mypdf1,
-       output_file = "../../agdata_pdfs/ge_crops_isaaa.pdf")
+       output_file = "../../agdata_pdfs/ge_crops.pdf")
 #
 setwd("C:/gitfolder/myblog/content/agdata_posts/global_food_security")
 render(input = "index.Rmd", output_format = myhtml1,
@@ -166,6 +167,7 @@ render(input = "index.Rmd", output_format = mypdf1,
 ##########################################################################################
 # dblogr
 ##########################################################################################
+#
 setwd("C:/gitfolder/myblog/content/dblogr_posts/2019_canadian_election_results")
 render(input = "index.Rmd", output_format = myhtml1,
        output_file = "../../../../htmls/dblogr_htmls/2019_canadian_election_results.html")
@@ -190,11 +192,11 @@ render(input = "index.Rmd", output_format = myhtml1,
 render(input = "index.Rmd", output_format = mypdf1,
        output_file = "../../dblogr_pdfs/cbc_finances.pdf")
 #
-setwd("C:/gitfolder/myblog/content/dblogr_posts/organic_autism")
+setwd("C:/gitfolder/myblog/content/dblogr_posts/misleading_graphs")
 render(input = "index.Rmd", output_format = myhtml1,
-       output_file = "../../../../htmls/dblogr_htmls/organic_autism.html")
+       output_file = "../../../../htmls/dblogr_htmls/misleading_graphs.html")
 render(input = "index.Rmd", output_format = mypdf1,
-       output_file = "../../dblogr_pdfs/organic_autism.pdf")
+       output_file = "../../dblogr_pdfs/misleading_graphs.pdf")
 #
 setwd("C:/gitfolder/myblog/content/dblogr_posts/roys_creed")
 render(input = "index.Rmd", output_format = myhtml1,
