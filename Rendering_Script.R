@@ -213,7 +213,7 @@ render(input = "index.Rmd", output_format = mypdf2,
 ##########################################################################################
 # htmls
 #
-setwd("C:/gitfolder/myblog/content/academic_posts/gapminder")
+setwd("C:/gitfolder/myblog/content/dblogr_posts/gapminder")
 render(input = "index.Rmd", output_format = myhtml1,
        output_file = "../../../../htmls/academic_htmls/gapminder.html")
 render(input = "index.Rmd", output_format = mypdf1,
