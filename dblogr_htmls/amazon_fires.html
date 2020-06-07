@@ -2075,6 +2075,7 @@ $(document).ready(function () {
 <p>“Record number of wildfires burning in the amazon rain forest. Brazil’s space reserach centre has said its detected more than 74,000 fire this year. That’s 83% more than last year”</p>
 </blockquote>
 <p>However, this calculation was done when the story broke, so we will recalculate it with the end of month values.</p>
+<div style="page-break-after: always;"></div>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1">xx &lt;-<span class="st"> </span>dd <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="op">-</span>Dec, <span class="op">-</span>Nov, <span class="op">-</span>Oct, <span class="op">-</span>Sept) <span class="op">%&gt;%</span></a>
 <a class="sourceLine" id="cb7-2" title="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Total =</span> <span class="kw">rowSums</span>(., <span class="dt">na.rm =</span> T),</a>
 <a class="sourceLine" id="cb7-3" title="3">         <span class="dt">Highlight =</span> <span class="kw">ifelse</span>(Year <span class="op">==</span><span class="st"> </span><span class="dv">2019</span>, <span class="st">&quot;2&quot;</span>, <span class="st">&quot;1&quot;</span>))</a>
