@@ -28,11 +28,11 @@ render(input = "index.Rmd", output_format = myhtml1,
 render(input = "index.Rmd", output_format = mypdf2,
        output_file = "../../academic_pdfs/dual_y_axis.pdf")
 #
-#setwd("C:/gitfolder/myblog/content/academic_posts/envdata")
-#render(input = "index.Rmd", output_format = myhtml2,
-#       output_file = "../../../../htmls/academic_htmls/envdata.html")
-#render(input = "index.Rmd", output_format = mypdf1,
-#       output_file = "../../academic_pdfs/envdata.pdf")
+setwd("C:/gitfolder/myblog/content/academic_posts/envdata")
+render(input = "index.Rmd", output_format = myhtml2,
+       output_file = "../../../../htmls/academic_htmls/envdata.html")
+render(input = "index.Rmd", output_format = mypdf1,
+       output_file = "../../academic_pdfs/envdata.pdf")
 #
 setwd("C:/gitfolder/myblog/content/academic_posts/r_tutorial")
 render(input = "index.Rmd", output_format = myhtml1,
@@ -191,6 +191,12 @@ render(input = "index.Rmd", output_format = myhtml1,
        output_file = "../../../../htmls/dblogr_htmls/cbc_finances.html")
 render(input = "index.Rmd", output_format = mypdf1,
        output_file = "../../dblogr_pdfs/cbc_finances.pdf")
+#
+setwd("C:/gitfolder/myblog/content/dblogr_posts/economics_of_canada")
+render(input = "index.Rmd", output_format = myhtml1,
+       output_file = "../../../../htmls/dblogr_htmls/economics_of_canada.html")
+render(input = "index.Rmd", output_format = mypdf1,
+       output_file = "../../dblogr_pdfs/economics_of_canada.pdf")
 #
 setwd("C:/gitfolder/myblog/content/dblogr_posts/misleading_graphs")
 render(input = "index.Rmd", output_format = myhtml1,
