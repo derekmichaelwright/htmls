@@ -7,9 +7,16 @@ myhtml2 <- readthedown(gallery = T, lightbox= T, self_contained = T, code_foldin
                        css = "../../../assets/images/custom_agile.css")
 mypdf1 <- pdf_document(toc = T, fig_caption = F)
 mypdf2 <- pdf_document(toc = F, fig_caption = F)
+#
 ##########################################################################################
 # agile
 ##########################################################################################
+setwd("C:/gitfolder/myblog/content/academic_posts/anova")
+render(input = "index.Rmd", output_format = myhtml2,
+       output_file = "../../../../htmls/academic_htmls/anova.html")
+render(input = "index.Rmd", output_format = mypdf1,
+       output_file = "../../academic_pdfs/anova.pdf")
+#
 setwd("C:/gitfolder/myblog/content/academic_posts/augmented_designs")
 render(input = "index.Rmd", output_format = myhtml2,
        output_file = "../../../../htmls/academic_htmls/augmented_designs.html")
