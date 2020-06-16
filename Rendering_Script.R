@@ -159,6 +159,12 @@ render(input = "index.Rmd", output_format = myhtml1,
 render(input = "index.Rmd", output_format = mypdf1,
        output_file = "../../agdata_pdfs/rapeseed_canada.pdf")
 #
+setwd("C:/gitfolder/myblog/content/agdata_posts/soybean")
+render(input = "index.Rmd", output_format = myhtml1,
+       output_file = "../../../../htmls/agdata_htmls/soybean.html")
+render(input = "index.Rmd", output_format = mypdf1,
+       output_file = "../../agdata_pdfs/soybean.pdf")
+#
 setwd("C:/gitfolder/myblog/content/agdata_posts/wheat_india")
 render(input = "index.Rmd", output_format = myhtml1,
        output_file = "../../../../htmls/agdata_htmls/wheat_india.html")
