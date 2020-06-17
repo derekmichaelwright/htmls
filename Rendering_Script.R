@@ -147,11 +147,11 @@ render(input = "index.Rmd", output_format = myhtml1,
 render(input = "index.Rmd", output_format = mypdf1,
        output_file = "../../agdata_pdfs/nue.pdf")
 #
-setwd("C:/gitfolder/myblog/content/agdata_posts/potatoes")
+setwd("C:/gitfolder/myblog/content/agdata_posts/potato")
 render(input = "index.Rmd", output_format = myhtml1,
-       output_file = "../../../../htmls/agdata_htmls/potatoes.html")
+       output_file = "../../../../htmls/agdata_htmls/potato.html")
 render(input = "index.Rmd", output_format = mypdf1,
-       output_file = "../../agdata_pdfs/potatoes.pdf")
+       output_file = "../../agdata_pdfs/potato.pdf")
 #
 setwd("C:/gitfolder/myblog/content/agdata_posts/rapeseed_canada")
 render(input = "index.Rmd", output_format = myhtml1,
