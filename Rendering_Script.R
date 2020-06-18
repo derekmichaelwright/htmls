@@ -99,6 +99,12 @@ render(input = "index.Rmd", output_format = myhtml1,
 render(input = "index.Rmd", output_format = mypdf1,
        output_file = "../../agdata_pdfs/global_food_security.pdf")
 #
+setwd("C:/gitfolder/myblog/content/agdata_posts/hemp")
+render(input = "index.Rmd", output_format = myhtml1,
+       output_file = "../../../../htmls/agdata_htmls/hemp.html")
+render(input = "index.Rmd", output_format = mypdf1,
+       output_file = "../../agdata_pdfs/hemp.pdf")
+#
 setwd("C:/gitfolder/myblog/content/agdata_posts/honeybee")
 render(input = "index.Rmd", output_format = myhtml1,
        output_file = "../../../../htmls/agdata_htmls/honeybee.html")
@@ -116,6 +122,12 @@ render(input = "index.Rmd", output_format = myhtml1,
        output_file = "../../../../htmls/agdata_htmls/introduction_to_agdata.html")
 render(input = "index.Rmd", output_format = mypdf1,
        output_file = "../../agdata_pdfs/introduction_to_agdata.pdf")
+#
+setwd("C:/gitfolder/myblog/content/agdata_posts/land_use")
+render(input = "index.Rmd", output_format = myhtml1,
+       output_file = "../../../../htmls/agdata_htmls/land_use.html")
+render(input = "index.Rmd", output_format = mypdf1,
+       output_file = "../../agdata_pdfs/land_use.pdf")
 #
 setwd("C:/gitfolder/myblog/content/agdata_posts/lentil")
 render(input = "index.Rmd", output_format = myhtml1,
@@ -152,6 +164,12 @@ render(input = "index.Rmd", output_format = myhtml1,
        output_file = "../../../../htmls/agdata_htmls/potato.html")
 render(input = "index.Rmd", output_format = mypdf1,
        output_file = "../../agdata_pdfs/potato.pdf")
+#
+setwd("C:/gitfolder/myblog/content/agdata_posts/rapeseed")
+render(input = "index.Rmd", output_format = myhtml1,
+       output_file = "../../../../htmls/agdata_htmls/rapeseed.html")
+render(input = "index.Rmd", output_format = mypdf1,
+       output_file = "../../agdata_pdfs/rapeseed.pdf")
 #
 setwd("C:/gitfolder/myblog/content/agdata_posts/rapeseed_canada")
 render(input = "index.Rmd", output_format = myhtml1,
