@@ -159,6 +159,12 @@ render(input = "index.Rmd", output_format = myhtml1,
 render(input = "index.Rmd", output_format = mypdf1,
        output_file = "../../agdata_pdfs/nue.pdf")
 #
+setwd("C:/gitfolder/myblog/content/agdata_posts/people_in_ag")
+render(input = "index.Rmd", output_format = myhtml1,
+       output_file = "../../../../htmls/agdata_htmls/people_in_ag.html")
+render(input = "index.Rmd", output_format = mypdf1,
+       output_file = "../../agdata_pdfs/people_in_ag.pdf")
+#
 setwd("C:/gitfolder/myblog/content/agdata_posts/potato")
 render(input = "index.Rmd", output_format = myhtml1,
        output_file = "../../../../htmls/agdata_htmls/potato.html")
@@ -194,6 +200,12 @@ render(input = "index.Rmd", output_format = myhtml1,
        output_file = "../../../../htmls/agdata_htmls/wheat_mexico.html")
 render(input = "index.Rmd", output_format = mypdf1,
        output_file = "../../agdata_pdfs/wheat_mexico.pdf")
+#
+setwd("C:/gitfolder/myblog/content/agdata_posts/wheat_yields")
+render(input = "index.Rmd", output_format = myhtml1,
+       output_file = "../../../../htmls/agdata_htmls/wheat_yields.html")
+render(input = "index.Rmd", output_format = mypdf1,
+       output_file = "../../agdata_pdfs/wheat_yields.pdf")
 #
 ##########################################################################################
 # dblogr
