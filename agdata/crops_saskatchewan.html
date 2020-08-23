@@ -1737,25 +1737,32 @@ $(document).ready(function () {
 
 <script>
 $(document).ready(function () {
- 	    $('#content s_include_subdomains": true,
-      "sts_observed": 1596295067.843835
-   },
-   "WDOIUqlyIgpS2+zUDP6ejJeZb/Rp4yZA/KwQ6cJuAWc=": {
-      "expect_ct": {
-         "expect_ct_enforce": false,
-         "expect_ct_expiry": 1597326877.372524,
-         "expect_ct_observed": 1596722077.372524,
-         "expect_ct_report_uri": "https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
-      },
-      "expiry": 0.0,
-      "mode": "default",
-      "sts_include_subdomains": false,
-      "sts_observed": 0.0
-   },
-   "WGrayDSEFgGX1Q0QETaZLCqb8sICvPCiIqRbECkVRQk=": {
-      "expiry": 1612038593.121256,
-      "mode": "force-https",
-      "sts_include_subdomains": false,
-      "sts_observed": 1580502593.121258
-   },
-   "WJzwHD20bQ5lZ/y
+ 	    $('#content img')
+ 	  .addClass("image-lb");
+  $('#content').magnificPopup({
+	      type:'image',
+	      closeOnContentClick: false,
+	      closeBtnInside: false,
+	      delegate: 'img',
+	      gallery: {enabled: true },
+	      image: {
+	        verticalFit: true,
+          titleSrc: 'alt'
+	      }
+ 	    });
+ 	});
+</script>
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
