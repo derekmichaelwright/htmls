@@ -68,7 +68,7 @@ ggsave("../../../myblog/content/graphs_dblogr/misleading_graphs/gallery/gallery/
 
 ![Figure: the first figure of this post](misleading_graphs_01.png)
 
-[Figure: the first figure of this post](https://dblogr.netlify.app/dblogr_graphs/misleading_graphs/)
+[Figure: the first figure of this post](https://dblogr.netlify.app/graphs_dblogr/misleading_graphs/)
 
 \pagebreak
 
