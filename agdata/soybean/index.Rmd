@@ -1,0 +1,179 @@
+---
+title: "Soybean Production"
+subtitle: "Graphs of soybean production using FAO data"
+summary:  "Graphs of soybean production using FAO data"
+author: "Derek Michael Wright <wrightmderek@gmail.com> [www.dblogr.com/](https://dblogr.netlify.com/)"
+date: "2020-03-01"
+categories: [ "agData" ]
+tags: [ "agData", "Soybean" ]
+image:
+  preview_only: true
+links:
+  - icon_pack: fas
+    icon: chart-line
+    name: All Graphs
+    url: agdata_graphs/soybean/
+  - icon_pack: far
+    icon: file-code
+    name: HTML
+    url: https://derekmichaelwright.github.io/htmls/agdata/soybean.html
+  - icon_pack: far
+    icon: file-pdf
+    name: PDF (Save/Print)
+    url: agdata_pdfs/soybean.pdf
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = F, message = F)
+```
+
+---
+
+```{r}
+# devtools::install_github("derekmichaelwright/agData")
+library(agData) # Loads: tidyverse, ggpubr, ggbeeswarm, ggrepel
+```
+
+\pagebreak
+
+# Production
+
+```{r}
+# Prep Data
+xx <- agData_FAO_Crops %>% 
+  filter(Crop == "Soybeans", Measurement == "Production",
+         Area %in% agData_FAO_Region_Table$SubRegion) 
+# Plot Data
+mp <- ggplot(xx, aes(x = Year, y = Value / 1000000, color = Area)) + 
+  geom_line(size = 1.5) + 
+  facet_wrap(Area ~ ., ncol = 6) +
+  theme_agData(legend.position = "none") +
+  labs(title = "Soybean Production", y = "Million Tonnes", x = NULL,
+       caption = "\xa9 www.dblogr.com/ | Data: FAOSTAT")
+ggsave("soybean_01.png", mp, width = 8, height = 4)
+```
+
+```{r echo = F}
+ggsave("../../agdata_graphs/soybean/gallery/gallery/soybean_01.png", mp, width = 8, height = 4)
+ggsave("featured.png", mp, width = 8, height = 4)
+```
+
+![](soybean_01.png)
+
+\pagebreak
+
+```{r}
+# Prep Data
+xx <- agData_FAO_Crops %>% addRegionInfo() %>%
+  filter(Crop == "Soybeans", Measurement == "Production",
+         SubRegion %in% c("South America", "Northern America")) 
+# Plot Data
+mp <- ggplot(xx, aes(x = Year, y = Value / 1000000, color = Area)) + 
+  geom_line(size = 1.5) + 
+  facet_wrap(Area ~ ., ncol = 5) +
+  theme_agData(legend.position = "none") +
+  labs(title = "Soybean Production", y = "Million Tonnes", x = NULL,
+       caption = "\xa9 www.dblogr.com/ | Data: FAOSTAT")
+ggsave("soybean_02.png", mp, width = 8, height = 4)
+```
+
+```{r echo = F}
+ggsave("../../agdata_graphs/soybean/gallery/gallery/soybean_02.png", mp, width = 8, height = 4)
+```
+
+![](soybean_02.png)
+
+\pagebreak
+
+```{r}
+# Prep Data
+xx <- agData_FAO_Crops %>% 
+  filter(Crop == "Soybeans", Measurement == "Yield",
+         Area %in% c("Argentina", "Brazil", "USA")) 
+# Plot Data
+mp <- ggplot(xx, aes(x = Year, y = Value, color = Area)) + 
+  geom_line(size = 0.5) + 
+  theme_agData(legend.position = "bottom") +
+  scale_x_continuous(breaks = seq(1960, 2020, 10)) +
+  labs(title = "Soybean Yields", y = "Tonnes / Hectare", x = NULL,
+       caption = "\xa9 www.dblogr.com/ | Data: FAOSTAT")
+ggsave("soybean_03.png", mp, width = 6, height = 4)
+```
+
+```{r echo = F}
+ggsave("../../agdata_graphs/soybean/gallery/gallery/soybean_03.png", mp, width = 6, height = 4)
+```
+
+![](soybean_03.png)
+
+\pagebreak
+
+```{r}
+# Plot Data
+mp <- ggplot(xx, aes(x = Year, y = Value, color = Area)) + 
+  geom_line(alpha = 0.25) + geom_smooth(se = F) + 
+  theme_agData(legend.position = "bottom") +
+  scale_x_continuous(breaks = seq(1960, 2020, 10)) +
+  labs(title = "Soybean Yields", y = "Tonnes / Hectare", x = NULL,
+       caption = "\xa9 www.dblogr.com/ | Data: FAOSTAT")
+ggsave("soybean_04.png", mp, width = 6, height = 4)
+```
+
+```{r echo = F}
+ggsave("../../agdata_graphs/soybean/gallery/gallery/soybean_04.png", mp, width = 6, height = 4)
+```
+
+![](soybean_04.png)
+
+\pagebreak
+
+# Import and Export
+
+```{r}
+xx <- agData_FAO_Trade %>%
+  filter(Measurement %in% c("Import Quantity", "Export Quantity"),
+         Crop == "Soybeans", Area %in% agData_FAO_Region_Table$Region)
+#
+mp <- ggplot(xx, aes(x = Year, y = Value / 1000000, group = Area, color = Area)) + 
+  geom_line() + 
+  facet_grid(. ~ Measurement) +
+  scale_x_continuous(breaks       = seq(1960, 2015, by = 10),
+                     minor_breaks = seq(1960, 2015, by = 5))  +
+  scale_color_manual(values = agData_Colors) +
+  theme_agData(legend.position = "bottom") + 
+  labs(title = "Lentil Import/Export", y = "Million Tonnes", x = NULL,
+       caption = "\xa9 www.dblogr.com/  |  Data: FAOSTAT")
+ggsave("soybean_05.png", mp, width = 6, height = 4)
+```
+
+```{r echo = F}
+ggsave("../../agdata_graphs/soybean/gallery/gallery/soybean_05.png", mp, width = 6, height = 4)
+```
+
+![](soybean_05.png)
+
+\pagebreak
+
+```{r}
+xx <- agData_FAO_Trade %>%
+  filter(Measurement %in% c("Import Quantity", "Export Quantity"),
+         Crop == "Soybeans", 
+         Area %in% c("USA", "Brazil", "Argentina", "Europe", "China"))
+#
+mp <- ggplot(xx, aes(x = Year, y = Value / 1000000, group = Area, color = Area)) + 
+  geom_line() + 
+  facet_grid(. ~ Measurement) +
+  scale_x_continuous(breaks       = seq(1960, 2015, by = 10),
+                     minor_breaks = seq(1960, 2015, by = 5))  +
+  scale_color_manual(values = agData_Colors) +
+  theme_agData(legend.position = "bottom") + 
+  labs(title = "Lentil Import/Export", y = "Million Tonnes", x = NULL,
+       caption = "\xa9 www.dblogr.com/  |  Data: FAOSTAT")
+ggsave("soybean_06.png", mp, width = 6, height = 4)
+```
+
+```{r echo = F}
+ggsave("../../agdata_graphs/soybean/gallery/gallery/soybean_06.png", mp, width = 6, height = 4)
+```
+
+![](soybean_06.png)

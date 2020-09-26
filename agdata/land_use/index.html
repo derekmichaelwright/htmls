@@ -1,0 +1,100 @@
+---
+title: "Land Use"
+subtitle: "Graphs for land use with FAO data"
+summary:  "Graphs for land use with FAO data"
+author: "Derek Michael Wright"
+date: "2020-03-01"
+categories: [ "agData" ]
+tags: [ "agData", "Regions" ]
+image:
+  preview_only: true
+links: 
+  - icon_pack: fas
+    icon: chart-line
+    name: All Graphs
+    url: agdata_graphs/land_use
+  - icon_pack: far
+    icon: file-code
+    name: HTML
+    url: https://derekmichaelwright.github.io/htmls/agdata/land_use.html
+  - icon_pack: far
+    icon: file-pdf
+    name: PDF (Save/Print)
+    url: agdata_pdfs/land_use.pdf
+---
+
+
+
+<hr />
+<pre class="r"><code># devtools::install_github(&quot;derekmichaelwright/agData&quot;)
+library(agData) # Loads: tidyverse, ggpubr, ggbeeswarm, ggrepel</code></pre>
+<div style="page-break-after: always;"></div>
+<div id="agricultural-area" class="section level1">
+<h1>Agricultural Area</h1>
+<pre class="r"><code># Prep Data
+xx &lt;- agData_FAO_LandUse %&gt;% 
+  filter(Item == &quot;Agricultural land&quot;,
+         Year == 2015) %&gt;%
+  addRegionInfo() %&gt;%
+  filter(Area %in% agData_FAO_Country_Table$Country) %&gt;%
+  arrange(desc(Value)) %&gt;%
+  slice(1:20) %&gt;%
+  mutate(Area = factor(Area, levels = unique(Area)))
+# Plot Data
+mp &lt;- ggplot(xx, aes(x = Area, y = Value / 1000000, fill = Area)) + 
+  geom_bar(stat = &quot;identity&quot;, color = &quot;black&quot;, alpha = 0.7) +
+  scale_fill_manual(values = agData_Colors) +
+  scale_x_discrete(limits = rev(levels(xx$Area))) +
+  theme_agData(legend.position = &quot;none&quot;) + 
+  coord_flip() +
+  labs(title = &quot;Agricultural Area&quot;,
+       caption = &quot;\xa9 www.dblogr.com/  |  Data: FAO&quot;,
+       y = NULL, x = NULL)
+ggsave(&quot;land_use_01.png&quot;, mp, width = 6, height = 4)</code></pre>
+<p><img src="land_use_01.png" /></p>
+<div style="page-break-after: always;"></div>
+</div>
+<div id="organic-area" class="section level1">
+<h1>Organic Area</h1>
+<pre class="r"><code># Prep Data
+xx &lt;- agData_FAO_LandUse %&gt;% 
+  filter(Item == &quot;Agriculture area certified organic&quot;,
+         Year == 2015) %&gt;%
+  addRegionInfo() %&gt;%
+  filter(Area %in% agData_FAO_Country_Table$Country) %&gt;%
+  arrange(desc(Value)) %&gt;%
+  slice(1:20) %&gt;%
+  mutate(Area = factor(Area, levels = unique(Area)))
+# Plot Data
+mp &lt;- ggplot(xx, aes(x = Area, y = Value / 1000000, fill = Area)) + 
+  geom_bar(stat = &quot;identity&quot;, color = &quot;black&quot;, alpha = 0.7) +
+  scale_fill_manual(values = agData_Colors) +
+  scale_x_discrete(limits = rev(levels(xx$Area))) +
+  theme_agData(legend.position = &quot;none&quot;) +
+  coord_flip() +
+  labs(title = &quot;Agricultural Area - Organic&quot;,
+       caption = &quot;\xa9 www.dblogr.com/  |  Data: FAO&quot;,
+       y = NULL, x = NULL)
+ggsave(&quot;land_use_02.png&quot;, mp, width = 6, height = 4)</code></pre>
+<p><img src="land_use_02.png" /></p>
+<div style="page-break-after: always;"></div>
+</div>
+<div id="canada" class="section level1">
+<h1>Canada</h1>
+<pre class="r"><code># Prep Data
+xx &lt;- agData_FAO_LandUse %&gt;% 
+  filter(Area == &quot;Canada&quot;, Year == 2015) %&gt;%
+  arrange(desc(Value)) %&gt;%
+  mutate(Item = factor(Item, levels = unique(Item)))
+# Plot Data
+mp &lt;- ggplot(xx, aes(x = Item, y = Value, fill = Item)) + 
+  geom_bar(stat = &quot;identity&quot;, color = &quot;black&quot;, alpha = 0.7) +
+  scale_x_discrete(limits = rev(levels(xx$Item))) +
+  theme_agData(legend.position = &quot;none&quot;) + 
+  coord_flip() +
+  labs(title = &quot;Canada&quot;,
+       caption = &quot;\xa9 www.dblogr.com/  |  Data: FAO&quot;,
+       y = NULL, x = NULL)
+ggsave(&quot;land_use_03.png&quot;, mp, width = 6, height = 4)</code></pre>
+<p><img src="land_use_03.png" /></p>
+</div>

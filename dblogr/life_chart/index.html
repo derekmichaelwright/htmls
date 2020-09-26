@@ -1,0 +1,76 @@
+---
+title: "Life Chart"
+subtitle: "A tile chart of my life"
+summary:  "A tile chart of my life"
+author: "Derek Michael Wright <wrightmderek@gmail.com> [www.dblogr.com/](https://dblogr.netlify.com/)"
+date: "2020-03-01"
+categories: [ "dblogr" ]
+tags: [ "dblogr",  "Personal", "R" ]
+draft: true
+image:
+  preview_only: yes
+links:
+  - icon: chart-line
+    icon_pack: fas
+    name: All Graphs
+    url: dblogr_graphs/life_chart
+  - icon: file-code
+    icon_pack: far
+    name: HTML
+    url: https://derekmichaelwright.github.io/htmls/dblogr/life_chart.html
+  - icon: file-pdf
+    icon_pack: far
+    name: PDF (Save/Print)
+    url: dblogr_pdfs/life_chart.pdf
+---
+
+
+
+<hr />
+<pre class="r"><code>library(dblogr)
+library(lubridate)
+library(waffle)
+library(hrbrthemes)
+library(extrafont)
+#loadfonts(device = &quot;win&quot;, quiet = TRUE)
+
+# Create the data-----
+life_data &lt;- data.frame(months = factor(rep(month.abb[1:12], 81), levels=month.abb[1:12]),
+                        Year = rep(1989:(1989+80), each = 12)) %&gt;%
+  slice(8:nrow(.)) %&gt;%  ## remove months before my birth month (August)
+  mutate(age = rep(0:80, each = 12, length.out = nrow(.))) %&gt;% 
+  rowid_to_column(&quot;row_name&quot;)  ## add column for row number
+
+## add the &quot;eras&quot; to be colored in the waffle chart
+life_data &lt;- life_data %&gt;%
+  mutate(era = fct_inorder(case_when(
+    row_name &lt; 30 ~ &quot;Childhood - Canada&quot;,
+    row_name &lt; 111 ~ &quot;Childhood - US&quot;,
+    row_name &lt; 182 ~ &quot;Childhood - Canada&quot;,
+    row_name &lt; 219 ~ &quot;Highschool - Regina, SK&quot;,
+    row_name &lt; 282 ~ &quot;University of Regina - BSc. Biology&quot;,
+    row_name &lt; 310 ~ &quot;University of Geissen - MSc. Agrobiotechnology&quot;,
+    row_name &lt; 375 ~ &quot;University of Saskatchewan - Research Assistant&quot;,
+    TRUE ~ &quot;Time left&quot;)))
+
+
+ggplot(life_data) +
+  geom_waffle(aes(fill = era))
+
+waffle(life_data$era)
+# Waffle chart-----
+life_in_months &lt;- life_data %&gt;%
+  count(era) %&gt;% ## the count of each era is the number of months in that era
+  ggplot(aes(fill = era, values = n)) +
+  geom_waffle(color = &quot;#F7F7F7&quot;, n_rows = 12, size = 1, flip = TRUE) + ## make each row a year/12 months
+  scale_fill_manual(name = &quot;&quot;, values = c(&quot;#EF476F&quot;,&quot;#FCA311&quot;,&quot;#FFD166&quot;,&quot;#0EAD69&quot;,&quot;#4ECDC4&quot;,&quot;#118AB2&quot;)) +  ## assign colors to the eras
+  coord_equal() +
+  theme_ipsum(grid = &quot;&quot;) +
+  theme(legend.text = element_text(family = &quot;Cooper Lt BT&quot;, size = 40),
+        plot.background = element_rect(fill = &quot;#F7F7F7&quot;, color = &quot;#F7F7F7&quot;)) +
+  theme_enhance_waffle()
+
+life_in_months
+
+# Save the chart
+life_in_months + ggsave(&quot;life_in_months.png&quot;, device = &quot;png&quot;, type = &quot;cairo&quot;, width = 15, height = 25, dpi = 300)</code></pre>

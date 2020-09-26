@@ -1,0 +1,339 @@
+---
+title: "Gapminder"
+subtitle: "An exploration of gapminder data"
+summary:  "An exploration of gapminder data"
+author: "Derek Michael Wright <wrightmderek@gmail.com> [www.dblogr.com/](https://dblogr.netlify.com/)"
+date: "2020-03-01"
+categories: [ "dblogr" ]
+tags: [ "dblogr", "Economics" ]
+image:
+  preview_only: true
+links:
+  - icon_pack: fas
+    icon: chart-line
+    name: All Graphs
+    url: dblogr_graphs/gapminder
+  - icon: file-code
+    icon_pack: far
+    name: HTML
+    url: https://derekmichaelwright.github.io/htmls/dblogr/gapminder.html
+  - icon_pack: far
+    icon: file-pdf
+    name: PDF (Save/Print)
+    url: dblogr_pdfs/gapminder.pdf
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = T, message = F, warning = F)
+```
+
+---
+
+```{r}
+# devtools::install_github("derekmichaelwright/dblogr")
+library(dblogr) # Loads: tidyverse, ggpubr, ggbeeswarm, ggrepel
+library(gapminder)
+library(gganimate)
+```
+
+# Data
+
+```{r}
+knitr::kable(gapminder %>% arrange(year) %>% slice(1:10))
+```
+
+\pagebreak
+
+# Plots
+
+```{r}
+mp <- ggplot(gapminder %>% filter(year %in% c(1952, 1982, 2007)), 
+       aes(gdpPercap / 1000, lifeExp, size = pop, colour = country)) +
+  geom_point(alpha = 0.7) +
+  scale_colour_manual(values = country_colors) +
+  scale_size(range = c(2, 12)) +
+  scale_x_log10() +
+  facet_wrap(. ~ year, ncol = 5) +
+  theme_dblogr(legend.position = "none") +
+  labs(x = "GDP Per Capita ($1000)", y = "Life Expectancy")
+ggsave("gapminder_01.png", mp, width = 6, height = 4)
+```
+
+```{r echo = F}
+ggsave("../../dblogr_graphs/gapminder/gallery/gallery/gapminder_01.png", mp, width = 6, height = 4)
+ggsave("../gapminder/featured.png", mp, width = 6, height = 4)
+```
+
+![](gapminder_01.png)
+
+```{r}
+mp <- ggplot(gapminder, aes(x = year, y = lifeExp, colour = country)) +
+  geom_line(alpha = 0.7) +
+  scale_colour_manual(values = country_colors) +
+  scale_x_continuous(breaks = seq(1950, 2010, 20)) +
+  coord_cartesian(xlim = c(1950, 2010)) +
+  facet_wrap(. ~ continent, ncol = 5) +
+  theme_dblogr(legend.position = "none", rotx = T) +
+  labs(x = NULL, y = "Life Expectancy")
+ggsave("gapminder_02.png", mp, width = 10, height = 5)
+```
+
+```{r echo = F}
+ggsave("../../dblogr_graphs/gapminder/gallery/gallery/gapminder_02.png", mp, width = 10, height = 5)
+ggsave("featured.png", mp, width = 10, height = 5)
+```
+
+![](gapminder_02.png)
+
+```{r}
+mp <- ggplot(gapminder, aes(x = year, y = gdpPercap / 1000, colour = country)) +
+  geom_line(alpha = 0.7) +
+  scale_colour_manual(values = country_colors) +
+  scale_x_continuous(breaks = seq(1950, 2010, 20)) +
+  scale_y_log10() +
+  coord_cartesian(xlim = c(1950, 2010)) +
+  facet_wrap(. ~ continent, ncol = 5) +
+  theme_dblogr(legend.position = "none", rotx = T) +
+  labs(x = NULL, y = "GDP Per Capita ($1000)")
+ggsave("gapminder_03.png", mp, width = 10, height = 5)
+```
+
+```{r echo = F}
+ggsave("../../dblogr_graphs/gapminder/gallery/gallery/gapminder_03.png", mp, width = 10, height = 5)
+```
+
+![](gapminder_03.png)
+\pagebreak
+
+# Animations
+
+```{r eval = F}
+# gganimate example
+mp <- ggplot(gapminder, aes(x = gdpPercap / 1000, y = lifeExp, size = pop, colour = country)) +
+  geom_point(alpha = 0.7, show.legend = F) +
+  scale_colour_manual(values = country_colors) +
+  scale_size(range = c(2, 12)) +
+  scale_x_log10() +
+  facet_wrap(. ~ continent, ncol = 5) +
+  theme_dblogr() +
+  # Here comes the gganimate specific bits
+  labs(title = 'Year: {frame_time}', x = 'GDP Per Capita ($1000)', y = 'Life Expectancy') +
+  transition_time(year) +
+  ease_aes('linear')
+anim_save("gapminder_gifs_01.gif", mp, width = 600, height = 400)
+```
+
+```{r echo = F, eval = F}
+anim_save("../../dblogr_graphs/gapminder/gallery/gallery/gapminder_gifs_01.gif", mp, width = 600, height = 400)
+```
+
+```{r echo = F, eval = T}
+library(magick)
+# Change to eval = F when creating pdf
+image_read("gapminder_gifs_01.gif")
+```
+
+```{r eval = F}
+xx <- gapminder %>% arrange(rev(year), gdpPercap) %>% 
+  mutate(country = factor(country, levels = unique(country)))
+#
+mp <- ggplot(xx, aes(x = country, y = gdpPercap / 1000, size = pop, colour = country)) +
+  geom_point(alpha = 0.7, show.legend = F) +
+  scale_colour_manual(values = country_colors) +
+  scale_size(range = c(2, 12)) +
+  scale_y_log10() +
+  theme_dblogr(axis.text.x = element_blank(),
+               axis.ticks.x = element_blank()) +
+  # Here comes the gganimate specific bits
+  labs(title = 'Year: {frame_time}', x = NULL, y = 'GDP Per Capita ($1000)') +
+  transition_time(year) +
+  ease_aes('linear')
+anim_save("gapminder_gifs_02.gif", mp, width = 600, height = 400)
+```
+
+```{r echo = F, eval = F}
+anim_save("../../dblogr_graphs/gapminder/gallery/gallery/gapminder_gifs_02.gif", mp, width = 600, height = 400)
+```
+
+```{r echo = F, eval = T}
+# Change to eval when creating pdf
+image_read("gapminder_gifs_02.gif")
+```
+
+```{r eval = F}
+xx <- gapminder %>% arrange(rev(year), lifeExp) %>% 
+  mutate(country = factor(country, levels = unique(country)))
+#
+mp <- ggplot(xx, aes(x = country, y = lifeExp, size = pop, colour = country)) +
+  geom_point(alpha = 0.7, show.legend = F) +
+  scale_colour_manual(values = country_colors) +
+  scale_size(range = c(2, 12)) +
+  scale_y_log10() +
+  theme_dblogr(axis.text.x = element_blank(),
+               axis.ticks.x = element_blank()) +
+  # Here comes the gganimate specific bits
+  labs(title = 'Year: {frame_time}', x = NULL, y = 'Life Expectancy') +
+  transition_time(year) +
+  ease_aes('linear')
+anim_save("gapminder_gifs_03.gif", mp, width = 600, height = 400)
+```
+
+```{r echo = F, eval = F}
+anim_save("../../dblogr_graphs/gapminder/gallery/gallery/gapminder_gifs_03.gif", mp, width = 600, height = 400)
+```
+
+```{r echo = F, eval = T}
+# Change to eval when creating pdf
+image_read("gapminder_gifs_03.gif")
+```
+
+\pagebreak
+
+```{r eval = F}
+gg_gapminder1 <- function(x) {
+  ggplot(x, aes(x = gdpPercap / 1000, y = lifeExp, size = pop, colour = country)) +
+    geom_point(alpha = 0.7) +
+    geom_text(aes(label = country), alpha = 0.7) +
+    scale_colour_manual(values = country_colors) +
+    scale_size(range = c(2, 12)) +
+    scale_x_log10() +
+    theme_dblogr(legend.position = "none") +
+    labs(title = "Year: {frame_time}", y = "Life Expectancy",
+         x = "GDP Per Capita ($1000)") +
+    transition_time(year) +
+    ease_aes('linear')
+}
+```
+
+```{r eval = F}
+mp <- gg_gapminder1(gapminder)
+anim_save("gapminder_gifs_04.gif", mp, width = 600, height = 400)
+```
+
+```{r echo = F, eval = F}
+anim_save("../../dblogr_graphs/gapminder/gallery/gallery/gapminder_gifs_04.gif", mp, width = 600, height = 400)
+```
+
+```{r echo = F, eval = T}
+# Change to eval when creating pdf
+image_read("gapminder_gifs_04.gif")
+```
+
+# Regions
+
+```{r eval = F}
+mp <- gg_gapminder1(gapminder %>% filter(continent == "Africa"))
+anim_save("gapminder_gifs_05.gif", mp, width = 600, height = 400)
+```
+
+```{r echo = F, eval = F}
+anim_save("../../dblogr_graphs/gapminder/gallery/gallery/gapminder_gifs_05.gif", mp, width = 600, height = 400)
+```
+
+```{r echo = F, eval = T}
+# Change to eval when creating pdf
+image_read("gapminder_gifs_05.gif")
+```
+
+```{r eval = F}
+mp <- gg_gapminder1(gapminder %>% filter(continent == "Americas"))
+anim_save("gapminder_gifs_06.gif", mp)
+```
+
+```{r echo = F, eval = F}
+anim_save("../../dblogr_graphs/gapminder/gallery/gallery/gapminder_gifs_06.gif", mp, width = 600, height = 400)
+```
+
+```{r echo = F, eval = T}
+# Change to eval when creating pdf
+image_read("gapminder_gifs_06.gif")
+```
+
+```{r eval = F}
+mp <- gg_gapminder1(gapminder %>% filter(continent == "Asia"))
+anim_save("gapminder_gifs_07.gif", mp, width = 600, height = 400)
+```
+
+```{r echo = F, eval = F}
+anim_save("../../dblogr_graphs/gapminder/gallery/gallery/gapminder_gifs_07.gif", mp, width = 600, height = 400)
+```
+
+```{r echo = F, eval = T}
+# Change to eval when creating pdf
+image_read("gapminder_gifs_07.gif")
+```
+
+```{r eval = F}
+mp <- gg_gapminder1(gapminder %>% filter(continent == "Europe"))
+anim_save("gapminder_gifs_08.gif", mp, width = 600, height = 400)
+```
+
+```{r echo = F, eval = F}
+anim_save("../../dblogr_graphs/gapminder/gallery/gallery/gapminder_gifs_08.gif", mp, width = 600, height = 400)
+```
+
+```{r echo = F, eval = T}
+# Change to eval when creating pdf
+image_read("gapminder_gifs_08.gif")
+```
+
+\pagebreak
+
+# Countries
+
+```{r eval = F}
+gg_gapminder2 <- function(mycountries) {
+  x <- gapminder %>% filter(country %in% mycountries)
+  ggplot(x, aes(x = gdpPercap / 1000, y = lifeExp, colour = country)) +
+    geom_point(size = 3) +
+    geom_line(alpha = 0.7) +
+    scale_colour_manual(values = country_colors) +
+    scale_x_log10() +
+    theme_dblogr(legend.position = "bottom") +
+    labs(title = "Year: {frame_along}", y = "Life Expectancy",
+         x = "GDP Per Capita ($1000)") +
+    transition_reveal(year)
+}
+```
+
+```{r eval = F}
+mp <- gg_gapminder2("Canada")
+anim_save("gapminder_gifs_09.gif", mp, width = 600, height = 400)
+```
+
+```{r echo = F, eval = F}
+anim_save("../../dblogr_graphs/gapminder/gallery/gallery/gapminder_gifs_09.gif", mp, width = 600, height = 400)
+```
+
+```{r echo = F, eval = T}
+# Change to eval when creating pdf
+image_read("gapminder_gifs_09.gif")
+```
+
+```{r eval = F}
+mp <- gg_gapminder2("China")
+anim_save("gapminder_gifs_10.gif", mp, width = 600, height = 400)
+```
+
+```{r echo = F, eval = F}
+anim_save("../../dblogr_graphs/gapminder/gallery/gallery/gapminder_gifs_10.gif", mp, width = 600, height = 400)
+```
+
+```{r echo = F, eval = T}
+# Change to eval when creating pdf
+image_read("gapminder_gifs_10.gif")
+```
+
+```{r eval = F}
+mp <- gg_gapminder2(c("Rwanda", "South Africa", "Nigeria"))
+anim_save("gapminder_gifs_11.gif", mp, width = 600, height = 400)
+```
+
+```{r echo = F, eval = F}
+anim_save("../../dblogr_graphs/gapminder/gallery/gallery/gapminder_gifs_11.gif", mp, width = 600, height = 400)
+```
+
+```{r echo = F, eval = T}
+# Change to eval when creating pdf
+image_read("gapminder_gifs_11.gif")
+```

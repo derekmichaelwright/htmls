@@ -1,0 +1,77 @@
+---
+title: "Phenology"
+subtitle: "Variable responses of lentil (Lens culinaris Medik.) germplasm to changes in photoperiod and temperature"
+summary:  "Variable responses of lentil (Lens culinaris Medik.) germplasm to changes in photoperiod and temperature"
+author: "Derek Michael Wright <derek.wright@usask.ca>"
+date: "2020-03-01"
+categories: [ "AGILE" ]
+tags: [ "AGILE", "Literature", "Featured" ]
+math: true
+image:
+  preview_only: yes
+links:
+  - icon: newspaper
+    icon_pack: far
+    name: bioRxiv
+    url: https://www.biorxiv.org/content/10.1101/2020.07.18.207761v1
+  - icon: file-pdf
+    icon_pack: far
+    name: pdf
+    url: 2020.07.18.207761v1.full.pdf
+  - icon: chart-line
+    icon_pack: fas
+    name: All Graphs
+    url: research_graphs/phenology_paper
+  - icon: file-code
+    icon_pack: far
+    name: Github
+    url: https://github.com/derekmichaelwright/AGILE_LDP_Phenology
+  - icon: file-code
+    icon_pack: far
+    name: Github HTML
+    url: https://derekmichaelwright.github.io/AGILE_LDP_Phenology/README.html
+  - icon: file-code
+    icon_pack: far
+    name: Source Code HTML
+    url: https://derekmichaelwright.github.io/AGILE_LDP_Phenology/Phenology_Vignette.html
+  - icon: file-pdf
+    icon_pack: far
+    name: Source Code pdf
+    url: https://github.com/derekmichaelwright/AGILE_LDP_Phenology/blob/master/Phenology_Vignette.pdf
+  - icon: file-code
+    icon_pack: far
+    name: Shiny App
+    url: https://derek-wright-usask.shinyapps.io/AGILE_LDP_Phenology/
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = F, warning = F)
+```
+
+---
+
+# Summary
+
+- Lentil (Lens culinaris Medik.) is cultivated under a wide range of environmental conditions, which led to diverse phenological adaptations and resulted in a decrease in genetic variability within breeding programs due to reluctance in using genotypes from other environments.
+
+- We phenotyped 324 genotypes across nine locations over three years to assess their phenological response to the environment of major lentil production regions and to predict days from sowing to flowering (DTF) using a photothermal model.
+
+- DTF was highly influenced by the environment and is sufficient to explain adaptation. We were able to predict DTF reliably in most environments using a simple photothermal model, however, in certain site-years, results suggest there may be additional environmental factors at play. Hierarchical clustering of principal components revealed the presence of eight groups based on the responses of DTF to contrasting environments. These groups are associated with the coefficients of the photothermal model and revealed differences in temperature and photoperiod sensitivity.
+
+- Expanding genetic diversity is critical to the success of a breeding program; understanding adaptation will facilitate the use of exotic germplasm. Future climate change scenarios will result in increase temperature and/or shifts in production areas, we can use the photothermal model to identify genotypes most likely to succeed in these new environments.
+
+![Figure 1](Figure_01.png)
+
+![Figure 2](Figure_02.png)
+
+![Figure 3](Figure_03.png)
+
+![Figure 4](Figure_04.png)
+
+![Figure 5](Figure_05.png)
+
+![Figure 6](Figure_06.png)
+
+![Figure 7](Figure_07.png)
+
+![](../logo_agile.png)

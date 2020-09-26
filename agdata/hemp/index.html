@@ -1,0 +1,69 @@
+---
+title: "Hempseed Production"
+subtitle: "Graphs for hempseed production with FAO data"
+summary:  "Graphs for hempseed production with FAO data"
+author: "Derek Michael Wright"
+date: "2020-03-01"
+categories: [ "agData" ]
+tags: [ "agdata", "Hemp" ]
+image:
+  preview_only: true
+links: 
+  - icon_pack: fas
+    icon: chart-line
+    name: All Graphs
+    url: agdata_graphs/hemp
+  - icon_pack: far
+    icon: file-code
+    name: HTML
+    url: https://derekmichaelwright.github.io/htmls/agdata/hemp.html
+  - icon_pack: far
+    icon: file-pdf
+    name: PDF (Save/Print)
+    url: agdata_pdfs/hemp.pdf
+---
+
+
+
+<hr />
+<pre class="r"><code># devtools::install_github(&quot;derekmichaelwright/agData&quot;)
+library(agData) # Loads: tidyverse, ggpubr, ggbeeswarm, ggrepel</code></pre>
+<div id="subregions" class="section level1">
+<h1>SubRegions</h1>
+<pre class="r"><code># Prep Data
+xx &lt;- agData_FAO_Crops %&gt;% 
+  left_join(agData_FAO_Country_Table, by = c(&quot;Area&quot;=&quot;Country&quot;)) %&gt;%
+  filter(Crop %in% c(&quot;Hempseed&quot;, &quot;Hemp tow waste&quot;), 
+         Measurement == &quot;Production&quot;)
+x1 &lt;- xx %&gt;% filter(Area %in% agData_FAO_Country_Table$SubRegion)
+# Plot Data
+mp &lt;- ggplot(x1, aes(x = Year, y = Value / 1000000, color = Area)) + 
+  geom_line() +
+  facet_wrap(Crop~., nrow = 1, scales = &quot;free_y&quot;) + 
+  scale_color_manual(name = NULL, values = agData_Colors) +
+  scale_x_continuous(breaks = seq(1965, 2015, 10)) +
+  theme_agData() +
+  theme(legend.position = &quot;bottom&quot;,
+        axis.text.x = element_text(angle = 90, vjust = 0.5)) +
+  labs(title = &quot;Hempseed Production&quot;, y = &quot;Million Tonnes&quot;, x = NULL,
+       caption = &quot;\xa9 www.dblogr.com/  |  Data: FAO&quot;)
+ggsave(&quot;hemp_01.png&quot;, mp, width = 6, height = 4)</code></pre>
+<p><img src="hemp_01.png" /></p>
+</div>
+<div id="countries" class="section level1">
+<h1>Countries</h1>
+<pre class="r"><code># Prep Data
+x1 &lt;- xx %&gt;% filter(Area %in% agData_FAO_Country_Table$Country)
+# Plot Data
+mp &lt;- ggplot(x1, aes(x = Year, y = Value / 1000, color = Crop)) + 
+  geom_line() +
+  facet_wrap(Region + Area ~ ., ncol = 5, scales = &quot;free_y&quot;) + 
+  scale_color_manual(values = c(&quot;darkgoldenrod2&quot;, &quot;darkgreen&quot;)) +
+  scale_x_continuous(breaks = seq(1965, 2015, 10)) +
+  theme_agData(legend.position = &quot;bottom&quot;,
+               axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5)) +
+  labs(title = &quot;Hempseed Production&quot;, y = &quot;Thousand Tonnes&quot;, x = NULL,
+       caption = &quot;\xa9 www.dblogr.com/  |  Data: FAO&quot;)
+ggsave(&quot;hemp_02.png&quot;, mp, width = 8, height = 8)</code></pre>
+<p><img src="hemp_02.png" /></p>
+</div>

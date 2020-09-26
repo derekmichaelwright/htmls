@@ -1,0 +1,273 @@
+---
+title: "Gapminder"
+subtitle: "An exploration of gapminder data"
+summary:  "An exploration of gapminder data"
+author: "Derek Michael Wright <wrightmderek@gmail.com> [www.dblogr.com/](https://dblogr.netlify.com/)"
+date: "2020-03-01"
+categories: [ "dblogr" ]
+tags: [ "dblogr", "Economics" ]
+image:
+  preview_only: true
+links:
+  - icon_pack: fas
+    icon: chart-line
+    name: All Graphs
+    url: dblogr_graphs/gapminder
+  - icon: file-code
+    icon_pack: far
+    name: HTML
+    url: https://derekmichaelwright.github.io/htmls/dblogr/gapminder.html
+  - icon_pack: far
+    icon: file-pdf
+    name: PDF (Save/Print)
+    url: dblogr_pdfs/gapminder.pdf
+---
+
+
+
+<hr />
+<pre class="r"><code># devtools::install_github(&quot;derekmichaelwright/dblogr&quot;)
+library(dblogr) # Loads: tidyverse, ggpubr, ggbeeswarm, ggrepel
+library(gapminder)
+library(gganimate)</code></pre>
+<div id="data" class="section level1">
+<h1>Data</h1>
+<pre class="r"><code>knitr::kable(gapminder %&gt;% arrange(year) %&gt;% slice(1:10))</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">country</th>
+<th align="left">continent</th>
+<th align="right">year</th>
+<th align="right">lifeExp</th>
+<th align="right">pop</th>
+<th align="right">gdpPercap</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Afghanistan</td>
+<td align="left">Asia</td>
+<td align="right">1952</td>
+<td align="right">28.801</td>
+<td align="right">8425333</td>
+<td align="right">779.4453</td>
+</tr>
+<tr class="even">
+<td align="left">Albania</td>
+<td align="left">Europe</td>
+<td align="right">1952</td>
+<td align="right">55.230</td>
+<td align="right">1282697</td>
+<td align="right">1601.0561</td>
+</tr>
+<tr class="odd">
+<td align="left">Algeria</td>
+<td align="left">Africa</td>
+<td align="right">1952</td>
+<td align="right">43.077</td>
+<td align="right">9279525</td>
+<td align="right">2449.0082</td>
+</tr>
+<tr class="even">
+<td align="left">Angola</td>
+<td align="left">Africa</td>
+<td align="right">1952</td>
+<td align="right">30.015</td>
+<td align="right">4232095</td>
+<td align="right">3520.6103</td>
+</tr>
+<tr class="odd">
+<td align="left">Argentina</td>
+<td align="left">Americas</td>
+<td align="right">1952</td>
+<td align="right">62.485</td>
+<td align="right">17876956</td>
+<td align="right">5911.3151</td>
+</tr>
+<tr class="even">
+<td align="left">Australia</td>
+<td align="left">Oceania</td>
+<td align="right">1952</td>
+<td align="right">69.120</td>
+<td align="right">8691212</td>
+<td align="right">10039.5956</td>
+</tr>
+<tr class="odd">
+<td align="left">Austria</td>
+<td align="left">Europe</td>
+<td align="right">1952</td>
+<td align="right">66.800</td>
+<td align="right">6927772</td>
+<td align="right">6137.0765</td>
+</tr>
+<tr class="even">
+<td align="left">Bahrain</td>
+<td align="left">Asia</td>
+<td align="right">1952</td>
+<td align="right">50.939</td>
+<td align="right">120447</td>
+<td align="right">9867.0848</td>
+</tr>
+<tr class="odd">
+<td align="left">Bangladesh</td>
+<td align="left">Asia</td>
+<td align="right">1952</td>
+<td align="right">37.484</td>
+<td align="right">46886859</td>
+<td align="right">684.2442</td>
+</tr>
+<tr class="even">
+<td align="left">Belgium</td>
+<td align="left">Europe</td>
+<td align="right">1952</td>
+<td align="right">68.000</td>
+<td align="right">8730405</td>
+<td align="right">8343.1051</td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-after: always;"></div>
+</div>
+<div id="plots" class="section level1">
+<h1>Plots</h1>
+<pre class="r"><code>mp &lt;- ggplot(gapminder %&gt;% filter(year %in% c(1952, 1982, 2007)), 
+       aes(gdpPercap / 1000, lifeExp, size = pop, colour = country)) +
+  geom_point(alpha = 0.7) +
+  scale_colour_manual(values = country_colors) +
+  scale_size(range = c(2, 12)) +
+  scale_x_log10() +
+  facet_wrap(. ~ year, ncol = 5) +
+  theme_dblogr(legend.position = &quot;none&quot;) +
+  labs(x = &quot;GDP Per Capita ($1000)&quot;, y = &quot;Life Expectancy&quot;)
+ggsave(&quot;gapminder_01.png&quot;, mp, width = 6, height = 4)</code></pre>
+<p><img src="gapminder_01.png" /></p>
+<pre class="r"><code>mp &lt;- ggplot(gapminder, aes(x = year, y = lifeExp, colour = country)) +
+  geom_line(alpha = 0.7) +
+  scale_colour_manual(values = country_colors) +
+  scale_x_continuous(breaks = seq(1950, 2010, 20)) +
+  coord_cartesian(xlim = c(1950, 2010)) +
+  facet_wrap(. ~ continent, ncol = 5) +
+  theme_dblogr(legend.position = &quot;none&quot;, rotx = T) +
+  labs(x = NULL, y = &quot;Life Expectancy&quot;)
+ggsave(&quot;gapminder_02.png&quot;, mp, width = 10, height = 5)</code></pre>
+<p><img src="gapminder_02.png" /></p>
+<pre class="r"><code>mp &lt;- ggplot(gapminder, aes(x = year, y = gdpPercap / 1000, colour = country)) +
+  geom_line(alpha = 0.7) +
+  scale_colour_manual(values = country_colors) +
+  scale_x_continuous(breaks = seq(1950, 2010, 20)) +
+  scale_y_log10() +
+  coord_cartesian(xlim = c(1950, 2010)) +
+  facet_wrap(. ~ continent, ncol = 5) +
+  theme_dblogr(legend.position = &quot;none&quot;, rotx = T) +
+  labs(x = NULL, y = &quot;GDP Per Capita ($1000)&quot;)
+ggsave(&quot;gapminder_03.png&quot;, mp, width = 10, height = 5)</code></pre>
+<p><img src="gapminder_03.png" />
+</p>
+</div>
+<div id="animations" class="section level1">
+<h1>Animations</h1>
+<pre class="r"><code># gganimate example
+mp &lt;- ggplot(gapminder, aes(x = gdpPercap / 1000, y = lifeExp, size = pop, colour = country)) +
+  geom_point(alpha = 0.7, show.legend = F) +
+  scale_colour_manual(values = country_colors) +
+  scale_size(range = c(2, 12)) +
+  scale_x_log10() +
+  facet_wrap(. ~ continent, ncol = 5) +
+  theme_dblogr() +
+  # Here comes the gganimate specific bits
+  labs(title = &#39;Year: {frame_time}&#39;, x = &#39;GDP Per Capita ($1000)&#39;, y = &#39;Life Expectancy&#39;) +
+  transition_time(year) +
+  ease_aes(&#39;linear&#39;)
+anim_save(&quot;gapminder_gifs_01.gif&quot;, mp, width = 600, height = 400)</code></pre>
+<p><img src="/dblogr_posts/gapminder/index_files/figure-html/unnamed-chunk-11-1.gif" /><!-- --></p>
+<pre class="r"><code>xx &lt;- gapminder %&gt;% arrange(rev(year), gdpPercap) %&gt;% 
+  mutate(country = factor(country, levels = unique(country)))
+#
+mp &lt;- ggplot(xx, aes(x = country, y = gdpPercap / 1000, size = pop, colour = country)) +
+  geom_point(alpha = 0.7, show.legend = F) +
+  scale_colour_manual(values = country_colors) +
+  scale_size(range = c(2, 12)) +
+  scale_y_log10() +
+  theme_dblogr(axis.text.x = element_blank(),
+               axis.ticks.x = element_blank()) +
+  # Here comes the gganimate specific bits
+  labs(title = &#39;Year: {frame_time}&#39;, x = NULL, y = &#39;GDP Per Capita ($1000)&#39;) +
+  transition_time(year) +
+  ease_aes(&#39;linear&#39;)
+anim_save(&quot;gapminder_gifs_02.gif&quot;, mp, width = 600, height = 400)</code></pre>
+<p><img src="/dblogr_posts/gapminder/index_files/figure-html/unnamed-chunk-14-1.gif" /><!-- --></p>
+<pre class="r"><code>xx &lt;- gapminder %&gt;% arrange(rev(year), lifeExp) %&gt;% 
+  mutate(country = factor(country, levels = unique(country)))
+#
+mp &lt;- ggplot(xx, aes(x = country, y = lifeExp, size = pop, colour = country)) +
+  geom_point(alpha = 0.7, show.legend = F) +
+  scale_colour_manual(values = country_colors) +
+  scale_size(range = c(2, 12)) +
+  scale_y_log10() +
+  theme_dblogr(axis.text.x = element_blank(),
+               axis.ticks.x = element_blank()) +
+  # Here comes the gganimate specific bits
+  labs(title = &#39;Year: {frame_time}&#39;, x = NULL, y = &#39;Life Expectancy&#39;) +
+  transition_time(year) +
+  ease_aes(&#39;linear&#39;)
+anim_save(&quot;gapminder_gifs_03.gif&quot;, mp, width = 600, height = 400)</code></pre>
+<p><img src="/dblogr_posts/gapminder/index_files/figure-html/unnamed-chunk-17-1.gif" /><!-- --></p>
+<div style="page-break-after: always;"></div>
+<pre class="r"><code>gg_gapminder1 &lt;- function(x) {
+  ggplot(x, aes(x = gdpPercap / 1000, y = lifeExp, size = pop, colour = country)) +
+    geom_point(alpha = 0.7) +
+    geom_text(aes(label = country), alpha = 0.7) +
+    scale_colour_manual(values = country_colors) +
+    scale_size(range = c(2, 12)) +
+    scale_x_log10() +
+    theme_dblogr(legend.position = &quot;none&quot;) +
+    labs(title = &quot;Year: {frame_time}&quot;, y = &quot;Life Expectancy&quot;,
+         x = &quot;GDP Per Capita ($1000)&quot;) +
+    transition_time(year) +
+    ease_aes(&#39;linear&#39;)
+}</code></pre>
+<pre class="r"><code>mp &lt;- gg_gapminder1(gapminder)
+anim_save(&quot;gapminder_gifs_04.gif&quot;, mp, width = 600, height = 400)</code></pre>
+<p><img src="/dblogr_posts/gapminder/index_files/figure-html/unnamed-chunk-21-1.gif" /><!-- --></p>
+</div>
+<div id="regions" class="section level1">
+<h1>Regions</h1>
+<pre class="r"><code>mp &lt;- gg_gapminder1(gapminder %&gt;% filter(continent == &quot;Africa&quot;))
+anim_save(&quot;gapminder_gifs_05.gif&quot;, mp, width = 600, height = 400)</code></pre>
+<p><img src="/dblogr_posts/gapminder/index_files/figure-html/unnamed-chunk-24-1.gif" /><!-- --></p>
+<pre class="r"><code>mp &lt;- gg_gapminder1(gapminder %&gt;% filter(continent == &quot;Americas&quot;))
+anim_save(&quot;gapminder_gifs_06.gif&quot;, mp)</code></pre>
+<p><img src="/dblogr_posts/gapminder/index_files/figure-html/unnamed-chunk-27-1.gif" /><!-- --></p>
+<pre class="r"><code>mp &lt;- gg_gapminder1(gapminder %&gt;% filter(continent == &quot;Asia&quot;))
+anim_save(&quot;gapminder_gifs_07.gif&quot;, mp, width = 600, height = 400)</code></pre>
+<p><img src="/dblogr_posts/gapminder/index_files/figure-html/unnamed-chunk-30-1.gif" /><!-- --></p>
+<pre class="r"><code>mp &lt;- gg_gapminder1(gapminder %&gt;% filter(continent == &quot;Europe&quot;))
+anim_save(&quot;gapminder_gifs_08.gif&quot;, mp, width = 600, height = 400)</code></pre>
+<p><img src="/dblogr_posts/gapminder/index_files/figure-html/unnamed-chunk-33-1.gif" /><!-- --></p>
+<div style="page-break-after: always;"></div>
+</div>
+<div id="countries" class="section level1">
+<h1>Countries</h1>
+<pre class="r"><code>gg_gapminder2 &lt;- function(mycountries) {
+  x &lt;- gapminder %&gt;% filter(country %in% mycountries)
+  ggplot(x, aes(x = gdpPercap / 1000, y = lifeExp, colour = country)) +
+    geom_point(size = 3) +
+    geom_line(alpha = 0.7) +
+    scale_colour_manual(values = country_colors) +
+    scale_x_log10() +
+    theme_dblogr(legend.position = &quot;bottom&quot;) +
+    labs(title = &quot;Year: {frame_along}&quot;, y = &quot;Life Expectancy&quot;,
+         x = &quot;GDP Per Capita ($1000)&quot;) +
+    transition_reveal(year)
+}</code></pre>
+<pre class="r"><code>mp &lt;- gg_gapminder2(&quot;Canada&quot;)
+anim_save(&quot;gapminder_gifs_09.gif&quot;, mp, width = 600, height = 400)</code></pre>
+<p><img src="/dblogr_posts/gapminder/index_files/figure-html/unnamed-chunk-37-1.gif" /><!-- --></p>
+<pre class="r"><code>mp &lt;- gg_gapminder2(&quot;China&quot;)
+anim_save(&quot;gapminder_gifs_10.gif&quot;, mp, width = 600, height = 400)</code></pre>
+<p><img src="/dblogr_posts/gapminder/index_files/figure-html/unnamed-chunk-40-1.gif" /><!-- --></p>
+<pre class="r"><code>mp &lt;- gg_gapminder2(c(&quot;Rwanda&quot;, &quot;South Africa&quot;, &quot;Nigeria&quot;))
+anim_save(&quot;gapminder_gifs_11.gif&quot;, mp, width = 600, height = 400)</code></pre>
+<p><img src="/dblogr_posts/gapminder/index_files/figure-html/unnamed-chunk-43-1.gif" /><!-- --></p>
+</div>

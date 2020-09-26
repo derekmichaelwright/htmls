@@ -1,0 +1,180 @@
+---
+title: "R Tutorial"
+subtitle: "An introduction to R"
+summary:  "How to create a plot with dual y-axes in R"
+author: "Derek Michael Wright <wrightmderek@gmail.com> [www.dblogr.com/](https://dblogr.netlify.com/)"
+date: "2020-03-02"
+categories: [ "Academic" ]
+tags: [ "Academic", "Tutorials", "Featured" ]
+draft: true
+math: true
+image:
+  preview_only: true
+links: 
+  - icon: file-code
+    icon_pack: far
+    name: HTML
+    url: https://derekmichaelwright.github.io/htmls/academic/r_tutorial.html
+  - icon_pack: far
+    icon: file-pdf
+    name: PDF (Save/Print)
+    url: academic_pdfs/r_tutorial.pdf
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = T, message = F, warning = F)
+```
+
+---
+
+# Download R
+
+Download R here
+Download RStudio here
+
+# Introduction
+
+R can be used as a caclulator
+
+```{r}
+5 + 3 # = 8
+24 / (1 + 2) # = 24 / 3 = 8
+2^3 # = 2 * 2 * 2 = 8
+sqrt(64) # 8 * 8 = 64
+-log10(0.05 / 5000000) # = 8
+```
+
+
+Information can be stored in user defined objects. e.g., xx
+
+```{r}
+xx <- -log10(0.05 / 5000000)
+xx
+```
+
+R has many useful built in functions
+
+```{r}
+1:10
+as.character(1:10)
+rep(1:2, times = 5)
+rep(1:5, times = 2)
+rep(1:5, each = 2)
+rep(1:5, length.out = 7)
+help(rep)
+seq(5, 50, by = 5)
+seq(5, 50, length.out = 5)
+mean(1:10)
+sd(1:10)
+min(1:10)
+max(1:10)
+range(1:10)
+```
+
+Users can also create their own functions
+
+```{r}
+customFunction <- function(x) {
+  mean(x) + sd(x)
+}
+customFunction(1:10)
+```
+
+Objects can be stored in multiple forms:
+
+- c()
+- matrix()
+- data.frame()
+- list()
+
+Data can be saved in many forms:
+
+- numeric
+- integer
+- character
+- factor
+
+```{r}
+x1 <- 1:10
+x1
+x1 <- c(1,2,3,4,5,6,7,8,9,10)
+x1
+x2 <- matrix(1:100, nrow = 10, ncol = 10, byrow = T)
+x2
+x2 <- matrix(1:100, nrow = 10, ncol = 10, byrow = F)
+x2
+x3 <- data.frame(
+  y1 = 1:10,
+  y2 = rep(c("1","2"), times = 5),
+  y3 = c(1,1,1,1,1,2,2,2,3,3),
+  y4 = rep(1:5, times = 2),
+  y5 = rep(1:5, each = 2),
+  y6 = seq(5, 50, by = 5),
+  y7 = log10(1:10),
+  y8 = (1:10)^3
+)
+x3[1:5,1:5]
+x3[,"y3"]
+x3$y3
+x3$y3 <- as.character(x3$y3)
+x3$y3
+x3$y3 <- as.numeric(x3$y3)
+x3$y3
+x3$y3 <- as.factor(x3$y3)
+x3$y3
+x3$y3 <- factor(x3$y3, levels = c("3","2","1"))
+x3$y3
+x3$y2 <- factor(x3$y2)
+x3$y2
+xx <- list(x1, x2, x3)
+```
+
+internal structure of an object can be checked with str()
+
+```{r}
+str(x1)
+str(x2)
+str(x3)
+str(xx)
+```
+
+Additional libraries can be installed and loaded for use.
+
+```{r eval = F}
+install.packages("scales")
+```
+
+```{r}
+library(scales)
+rescale(1:10, to = c(1,30))
+```
+
+# Plotting
+
+```{r}
+plot(x = x3$y1, y = x3$y5)
+plot(x = x3$y1, y = x3$y5, col = x3$y2)
+plot(x = x3$y7, y = x3$y8, type = "both")
+library(ggplot2)
+mp <- ggplot(x3, aes(x = y7, y = y8))
+mp + geom_point()
+mp + geom_point(aes(color = y2))
+mp + geom_line()
+mp + geom_line(aes(color = y2))
+mp + geom_smooth()
+mp + geom_smooth(method = "loess")
+mp + geom_smooth(method = "lm")
+mp <- ggplot(x3, aes(x = y2, y = y7))
+mp + geom_boxplot()
+mp + geom_boxplot() + geom_point()
+mp <- ggplot(x3, aes(x = y3))
+mp + geom_histogram(stat = "count")
+```
+
+Statistics
+under construction…
+
+```{r}
+library(dblogr)
+x <- dblogr_STATCAN_GDP_Total
+```

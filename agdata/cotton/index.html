@@ -1,0 +1,68 @@
+---
+title: "Cotton Production"
+subtitle: "Graphs of cotton production using FAO data"
+summary:  "Graphs of cotton production using FAO data"
+author: "Derek Michael Wright <wrightmderek@gmail.com> [www.dblogr.com/](https://dblogr.netlify.com/)"
+date: "2020-03-01"
+categories: [ "agData" ]
+tags: [ "agData", "Cotton" ]
+image:
+  preview_only: true
+links:
+  - icon_pack: fas
+    icon: chart-line
+    name: All Graphs
+    url: agdata_graphs/cotton/
+  - icon_pack: far
+    icon: file-code
+    name: HTML
+    url: https://derekmichaelwright.github.io/htmls/agdata/cotton.html
+  - icon_pack: far
+    icon: file-pdf
+    name: PDF (Save/Print)
+    url: agdata_pdfs/cotton.pdf
+---
+
+
+
+<hr />
+<pre class="r"><code># devtools::install_github(&quot;derekmichaelwright/agData&quot;)
+library(agData) # Loads: tidyverse, ggpubr, ggbeeswarm, ggrepel</code></pre>
+<div style="page-break-after: always;"></div>
+<div id="india-vs-pakistan" class="section level1">
+<h1>India vs Pakistan</h1>
+<pre class="r"><code># Prep Data
+xx &lt;- agData_FAO_Crops %&gt;% 
+  filter(Crop == &quot;Cottonseed&quot;, Area %in% c(&quot;India&quot;, &quot;Pakistan&quot;) )
+# Plot Data
+mp &lt;- ggplot(xx, aes(x = Year, y = Value / 1000000, color = Area)) + 
+  geom_line(size = 1.5) +
+  scale_color_manual(values = c(&quot;darkgreen&quot;, &quot;darkred&quot;)) +
+  scale_x_continuous(breaks = seq(1960, 2020, 5), minor_breaks = NULL) +
+  theme_agData(legend.position = &quot;bottom&quot;) +
+  labs(title = &quot;Cottonseed Production&quot;, y = &quot;Million Tonnes&quot;, x = NULL,
+       caption = &quot;\xa9 www.dblogr.com/ | Data: FAOSTAT&quot;)
+ggsave(&quot;cotton_01.png&quot;, mp, width = 6, height = 4)</code></pre>
+<p><img src="cotton_01.png" /></p>
+<div style="page-break-after: always;"></div>
+</div>
+<div id="burkina-faso" class="section level1">
+<h1>Burkina Faso</h1>
+<pre class="r"><code># Prep data
+x1 &lt;- data.frame(Area = &quot;Burkina Faso&quot;, Measurement = &quot;Production&quot;, 
+                 Year = c(2014,2015,2016,2017, 2018),
+                 Value = c(707000,581000,682940,613000,436000))
+xx &lt;- agData_FAO_Crops %&gt;% 
+  filter(Crop == &quot;Cottonseed&quot;, Measurement == &quot;Production&quot;,
+         Area == &quot;Burkina Faso&quot;) %&gt;% bind_rows(x1)
+# Plot
+mp &lt;- ggplot(xx, aes(x = Year, y = Value / 1000000)) + 
+  geom_point() + 
+  geom_line() +
+  scale_x_continuous(breaks = seq(1960, 2020, 5), minor_breaks = NULL) +
+  theme_agData() +
+  labs(title = &quot;Cotton production in Burkina Faso&quot;, y = &quot;Million Tonnes&quot;, x = NULL,
+       caption = &quot;\xa9 www.dblogr.com/ | Data: FAOSTAT&quot;)
+ggsave(&quot;cotton_02.png&quot;, mp, width = 6, height = 4)</code></pre>
+<p><img src="cotton_02.png" /></p>
+</div>

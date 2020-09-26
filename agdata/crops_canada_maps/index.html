@@ -1,0 +1,144 @@
+---
+title: "Canadian Crop Production Maps"
+subtitle: "Maps of crop production in Canada using STATCAN data"
+summary:  "Maps of crop production in Canada using STATCAN data"
+author: "Derek Michael Wright <wrightmderek@gmail.com> [www.dblogr.com/](https://dblogr.netlify.com/)"
+date: "2020-03-01"
+categories: [ "agData" ]
+tags: [ "agData", "Regions", "Featured" ]
+image:
+  preview_only: true
+links:
+  - icon_pack: fas
+    icon: chart-line
+    name: All Graphs
+    url: agdata_graphs/crops_canada_maps
+  - icon_pack: far
+    icon: file-code
+    name: HTML
+    url: https://derekmichaelwright.github.io/htmls/agdata/crops_canada_maps.html
+  - icon_pack: far
+    icon: file-pdf
+    name: Save/Print
+    url: agdata_pdfs/crops_canada_maps.pdf
+  - icon_pack: far
+    icon: file-pdf
+    name: Canada - Crops
+    url: Maps_Canada_Crops.pdf
+---
+
+
+
+<hr />
+<pre class="r"><code># devtools::install_github(&quot;derekmichaelwright/agData&quot;)
+library(agData) # Loads: tidyverse, ggpubr, ggbeeswarm, ggrepel
+library(mapcan)</code></pre>
+<div id="pdf" class="section level1">
+<h1>PDF</h1>
+<pre class="r"><code># Prep data
+xx &lt;- agData_STATCAN_Crops
+# Plot
+pdf(&quot;maps_canada_crops.pdf&quot;)
+for(i in unique(xx$Crop)) {
+  xi &lt;- xx %&gt;% filter(Crop == i, Year == 2016, Measurement == &quot;Production&quot;) 
+  xi &lt;- mapcan(boundaries = province, type = standard) %&gt;% 
+    left_join(xi, by = c(&quot;pr_english&quot;=&quot;Area&quot;))
+  print(ggplot(xi, aes(x = long, y = lat, group = group, fill = Value / 1000000)) +
+    geom_polygon() + coord_fixed() + theme_mapcan() +
+    scale_fill_continuous(name = &quot;Million Tonnes&quot;, low = &quot;lightgrey&quot;, high = &quot;darkgreen&quot;) +
+    theme(legend.position = &quot;right&quot;) + 
+    labs(title = paste(i, &quot;Production 2016&quot;),
+         caption = &quot;\xa9 www.dblogr.com/  |  Data: STATCAN&quot;)) 
+}
+dev.off()</code></pre>
+<p><a href="maps_canada_crops.pdf"><strong>pdf</strong>: Crop production Canada.</a></p>
+<div style="page-break-after: always;"></div>
+</div>
+<div id="plotting-function" class="section level1">
+<h1>Plotting Function</h1>
+<pre class="r"><code>cropMapCan &lt;- function(crop, measurement, year) {
+  xx &lt;- agData_STATCAN_Crops %&gt;% 
+    filter(Crop == crop, Year == year, Measurement == measurement) 
+  xx &lt;- mapcan(boundaries = province, type = standard) %&gt;% 
+    left_join(xx, by = c(&quot;pr_english&quot;=&quot;Area&quot;))
+  # Plot
+  ggplot(xx, aes(x = long, y = lat, group = group, fill = Value)) +
+    geom_polygon() + coord_fixed() + theme_mapcan() +
+    scale_fill_continuous(name = unique(xx$Unit[!is.na(xx$Unit)]),
+                          low = &quot;lightgrey&quot;, high = &quot;darkgreen&quot;) +
+    theme(legend.position = &quot;right&quot;) +
+    labs(title = paste(crop, measurement, year, sep = &quot; - &quot;),
+         caption = &quot;\xa9 www.dblogr.com/  |  Data: STATCAN&quot;)
+}</code></pre>
+<div id="wheat" class="section level2">
+<h2>Wheat</h2>
+<pre class="r"><code># Plot
+mp &lt;- cropMapCan(&quot;Wheat&quot;, &quot;Production&quot;, 2016)
+ggsave(&quot;maps_crops_canada_01.png&quot;, mp, width = 6, height = 4)</code></pre>
+<p><img src="maps_crops_canada_01.png" /></p>
+<div style="page-break-after: always;"></div>
+</div>
+<div id="canola" class="section level2">
+<h2>Canola</h2>
+<pre class="r"><code># Plot
+mp &lt;- cropMapCan(&quot;Canola&quot;, &quot;Production&quot;, 2016)
+ggsave(&quot;maps_crops_canada_02.png&quot;, mp, width = 6, height = 4)</code></pre>
+<p><img src="maps_crops_canada_02.png" /></p>
+<div style="page-break-after: always;"></div>
+</div>
+<div id="soybeans" class="section level2">
+<h2>Soybeans</h2>
+<pre class="r"><code># Plot
+mp &lt;- cropMapCan(&quot;Canola&quot;, &quot;Production&quot;, 2016)
+ggsave(&quot;maps_crops_canada_03.png&quot;, mp, width = 6, height = 4)</code></pre>
+<p><img src="maps_crops_canada_03.png" /></p>
+<div style="page-break-after: always;"></div>
+</div>
+<div id="barley" class="section level2">
+<h2>Barley</h2>
+<pre class="r"><code># Plot
+mp &lt;- cropMapCan(&quot;Canola&quot;, &quot;Production&quot;, 2016)
+ggsave(&quot;maps_crops_canada_04.png&quot;, mp, width = 6, height = 4)</code></pre>
+<p><img src="maps_crops_canada_04.png" /></p>
+<div style="page-break-after: always;"></div>
+</div>
+<div id="peas" class="section level2">
+<h2>Peas</h2>
+<pre class="r"><code># Plot
+mp &lt;- cropMapCan(&quot;Canola&quot;, &quot;Production&quot;, 2016)
+ggsave(&quot;maps_crops_canada_05.png&quot;, mp, width = 6, height = 4)</code></pre>
+<p><img src="maps_crops_canada_05.png" /></p>
+<div style="page-break-after: always;"></div>
+</div>
+<div id="oats" class="section level2">
+<h2>Oats</h2>
+<pre class="r"><code># Plot
+mp &lt;- cropMapCan(&quot;Canola&quot;, &quot;Production&quot;, 2016)
+ggsave(&quot;maps_crops_canada_06.png&quot;, mp, width = 6, height = 4)</code></pre>
+<p><img src="maps_crops_canada_06.png" /></p>
+<div style="page-break-after: always;"></div>
+</div>
+<div id="lentils" class="section level2">
+<h2>Lentils</h2>
+<pre class="r"><code># Plot
+mp &lt;- cropMapCan(&quot;Canola&quot;, &quot;Production&quot;, 2016)
+ggsave(&quot;maps_crops_canada_07.png&quot;, mp, width = 6, height = 4)</code></pre>
+<p><img src="maps_crops_canada_07.png" /></p>
+<div style="page-break-after: always;"></div>
+</div>
+<div id="beans" class="section level2">
+<h2>Beans</h2>
+<pre class="r"><code># Plot
+mp &lt;- cropMapCan(&quot;Beans&quot;, &quot;Production&quot;, 2016)
+ggsave(&quot;maps_crops_canada_08.png&quot;, mp, width = 6, height = 4)</code></pre>
+<p><img src="maps_crops_canada_08.png" /></p>
+<div style="page-break-after: always;"></div>
+</div>
+<div id="chickpeas" class="section level2">
+<h2>Chickpeas</h2>
+<pre class="r"><code># Plot
+mp &lt;- cropMapCan(&quot;Chick peas&quot;, &quot;Production&quot;, 2016)
+ggsave(&quot;maps_crops_canada_09.png&quot;, mp, width = 6, height = 4)</code></pre>
+<p><img src="maps_crops_canada_09.png" /></p>
+</div>
+</div>

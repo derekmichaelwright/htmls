@@ -5,6 +5,8 @@ myhtml1 <- readthedown(gallery = T, lightbox= T, self_contained = T, code_foldin
                        css = "../../../assets/images/custom_dblogr.css") #""
 myhtml2 <- readthedown(gallery = T, lightbox= T, self_contained = T, code_folding = "show",
                        css = "../../../assets/images/custom_agile.css")
+myhtml3 <- readthedown(gallery = T, lightbox= T, self_contained = T, code_folding = "show",
+                       css = "../../css/custom_dblogr.css")
 mypdf1 <- pdf_document(toc = T, fig_caption = F)
 mypdf2 <- pdf_document(toc = F, fig_caption = F)
 #
@@ -241,9 +243,9 @@ render(input = "index.Rmd", output_format = myhtml1,
 render(input = "index.Rmd", output_format = mypdf1,
        output_file = "../../dblogr_pdfs/economics_of_canada.pdf")
 #
-setwd("C:/gitfolder/myblog/content/dblogr_posts/misleading_graphs")
-render(input = "index.Rmd", output_format = myhtml1,
-       output_file = "../../../../htmls/dblogr/misleading_graphs.html")
+setwd("C:/gitfolder/htmls/dblogr/misleading_graphs")
+render(input = "misleading_graphs.Rmd", output_format = myhtml3,
+       output_file = "../misleading_graphs.html")
 render(input = "index.Rmd", output_format = mypdf1,
        output_file = "../../dblogr_pdfs/misleading_graphs.pdf")
 #
