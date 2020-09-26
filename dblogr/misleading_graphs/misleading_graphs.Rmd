@@ -1,6 +1,7 @@
 ---
 title: "Misleading Graphs"
 subtitle: "A guide illustrating how to mislead with graphs"
+date: "2020-09-01"
 author: "Derek Michael Wright <wrightmderek@gmail.com> [www.dblogr.com/](https://dblogr.netlify.com/) [Image Gallery](https://dblogr.netlify.app/graphs_dblogr/misleading_graphs/)"
 ---
 

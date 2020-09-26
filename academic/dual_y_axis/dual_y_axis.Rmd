@@ -30,7 +30,7 @@ library(agData) # Loads: tidyverse, ggpubr, ggbeeswarm, ggrepel
 ```{r}
 xx <- read.csv("mydata.csv") %>% 
   mutate(Date = as.Date(Date))
-knitr::kable(xx[1:6,])
+DT::datatable(xx)
 ```
 
 # Single y-axis

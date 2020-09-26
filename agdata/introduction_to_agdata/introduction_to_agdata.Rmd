@@ -27,7 +27,7 @@ devtools::install_github("derekmichaelwright/agData")
 ```
 
 ```{r warning = F, message = F}
-library(agData)
+library(agData) # Loads: tidyverse, ggpubr, ggbeeswarm, ggrepel
 ```
 
 This will also the load the following packages: `tidyverse`, `ggarrange`, `ggpubr` & `ggrepel`.
@@ -58,7 +58,7 @@ This will also the load the following packages: `tidyverse`, `ggarrange`, `ggpub
 # theme_agData
 
 ```{r}
-xx <- data.frame(x = 1:10, y = 1:10, color = rep(c("1","2"), times = 2, each = 5))
+xx <- data.frame(x = 1:10, y = 1:10, color = rep(c("1","2"), times = 5, each = 2))
 mp <- ggplot(xx, aes(x = x, y = y, color = color)) + 
   geom_point(size = 4) + facet_grid(.~color)
 mp
