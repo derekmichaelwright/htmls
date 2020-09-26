@@ -63,7 +63,7 @@ xx <- data.frame(Answer   = c("NO", "YES"),
 # Plot
 mp1 <- ggplot(xx, aes(x = "")) + 
   geom_bar(aes(y = Percent, fill = Answer), stat = "identity", color = "black") +
-  scale_fill_manual(values = agData_Colors) +
+  scale_fill_manual(values = c("darkred","darkgreen")) +
   theme_agData(legend.position = "none") +
   labs(subtitle = "B) Correct", x = NULL)
 mp2 <- mp1 + 
@@ -174,11 +174,15 @@ yy <- xx %>% filter(Year > 1994, Year < 2010)
 # Plot
 mp1 <- ggplot(yy, aes(x = Year, y = Value, color = CherryPicked)) +
   geom_smooth(method = "lm", se = F, color = "black") +
-  geom_line(size = 1.25) + geom_point(size = 3) + 
+  geom_line(size = 1.25) + 
+  geom_point(size = 3) +
+  scale_color_manual(values = agData_Colors) +
   theme_agData(legend.position = "none") +
   labs(subtitle = "A) Cherry picked", y = "tonnes / hectare", x = NULL)
 mp2 <- ggplot(xx, aes(x = Year, y = Value, color = CherryPicked)) + 
-  geom_line(aes(group = 1)) + geom_point() +
+  geom_line(aes(group = 1)) + 
+  geom_point() +
+  scale_color_manual(values = agData_Colors) +
   theme_agData(legend.position = "none") +
   labs(subtitle = "B) Full data set", y = "tonnes / hectare", x = NULL,
        caption = "\xa9 www.dblogr.com/")
