@@ -1,27 +1,8 @@
 ---
 title: "Introduction to agData"
 subtitle: "An R package with FAO, USDA, STATCAN and ISAAA data"
-summary:  "An R package with FAO, USDA, STATCAN and ISAAA data"
-author: "Derek Michael Wright <wrightmderek@gmail.com> [www.dblogr.com/](https://dblogr.netlify.com/)"
-date: "2020-03-01"
-weight: 1
-categories: [ "agData" ]
-tags: [ "agData", "Introduction", "Featured" ]
-image:
-  preview_only: yes
-links:
-  - icon_pack: fas
-    icon: chart-line
-    name: All Graphs
-    url: agdata_graphs/introduction_to_agdata
-  - icon: file-code
-    icon_pack: far
-    name: HTML
-    url: https://derekmichaelwright.github.io/htmls/agdata/introduction_to_agdata.html
-  - icon_pack: far
-    icon: file-pdf
-    name: PDF (Save/Print)
-    url: agdata_pdfs/introduction_to_agdata.pdf
+date: "2020-09-01"
+author: "Derek Michael Wright <wrightmderek@gmail.com> [www.dblogr.com/](https://dblogr.netlify.com/) [Image Gallery](https://dblogr.netlify.app/graphs_agdata/introduction_to_agdata/)"
 ---
 
 ```{r setup, include = FALSE}
@@ -118,7 +99,7 @@ ggsave("introduction_to_agdata_01.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/introduction_to_agdata/gallery/gallery/introduction_to_agdata_01.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/introduction_to_agdata/gallery/gallery/introduction_to_agdata_01.png", mp, width = 6, height = 4)
 ```
 
 ![](introduction_to_agdata_01.png)
@@ -152,7 +133,7 @@ ggsave("introduction_to_agdata_02.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/introduction_to_agdata/gallery/gallery/introduction_to_agdata_02.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/introduction_to_agdata/gallery/gallery/introduction_to_agdata_02.png", mp, width = 6, height = 4)
 ```
 
 ![](introduction_to_agdata_02.png)
@@ -186,7 +167,7 @@ ggsave("introduction_to_agdata_03.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/introduction_to_agdata/gallery/gallery/introduction_to_agdata_03.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/introduction_to_agdata/gallery/gallery/introduction_to_agdata_03.png", mp, width = 6, height = 4)
 ```
 
 ![](introduction_to_agdata_03.png)
@@ -218,7 +199,7 @@ ggsave("introduction_to_agdata_04.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/introduction_to_agdata/gallery/gallery/introduction_to_agdata_04.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/introduction_to_agdata/gallery/gallery/introduction_to_agdata_04.png", mp, width = 6, height = 4)
 ```
 
 ![](introduction_to_agdata_04.png)
@@ -252,7 +233,7 @@ ggsave("introduction_to_agdata_05.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/introduction_to_agdata/gallery/gallery/introduction_to_agdata_05.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/introduction_to_agdata/gallery/gallery/introduction_to_agdata_05.png", mp, width = 6, height = 4)
 ```
 
 ![](introduction_to_agdata_05.png)
@@ -281,7 +262,7 @@ ggsave("introduction_to_agdata_06.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/introduction_to_agdata/gallery/gallery/introduction_to_agdata_06.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/introduction_to_agdata/gallery/gallery/introduction_to_agdata_06.png", mp, width = 6, height = 4)
 ```
 
 ![](introduction_to_agdata_06.png)
@@ -314,7 +295,7 @@ ggsave("introduction_to_agdata_07.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/introduction_to_agdata/gallery/gallery/introduction_to_agdata_07.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/introduction_to_agdata/gallery/gallery/introduction_to_agdata_07.png", mp, width = 6, height = 4)
 ```
 
 ![](introduction_to_agdata_07.png)
@@ -346,7 +327,7 @@ ggsave("introduction_to_agdata_08.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/introduction_to_agdata/gallery/gallery/introduction_to_agdata_08.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/introduction_to_agdata/gallery/gallery/introduction_to_agdata_08.png", mp, width = 6, height = 4)
 ```
 
 ![](introduction_to_agdata_08.png)
@@ -380,7 +361,7 @@ ggsave("introduction_to_agdata_09.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/introduction_to_agdata/gallery/gallery/introduction_to_agdata_09.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/introduction_to_agdata/gallery/gallery/introduction_to_agdata_09.png", mp, width = 6, height = 4)
 ```
 
 ![](introduction_to_agdata_09.png)
@@ -414,7 +395,7 @@ ggsave("introduction_to_agdata_10.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/introduction_to_agdata/gallery/gallery/introduction_to_agdata_10.png", mp,width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/introduction_to_agdata/gallery/gallery/introduction_to_agdata_10.png", mp,width = 6, height = 4)
 ```
 
 ![](introduction_to_agdata_10.png)
@@ -450,7 +431,7 @@ ggsave("introduction_to_agdata_11.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/introduction_to_agdata/gallery/gallery/introduction_to_agdata_11.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/introduction_to_agdata/gallery/gallery/introduction_to_agdata_11.png", mp, width = 6, height = 4)
 ```
 
 ![](introduction_to_agdata_11.png)
@@ -501,7 +482,7 @@ ggsave("introduction_to_agdata_13.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/introduction_to_agdata/gallery/gallery/introduction_to_agdata_13.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/introduction_to_agdata/gallery/gallery/introduction_to_agdata_13.png", mp, width = 6, height = 4)
 ```
 
 ![](introduction_to_agdata_13.png)
@@ -533,7 +514,7 @@ ggsave("introduction_to_agdata_14.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/introduction_to_agdata/gallery/gallery/introduction_to_agdata_14.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/introduction_to_agdata/gallery/gallery/introduction_to_agdata_14.png", mp, width = 6, height = 4)
 ```
 
 ![](introduction_to_agdata_14.png)
@@ -566,7 +547,7 @@ ggsave("introduction_to_agdata_15.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/introduction_to_agdata/gallery/gallery/introduction_to_agdata_15.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/introduction_to_agdata/gallery/gallery/introduction_to_agdata_15.png", mp, width = 6, height = 4)
 ```
 
 ![](introduction_to_agdata_15.png)
@@ -599,7 +580,7 @@ ggsave("introduction_to_agdata_16.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/introduction_to_agdata/gallery/gallery/introduction_to_agdata_16.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/introduction_to_agdata/gallery/gallery/introduction_to_agdata_16.png", mp, width = 6, height = 4)
 ```
 
 ![](introduction_to_agdata_16.png)
@@ -627,7 +608,7 @@ ggsave("introduction_to_agdata_17.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/introduction_to_agdata/gallery/gallery/introduction_to_agdata_17.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/introduction_to_agdata/gallery/gallery/introduction_to_agdata_17.png", mp, width = 6, height = 4)
 ```
 
 ![](introduction_to_agdata_17.png)
@@ -653,7 +634,7 @@ ggsave("introduction_to_agdata_18.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/introduction_to_agdata/gallery/gallery/introduction_to_agdata_18.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/introduction_to_agdata/gallery/gallery/introduction_to_agdata_18.png", mp, width = 6, height = 4)
 ```
 
 ![](introduction_to_agdata_18.png)

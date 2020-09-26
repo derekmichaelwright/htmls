@@ -1,30 +1,8 @@
 ---
 title: "Lentil Production"
 subtitle: "Graphs of lentil production using FAO data"
-summary:  "Graphs of lentil production using FAO data"
-author: "Derek Michael Wright <wrightmderek@gmail.com> [www.dblogr.com/](https://dblogr.netlify.com/)"
-date: "2020-03-01"
-categories: [ "agData" ]
-tags: [ "agData", "Lentil" ]
-image:
-  preview_only: true
-links: 
-  - icon_pack: fas
-    icon: chart-line
-    name: All Graphs
-    url: agdata_graphs/lentil
-  - icon_pack: far
-    icon: file-code
-    name: HTML
-    url: https://derekmichaelwright.github.io/htmls/agdata/lentil.html
-  - icon_pack: far
-    icon: file-pdf
-    name: PDF (Save/Print)
-    url: agdata_pdfs/lentil.pdf
-  - icon_pack: far
-    icon: file-pdf
-    name: Lentil FAO
-    url: lentil.pdf
+date: "2020-09-01"
+author: "Derek Michael Wright <wrightmderek@gmail.com> [www.dblogr.com/](https://dblogr.netlify.com/)  [Image Gallery](https://dblogr.netlify.app/graphs_agdata/lentil/)"
 ---
 
 ```{r setup, include = FALSE}
@@ -387,4 +365,4 @@ dev.off()
 
 ![](lentil_fao_pdf.png)
 
-[**PDF**: Lentil production by country.](lentil_fao.pdf)
+[**PDF**: Lentil production by country.](https://github.com/derekmichaelwright/htmls/raw/master/agdata/lentil/lentil_fao.pdf)

@@ -1,27 +1,9 @@
 ---
 title: "Explaining Correlation Coefficients"
 subtitle: "A quick explanation of how to properly use correlation coefficients when evaluating models"
-summary:  "A quick explanation of how to properly use correlation coefficients when evaluating models"
-author: "Derek Michael Wright <derek.wright@usask.ca> [www.dblogr.com/](https://dblogr.netlify.com/)"
-date: "2020-01-02"
-categories: [ "Academic" ]
-tags: [ "Academic", "AGILE", "Tutorials", "Featured" ]
+date: "2020-09-01"
+author: "Derek Michael Wright <derek.wright@usask.ca> [www.dblogr.com/](https://dblogr.netlify.com/)  [Image Gallery](https://dblogr.netlify.app/graphs_academic/correlation_coefficients/)"
 math: true
-image:
-  preview_only: yes
-links:
-  - icon_pack: fas
-    icon: chart-line
-    name: All Graphs
-    url: academic_graphs/correlation_coefficients
-  - icon: file-code
-    icon_pack: far
-    name: HTML
-    url: https://derekmichaelwright.github.io/htmls/academic/correlation_coefficients.html
-  - icon: file-pdf
-    icon_pack: far
-    name: PDF (Save/Print)
-    url: academic_pdfs/correlation_coefficients.pdf
 ---
 
 ```{r setup, include=FALSE}
@@ -31,17 +13,15 @@ knitr::opts_chunk$set(echo = TRUE, message = F, warning = F)
 
 ---
 
-```{r}
-# devtools::install_github("derekmichaelwright/dblogr")
-library(dblogr) # Loads: tidyverse, ggpubr, ggbeeswarm, ggrepel
-library(ggpmisc) # stat_poly_eq()
-```
-
 # Introduction
 
 The correlation coefficient (*R^2^*), which indicates the proportion of variation explained by an independant variable or model, can be calculated in more than one way. The goal of this vignette is to help clear up this confusion, with a few different examples.
 
-\pagebreak
+```{r}
+# devtools::install_github("derekmichaelwright/agData")
+library(agData) # Loads: tidyverse, ggpubr, ggbeeswarm, ggrepel
+library(ggpmisc) # stat_poly_eq()
+```
 
 # Load Dataset 1 
 
@@ -109,7 +89,7 @@ ggsave("corr_coef_01.png", mp, width = 10, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../academic_graphs/correlation_coefficients/gallery/gallery/corr_coef_01.png", mp, width = 10, height = 4)
+ggsave("../../../myblog/content/graphs_academic/correlation_coefficients/gallery/gallery/corr_coef_01.png", mp, width = 10, height = 4)
 ```
 
 ![](corr_coef_01.png)
@@ -119,8 +99,6 @@ ggsave("../../academic_graphs/correlation_coefficients/gallery/gallery/corr_coef
 - 88.3% of variation in `DTS` is explained by `DTF`.
 - 92.7% of variation in `DTM` is explained by `DTS`.
 - 88.7% of variation in `DTM` is explained by `DTF`.
-
-\pagebreak
 
 # Calculating *R^2^*
 
@@ -246,13 +224,11 @@ ggsave("corr_coef_02.png", mp, width = 8, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../academic_graphs/correlation_coefficients/gallery/gallery/corr_coef_02.png", mp, width = 8, height = 4)
-ggsave("featured.png", mp, width = 8, height = 4)
+ggsave("../../../myblog/content/graphs_academic/correlation_coefficients/gallery/gallery/corr_coef_02.png", mp, width = 8, height = 4)
+ggsave("../../../myblog/content/posts_academic/correlation_coefficients/featured.png", mp, width = 8, height = 4)
 ```
 
 ![](corr_coef_02.png)
-
-\pagebreak
 
 In this case:
 
@@ -306,7 +282,7 @@ ggsave("corr_coef_03.png", mp, width = 8, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../academic_graphs/correlation_coefficients/gallery/gallery/corr_coef_03.png", mp, width = 8, height = 4)
+ggsave("../../../myblog/content/graphs_academic/correlation_coefficients/gallery/gallery/corr_coef_03.png", mp, width = 8, height = 4)
 ```
 
 ![](corr_coef_03.png)
@@ -346,14 +322,12 @@ ggsave("corr_coef_04.png", mp, width = 8, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../academic_graphs/correlation_coefficients/gallery/gallery/corr_coef_04.png", mp, width = 8, height = 4)
+ggsave("../../../myblog/content/graphs_academic/correlation_coefficients/gallery/gallery/corr_coef_04.png", mp, width = 8, height = 4)
 ```
 
 ![](corr_coef_04.png)
 
 However, the more common mistake happens when the *Pearson's* formula is used for evaluating the accuracy of a model used to predict values.
-
-\pagebreak
 
 # Load Dataset 2 
 
@@ -393,7 +367,7 @@ ggsave("corr_coef_05.png", mp, width = 8, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../academic_graphs/correlation_coefficients/gallery/gallery/corr_coef_05.png", mp, width = 8, height = 4)
+ggsave("../../../myblog/content/graphs_academic/correlation_coefficients/gallery/gallery/corr_coef_05.png", mp, width = 8, height = 4)
 ```
 
 ![](corr_coef_05.png)
@@ -440,7 +414,7 @@ ggsave("corr_coef_06.png", mp, width = 8, height = 10)
 ```
 
 ```{r echo = F}
-ggsave("../../academic_graphs/correlation_coefficients/gallery/gallery/corr_coef_06.png", mp, width = 8, height = 10)
+ggsave("../../../myblog/content/graphs_academic/correlation_coefficients/gallery/gallery/corr_coef_06.png", mp, width = 8, height = 10)
 ```
 
 ![](corr_coef_06.png)
@@ -519,12 +493,10 @@ ggsave("corr_coef_07.png", mp, width = 8, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../academic_graphs/correlation_coefficients/gallery/gallery/corr_coef_07.png", mp, width = 8, height = 4)
+ggsave("../../../myblog/content/graphs_academic/correlation_coefficients/gallery/gallery/corr_coef_07.png", mp, width = 8, height = 4)
 ```
 
 ![](corr_coef_07.png)
-
-\pagebreak
 
 # Effect of Range
 
@@ -548,12 +520,10 @@ ggsave("corr_coef_08.png", mp, width = 6, height = 4)
 ```
 
 ```{r}
-ggsave("../../academic_graphs/correlation_coefficients/gallery/gallery/corr_coef_08.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_academic/correlation_coefficients/gallery/gallery/corr_coef_08.png", mp, width = 6, height = 4)
 ```
 
 ![](corr_coef_08.png)
-
-\pagebreak
 
 # RMSE
 
@@ -614,7 +584,7 @@ ggsave("corr_coef_09.png", mp, width = 10, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../academic_graphs/correlation_coefficients/gallery/gallery/corr_coef_09.png", mp, width = 10, height = 4)
+ggsave("../../../myblog/content/graphs_academic/correlation_coefficients/gallery/gallery/corr_coef_09.png", mp, width = 10, height = 4)
 ```
 
 ![](corr_coef_09.png)
@@ -626,12 +596,10 @@ ggsave("corr_coef_10.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../academic_graphs/correlation_coefficients/gallery/gallery/corr_coef_10.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_academic/correlation_coefficients/gallery/gallery/corr_coef_10.png", mp, width = 6, height = 4)
 ```
 
 ![](corr_coef_10.png)
-
-\pagebreak
 
 # Model Evaluation
 
@@ -690,7 +658,7 @@ ggsave("corr_coef_11.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../academic_graphs/correlation_coefficients/gallery/gallery/corr_coef_11.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_academic/correlation_coefficients/gallery/gallery/corr_coef_11.png", mp, width = 6, height = 4)
 ```
 
 ![](corr_coef_11.png)
@@ -728,7 +696,7 @@ ggsave("corr_coef_12.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../academic_graphs/correlation_coefficients/gallery/gallery/corr_coef_12.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_academic/correlation_coefficients/gallery/gallery/corr_coef_12.png", mp, width = 6, height = 4)
 ```
 
 ![](corr_coef_12.png)
@@ -772,7 +740,7 @@ ggsave("corr_coef_13.png", mp, width = 8, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../academic_graphs/correlation_coefficients/gallery/gallery/corr_coef_13.png", mp, width = 8, height = 4)
+ggsave("../../../myblog/content/graphs_academic/correlation_coefficients/gallery/gallery/corr_coef_13.png", mp, width = 8, height = 4)
 ```
 
 ![](corr_coef_13.png)
@@ -808,7 +776,7 @@ dev.off()
 
 ```{r echo = F}
 file.copy(from = "corr_coef_14.png", overwrite = T,
-          to = "../../academic_graphs/correlation_coefficients/gallery/gallery/")
+          to = "../../../myblog/content/graphs_academic/correlation_coefficients/gallery/gallery/")
 ```
 
 ![](corr_coef_14.png)
