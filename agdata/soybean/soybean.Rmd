@@ -1,26 +1,9 @@
 ---
 title: "Soybean Production"
 subtitle: "Graphs of soybean production using FAO data"
-summary:  "Graphs of soybean production using FAO data"
-author: "Derek Michael Wright <wrightmderek@gmail.com> [www.dblogr.com/](https://dblogr.netlify.com/)"
-date: "2020-03-01"
-categories: [ "agData" ]
-tags: [ "agData", "Soybean" ]
-image:
-  preview_only: true
-links:
-  - icon_pack: fas
-    icon: chart-line
-    name: All Graphs
-    url: agdata_graphs/soybean/
-  - icon_pack: far
-    icon: file-code
-    name: HTML
-    url: https://derekmichaelwright.github.io/htmls/agdata/soybean.html
-  - icon_pack: far
-    icon: file-pdf
-    name: PDF (Save/Print)
-    url: agdata_pdfs/soybean.pdf
+date: "2020-09-01"
+author: "Derek Michael Wright <wrightmderek@gmail.com> [www.dblogr.com/](https://dblogr.netlify.com/) [-Image Gallery-](https://dblogr.netlify.app/graphs_agdata/soybean/)"
+
 ---
 
 ```{r setup, include = FALSE}
@@ -33,8 +16,6 @@ knitr::opts_chunk$set(echo = TRUE, warning = F, message = F)
 # devtools::install_github("derekmichaelwright/agData")
 library(agData) # Loads: tidyverse, ggpubr, ggbeeswarm, ggrepel
 ```
-
-\pagebreak
 
 # Production
 
@@ -54,13 +35,11 @@ ggsave("soybean_01.png", mp, width = 8, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/soybean/gallery/gallery/soybean_01.png", mp, width = 8, height = 4)
-ggsave("featured.png", mp, width = 8, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/soybean/gallery/gallery/soybean_01.png", mp, width = 8, height = 4)
+ggsave("../../../myblog/content/posts_agdata/soybean/featured.png", mp, width = 8, height = 4)
 ```
 
 ![](soybean_01.png)
-
-\pagebreak
 
 ```{r}
 # Prep Data
@@ -78,12 +57,10 @@ ggsave("soybean_02.png", mp, width = 8, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/soybean/gallery/gallery/soybean_02.png", mp, width = 8, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/soybean/gallery/gallery/soybean_02.png", mp, width = 8, height = 4)
 ```
 
 ![](soybean_02.png)
-
-\pagebreak
 
 ```{r}
 # Prep Data
@@ -101,12 +78,10 @@ ggsave("soybean_03.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/soybean/gallery/gallery/soybean_03.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/soybean/gallery/gallery/soybean_03.png", mp, width = 6, height = 4)
 ```
 
 ![](soybean_03.png)
-
-\pagebreak
 
 ```{r}
 # Plot Data
@@ -120,12 +95,10 @@ ggsave("soybean_04.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/soybean/gallery/gallery/soybean_04.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/soybean/gallery/gallery/soybean_04.png", mp, width = 6, height = 4)
 ```
 
 ![](soybean_04.png)
-
-\pagebreak
 
 # Import and Export
 
@@ -147,12 +120,10 @@ ggsave("soybean_05.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/soybean/gallery/gallery/soybean_05.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/soybean/gallery/gallery/soybean_05.png", mp, width = 6, height = 4)
 ```
 
 ![](soybean_05.png)
-
-\pagebreak
 
 ```{r}
 xx <- agData_FAO_Trade %>%
@@ -173,7 +144,7 @@ ggsave("soybean_06.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/soybean/gallery/gallery/soybean_06.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/soybean/gallery/gallery/soybean_06.png", mp, width = 6, height = 4)
 ```
 
 ![](soybean_06.png)

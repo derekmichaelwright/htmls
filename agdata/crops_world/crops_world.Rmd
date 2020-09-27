@@ -2,7 +2,7 @@
 title: "World Crop Production"
 subtitle: "Graphs of of world crop production using FAO data"
 summary:  "Graphs of of world crop production using FAO data"
-author: "Derek Michael Wright <wrightmderek@gmail.com> [www.dblogr.com/](https://dblogr.netlify.com/)"
+author: "Derek Michael Wright <wrightmderek@gmail.com> [www.dblogr.com/](https://dblogr.netlify.com/) [-Image Gallery-](https://dblogr.netlify.app/graphs_agdata/crops_world/)"
 date: "2020-03-01"
 categories: [ "agData" ]
 tags: [ "agData", "Regions" ]
@@ -82,9 +82,9 @@ ggsave("crops_world_01.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/crops_world/gallery/gallery/crops_world_01.png", mp, width = 6, height = 4)
-ggsave("../../home/gallery/gallery/01_crops_world_01.png", mp, width = 6, height = 4)
-ggsave("featured.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/crops_world/gallery/gallery/crops_world_01.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/home/gallery/gallery/01_crops_world_01.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/posts_agdata/crops_world/featured.png", mp, width = 6, height = 4)
 ```
 
 ![](crops_world_01.png)
@@ -113,7 +113,7 @@ ggsave("crops_world_02.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/crops_world/gallery/gallery/crops_world_02.png", width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/crops_world/gallery/gallery/crops_world_02.png", width = 6, height = 4)
 ```
 
 ![](crops_world_02.png)
@@ -143,7 +143,7 @@ ggsave("crops_world_03.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/crops_world/gallery/gallery/crops_world_03.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/crops_world/gallery/gallery/crops_world_03.png", mp, width = 6, height = 4)
 ```
 
 ![](crops_world_03.png)
@@ -172,7 +172,7 @@ ggsave("crops_world_04.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/crops_world/gallery/gallery/crops_world_04.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/crops_world/gallery/gallery/crops_world_04.png", mp, width = 6, height = 4)
 ```
 
 ![](crops_world_04.png)

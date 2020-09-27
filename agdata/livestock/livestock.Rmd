@@ -1,9 +1,9 @@
 ---
 title: "World Livestock Production"
 subtitle: "Graphs of livestock production using FAO data"
-summary:  "Graphs of livestock production using FAO data"
-author: "Derek Michael Wright <wrightmderek@gmail.com> [www.dblogr.com/](https://dblogr.netlify.com/)"
-date: "2020-03-01"
+date: "2020-09-01"
+author: "Derek Michael Wright <wrightmderek@gmail.com> [www.dblogr.com/](https://dblogr.netlify.com/) [-Image Gallery-](https://dblogr.netlify.app/graphs_agdata/livestock/)"
+
 categories: [ "agData" ]
 tags: [ "agData", "Livestock" ]
 image:
@@ -55,8 +55,8 @@ ggsave("livestock_01.png", mp, width = 6, height = 5)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/livestock/gallery/gallery/livestock_01.png", mp, width = 6, height = 5)
-ggsave("featured.png", mp, width = 6, height = 5)
+ggsave("../../../myblog/content/graphs_agdata/livestock/gallery/gallery/livestock_01.png", mp, width = 6, height = 5)
+ggsave("../../../myblog/content/posts_agdata/livestock/featured.png", mp, width = 6, height = 5)
 ```
 
 ![](livestock_01.png)
@@ -81,7 +81,7 @@ ggsave("livestock_02.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/livestock/gallery/gallery/livestock_02.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/livestock/gallery/gallery/livestock_02.png", mp, width = 6, height = 4)
 ```
 
 ![](livestock_02.png)

@@ -2,7 +2,7 @@
 title: "Lentil Production"
 subtitle: "Graphs of lentil production using FAO data"
 date: "2020-09-01"
-author: "Derek Michael Wright <wrightmderek@gmail.com> [www.dblogr.com/](https://dblogr.netlify.com/)  [Image Gallery](https://dblogr.netlify.app/graphs_agdata/lentil/)"
+author: "Derek Michael Wright <wrightmderek@gmail.com> [www.dblogr.com/](https://dblogr.netlify.com/) [-Image Gallery-](https://dblogr.netlify.app/graphs_agdata/lentil/)"
 ---
 
 ```{r setup, include = FALSE}

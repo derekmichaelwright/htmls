@@ -58,8 +58,8 @@ ggsave("hemp_01.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/hemp/gallery/gallery/hemp_01.png", mp, width = 6, height = 4)
-ggsave("featured.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/hemp/gallery/gallery/hemp_01.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/posts_agdata/hemp/featured.png", mp, width = 6, height = 4)
 ```
 
 ![](hemp_01.png)
@@ -83,7 +83,7 @@ ggsave("hemp_02.png", mp, width = 8, height = 8)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/hemp/gallery/gallery/hemp_02.png", mp, width = 8, height = 8)
+ggsave("../../../myblog/content/graphs_agdata/hemp/gallery/gallery/hemp_02.png", mp, width = 8, height = 8)
 ```
 
 ![](hemp_02.png)

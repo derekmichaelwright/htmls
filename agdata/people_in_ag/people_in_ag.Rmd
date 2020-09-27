@@ -1,9 +1,9 @@
 ---
 title: "People in Ag"
 subtitle: "Graphs for people in Ag"
-summary: "Graphs for people in Ag"
-author: "Derek Michael Wright <wrightmderek@gmail.com> [www.dblogr.com/](https://dblogr.netlify.com/)"
-date: "2020-03-01"
+date: "2020-09-01"
+author: "Derek Michael Wright <wrightmderek@gmail.com> [www.dblogr.com/](https://dblogr.netlify.com/) [-Image Gallery-](https://dblogr.netlify.app/graphs_agdata/people_in_ag/)"
+
 categories: [ "agData" ]
 tags: [ "agData", "Regions" ]
 image:
@@ -32,8 +32,6 @@ knitr::opts_chunk$set(echo = T, message = F, warning = F)
 library(agData) # Loads: tidyverse, ggpubr, ggbeeswarm, ggrepel
 ```
 
-\pagebreak
-
 ```{r}
 # Prep data
 xx <- agData_People %>% 
@@ -50,12 +48,10 @@ ggsave("People_in_Ag_01.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/people_in_ag/gallery/gallery/People_in_Ag_01.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/people_in_ag/gallery/gallery/People_in_Ag_01.png", mp, width = 6, height = 4)
 ```
 
 ![](People_in_Ag_01.png)
-
-\pagebreak
 
 ```{r}
 # Prep data
@@ -76,12 +72,10 @@ ggsave("People_in_Ag_02.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/people_in_ag/gallery/gallery/People_in_Ag_02.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/people_in_ag/gallery/gallery/People_in_Ag_02.png", mp, width = 6, height = 4)
 ```
 
 ![](People_in_Ag_02.png)
-
-\pagebreak
 
 ```{r}
 # Prep data
@@ -101,12 +95,10 @@ ggsave("People_in_Ag_03.png", mp, width = 12, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/people_in_ag/gallery/gallery/People_in_Ag_03.png", mp, width = 12, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/people_in_ag/gallery/gallery/People_in_Ag_03.png", mp, width = 12, height = 4)
 ```
 
 ![](People_in_Ag_03.png)
-
-\pagebreak
 
 ```{r}
 # Prep data
@@ -137,7 +129,8 @@ ggsave("People_in_Ag_04.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/people_in_ag/gallery/gallery/People_in_Ag_04.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/people_in_ag/gallery/gallery/People_in_Ag_04.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/posts_agdata/people_in_ag/featured.png", mp, width = 6, height = 4)
 ```
 
 ![](People_in_Ag_04.png)

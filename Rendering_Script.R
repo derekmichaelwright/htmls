@@ -63,6 +63,10 @@ render(input = "crops_canada.Rmd", output_format = myhtml1,
 #render(input = "index.Rmd", output_format = mypdf1,
 #       output_file = "../../agdata_pdfs/crops_canada.pdf")
 #
+setwd("C:/gitfolder/htmls/agdata/crops_canada_maps")
+render(input = "crops_canada_maps.Rmd", output_format = myhtml1,
+       output_file = "../crops_canada_maps.html")
+#
 setwd("C:/gitfolder/htmls/agdata/crops_saskatchewan")
 render(input = "crops_saskatchewan.Rmd", output_format = myhtml1,
        output_file = "../crops_saskatchewan.html")

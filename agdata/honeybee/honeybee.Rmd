@@ -47,8 +47,6 @@ xx <- agData_FAO_Livestock %>%
   mutate(Area = factor(Area, levels = areas))
 ```
 
-\pagebreak
-
 ```{r}
 # Plot
 mp <- ggplot(xx, aes(x = Year, y = Value / 1000000)) + 
@@ -64,13 +62,11 @@ ggsave("honeybee_01.png", mp, width = 6, height = 6)
 ```
 
 ```{r echo = F}
-ggsave("featured.png", mp, width = 6, height = 6)
-ggsave("../../agdata_graphs/honeybee/gallery/gallery/honeybee_01.png", mp, width = 6, height = 6)
+ggsave("../../../myblog/content/posts_agdata/honeybee/featured.png", mp, width = 6, height = 6)
+ggsave("../../../myblog/content/graphs_agdata/honeybee/gallery/gallery/honeybee_01.png", mp, width = 6, height = 6)
 ```
 
 ![](honeybee_01.png)
-
-\pagebreak
 
 ```{r}
 # Plot
@@ -88,12 +84,10 @@ ggsave("honeybee_02.png", mp, width = 6, height = 6)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/honeybee/gallery/gallery/honeybee_02.png", mp, width = 6, height = 6)
+ggsave("../../../myblog/content/graphs_agdata/honeybee/gallery/gallery/honeybee_02.png", mp, width = 6, height = 6)
 ```
 
 ![](honeybee_02.png)
-
-\pagebreak
 
 # Global Colonies
 
@@ -115,5 +109,5 @@ ggsave("honeybee_03.png", mp, width = 6, height = 4)
 ![](honeybee_03.png)
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/honeybee/gallery/gallery/honeybee_03.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/honeybee/gallery/gallery/honeybee_03.png", mp, width = 6, height = 4)
 ```

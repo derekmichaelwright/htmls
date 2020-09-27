@@ -34,8 +34,6 @@ knitr::opts_chunk$set(echo = TRUE, message = F, warning = F)
 library(agData) # Loads: tidyverse, ggpubr, ggbeeswarm, ggrepel
 ```
 
-\pagebreak
-
 # Global Hectares
 
 ## Global Area
@@ -58,12 +56,10 @@ ggsave("ge_crops_01.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/ge_crops/gallery/gallery/ge_crops_01.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/ge_crops/gallery/gallery/ge_crops_01.png", mp, width = 6, height = 4)
 ```
 
 ![](ge_crops_01.png)
-
-\pagebreak
 
 ## Year to Year Change
 
@@ -90,12 +86,10 @@ ggsave("ge_crops_02.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/ge_crops/gallery/gallery/ge_crops_02.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/ge_crops/gallery/gallery/ge_crops_02.png", mp, width = 6, height = 4)
 ```
 
 ![](ge_crops_02.png)
-
-\pagebreak
 
 # Devloping vs Developed Countries
 
@@ -119,13 +113,11 @@ ggsave("ge_crops_03.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/ge_crops/gallery/gallery/ge_crops_03.png", mp, width = 6, height = 4)
-ggsave("featured.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/ge_crops/gallery/gallery/ge_crops_03.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/posts_agdata/ge_crops/featured.png", mp, width = 6, height = 4)
 ```
 
 ![](ge_crops_03.png)
-
-\pagebreak
 
 ## Percentage
 
@@ -147,12 +139,10 @@ ggsave("ge_crops_04.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/ge_crops/gallery/gallery/ge_crops_04.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/ge_crops/gallery/gallery/ge_crops_04.png", mp, width = 6, height = 4)
 ```
 
 ![](ge_crops_04.png)
-
-\pagebreak
 
 # Crops
 
@@ -178,12 +168,10 @@ ggsave("ge_crops_05.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F,}
-ggsave("../../agdata_graphs/ge_crops/gallery/gallery/ge_crops_05.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/ge_crops/gallery/gallery/ge_crops_05.png", mp, width = 6, height = 4)
 ```
 
 ![](ge_crops_05.png)
-
-\pagebreak
 
 ## Percentage
 
@@ -206,12 +194,10 @@ ggsave("ge_crops_06.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/ge_crops/gallery/gallery/ge_crops_06.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/ge_crops/gallery/gallery/ge_crops_06.png", mp, width = 6, height = 4)
 ```
 
 ![](ge_crops_06.png)
-
-\pagebreak
 
 ## Year to Year Change
 
@@ -236,12 +222,10 @@ ggsave("ge_crops_07.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/ge_crops/gallery/gallery/ge_crops_07.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/ge_crops/gallery/gallery/ge_crops_07.png", mp, width = 6, height = 4)
 ```
 
 ![](ge_crops_07.png)
-
-\pagebreak
 
 ## Year to Year Percentage Change
 
@@ -266,12 +250,10 @@ ggsave("ge_crops_08.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/ge_crops/gallery/gallery/ge_crops_08.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/ge_crops/gallery/gallery/ge_crops_08.png", mp, width = 6, height = 4)
 ```
 
 ![](ge_crops_08.png)
-
-\pagebreak
 
 # Adoption of Genetically Engineered Crops
 
@@ -295,13 +277,11 @@ ggsave("ge_crops_09.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/ge_crops/gallery/gallery/ge_crops_09.png", mp, width = 6, height = 4)
-ggsave("../../home/gallery/gallery/06_ge_crops_09.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/ge_crops/gallery/gallery/ge_crops_09.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/home/gallery/gallery/06_ge_crops_09.png", mp, width = 6, height = 4)
 ```
 
 ![](ge_crops_09.png)
-
-\pagebreak
 
 ## Area
 
@@ -323,12 +303,10 @@ ggsave("ge_crops_10.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/ge_crops/gallery/gallery/ge_crops_10.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/ge_crops/gallery/gallery/ge_crops_10.png", mp, width = 6, height = 4)
 ```
 
 ![](ge_crops_10.png)
-
-\pagebreak
 
 ## Top Countries
 
@@ -357,13 +335,11 @@ ggsave("ge_crops_11.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/ge_crops/gallery/gallery/ge_crops_11.png", mp, width = 6, height = 4)
-ggsave("../../home/gallery/gallery/06_ge_crops_11.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/ge_crops/gallery/gallery/ge_crops_11.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/home/gallery/gallery/06_ge_crops_11.png", mp, width = 6, height = 4)
 ```
 
 ![](ge_crops_11.png)
-
-\pagebreak
 
 ## Every Country  
 
@@ -384,12 +360,10 @@ ggsave("ge_crops_12.png", mp, width = 20, height = 8)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/ge_crops/gallery/gallery/ge_crops_12.png", mp, width = 15, height = 15)
+ggsave("../../../myblog/content/graphs_agdata/ge_crops/gallery/gallery/ge_crops_12.png", mp, width = 15, height = 15)
 ```
 
 ![](ge_crops_12.png)
-
-\pagebreak
 
 # Value of GE Seed
 
@@ -408,12 +382,10 @@ ggsave("ge_crops_13.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/ge_crops/gallery/gallery/ge_crops_13.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/ge_crops/gallery/gallery/ge_crops_13.png", mp, width = 6, height = 4)
 ```
 
 ![](ge_crops_13.png)
-
-\pagebreak
 
 # Regulations of New Breeding Technologies
 
@@ -437,7 +409,7 @@ ggsave("ge_crops_14.png", mp, width = 6, height = 4)
 ```
 
 ```{r eval = F, echo = F}
-ggsave("../../agdata_graphs/ge_crops/gallery/gallery/ge_crops_14.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/ge_crops/gallery/gallery/ge_crops_14.png", mp, width = 6, height = 4)
 ```
 
 

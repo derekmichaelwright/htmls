@@ -1,9 +1,9 @@
 ---
 title: "World Maize Production"
 subtitle: "Graphs of maize yields using FAO data"
-summary:  "Graphs of maize yields using FAO data"
-author: "Derek Michael Wright <wrightmderek@gmail.com> [www.dblogr.com/](https://dblogr.netlify.com/)"
-date: "2020-03-01"
+date: "2020-09-01"
+author: "Derek Michael Wright <wrightmderek@gmail.com> [www.dblogr.com/](https://dblogr.netlify.com/) [-Image Gallery-](https://dblogr.netlify.app/graphs_agdata/maize/)"
+
 categories: [ "agData" ]
 tags: [ "agData", "Maize" ]
 image:
@@ -34,8 +34,6 @@ knitr::opts_chunk$set(echo = T, message = F, warning = F, out.width = "100%")
 library(agData) # Loads: tidyverse, ggpubr, ggbeeswarm, ggrepel
 ```
 
-\pagebreak
-
 # Yields
 
 ```{r}
@@ -58,12 +56,10 @@ ggsave("maize_01.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/maize/gallery/gallery/maize_01.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/maize/gallery/gallery/maize_01.png", mp, width = 6, height = 4)
 ```
 
 ![](maize_01.png)
-
-\pagebreak
 
 # Yields by Country
 
@@ -82,13 +78,10 @@ ggsave("maize_02.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/maize/gallery/gallery/maize_02.png", mp, width = 6, height = 4)
-ggsave("featured.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/maize/gallery/gallery/maize_02.png", mp, width = 6, height = 4)
 ```
 
 ![](maize_02.png)
-
-\pagebreak
 
 # USA, Germany, Mexico and Africa
 
@@ -114,13 +107,11 @@ ggsave("maize_03.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/maize/gallery/gallery/maize_03.png", mp, width = 6, height = 4)
-ggsave("featured.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/maize/gallery/gallery/maize_03.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/posts_agdata/maize/featured.png", mp, width = 6, height = 4)
 ```
 
 ![](maize_03.png)
-
-\pagebreak
 
 # South Africa, Nigeria and Zimbabwe
 
@@ -146,12 +137,10 @@ ggsave("maize_04.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/maize/gallery/gallery/maize_04.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/maize/gallery/gallery/maize_04.png", mp, width = 6, height = 4)
 ```
 
 ![](maize_04.png)
-
-\pagebreak
 
 # Country PDF
 
@@ -180,4 +169,4 @@ dev.off()
 
 ![](maize_fao_pdf.png)
 
-[**PDF**: Maize production by country.](Maize_FAO.pdf)
+[**PDF**: Maize production by country.](https://github.com/derekmichaelwright/htmls/raw/master/agdata/maize/maize_fao.pdf)

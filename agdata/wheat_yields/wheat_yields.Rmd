@@ -1,26 +1,8 @@
 ---
 title: "Global Wheat Yields"
 subtitle: "Graphs of global wheat yields using FAO data"
-summary: "Graphs of global wheat yields using FAO data"
-author: "Derek Michael Wright <wrightmderek@gmail.com> [www.dblogr.com/](https://dblogr.netlify.com/)"
-date: "2020-03-01"
-categories: [ "agData" ]
-tags: [ "agData", "wheat" ]
-image:
-  preview_only: true
-links:
-  - icon_pack: fas
-    icon: chart-line
-    name: All Graphs
-    url: agdata_graphs/wheat_yields
-  - icon: file-code
-    icon_pack: far
-    name: HTML
-    url: https://derekmichaelwright.github.io/htmls/agdata/wheat_yields.html
-  - icon_pack: far
-    icon: file-pdf
-    name: PDF (Save/Print)
-    url: mydocs/pdfs/wheat_yields.pdf
+date: "2020-09-01"
+author: "Derek Michael Wright <wrightmderek@gmail.com> [www.dblogr.com/](https://dblogr.netlify.com/) [-Image Gallery-](https://dblogr.netlify.app/graphs_agdata/wheat_yields/)"
 ---
 
 ```{r setup, include = FALSE}
@@ -48,7 +30,7 @@ ggsave("wheat_yields_01.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/wheat_yields/gallery/gallery/wheat_yields_01.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/wheat_yields/gallery/gallery/wheat_yields_01.png", mp, width = 6, height = 4)
 ```
 
 ![](wheat_yields_01.png)
@@ -85,12 +67,10 @@ ggsave("wheat_yields_02.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/wheat_yields/gallery/gallery/wheat_yields_02.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/wheat_yields/gallery/gallery/wheat_yields_02.png", mp, width = 6, height = 4)
 ```
 
 ![](wheat_yields_02.png)
-
-\pagebreak
 
 ```{r}
 # Plot
@@ -99,12 +79,10 @@ ggsave("wheat_yields_03.png", mp, width = 6, height = 8)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/wheat_yields/gallery/gallery/wheat_yields_03.png", mp, width = 6, height = 8)
+ggsave("../../../myblog/content/graphs_agdata/wheat_yields/gallery/gallery/wheat_yields_03.png", mp, width = 6, height = 8)
 ```
 
 ![](wheat_yields_03.png)
-
-\pagebreak
 
 ```{r}
 # Plot
@@ -113,12 +91,10 @@ ggsave("wheat_yields_04.png", mp, width = 6, height = 7)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/wheat_yields/gallery/gallery/wheat_yields_04.png", mp, width = 6, height = 7)
+ggsave("../../../myblog/content/graphs_agdata/wheat_yields/gallery/gallery/wheat_yields_04.png", mp, width = 6, height = 7)
 ```
 
 ![](wheat_yields_04.png)
-
-\pagebreak
 
 ```{r}
 # Plot
@@ -127,12 +103,10 @@ ggsave("wheat_yields_05.png", mp, width = 6, height = 8)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/wheat_yields/gallery/gallery/wheat_yields_05.png", mp, width = 6, height = 8)
+ggsave("../../../myblog/content/graphs_agdata/wheat_yields/gallery/gallery/wheat_yields_05.png", mp, width = 6, height = 8)
 ```
 
 ![](wheat_yields_05.png)
-
-\pagebreak
 
 ```{r}
 # Prep data
@@ -157,12 +131,10 @@ ggsave("wheat_yields_06.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/wheat_yields/gallery/gallery/wheat_yields_06.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/wheat_yields/gallery/gallery/wheat_yields_06.png", mp, width = 6, height = 4)
 ```
 
 ![](wheat_yields_06.png)
-
-\pagebreak
 
 ```{r}
 # Prep data
@@ -178,7 +150,8 @@ ggsave("wheat_yields_07.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/wheat_yields/gallery/gallery/wheat_yields_07.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/wheat_yields/gallery/gallery/wheat_yields_07.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/posts_agdata/wheat_yields/featured.png", mp, width = 6, height = 4)
 ```
 
 ![](wheat_yields_07.png)

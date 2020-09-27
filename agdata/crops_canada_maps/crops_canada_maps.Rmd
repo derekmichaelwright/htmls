@@ -2,7 +2,7 @@
 title: "Canadian Crop Production Maps"
 subtitle: "Maps of crop production in Canada using STATCAN data"
 summary:  "Maps of crop production in Canada using STATCAN data"
-author: "Derek Michael Wright <wrightmderek@gmail.com> [www.dblogr.com/](https://dblogr.netlify.com/)"
+author: "Derek Michael Wright <wrightmderek@gmail.com> [www.dblogr.com/](https://dblogr.netlify.com/) [-Image Gallery-](https://dblogr.netlify.app/graphs_agdata/crops_canada_maps/)"
 date: "2020-03-01"
 categories: [ "agData" ]
 tags: [ "agData", "Regions", "Featured" ]
@@ -92,7 +92,7 @@ ggsave("maps_crops_canada_01.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/crops_canada_maps/gallery/gallery/maps_crops_canada_01.png", width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/crops_canada_maps/gallery/gallery/maps_crops_canada_01.png", width = 6, height = 4)
 ```
 
 ![](maps_crops_canada_01.png)
@@ -108,8 +108,8 @@ ggsave("maps_crops_canada_02.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/crops_canada_maps/gallery/gallery/maps_crops_canada_02.png", mp, width = 6, height = 4)
-ggsave("featured.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/crops_canada_maps/gallery/gallery/maps_crops_canada_02.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/posts_agdata/crops_canada_maps/featured.png", mp, width = 6, height = 4)
 ```
 
 ![](maps_crops_canada_02.png)
@@ -125,7 +125,7 @@ ggsave("maps_crops_canada_03.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/crops_canada_maps/gallery/gallery/maps_crops_canada_03.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/crops_canada_maps/gallery/gallery/maps_crops_canada_03.png", mp, width = 6, height = 4)
 ```
 
 ![](maps_crops_canada_03.png)
@@ -141,7 +141,7 @@ ggsave("maps_crops_canada_04.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/crops_canada_maps/gallery/gallery/maps_crops_canada_04.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/crops_canada_maps/gallery/gallery/maps_crops_canada_04.png", mp, width = 6, height = 4)
 ```
 
 ![](maps_crops_canada_04.png)
@@ -157,7 +157,7 @@ ggsave("maps_crops_canada_05.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/crops_canada_maps/gallery/gallery/maps_crops_canada_05.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/crops_canada_maps/gallery/gallery/maps_crops_canada_05.png", mp, width = 6, height = 4)
 ```
 
 ![](maps_crops_canada_05.png)
@@ -173,7 +173,7 @@ ggsave("maps_crops_canada_06.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/crops_canada_maps/gallery/gallery/maps_crops_canada_06.png", width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/crops_canada_maps/gallery/gallery/maps_crops_canada_06.png", width = 6, height = 4)
 ```
 
 ![](maps_crops_canada_06.png)
@@ -189,7 +189,7 @@ ggsave("maps_crops_canada_07.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/crops_canada_maps/gallery/gallery/maps_crops_canada_07.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/crops_canada_maps/gallery/gallery/maps_crops_canada_07.png", mp, width = 6, height = 4)
 ```
 
 ![](maps_crops_canada_07.png)
@@ -205,7 +205,7 @@ ggsave("maps_crops_canada_08.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/crops_canada_maps/gallery/gallery/maps_crops_canada_08.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/crops_canada_maps/gallery/gallery/maps_crops_canada_08.png", mp, width = 6, height = 4)
 ```
 
 ![](maps_crops_canada_08.png)
@@ -221,7 +221,7 @@ ggsave("maps_crops_canada_09.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/crops_canada_maps/gallery/gallery/maps_crops_canada_09.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/crops_canada_maps/gallery/gallery/maps_crops_canada_09.png", mp, width = 6, height = 4)
 ```
 
 ![](maps_crops_canada_09.png)

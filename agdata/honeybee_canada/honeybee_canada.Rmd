@@ -67,14 +67,12 @@ ggsave("honeybee_canada_01.png", mp, width = 6, height = 8)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/honeybee_canada/gallery/gallery/honeybee_canada_01.png", mp, width = 6, height = 8)
-ggsave("../../home/gallery/gallery/07_honeybee_canada_01.png", mp, width = 6, height = 8)
-ggsave("featured.png", mp, width = 6, height = 8)
+ggsave("../../../myblog/content/graphs_agdata/honeybee_canada/gallery/gallery/honeybee_canada_01.png", mp, width = 6, height = 8)
+ggsave("../../../myblog/content/home/gallery/gallery/07_honeybee_canada_01.png", mp, width = 6, height = 8)
+ggsave("../../../myblog/content/posts_agdata/honeybee_canada/featured.png", mp, width = 6, height = 8)
 ```
 
 ![](honeybee_canada_01.png)
-
-\pagebreak
 
 # Colonies
 
@@ -93,7 +91,7 @@ ggsave("honeybee_canada_02.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/honeybee_canada/gallery/gallery/honeybee_canada_02.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/honeybee_canada/gallery/gallery/honeybee_canada_02.png", mp, width = 6, height = 4)
 ```
 
 ![](honeybee_canada_02.png)

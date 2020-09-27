@@ -1,9 +1,9 @@
 ---
 title: "USA Maize Production"
 subtitle: "Graphs of maize production in the USA using USDA data"
-summary:  "Graphs of maize production in the USA using USDA data"
-author: "Derek Michael Wright <wrightmderek@gmail.com> [www.dblogr.com/](https://dblogr.netlify.com/)"
-date: "2020-03-01"
+date: "2020-09-01"
+author: "Derek Michael Wright <wrightmderek@gmail.com> [www.dblogr.com/](https://dblogr.netlify.com/) [-Image Gallery-](https://dblogr.netlify.app/graphs_agdata/maize_usa/)"
+
 categories: [ "agData" ]
 tags: [ "agData", "Maize", "Featured" ]
 image:
@@ -78,15 +78,13 @@ ggsave("maize_usa_01.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/maize_usa/gallery/gallery/maize_usa_01.png", mp, width = 6, height = 4)
-ggsave("../../home/gallery/gallery/04_maize_usa_01.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/maize_usa/gallery/gallery/maize_usa_01.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/home/gallery/gallery/04_maize_usa_01.png", mp, width = 6, height = 4)
 #ggsave("C:/gitfolder/personalblog/content/articles/A_Quick_History_of_Hybrid_Crops/maize_usa_01.png", width = 9, height = 5)
-ggsave("featured.png", mp, width = 8, height = 5)
+ggsave("../../../myblog/content/posts_agdata/maize_usa/featured.png", mp, width = 8, height = 5)
 ```
 
 ![](maize_usa_01.png)
-
-\pagebreak
 
 # Maize Potential
 
@@ -115,12 +113,10 @@ ggsave("maize_usa_02.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/maize_usa/gallery/gallery/maize_usa_02.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/maize_usa/gallery/gallery/maize_usa_02.png", mp, width = 6, height = 4)
 ```
 
 ![](maize_usa_02.png)
-
-\pagebreak
 
 # Area vs Production
 
@@ -145,13 +141,11 @@ ggsave("maize_usa_03.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/maize_usa/gallery/gallery/maize_usa_03.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/maize_usa/gallery/gallery/maize_usa_03.png", mp, width = 6, height = 4)
 #ggsave("C:/gitfolder/personalblog/content/articles/A_Quick_History_of_Hybrid_Crops/maize_usa_03.png", width = 9, height = 5)
 ```
 
 ![](maize_usa_03.png)
-
-\pagebreak
 
 # Developed vs Developing Countries
 
@@ -178,14 +172,12 @@ ggsave("maize_usa_04.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/maize_usa/gallery/gallery/maize_usa_04.png", mp, width = 6, height = 4)
-ggsave("../../home/gallery/gallery/04_maize_usa_04.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/maize_usa/gallery/gallery/maize_usa_04.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/home/gallery/gallery/04_maize_usa_04.png", mp, width = 6, height = 4)
 #ggsave("C:/gitfolder/personalblog/content/articles/A_Quick_History_of_Hybrid_Crops/maize_usa_04.png", width = 9, height = 5)
 ```
 
 ![](maize_usa_04.png)
-
-\pagebreak
 
 # Maize Contest
 
@@ -202,12 +194,10 @@ ggsave("maize_usa_05.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/maize_usa/gallery/gallery/maize_usa_05.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/maize_usa/gallery/gallery/maize_usa_05.png", mp, width = 6, height = 4)
 ```
 
 ![](maize_usa_05.png)
-
-\pagebreak
 
 # Average vs Max Yield
 
@@ -231,12 +221,10 @@ ggsave("maize_usa_06.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/maize_usa/gallery/gallery/maize_usa_06.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/maize_usa/gallery/gallery/maize_usa_06.png", mp, width = 6, height = 4)
 ```
 
 ![](maize_usa_06.png)
-
-\pagebreak
 
 # Hectares per tonne
 
@@ -257,12 +245,10 @@ ggsave("maize_usa_07.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/maize_usa/gallery/gallery/maize_usa_07.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/maize_usa/gallery/gallery/maize_usa_07.png", mp, width = 6, height = 4)
 ```
 
 ![](maize_usa_07.png)
-
-\pagebreak
 
 ```{r}
 # Prep data
@@ -279,12 +265,10 @@ ggsave("maize_usa_08.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/maize_usa/gallery/gallery/maize_usa_08.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/maize_usa/gallery/gallery/maize_usa_08.png", mp, width = 6, height = 4)
 ```
 
 ![](maize_usa_08.png)
-
-\pagebreak
 
 ```{r}
 # Prep data
@@ -308,12 +292,10 @@ ggsave("maize_usa_09.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/maize_usa/gallery/gallery/maize_usa_09.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/maize_usa/gallery/gallery/maize_usa_09.png", mp, width = 6, height = 4)
 ```
 
 ![](maize_usa_09.png)
-
-\pagebreak
 
 ```{r}
 # Prep data
@@ -331,7 +313,7 @@ ggsave("maize_usa_10.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/maize_usa/gallery/gallery/maize_usa_10.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/maize_usa/gallery/gallery/maize_usa_10.png", mp, width = 6, height = 4)
 ```
 
 ![](maize_usa_10.png)

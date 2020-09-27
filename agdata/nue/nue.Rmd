@@ -1,9 +1,9 @@
 ---
 title: "Nitrogen Use Efficiency"
 subtitle: "Graphs of nitrogen use efficiency (NUE) using data from FAO"
-summary:  "Graphs of nitrogen use efficiency (NUE) using data from FAO"
-author: "Derek Michael Wright <wrightmderek@gmail.com> [www.dblogr.com/](https://dblogr.netlify.com/)"
-date: "2020-03-02"
+date: "2020-09-01"
+author: "Derek Michael Wright <wrightmderek@gmail.com> [www.dblogr.com/](https://dblogr.netlify.com/) [-Image Gallery-](https://dblogr.netlify.app/graphs_agdata/nue/)"
+
 categories: [ "agData" ]
 tags: [ "agData", "Fertilizers" ]
 image:
@@ -73,7 +73,7 @@ ggsave("nue_01.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/nue/gallery/gallery/nue_01.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/nue/gallery/gallery/nue_01.png", mp, width = 6, height = 4)
 ```
 
 ![](nue_01.png)
@@ -95,7 +95,7 @@ ggsave("nue_02.png", mp, width = 6, height = 4)
 
 ```{r echo = F}
 ggsave("featured.png", mp, width = 6, height = 4)
-ggsave("../../agdata_graphs/nue/gallery/gallery/nue_02.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/nue/gallery/gallery/nue_02.png", mp, width = 6, height = 4)
 ```
 
 ![](nue_02.png)
@@ -138,7 +138,7 @@ ggsave("nue_03_australia.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/nue/gallery/gallery/nue_03_australia.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/nue/gallery/gallery/nue_03_australia.png", mp, width = 6, height = 4)
 ```
 
 ![](nue_03_australia.png)
@@ -153,7 +153,7 @@ ggsave("nue_04_canada.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/nue/gallery/gallery/nue_04_canada.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/nue/gallery/gallery/nue_04_canada.png", mp, width = 6, height = 4)
 ```
 
 ![](nue_04_canada.png)
@@ -168,7 +168,7 @@ ggsave("nue_05_china.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/nue/gallery/gallery/nue_05_china.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/nue/gallery/gallery/nue_05_china.png", mp, width = 6, height = 4)
 ```
 
 ![](nue_05_china.png)
@@ -183,7 +183,7 @@ ggsave("nue_06_germany.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/nue/gallery/gallery/nue_06_germany.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/nue/gallery/gallery/nue_06_germany.png", mp, width = 6, height = 4)
 ```
 
 ![](nue_06_germany.png)
@@ -198,7 +198,7 @@ ggsave("nue_07_india.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/nue/gallery/gallery/nue_07_india.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/nue/gallery/gallery/nue_07_india.png", mp, width = 6, height = 4)
 ```
 
 ![](nue_07_india.png)
@@ -213,7 +213,7 @@ ggsave("nue_08_france.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/nue/gallery/gallery/nue_08_france.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/nue/gallery/gallery/nue_08_france.png", mp, width = 6, height = 4)
 ```
 
 ![](nue_08_france.png)

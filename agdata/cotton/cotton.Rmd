@@ -2,7 +2,7 @@
 title: "Cotton Production"
 subtitle: "Graphs of cotton production using FAO data"
 summary:  "Graphs of cotton production using FAO data"
-author: "Derek Michael Wright <wrightmderek@gmail.com> [www.dblogr.com/](https://dblogr.netlify.com/)"
+author: "Derek Michael Wright <wrightmderek@gmail.com> [www.dblogr.com/](https://dblogr.netlify.com/) [-Image Gallery-](https://dblogr.netlify.app/graphs_agdata/cotton/)"
 date: "2020-03-01"
 categories: [ "agData" ]
 tags: [ "agData", "Cotton" ]
@@ -54,8 +54,8 @@ ggsave("cotton_01.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/cotton/gallery/gallery/cotton_01.png", mp, width = 6, height = 4)
-ggsave("featured.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/cotton/gallery/gallery/cotton_01.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/posts_agdata/cotton/featured.png", mp, width = 6, height = 4)
 ```
 
 ![](cotton_01.png)
@@ -84,7 +84,7 @@ ggsave("cotton_02.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/cotton/gallery/gallery/cotton_02.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/cotton/gallery/gallery/cotton_02.png", mp, width = 6, height = 4)
 ```
 
 ![](cotton_02.png)

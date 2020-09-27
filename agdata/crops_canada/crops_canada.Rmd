@@ -2,7 +2,7 @@
 title: "Canadian Crop Production"
 subtitle: "Graphs of crop production in Canada using STATCAN data"
 summary:  "Graphs of crop production in Canada using STATCAN data"
-author: "Derek Michael Wright <wrightmderek@gmail.com> [www.dblogr.com/](https://dblogr.netlify.com/)"
+author: "Derek Michael Wright <wrightmderek@gmail.com> [www.dblogr.com/](https://dblogr.netlify.com/) [-Image Gallery-](https://dblogr.netlify.app/graphs_agdata/crops_canada/)"
 date: "2020-03-01"
 categories: [ "agData" ]
 tags: [ "agData", "Regions", "Featured" ]
@@ -75,7 +75,7 @@ ggsave("crops_canada_01.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/crops_canada/gallery/gallery/crops_canada_01.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/crops_canada/gallery/gallery/crops_canada_01.png", mp, width = 6, height = 4)
 ```
 
 ![](crops_canada_01.png)
@@ -99,7 +99,7 @@ ggsave("crops_canada_02.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/crops_canada/gallery/gallery/crops_canada_02.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/crops_canada/gallery/gallery/crops_canada_02.png", mp, width = 6, height = 4)
 ```
 
 ![](crops_canada_02.png)
@@ -153,7 +153,7 @@ ggsave("crops_canada_03.png", mp, width = 6, height = 5)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/crops_canada/gallery/gallery/crops_canada_03.png", mp, width = 6, height = 5)
+ggsave("../../../myblog/content/graphs_agdata/crops_canada/gallery/gallery/crops_canada_03.png", mp, width = 6, height = 5)
 ```
 
 ![](crops_canada_03.png)
@@ -182,8 +182,8 @@ ggsave("crops_canada_04.png", mp, width = 6, height = 5)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/crops_canada/gallery/gallery/crops_canada_04.png", mp, width = 6, height = 5)
-ggsave("featured.png", mp, width = 6, height = 5)
+ggsave("../../../myblog/content/graphs_agdata/crops_canada/gallery/gallery/crops_canada_04.png", mp, width = 6, height = 5)
+ggsave("../../../myblog/content/posts_agdata/crops_canada/featured.png", mp, width = 6, height = 5)
 ```
 
 ![](crops_canada_04.png)

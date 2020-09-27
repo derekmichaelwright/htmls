@@ -84,12 +84,10 @@ ggsave("global_food_security_01.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/global_food_security/gallery/gallery/global_food_security_01.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/global_food_security/gallery/gallery/global_food_security_01.png", mp, width = 6, height = 4)
 ```
 
 ![](global_food_security_01.png)
-
-\pagebreak
 
 ```{r}
 # Prep data
@@ -110,11 +108,10 @@ ggsave("global_food_security_02.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/global_food_security/gallery/gallery/global_food_security_02.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/global_food_security/gallery/gallery/global_food_security_02.png", mp, width = 6, height = 4)
 ```
 
 ![](global_food_security_02.png)
-\pagebreak
 
 ```{r}
 # Prep data
@@ -133,10 +130,8 @@ mp <- ggplot(xx, aes(x = Year)) +
 ggsave("global_food_security_03.png", mp, width = 6, height = 4)
 ```
 ```{r echo = F}
-ggsave("../../agdata_graphs/global_food_security/gallery/gallery/global_food_security_03.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/global_food_security/gallery/gallery/global_food_security_03.png", mp, width = 6, height = 4)
 ```
-
-\pagebreak
 
 ![](global_food_security_03.png)
 
@@ -157,13 +152,11 @@ ggsave("global_food_security_04.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/global_food_security/gallery/gallery/global_food_security_04.png", mp, width = 6, height = 4)
-ggsave("featured.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/global_food_security/gallery/gallery/global_food_security_04.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/posts_agdata/global_food_security/featured.png", mp, width = 6, height = 4)
 ```
 
 ![](global_food_security_04.png)
-
-\pagebreak
 
 ```{r}
 # Prep Data
@@ -182,12 +175,10 @@ ggsave("global_food_security_05.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/global_food_security/gallery/gallery/global_food_security_05.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/global_food_security/gallery/gallery/global_food_security_05.png", mp, width = 6, height = 4)
 ```
 
 ![](global_food_security_05.png)
-
-\pagebreak
 
 ```{r}
 # Prep data
@@ -202,7 +193,7 @@ ggsave("global_food_security_06.png", mp, width = 12, height = 8)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/global_food_security/gallery/gallery/global_food_security_06.png", mp, width = 12, height = 8)
+ggsave("../../../myblog/content/graphs_agdata/global_food_security/gallery/gallery/global_food_security_06.png", mp, width = 12, height = 8)
 ```
 
 ![](global_food_security_06.png)
@@ -231,7 +222,7 @@ ggsave("global_food_security_07.png", mp, width = 6, height = 8)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/global_food_security/gallery/gallery/global_food_security_07.png", mp, width = 6, height = 8)
+ggsave("../../../myblog/content/graphs_agdata/global_food_security/gallery/gallery/global_food_security_07.png", mp, width = 6, height = 8)
 ```
 
 ![](global_food_security_07.png)
@@ -268,12 +259,10 @@ ggsave("global_food_security_08.png", mp, width = 6, height = 3.75)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/global_food_security/gallery/gallery/global_food_security_08.png", mp, width = 6, height = 3.75)
+ggsave("../../../myblog/content/graphs_agdata/global_food_security/gallery/gallery/global_food_security_08.png", mp, width = 6, height = 3.75)
 ```
 
 ![](global_food_security_08.png)
-
-\pagebreak
 
 ```{r}
 mp <- netImportExport(crop = "Maize", year = 2017)
@@ -281,7 +270,7 @@ ggsave("global_food_security_09.png", mp, width = 6, height = 3.75)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/global_food_security/gallery/gallery/global_food_security_09.png", mp, width = 6, height = 3.75)
+ggsave("../../../myblog/content/graphs_agdata/global_food_security/gallery/gallery/global_food_security_09.png", mp, width = 6, height = 3.75)
 ```
 
 ![](global_food_security_09.png)
@@ -292,7 +281,7 @@ ggsave("global_food_security_10.png", mp, width = 6, height = 3.75)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/global_food_security/gallery/gallery/global_food_security_10.png", mp, width = 6, height = 3.75)
+ggsave("../../../myblog/content/graphs_agdata/global_food_security/gallery/gallery/global_food_security_10.png", mp, width = 6, height = 3.75)
 ```
 
 ![](global_food_security_10.png)
@@ -303,7 +292,7 @@ ggsave("global_food_security_11.png", mp, width = 6, height = 3.75)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/global_food_security/gallery/gallery/global_food_security_11.png", mp, width = 6, height = 3.75)
+ggsave("../../../myblog/content/graphs_agdata/global_food_security/gallery/gallery/global_food_security_11.png", mp, width = 6, height = 3.75)
 ```
 
 ![](global_food_security_11.png)
@@ -314,7 +303,7 @@ ggsave("global_food_security_12.png", mp, width = 6, height = 3.75)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/global_food_security/gallery/gallery/global_food_security_12.png", mp, width = 6, height = 3.75)
+ggsave("../../../myblog/content/graphs_agdata/global_food_security/gallery/gallery/global_food_security_12.png", mp, width = 6, height = 3.75)
 ```
 
 ![](global_food_security_12.png)
@@ -325,7 +314,7 @@ ggsave("global_food_security_13.png", mp, width = 6, height = 3.75)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/global_food_security/gallery/gallery/global_food_security_13.png", mp, width = 6, height = 3.75)
+ggsave("../../../myblog/content/graphs_agdata/global_food_security/gallery/gallery/global_food_security_13.png", mp, width = 6, height = 3.75)
 ```
 
 ![](global_food_security_13.png)
@@ -336,7 +325,7 @@ ggsave("global_food_security_14.png", mp, width = 6, height = 3.75)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/global_food_security/gallery/gallery/global_food_security_14.png", mp, width = 6, height = 3.75)
+ggsave("../../../myblog/content/graphs_agdata/global_food_security/gallery/gallery/global_food_security_14.png", mp, width = 6, height = 3.75)
 ```
 
 ![](global_food_security_14.png)
@@ -347,7 +336,7 @@ ggsave("global_food_security_15.png", mp, width = 6, height = 3.75)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/global_food_security/gallery/gallery/global_food_security_15.png", mp, width = 6, height = 3.75)
+ggsave("../../../myblog/content/graphs_agdata/global_food_security/gallery/gallery/global_food_security_15.png", mp, width = 6, height = 3.75)
 ```
 
 ![](global_food_security_15.png)

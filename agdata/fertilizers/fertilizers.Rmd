@@ -34,8 +34,6 @@ knitr::opts_chunk$set(echo = TRUE, message = F, warning = F)
 library(agData) # Loads: tidyverse, ggpubr, ggbeeswarm, ggrepel
 ```
 
-\pagebreak
-
 # Nitrogenous Fertilizer
 
 ## World
@@ -62,12 +60,10 @@ ggsave("fertilizers_01.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/fertilizers/gallery/gallery/fertilizers_01.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/fertilizers/gallery/gallery/fertilizers_01.png", mp, width = 6, height = 4)
 ```
 
 ![](fertilizers_01.png)
-
-\pagebreak
 
 ## Regions
 
@@ -94,12 +90,10 @@ ggsave("fertilizers_02.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/fertilizers/gallery/gallery/fertilizers_02.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/fertilizers/gallery/gallery/fertilizers_02.png", mp, width = 6, height = 4)
 ```
 
 ![](fertilizers_02.png)
-
-\pagebreak
 
 ## Countries
 
@@ -130,12 +124,10 @@ ggsave("fertilizers_03.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/fertilizers/gallery/gallery/fertilizers_03.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/fertilizers/gallery/gallery/fertilizers_03.png", mp, width = 6, height = 4)
 ```
 
 ![](fertilizers_03.png)
-
-\pagebreak
 
 ```{r}
 # Plot
@@ -144,12 +136,10 @@ ggsave("fertilizers_04.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/fertilizers/gallery/gallery/fertilizers_04.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/fertilizers/gallery/gallery/fertilizers_04.png", mp, width = 6, height = 4)
 ```
 
 ![](fertilizers_04.png)
-
-\pagebreak
 
 ```{r}
 # Plot
@@ -158,12 +148,10 @@ ggsave("fertilizers_05.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/fertilizers/gallery/gallery/fertilizers_05.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/fertilizers/gallery/gallery/fertilizers_05.png", mp, width = 6, height = 4)
 ```
 
 ![](fertilizers_05.png)
-
-\pagebreak
 
 ```{r}
 # Plot
@@ -172,12 +160,10 @@ ggsave("fertilizers_06.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/fertilizers/gallery/gallery/fertilizers_06.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/fertilizers/gallery/gallery/fertilizers_06.png", mp, width = 6, height = 4)
 ```
 
 ![](fertilizers_06.png)
-
-\pagebreak
 
 # N / Ha
 
@@ -210,12 +196,10 @@ ggsave("fertilizers_07.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/fertilizers/gallery/gallery/fertilizers_07.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/fertilizers/gallery/gallery/fertilizers_07.png", mp, width = 6, height = 4)
 ```
 
 ![](fertilizers_07.png)
-
-\pagebreak
 
 ## Regions
 
@@ -235,12 +219,10 @@ ggsave("fertilizers_08.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/fertilizers/gallery/gallery/fertilizers_08.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/fertilizers/gallery/gallery/fertilizers_08.png", mp, width = 6, height = 4)
 ```
 
 ![](fertilizers_08.png)
-
-\pagebreak
 
 ## Countries
 
@@ -261,13 +243,11 @@ ggsave("fertilizers_09.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("featured.png", mp, width = 6, height = 4)
-ggsave("../../agdata_graphs/fertilizers/gallery/gallery/fertilizers_09.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/posts_agdata/fertilizers/featured.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/fertilizers/gallery/gallery/fertilizers_09.png", mp, width = 6, height = 4)
 ```
 
 ![](fertilizers_09.png)
-
-\pagebreak
 
 ```{r}
 # Plot
@@ -277,7 +257,7 @@ ggsave("fertilizers_10.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/fertilizers/gallery/gallery/fertilizers_10.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/fertilizers/gallery/gallery/fertilizers_10.png", mp, width = 6, height = 4)
 ```
 
 ![](fertilizers_10.png)

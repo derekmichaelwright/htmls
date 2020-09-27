@@ -34,8 +34,6 @@ knitr::opts_chunk$set(echo = TRUE, warning = F, message = F)
 library(agData) # Loads: tidyverse, ggpubr, ggbeeswarm, ggrepel
 ```
 
-\pagebreak
-
 # Agricultural Area
 
 ```{r}
@@ -62,13 +60,11 @@ ggsave("land_use_01.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/land_use/gallery/gallery/land_use_01.png", mp, width = 6, height = 4)
-ggsave("featured.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/land_use/gallery/gallery/land_use_01.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/posts_agdata/land_use/featured.png", mp, width = 6, height = 4)
 ```
 
 ![](land_use_01.png)
-
-\pagebreak
 
 # Organic Area
 
@@ -96,12 +92,10 @@ ggsave("land_use_02.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/land_use/gallery/gallery/land_use_02.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/land_use/gallery/gallery/land_use_02.png", mp, width = 6, height = 4)
 ```
 
 ![](land_use_02.png)
-
-\pagebreak
 
 # Canada
 
@@ -124,7 +118,7 @@ ggsave("land_use_03.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../agdata_graphs/land_use/gallery/gallery/land_use_03.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/land_use/gallery/gallery/land_use_03.png", mp, width = 6, height = 4)
 ```
 
 ![](land_use_03.png)
