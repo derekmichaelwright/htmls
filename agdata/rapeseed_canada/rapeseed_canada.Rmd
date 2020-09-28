@@ -1,5 +1,5 @@
 ---
-title: "Saskatchewan Canola Production"
+title: "Saskatchewan Rapeseed/Canola Production"
 subtitle: "Graphs of canola production in Saskatchewan using STATCAN data"
 date: "2020-09-01"
 author: "Derek Michael Wright <wrightmderek@gmail.com> [www.dblogr.com/](https://dblogr.netlify.com/) [-Image Gallery-](https://dblogr.netlify.app/graphs_agdata/rapeseed_canada/)"
@@ -15,6 +15,8 @@ knitr::opts_chunk$set(echo = T, message = F, warning = F)
 # devtools::install_github("derekmichaelwright/agData")
 library(agData) # Loads: tidyverse, ggpubr, ggbeeswarm, ggrepel
 ```
+
+---
 
 # Area
 
@@ -46,6 +48,8 @@ ggsave("../../../myblog/content/posts_agdata/rapeseed_canada/featured.png", mp, 
 ```
 
 ![](rapeseed_canada_01.png)
+
+---
 
 # Yield
 
@@ -80,3 +84,7 @@ ggsave("../../../myblog/content/graphs_agdata/rapeseed_canada/gallery/gallery/ra
 ```
 
 ![](rapeseed_canada_02.png)
+
+---
+
+&copy; Derek Michael Wright 2020 [www.dblogr.com/](https://dblogr.netlify.com/)

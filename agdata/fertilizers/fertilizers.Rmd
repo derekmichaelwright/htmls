@@ -1,26 +1,8 @@
 ---
 title: "Fertilizer Use"
 subtitle: "Graphs of fertilizer use using data from FAO"
-summary:  "Graphs of fertilizer use using data from FAO"
-author: "Derek Michael Wright <wrightmderek@gmail.com> [www.dblogr.com/](https://dblogr.netlify.com/)"
-date: "2020-03-01"
-categories: [ "agData" ]
-tags: [ "agData", "Fertilizers" ]
-image:
-  preview_only: true
-links: 
-  - icon_pack: fas
-    icon: chart-line
-    name: All Graphs
-    url: agdata_graphs/fertilizers
-  - icon_pack: far
-    icon: file-code
-    name: HTML
-    url: https://derekmichaelwright.github.io/htmls/agdata/fertilizers.html
-  - icon_pack: far
-    icon: file-pdf
-    name: Save/Print
-    url: agdata_pdfs/fertilizers.pdf
+date: "2020-09-01"
+author: "Derek Michael Wright <wrightmderek@gmail.com> [www.dblogr.com/](https://dblogr.netlify.com/) [-Image Gallery-](https://dblogr.netlify.app/graphs_agdata/fertilizers/)"
 ---
 
 ```{r setup, include = FALSE}
@@ -33,6 +15,8 @@ knitr::opts_chunk$set(echo = TRUE, message = F, warning = F)
 # devtools::install_github("derekmichaelwright/agData")
 library(agData) # Loads: tidyverse, ggpubr, ggbeeswarm, ggrepel
 ```
+
+---
 
 # Nitrogenous Fertilizer
 
@@ -65,6 +49,8 @@ ggsave("../../../myblog/content/graphs_agdata/fertilizers/gallery/gallery/fertil
 
 ![](fertilizers_01.png)
 
+---
+
 ## Regions
 
 ```{r}
@@ -95,6 +81,8 @@ ggsave("../../../myblog/content/graphs_agdata/fertilizers/gallery/gallery/fertil
 
 ![](fertilizers_02.png)
 
+---
+
 ## Countries
 
 ```{r}
@@ -117,6 +105,10 @@ ggFertN <- function(area, color = "darkred") {
 }
 ```
 
+---
+
+### Canada
+
 ```{r}
 # Plot
 mp <- ggFertN("Canada", "darkgreen")
@@ -128,6 +120,10 @@ ggsave("../../../myblog/content/graphs_agdata/fertilizers/gallery/gallery/fertil
 ```
 
 ![](fertilizers_03.png)
+
+---
+
+### China
 
 ```{r}
 # Plot
@@ -141,6 +137,10 @@ ggsave("../../../myblog/content/graphs_agdata/fertilizers/gallery/gallery/fertil
 
 ![](fertilizers_04.png)
 
+---
+
+### USA
+
 ```{r}
 # Plot
 mp <- ggFertN("USA", "darkblue")
@@ -153,6 +153,10 @@ ggsave("../../../myblog/content/graphs_agdata/fertilizers/gallery/gallery/fertil
 
 ![](fertilizers_05.png)
 
+---
+
+### Germany
+
 ```{r}
 # Plot
 mp <- ggFertN("Germany", "black")
@@ -164,6 +168,8 @@ ggsave("../../../myblog/content/graphs_agdata/fertilizers/gallery/gallery/fertil
 ```
 
 ![](fertilizers_06.png)
+
+---
 
 # N / Ha
 
@@ -181,6 +187,8 @@ yy <- bind_rows(y1, y2, y3) %>% select(-Measurement, -Unit) %>%
   spread(Item, Value) %>%
   mutate(NPH = `Nitrogenous fertilizers` / `Agricultural land`)
 ```
+
+---
 
 ## World
 
@@ -200,6 +208,8 @@ ggsave("../../../myblog/content/graphs_agdata/fertilizers/gallery/gallery/fertil
 ```
 
 ![](fertilizers_07.png)
+
+---
 
 ## Regions
 
@@ -223,6 +233,8 @@ ggsave("../../../myblog/content/graphs_agdata/fertilizers/gallery/gallery/fertil
 ```
 
 ![](fertilizers_08.png)
+
+---
 
 ## Countries
 
@@ -249,6 +261,8 @@ ggsave("../../../myblog/content/graphs_agdata/fertilizers/gallery/gallery/fertil
 
 ![](fertilizers_09.png)
 
+---
+
 ```{r}
 # Plot
 mp <- mp + facet_wrap(Area ~., ncol = 3, scales = "free_y") +
@@ -261,3 +275,7 @@ ggsave("../../../myblog/content/graphs_agdata/fertilizers/gallery/gallery/fertil
 ```
 
 ![](fertilizers_10.png)
+
+---
+
+&copy; Derek Michael Wright 2020 [www.dblogr.com/](https://dblogr.netlify.com/)

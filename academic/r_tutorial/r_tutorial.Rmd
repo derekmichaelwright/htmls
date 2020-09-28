@@ -17,6 +17,8 @@ knitr::opts_chunk$set(echo = T, message = F, warning = F)
 Download R here
 Download RStudio here
 
+---
+
 # Introduction
 
 R can be used as a caclulator
@@ -133,6 +135,8 @@ library(scales)
 rescale(1:10, to = c(1,30))
 ```
 
+---
+
 # Plotting
 
 ```{r}
@@ -154,6 +158,8 @@ mp + geom_boxplot() + geom_point()
 mp <- ggplot(x3, aes(x = y3))
 mp + geom_histogram(stat = "count")
 ```
+
+---
 
 Statistics
 

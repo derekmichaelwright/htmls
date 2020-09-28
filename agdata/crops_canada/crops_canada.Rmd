@@ -1,30 +1,8 @@
 ---
 title: "Canadian Crop Production"
 subtitle: "Graphs of crop production in Canada using STATCAN data"
-summary:  "Graphs of crop production in Canada using STATCAN data"
+date: "2020-09-01"
 author: "Derek Michael Wright <wrightmderek@gmail.com> [www.dblogr.com/](https://dblogr.netlify.com/) [-Image Gallery-](https://dblogr.netlify.app/graphs_agdata/crops_canada/)"
-date: "2020-03-01"
-categories: [ "agData" ]
-tags: [ "agData", "Regions", "Featured" ]
-image:
-  preview_only: true
-links:
-  - icon_pack: fas
-    icon: chart-line
-    name: All Graphs
-    url: agdata_graphs/crops_canada
-  - icon_pack: far
-    icon: file-code
-    name: HTML
-    url: https://derekmichaelwright.github.io/htmls/agdata/crops_canada.html
-  - icon_pack: far
-    icon: file-pdf
-    name: Save/Print
-    url: agdata_pdfs/crops_canada.pdf
-  - icon_pack: far
-    icon: file-pdf
-    name: Canada - Crops
-    url: Canada_Crops.pdf
 ---
 
 ```{r setup, include = FALSE}
@@ -38,7 +16,7 @@ knitr::opts_chunk$set(echo = TRUE, message = F, warning = F)
 library(agData) # Loads: tidyverse, ggpubr, ggbeeswarm, ggrepel
 ```
 
-\pagebreak
+---
 
 # Farmland by Province
 
@@ -80,7 +58,7 @@ ggsave("../../../myblog/content/graphs_agdata/crops_canada/gallery/gallery/crops
 
 ![](crops_canada_01.png)
 
-\pagebreak
+---
 
 ## Hectares
 
@@ -104,7 +82,7 @@ ggsave("../../../myblog/content/graphs_agdata/crops_canada/gallery/gallery/crops
 
 ![](crops_canada_02.png)
 
-\pagebreak
+---
 
 # Crop Production
 
@@ -129,7 +107,7 @@ cropList <- function(measurement) {
 }
 ```
 
-\pagebreak
+---
 
 ## Crop Production 1908, 1961, 2017
 
@@ -158,7 +136,7 @@ ggsave("../../../myblog/content/graphs_agdata/crops_canada/gallery/gallery/crops
 
 ![](crops_canada_03.png)
 
-\pagebreak
+---
 
 ## Crop Area 1908, 1961, 2017
 
@@ -187,3 +165,7 @@ ggsave("../../../myblog/content/posts_agdata/crops_canada/featured.png", mp, wid
 ```
 
 ![](crops_canada_04.png)
+
+---
+
+&copy; Derek Michael Wright 2020 [www.dblogr.com/](https://dblogr.netlify.com/)

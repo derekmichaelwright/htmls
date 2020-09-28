@@ -17,7 +17,7 @@ library(agData) # Loads: tidyverse, ggpubr, ggbeeswarm, ggrepel
 library(hexSticker)
 ```
 
-\pagebreak
+---
 
 # dblogr
 
@@ -36,7 +36,7 @@ sticker(filename="hex_dblogr.png", package="",
 
 ![](hex_dblogr.png){width=350px}
 
-\pagebreak
+---
 
 # agData
 
@@ -68,7 +68,7 @@ sticker(filename = "hex_agData.png",
 
 ![](hex_agData.png){width=350px}
 
-\pagebreak
+---
 
 # Green mapleleaf
 
@@ -87,7 +87,7 @@ sticker(filename="hex_mapleleaf_green.png", package="",
 
 ![](hex_mapleleaf_green.png){width=350px}
 
-\pagebreak
+---
 
 # Red mapleleaf
 
@@ -150,3 +150,7 @@ im <- image_append(c(im1,im3,im2))
 image_write(im, "C:/gitfolder/myblog/assets/images/logo.png")
 #image_write(im, "C:/gitfolder/myblog/static/img/logo.png")
 ```
+
+---
+
+&copy; Derek Michael Wright 2020 [www.dblogr.com/](https://dblogr.netlify.com/)

@@ -1,26 +1,8 @@
 ---
 title: "World Honeybee Production"
 subtitle: "Graphs for honeybee production"
-summary: "Graphs for honeybee production"
-author: "Derek Michael Wright <wrightmderek@gmail.com> [www.dblogr.com/](https://dblogr.netlify.com/)"
-date: "2020-03-01"
-categories: [ "agData" ]
-tags: [ "agData", "Honeybee" ]
-image:
-  preview_only: true
-links: 
-  - icon_pack: fas
-    icon: chart-line
-    name: All Graphs
-    url: agdata_graphs/honeybee
-  - icon_pack: far
-    icon: file-code
-    name: HTML
-    url: https://derekmichaelwright.github.io/htmls/agdata/honeybee.html
-  - icon_pack: far
-    icon: file-pdf
-    name: PDF (Save/Print)
-    url: agdata_pdfs/honeybee.pdf
+date: "2020-09-01"
+author: "Derek Michael Wright <wrightmderek@gmail.com> [www.dblogr.com/](https://dblogr.netlify.com/) [-Image Gallery-](https://dblogr.netlify.app/graphs_agdata/honeybee/)"
 ---
 
 ```{r setup, include = FALSE}
@@ -33,6 +15,8 @@ knitr::opts_chunk$set(echo = T, message = F, warning = F)
 # devtools::install_github("derekmichaelwright/agData")
 library(agData) # Loads: tidyverse, ggpubr, ggbeeswarm, ggrepel
 ```
+
+---
 
 # Regions
 
@@ -68,6 +52,8 @@ ggsave("../../../myblog/content/graphs_agdata/honeybee/gallery/gallery/honeybee_
 
 ![](honeybee_01.png)
 
+---
+
 ```{r}
 # Plot
 mp <- ggplot(xx, aes(x = Year, y = Value / 1000000)) + 
@@ -89,6 +75,8 @@ ggsave("../../../myblog/content/graphs_agdata/honeybee/gallery/gallery/honeybee_
 
 ![](honeybee_02.png)
 
+---
+
 # Global Colonies
 
 ```{r}
@@ -106,8 +94,12 @@ mp <- ggplot(data = xw, aes(x = Year, y = Value / 1000000)) +
 ggsave("honeybee_03.png", mp, width = 6, height = 4)
 ```
 
-![](honeybee_03.png)
-
 ```{r echo = F}
 ggsave("../../../myblog/content/graphs_agdata/honeybee/gallery/gallery/honeybee_03.png", mp, width = 6, height = 4)
 ```
+
+![](honeybee_03.png)
+
+---
+
+&copy; Derek Michael Wright 2020 [www.dblogr.com/](https://dblogr.netlify.com/)

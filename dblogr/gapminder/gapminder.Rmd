@@ -18,11 +18,15 @@ library(gapminder)
 library(gganimate)
 ```
 
+---
+
 # Data
 
 ```{r}
 DT::datatable(gapminder %>% arrange(year))
 ```
+
+---
 
 # Plots
 
@@ -46,6 +50,8 @@ ggsave("../../../myblog/content/posts_dblogr/gapminder/featured.png", mp, width 
 
 ![](gapminder_01.png)
 
+---
+
 ```{r}
 mp <- ggplot(gapminder, aes(x = year, y = lifeExp, colour = country)) +
   geom_line(alpha = 0.7) +
@@ -64,6 +70,8 @@ ggsave("../../../myblog/content/posts_dblogr/gapminder/featured.png", mp, width 
 ```
 
 ![](gapminder_02.png)
+
+---
 
 ```{r}
 mp <- ggplot(gapminder, aes(x = year, y = gdpPercap / 1000, colour = country)) +
@@ -84,9 +92,11 @@ ggsave("../../../myblog/content/graphs_dblogr/gapminder/gallery/gallery/gapminde
 
 ![](gapminder_03.png)
 
+---
+
 # Animations
 
-```{r eval = F}
+```{r}
 # gganimate example
 mp <- ggplot(gapminder, aes(x = gdpPercap / 1000, y = lifeExp, size = pop, colour = country)) +
   geom_point(alpha = 0.7, show.legend = F) +
@@ -102,13 +112,15 @@ mp <- ggplot(gapminder, aes(x = gdpPercap / 1000, y = lifeExp, size = pop, colou
 anim_save("gapminder_gifs_01.gif", mp, width = 600, height = 400)
 ```
 
-```{r echo = F, eval = F}
+```{r echo = F}
 anim_save("../../../myblog/content/graphs_dblogr/gapminder/gallery/gallery/gapminder_gifs_01.gif", mp, width = 600, height = 400)
 ```
 
 ![](gapminder_gifs_01.gif)
 
-```{r eval = F}
+---
+
+```{r}
 xx <- gapminder %>% arrange(rev(year), gdpPercap) %>% 
   mutate(country = factor(country, levels = unique(country)))
 #
@@ -126,13 +138,15 @@ mp <- ggplot(xx, aes(x = country, y = gdpPercap / 1000, size = pop, colour = cou
 anim_save("gapminder_gifs_02.gif", mp, width = 600, height = 400)
 ```
 
-```{r echo = F, eval = F}
+```{r echo = F}
 anim_save("../../../myblog/content/graphs_dblogr/gapminder/gallery/gallery/gapminder_gifs_02.gif", mp, width = 600, height = 400)
 ```
 
 ![](gapminder_gifs_02.gif)
 
-```{r eval = F}
+---
+
+```{r}
 xx <- gapminder %>% arrange(rev(year), lifeExp) %>% 
   mutate(country = factor(country, levels = unique(country)))
 #
@@ -150,13 +164,15 @@ mp <- ggplot(xx, aes(x = country, y = lifeExp, size = pop, colour = country)) +
 anim_save("gapminder_gifs_03.gif", mp, width = 600, height = 400)
 ```
 
-```{r echo = F, eval = F}
+```{r echo = F}
 anim_save("../../../myblog/content/graphs_dblogr/gapminder/gallery/gallery/gapminder_gifs_03.gif", mp, width = 600, height = 400)
 ```
 
 ![](gapminder_gifs_03.gif)
 
-```{r eval = F}
+---
+
+```{r}
 gg_gapminder1 <- function(x) {
   ggplot(x, aes(x = gdpPercap / 1000, y = lifeExp, size = pop, colour = country)) +
     geom_point(alpha = 0.7) +
@@ -172,66 +188,78 @@ gg_gapminder1 <- function(x) {
 }
 ```
 
-```{r eval = F}
+---
+
+```{r}
 mp <- gg_gapminder1(gapminder)
 anim_save("gapminder_gifs_04.gif", mp, width = 600, height = 400)
 ```
 
-```{r echo = F, eval = F}
+```{r echo = F}
 anim_save("../../../myblog/content/graphs_dblogr/gapminder/gallery/gallery/gapminder_gifs_04.gif", mp, width = 600, height = 400)
 ```
 
 ![](gapminder_gifs_04.gif)
 
+---
+
 # Regions
 
-```{r eval = F}
+```{r}
 mp <- gg_gapminder1(gapminder %>% filter(continent == "Africa"))
 anim_save("gapminder_gifs_05.gif", mp, width = 600, height = 400)
 ```
 
-```{r echo = F, eval = F}
+```{r echo = F}
 anim_save("../../../myblog/content/graphs_dblogr/gapminder/gallery/gallery/gapminder_gifs_05.gif", mp, width = 600, height = 400)
 ```
 
 ![](gapminder_gifs_05.gif)
 
-```{r eval = F}
+---
+
+```{r}
 mp <- gg_gapminder1(gapminder %>% filter(continent == "Americas"))
 anim_save("gapminder_gifs_06.gif", mp)
 ```
 
-```{r echo = F, eval = F}
+```{r echo = F}
 anim_save("../../../myblog/content/graphs_dblogr/gapminder/gallery/gallery/gapminder_gifs_06.gif", mp, width = 600, height = 400)
 ```
 
 ![](gapminder_gifs_06.gif)
 
-```{r eval = F}
+---
+
+```{r}
 mp <- gg_gapminder1(gapminder %>% filter(continent == "Asia"))
 anim_save("gapminder_gifs_07.gif", mp, width = 600, height = 400)
 ```
 
-```{r echo = F, eval = F}
+```{r echo = F}
 anim_save("../../../myblog/content/graphs_dblogr/gapminder/gallery/gallery/gapminder_gifs_07.gif", mp, width = 600, height = 400)
 ```
 
 ![](gapminder_gifs_07.gif)
 
-```{r eval = F}
+---
+
+```{r}
 mp <- gg_gapminder1(gapminder %>% filter(continent == "Europe"))
 anim_save("gapminder_gifs_08.gif", mp, width = 600, height = 400)
 ```
 
-```{r echo = F, eval = F}
+```{r echo = F}
 anim_save("../../../myblog/content/graphs_dblogr/gapminder/gallery/gallery/gapminder_gifs_08.gif", mp, width = 600, height = 400)
 ```
 
 ![](gapminder_gifs_08.gif)
 
+---
+
 # Countries
 
-```{r eval = F}
+```{r}
 gg_gapminder2 <- function(mycountries) {
   x <- gapminder %>% filter(country %in% mycountries)
   ggplot(x, aes(x = gdpPercap / 1000, y = lifeExp, colour = country)) +
@@ -246,35 +274,45 @@ gg_gapminder2 <- function(mycountries) {
 }
 ```
 
-```{r eval = F}
+---
+
+```{r}
 mp <- gg_gapminder2("Canada")
 anim_save("gapminder_gifs_09.gif", mp, width = 600, height = 400)
 ```
 
-```{r echo = F, eval = F}
+```{r echo = F}
 anim_save("../../../myblog/content/graphs_dblogr/gapminder/gallery/gallery/gapminder_gifs_09.gif", mp, width = 600, height = 400)
 ```
 
 ![](gapminder_gifs_09.gif)
 
-```{r eval = F}
+---
+
+```{r}
 mp <- gg_gapminder2("China")
 anim_save("gapminder_gifs_10.gif", mp, width = 600, height = 400)
 ```
 
-```{r echo = F, eval = F}
+```{r echo = F}
 anim_save("../../../myblog/content/graphs_dblogr/gapminder/gallery/gallery/gapminder_gifs_10.gif", mp, width = 600, height = 400)
 ```
 
 ![](gapminder_gifs_10.gif)
 
-```{r eval = F}
+---
+
+```{r}
 mp <- gg_gapminder2(c("Rwanda", "South Africa", "Nigeria"))
 anim_save("gapminder_gifs_11.gif", mp, width = 600, height = 400)
 ```
 
-```{r echo = F, eval = F}
+```{r echo = F}
 anim_save("../../../myblog/content/graphs_dblogr/gapminder/gallery/gallery/gapminder_gifs_11.gif", mp, width = 600, height = 400)
 ```
 
 ![](gapminder_gifs_11.gif)
+
+---
+
+&copy; Derek Michael Wright 2020 [www.dblogr.com/](https://dblogr.netlify.com/)

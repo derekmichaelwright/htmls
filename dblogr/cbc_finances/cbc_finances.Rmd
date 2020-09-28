@@ -11,11 +11,19 @@ knitr::opts_chunk$set(echo = T, message = F, warning = F)
 
 ---
 
+# Introduction
+
+The purpose of this vignette is to explore the funding of the CBC. 
+
 ```{r}
 # devtools::install_github("derekmichaelwright/agData")
 library(agData) # Loads: tidyverse, ggpubr, ggbeeswarm, ggrepel
 library(readxl) # read_xlsx()
 ```
+
+---
+
+# Prepare data
 
 ```{r}
 # Prep data
@@ -40,6 +48,8 @@ pop <- read_xlsx("STATCAN_Population.xlsx", "1710000901") %>%
 cost / pop
 ```
 
+---
+
 # Expenses vs Revenue (Line)
 
 ```{r}
@@ -58,6 +68,8 @@ ggsave("../../../myblog/content/graphs_dblogr/cbc_finances/gallery/gallery/cbc_1
 ```
 
 ![](cbc_1.png)
+
+---
 
 # Expenses vs Revenue (Bar)
 
@@ -79,6 +91,8 @@ ggsave("../../../myblog/content/posts_dblogr/cbc_finances/featured.png", mp, wid
 ```
 
 ![](cbc_2.png)
+
+---
 
 # Net Profit With Government Funding
 
@@ -104,6 +118,8 @@ ggsave("../../../myblog/content/graphs_dblogr/cbc_finances/gallery/gallery/cbc_3
 
 ![](cbc_3.png)
 
+---
+
 # Net Profit Without Government Funding
 
 ```{r}
@@ -127,3 +143,7 @@ ggsave("../../../myblog/content/graphs_dblogr/cbc_finances/gallery/gallery/cbc_4
 ```
 
 ![](cbc_4.png)
+
+---
+
+&copy; Derek Michael Wright 2020 [www.dblogr.com/](https://dblogr.netlify.com/)

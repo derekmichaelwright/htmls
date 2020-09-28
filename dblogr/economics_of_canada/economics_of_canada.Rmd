@@ -17,6 +17,8 @@ The purpose of this vignette is to explore some economic GDP data available from
 
 STATCAN data Tables: 36-10-0400-01, 36-10-0402-01, 17-10-0009-01
 
+---
+
 # Prepare Data
 
 ```{r}
@@ -54,6 +56,8 @@ d3 <- read_xlsx("STATCAN_Population.xlsx", "1710000901") %>%
          Year = as.numeric(Year))
 ```
 
+---
+
 # GDP by Province
 
 ```{r}
@@ -79,6 +83,8 @@ ggsave("../../../myblog/content/posts_dblogr/economics_of_canada/featured.png", 
 
 ![](economics_of_canada_01.png)
 
+---
+
 ```{r}
 # Prep data
 xx <- d1 %>% mutate(Value = `Current dollars` / 1000000000)
@@ -100,6 +106,8 @@ ggsave("../../../myblog/content/graphs_dblogr/economics_of_canada/gallery/galler
 
 ![](economics_of_canada_02.png)
 
+---
+
 ```{r}
 # Plot
 mp <- mp + facet_wrap(Area ~ ., scale = "free_y", ncol = 5) + 
@@ -112,6 +120,8 @@ ggsave("../../../myblog/content/graphs_dblogr/economics_of_canada/gallery/galler
 ```
 
 ![](economics_of_canada_03.png)
+
+---
 
 ```{r}
 # Prep data
@@ -139,6 +149,8 @@ ggsave("../../../myblog/content/graphs_dblogr/economics_of_canada/gallery/galler
 
 ![](economics_of_canada_04.png)
 
+---
+
 # GDP Per Person
 
 ```{r}
@@ -165,6 +177,8 @@ ggsave("../../../myblog/content/graphs_dblogr/economics_of_canada/gallery/galler
 
 ![](economics_of_canada_05.png)
 
+---
+
 ```{r}
 mp <- ggplot(xx, aes(x = Year, y = GDP_PP, color = Area)) + 
   geom_line() +
@@ -182,6 +196,8 @@ ggsave("../../../myblog/content/graphs_dblogr/economics_of_canada/gallery/galler
 
 ![](economics_of_canada_06.png)
 
+---
+
 ```{r}
 mp <- mp + facet_wrap(Area~., ncol = 5) + 
   scale_y_continuous()
@@ -193,6 +209,8 @@ ggsave("../../../myblog/content/graphs_dblogr/economics_of_canada/gallery/galler
 ```
 
 ![](economics_of_canada_07.png)
+
+---
 
 ```{r}
 # Prep data
@@ -218,6 +236,8 @@ ggsave("../../../myblog/content/graphs_dblogr/economics_of_canada/gallery/galler
 ```
 
 ![](economics_of_canada_08.png)
+
+---
 
 # Compare Privinces
 
@@ -248,10 +268,14 @@ ggGDP_PP <- function(year, areas, colors) {
 }
 ```
 
+---
+
 ```{r}
 mp <- ggGDP_PP(2016, c("Alberta", "Quebec"), c("darkblue", "lightblue"))
 ggsave("economics_of_canada_09.png", mp, width = 25, height = 8)
 ```
+
+---
 
 ```{r echo = F}
 ggsave("../../../myblog/content/graphs_dblogr/economics_of_canada/gallery/gallery/economics_of_canada_09.png", mp, width = 25, height = 8)
@@ -259,10 +283,14 @@ ggsave("../../../myblog/content/graphs_dblogr/economics_of_canada/gallery/galler
 
 ![](economics_of_canada_09.png)
 
+---
+
 ```{r}
 mp <- ggGDP_PP(2016, c("Alberta", "Ontario"), c("darkblue", "darkred"))
 ggsave("economics_of_canada_10.png", mp, width = 25, height = 8)
 ```
+
+---
 
 ```{r echo = F}
 ggsave("../../../myblog/content/graphs_dblogr/economics_of_canada/gallery/gallery/economics_of_canada_10.png", mp, width = 25, height = 8)
@@ -270,16 +298,22 @@ ggsave("../../../myblog/content/graphs_dblogr/economics_of_canada/gallery/galler
 
 ![](economics_of_canada_10.png)
 
+---
+
 ```{r}
 mp <- ggGDP_PP(2016, c("Alberta", "British Columbia"), c("darkred", "darkgreen"))
 ggsave("economics_of_canada_11.png", mp, width = 25, height = 8)
 ```
+
+---
 
 ```{r echo = F}
 ggsave("../../../myblog/content/graphs_dblogr/economics_of_canada/gallery/gallery/economics_of_canada_11.png", mp, width = 25, height = 8)
 ```
 
 ![](economics_of_canada_11.png)
+
+---
 
 ```{r}
 mp <- ggGDP_PP(2016, c("Saskatchewan", "Manitoba"), c("darkorange3", "darkmagenta"))
@@ -291,3 +325,7 @@ ggsave("../../../myblog/content/graphs_dblogr/economics_of_canada/gallery/galler
 ```
 
 ![](economics_of_canada_12.png)
+
+---
+
+&copy; Derek Michael Wright 2020 [www.dblogr.com/](https://dblogr.netlify.com/)

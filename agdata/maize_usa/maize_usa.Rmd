@@ -3,24 +3,6 @@ title: "USA Maize Production"
 subtitle: "Graphs of maize production in the USA using USDA data"
 date: "2020-09-01"
 author: "Derek Michael Wright <wrightmderek@gmail.com> [www.dblogr.com/](https://dblogr.netlify.com/) [-Image Gallery-](https://dblogr.netlify.app/graphs_agdata/maize_usa/)"
-
-categories: [ "agData" ]
-tags: [ "agData", "Maize", "Featured" ]
-image:
-  preview_only: true
-links:
-  - icon_pack: fas
-    icon: chart-line
-    name: All Graphs
-    url: agdata_graphs/maize_usa
-  - icon_pack: far
-    icon: file-code
-    name: HTML
-    url: https://derekmichaelwright.github.io/htmls/agdata/maize_usa.html
-  - icon_pack: far
-    icon: file-pdf
-    name: PDF (Save/Print)
-    url: agdata_pdfs/maize_usa.pdf
 ---
 
 ```{r setup, include = FALSE}
@@ -33,6 +15,8 @@ knitr::opts_chunk$set(echo = T, message = F, warning = F)
 # devtools::install_github("derekmichaelwright/agData")
 library(agData) # Loads: tidyverse, ggpubr, ggbeeswarm, ggrepel
 ```
+
+---
 
 # Heterosis
 
@@ -86,6 +70,8 @@ ggsave("../../../myblog/content/posts_agdata/maize_usa/featured.png", mp, width 
 
 ![](maize_usa_01.png)
 
+---
+
 # Maize Potential
 
 ```{r}
@@ -118,6 +104,8 @@ ggsave("../../../myblog/content/graphs_agdata/maize_usa/gallery/gallery/maize_us
 
 ![](maize_usa_02.png)
 
+---
+
 # Area vs Production
 
 ```{r}
@@ -146,6 +134,8 @@ ggsave("../../../myblog/content/graphs_agdata/maize_usa/gallery/gallery/maize_us
 ```
 
 ![](maize_usa_03.png)
+
+---
 
 # Developed vs Developing Countries
 
@@ -179,6 +169,8 @@ ggsave("../../../myblog/content/home/gallery/gallery/04_maize_usa_04.png", mp, w
 
 ![](maize_usa_04.png)
 
+---
+
 # Maize Contest
 
 ```{r}
@@ -198,6 +190,8 @@ ggsave("../../../myblog/content/graphs_agdata/maize_usa/gallery/gallery/maize_us
 ```
 
 ![](maize_usa_05.png)
+
+---
 
 # Average vs Max Yield
 
@@ -226,6 +220,8 @@ ggsave("../../../myblog/content/graphs_agdata/maize_usa/gallery/gallery/maize_us
 
 ![](maize_usa_06.png)
 
+---
+
 # Hectares per tonne
 
 ```{r}
@@ -250,6 +246,8 @@ ggsave("../../../myblog/content/graphs_agdata/maize_usa/gallery/gallery/maize_us
 
 ![](maize_usa_07.png)
 
+---
+
 ```{r}
 # Prep data
 xx <- xx %>% filter(Year %in% seq(1875, 2015, by = 10))
@@ -269,6 +267,10 @@ ggsave("../../../myblog/content/graphs_agdata/maize_usa/gallery/gallery/maize_us
 ```
 
 ![](maize_usa_08.png)
+
+---
+
+# Yield Gains
 
 ```{r}
 # Prep data
@@ -297,6 +299,8 @@ ggsave("../../../myblog/content/graphs_agdata/maize_usa/gallery/gallery/maize_us
 
 ![](maize_usa_09.png)
 
+---
+
 ```{r}
 # Prep data
 xx <- xx %>% select(-Unit) %>% 
@@ -317,3 +321,7 @@ ggsave("../../../myblog/content/graphs_agdata/maize_usa/gallery/gallery/maize_us
 ```
 
 ![](maize_usa_10.png)
+
+---
+
+&copy; Derek Michael Wright 2020 [www.dblogr.com/](https://dblogr.netlify.com/)

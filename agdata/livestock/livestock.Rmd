@@ -3,24 +3,6 @@ title: "World Livestock Production"
 subtitle: "Graphs of livestock production using FAO data"
 date: "2020-09-01"
 author: "Derek Michael Wright <wrightmderek@gmail.com> [www.dblogr.com/](https://dblogr.netlify.com/) [-Image Gallery-](https://dblogr.netlify.app/graphs_agdata/livestock/)"
-
-categories: [ "agData" ]
-tags: [ "agData", "Livestock" ]
-image:
-  preview_only: true
-links: 
-  - icon_pack: fas
-    icon: chart-line
-    name: All Graphs
-    url: agdata_graphs/livestock
-  - icon_pack: far
-    icon: file-code
-    name: HTML
-    url: https://derekmichaelwright.github.io/htmls/agdata/livestock.html
-  - icon_pack: far
-    icon: file-pdf
-    name: PDF (Save/Print)
-    url: agdata_pdfs/livestock.pdf
 ---
 
 ```{r setup, include = FALSE}
@@ -34,7 +16,7 @@ knitr::opts_chunk$set(echo = TRUE, warning = F, message = F)
 library(agData) # Loads: tidyverse, ggpubr, ggbeeswarm, ggrepel
 ```
 
-\pagebreak
+---
 
 # Production
 
@@ -61,7 +43,7 @@ ggsave("../../../myblog/content/posts_agdata/livestock/featured.png", mp, width 
 
 ![](livestock_01.png)
 
-\pagebreak
+---
 
 # Permanent meadows and pastures
 
@@ -85,3 +67,7 @@ ggsave("../../../myblog/content/graphs_agdata/livestock/gallery/gallery/livestoc
 ```
 
 ![](livestock_02.png)
+
+---
+
+&copy; Derek Michael Wright 2020 [www.dblogr.com/](https://dblogr.netlify.com/)

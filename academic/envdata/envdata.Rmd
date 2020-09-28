@@ -1,27 +1,8 @@
 ---
 title: "Environmental Data Vignette"
 subtitle: "Environmental data for the agile project"
-summary:  "Environmental data for the agile project"
-author: "Derek Michael Wright <derek.wright@usask.ca> [www.dblogr.com/](https://dblogr.netlify.com/)"
-date: "2020-03-01"
-categories: [ "Academic" ]
-tags: [ "Academic", "AGILE", "Tutorial", "Featured" ]
-math: true
-image:
-  preview_only: yes
-links:
-  - icon_pack: fas
-    icon: chart-line
-    name: All Graphs
-    url: academic_graphs/envdata
-  - icon: file-code
-    icon_pack: far
-    name: HTML
-    url: https://derekmichaelwright.github.io/htmls/academic/envdata.html
-  - icon: file-pdf
-    icon_pack: far
-    name: PDF (Save/Print)
-    url: academic_pdfs/envdata.pdf
+date: "2020-09-01"
+author: "Derek Michael Wright <derek.wright@usask.ca> [www.dblogr.com/](https://dblogr.netlify.com/) [-Image Gallery-](https://dblogr.netlify.app/graphs_academic/envdata/)"
 ---
 
 ```{r setup, include = FALSE}
@@ -35,6 +16,8 @@ knitr::opts_chunk$set(echo = T, warning = F, message = F)
 The purpose of this document is to provide a few examples of how to manipulate and plot the environmental data for the AGILE project.
 
 Data sets can be downloaded from [**knowpulse.usask.ca/**](http://knowpulse.usask.ca/portal/)
+
+---
 
 # Prepare the data
 
@@ -89,6 +72,8 @@ dd %>% filter(Location == "Sutherland, Canada", Year == 2016) %>%
   distinct(LoggerID)
 ```
 
+---
+
 # Summarize data
 
 Calucate min, mean and max for each measurement
@@ -112,6 +97,8 @@ xx <- dd %>%
 str(xx)
 ```
 
+---
+
 # Plot all data
 
 ```{r}
@@ -134,7 +121,7 @@ ggsave("envdata_01.png", mp, width = 12, height = 15, limitsize = F)
 
 ![](envdata_01.png)
 
-\pagebreak
+---
 
 # Temperature
 
@@ -157,10 +144,12 @@ ggsave("envdata_02.png", mp, width = 7, height = 5)
 ```
 
 ```{r echo = F}
-ggsave("../../academic_graphs/envdata/measurements/gallery/envdata_02.png", mp, width = 7, height = 5)
+ggsave("../../../myblog/content/graphs_academic/envdata/measurements/gallery/envdata_02.png", mp, width = 7, height = 5)
 ```
 
 ![](envdata_02.png)
+
+---
 
 Plot temperatures for one month (July 2016)
 
@@ -174,10 +163,12 @@ ggsave("envdata_03.png", mp, width = 7, height = 5)
 ```
 
 ```{r echo = F}
-ggsave("../../academic_graphs/envdata/measurements/gallery/envdata_03.png", mp, width = 7, height = 5)
+ggsave("../../../myblog/content/graphs_academic/envdata/measurements/gallery/envdata_03.png", mp, width = 7, height = 5)
 ```
 
 ![](envdata_03.png)
+
+---
 
 Calculate daily mean for each data logger
 
@@ -222,12 +213,12 @@ ggsave("envdata_04.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../academic_graphs/envdata/measurements/gallery/envdata_04.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_academic/envdata/measurements/gallery/envdata_04.png", mp, width = 6, height = 4)
 ```
 
 ![](envdata_04.png)
 
-\pagebreak
+---
 
 # Day Lengths
 
@@ -250,12 +241,12 @@ ggsave("envdata_05.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../academic_graphs/envdata/measurements/gallery/envdata_05.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_academic/envdata/measurements/gallery/envdata_05.png", mp, width = 6, height = 4)
 ```
 
 ![](envdata_05.png)
 
-\pagebreak
+---
 
 # Precipitation
 
@@ -282,10 +273,12 @@ ggsave("envdata_06.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../academic_graphs/envdata/measurements/gallery/envdata_06.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_academic/envdata/measurements/gallery/envdata_06.png", mp, width = 6, height = 4)
 ```
 
 ![](envdata_06.png)
+
+---
 
 ```{r}
 # Prep data
@@ -304,12 +297,12 @@ ggsave("envdata_07.png", mp, width = 6, height = 8)
 ```
 
 ```{r echo = F}
-ggsave("../../academic_graphs/envdata/measurements/gallery/envdata_07.png", mp, width = 6, height = 8)
+ggsave("../../../myblog/content/graphs_academic/envdata/measurements/gallery/envdata_07.png", mp, width = 6, height = 8)
 ```
 
 ![](envdata_07.png)
 
-\pagebreak
+---
 
 # Temperature, Day Length & Rainfall
 
@@ -372,13 +365,13 @@ ggsave("envdata_08.png", mp, width = 6, height = 5.5)
 ```
 
 ```{r echo = F}
-ggsave("../../academic_graphs/envdata/measurements/gallery/envdata_08.png", mp, width = 6, height = 5.5)
-ggsave("featured.png", mp, width = 6, height = 5.5, limitsize = F)
+ggsave("../../../myblog/content/graphs_academic/envdata/measurements/gallery/envdata_08.png", mp, width = 6, height = 5.5)
+ggsave("../../../myblog/content/posts_academic/envdata/featured.png", mp, width = 6, height = 5.5, limitsize = F)
 ```
 
 ![](envdata_08.png)
 
-\pagebreak
+---
 
 # Soil Temperature
 
@@ -405,12 +398,12 @@ ggsave("envdata_09.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../academic_graphs/envdata/measurements/gallery/envdata_09.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_academic/envdata/measurements/gallery/envdata_09.png", mp, width = 6, height = 4)
 ```
 
 ![](envdata_09.png)
 
-\pagebreak
+---
 
 # Each experiment
 
@@ -431,7 +424,7 @@ envPlot <- function(xx) {
 }
 ```
 
-\pagebreak
+---
 
 ## Sutherland, Canada 2016
 
@@ -441,12 +434,12 @@ ggsave("envdata_expt_01.png", mp, width = 12, height = 15)
 ```
 
 ```{r echo = F}
-ggsave("../../academic_graphs/envdata/temperate/gallery/envdata_expt_01.png", mp, width = 12, height = 15)
+ggsave("../../../myblog/content/graphs_academic/envdata/temperate/gallery/envdata_expt_01.png", mp, width = 12, height = 15)
 ```
 
 ![](envdata_expt_01.png)
 
-\pagebreak
+---
 
 ## Sutherland, Canada 2017
 
@@ -456,12 +449,12 @@ ggsave("envdata_expt_02.png", mp, width = 12, height = 11)
 ```
 
 ```{r echo = F}
-ggsave("../../academic_graphs/envdata/temperate/gallery/envdata_expt_02.png", mp, width = 12, height = 11)
+ggsave("../../../myblog/content/graphs_academic/envdata/temperate/gallery/envdata_expt_02.png", mp, width = 12, height = 11)
 ```
 
 ![](envdata_expt_02.png)
 
-\pagebreak
+---
 
 ## Sutherland, Canada 2018
 
@@ -471,12 +464,12 @@ ggsave("envdata_expt_03.png", mp, width = 12, height = 11)
 ```
 
 ```{r echo = F}
-ggsave("../../academic_graphs/envdata/temperate/gallery/envdata_expt_03.png", mp, width = 12, height = 11)
+ggsave("../../../myblog/content/graphs_academic/envdata/temperate/gallery/envdata_expt_03.png", mp, width = 12, height = 11)
 ```
 
 ![](envdata_expt_03.png)
 
-\pagebreak
+---
 
 ## Rosthern, Canada 2016
 
@@ -486,12 +479,12 @@ ggsave("envdata_expt_04.png", mp, width = 12, height = 10)
 ```
 
 ```{r echo = F}
-ggsave("../../academic_graphs/envdata/temperate/gallery/envdata_expt_04.png", mp, width = 12, height = 10)
+ggsave("../../../myblog/content/graphs_academic/envdata/temperate/gallery/envdata_expt_04.png", mp, width = 12, height = 10)
 ```
 
 ![](envdata_expt_04.png)
 
-\pagebreak
+---
 
 ## Rosthern, Canada 2017
 
@@ -501,10 +494,12 @@ ggsave("envdata_expt_05.png", mp, width = 12, height = 10)
 ```
 
 ```{r echo = F}
-ggsave("../../academic_graphs/envdata/temperate/gallery/envdata_expt_05.png", mp, width = 12, height = 10)
+ggsave("../../../myblog/content/graphs_academic/envdata/temperate/gallery/envdata_expt_05.png", mp, width = 12, height = 10)
 ```
 
 ![](envdata_expt_05.png)
+
+---
 
 ## Central Ferry, USA 2017
 
@@ -514,12 +509,12 @@ ggsave("envdata_expt_06.png", mp, width = 12, height = 23)
 ```
 
 ```{r echo = F}
-ggsave("../../academic_graphs/envdata/temperate/gallery/envdata_expt_06.png", mp, width = 12, height = 23)
+ggsave("../../../myblog/content/graphs_academic/envdata/temperate/gallery/envdata_expt_06.png", mp, width = 12, height = 23)
 ```
 
 ![](envdata_expt_06.png)
 
-\pagebreak
+---
 
 ## Central Ferry, USA 2018
 
@@ -529,12 +524,12 @@ ggsave("envdata_expt_07.png", mp, width = 12, height = 10)
 ```
 
 ```{r echo = F}
-ggsave("../../academic_graphs/envdata/temperate/gallery/envdata_expt_07.png", mp, width = 12, height = 10)
+ggsave("../../../myblog/content/graphs_academic/envdata/temperate/gallery/envdata_expt_07.png", mp, width = 12, height = 10)
 ```
 
 ![](envdata_expt_07.png)
 
-\pagebreak
+---
 
 ## Bhopal, India 2016
 
@@ -544,12 +539,12 @@ ggsave("envdata_expt_08.png", mp, width = 12, height = 10)
 ```
 
 ```{r echo = F}
-ggsave("../../academic_graphs/envdata/southasian/gallery/envdata_expt_08.png", mp, width = 12, height = 10)
+ggsave("../../../myblog/content/graphs_academic/envdata/southasian/gallery/envdata_expt_08.png", mp, width = 12, height = 10)
 ```
 
 ![](envdata_expt_08.png)
 
-\pagebreak
+---
 
 ## Bhopal, India 2017
 
@@ -559,12 +554,12 @@ ggsave("envdata_expt_09.png", mp, width = 12, height = 5)
 ```
 
 ```{r echo = F}
-ggsave("../../academic_graphs/envdata/southasian/gallery/envdata_expt_09.png", mp, width = 12, height = 5)
+ggsave("../../../myblog/content/graphs_academic/envdata/southasian/gallery/envdata_expt_09.png", mp, width = 12, height = 5)
 ```
 
 ![](envdata_expt_09.png)
 
-\pagebreak
+---
 
 ## Jessore, Bangladesh 2016
 
@@ -574,12 +569,12 @@ ggsave("envdata_expt_10.png", mp, width = 12, height = 8)
 ```
 
 ```{r echo = F}
-ggsave("../../academic_graphs/envdata/southasian/gallery/envdata_expt_10.png", mp, width = 12, height = 8)
+ggsave("../../../myblog/content/graphs_academic/envdata/southasian/gallery/envdata_expt_10.png", mp, width = 12, height = 8)
 ```
 
 ![](envdata_expt_10.png)
 
-\pagebreak
+---
 
 ## Jessore, Bangladesh 2017
 
@@ -589,12 +584,12 @@ ggsave("envdata_expt_11.png", mp, width = 12, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../academic_graphs/envdata/southasian/gallery/envdata_expt_11.png", mp, width = 12, height = 4)
+ggsave("../../../myblog/content/graphs_academic/envdata/southasian/gallery/envdata_expt_11.png", mp, width = 12, height = 4)
 ```
 
 ![](envdata_expt_11.png)
 
-\pagebreak
+---
 
 ## Bardiya, Nepal 2016
 
@@ -604,12 +599,12 @@ ggsave("envdata_expt_12.png", mp, width = 12, height = 5)
 ```
 
 ```{r echo = F}
-ggsave("../../academic_graphs/envdata/southasian/gallery/envdata_expt_12.png", mp, width = 12, height = 5)
+ggsave("../../../myblog/content/graphs_academic/envdata/southasian/gallery/envdata_expt_12.png", mp, width = 12, height = 5)
 ```
 
 ![](envdata_expt_12.png)
 
-\pagebreak
+---
 
 ## Bardiya, Nepal 2017
 
@@ -619,12 +614,12 @@ ggsave("envdata_expt_13.png", mp, width = 12, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../academic_graphs/envdata/southasian/gallery/envdata_expt_13.png", mp, width = 12, height = 4)
+ggsave("../../../myblog/content/graphs_academic/envdata/southasian/gallery/envdata_expt_13.png", mp, width = 12, height = 4)
 ```
 
 ![](envdata_expt_13.png)
 
-\pagebreak
+---
 
 ## Marchouch, Morocco 2016
 
@@ -634,12 +629,12 @@ ggsave("envdata_expt_14.png", mp, width = 12, height = 9)
 ```
 
 ```{r echo = F}
-ggsave("../../academic_graphs/envdata/mediterranean/gallery/envdata_expt_14.png", mp, width = 12, height = 9)
+ggsave("../../../myblog/content/graphs_academic/envdata/mediterranean/gallery/envdata_expt_14.png", mp, width = 12, height = 9)
 ```
 
 ![](envdata_expt_14.png)
 
-\pagebreak
+---
 
 ## Marchouch, Morocco 2017
 
@@ -649,12 +644,12 @@ ggsave("envdata_expt_15.png", mp, width = 12, height = 5)
 ```
 
 ```{r echo = F}
-ggsave("../../academic_graphs/envdata/mediterranean/gallery/envdata_expt_15.png", mp, width = 12, height = 5)
+ggsave("../../../myblog/content/graphs_academic/envdata/mediterranean/gallery/envdata_expt_15.png", mp, width = 12, height = 5)
 ```
 
 ![](envdata_expt_15.png)
 
-\pagebreak
+---
 
 ## Cordoba, Spain 2016
 
@@ -664,12 +659,12 @@ ggsave("envdata_expt_16.png", mp, width = 12, height = 6)
 ```
 
 ```{r echo = F}
-ggsave("../../academic_graphs/envdata/mediterranean/gallery/envdata_expt_16.png", mp, width = 12, height = 6)
+ggsave("../../../myblog/content/graphs_academic/envdata/mediterranean/gallery/envdata_expt_16.png", mp, width = 12, height = 6)
 ```
 
 ![](envdata_expt_16.png)
 
-\pagebreak
+---
 
 ## Cordoba, Spain 2017
 
@@ -679,12 +674,12 @@ ggsave("envdata_expt_17.png", mp, width = 12, height = 6)
 ```
 
 ```{r echo = F}
-ggsave("../../academic_graphs/envdata/mediterranean/gallery/envdata_expt_17.png", mp, width = 12, height = 6)
+ggsave("../../../myblog/content/graphs_academic/envdata/mediterranean/gallery/envdata_expt_17.png", mp, width = 12, height = 6)
 ```
 
 ![](envdata_expt_17.png)
 
-\pagebreak
+---
 
 ## Metaponto, Italy 2016
 
@@ -694,12 +689,12 @@ ggsave("envdata_expt_18.png", mp, width = 12, height = 12)
 ```
 
 ```{r echo = F}
-ggsave("../../academic_graphs/envdata/mediterranean/gallery/envdata_expt_18.png", mp, width = 12, height = 12)
+ggsave("../../../myblog/content/graphs_academic/envdata/mediterranean/gallery/envdata_expt_18.png", mp, width = 12, height = 12)
 ```
 
 ![](envdata_expt_18.png)
 
-\pagebreak
+---
 
 ## Metaponto, Italy 2017
 
@@ -709,7 +704,11 @@ ggsave("envdata_expt_19.png", mp, width = 12, height = 11)
 ```
 
 ```{r echo = F}
-ggsave("../../academic_graphs/envdata/mediterranean/gallery/envdata_expt_19.png", mp, width = 12, height = 11)
+ggsave("../../../myblog/content/graphs_academic/envdata/mediterranean/gallery/envdata_expt_19.png", mp, width = 12, height = 11)
 ```
 
 ![](envdata_expt_19.png)
+
+---
+
+&copy; Derek Michael Wright 2020 [www.dblogr.com/](https://dblogr.netlify.com/)

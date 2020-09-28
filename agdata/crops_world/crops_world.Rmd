@@ -1,26 +1,8 @@
 ---
 title: "World Crop Production"
 subtitle: "Graphs of of world crop production using FAO data"
-summary:  "Graphs of of world crop production using FAO data"
+date: "2020-09-01"
 author: "Derek Michael Wright <wrightmderek@gmail.com> [www.dblogr.com/](https://dblogr.netlify.com/) [-Image Gallery-](https://dblogr.netlify.app/graphs_agdata/crops_world/)"
-date: "2020-03-01"
-categories: [ "agData" ]
-tags: [ "agData", "Regions" ]
-image:
-  preview_only: true
-links:
-  - icon_pack: fas
-    icon: chart-line
-    name: All Graphs
-    url: agdata_graphs/crops_world
-  - icon_pack: far
-    icon: file-code
-    name: HTML
-    url: https://derekmichaelwright.github.io/htmls/agdata/crops_world.html
-  - icon_pack: far
-    icon: file-pdf
-    name: Save/Print
-    url: agdata_pdfs/crops_world.pdf
 ---
 
 ```{r setup, include = FALSE}
@@ -33,6 +15,8 @@ knitr::opts_chunk$set(echo = TRUE, message = F, warning = F)
 # devtools::install_github("derekmichaelwright/agData")
 library(agData) # Loads: tidyverse, ggpubr, ggbeeswarm, ggrepel
 ```
+
+---
 
 ```{r}
 # Create function to determine top crops
@@ -54,7 +38,7 @@ cropList <- function(measurement) {
 }
 ```
 
-\pagebreak
+---
 
 # Crop Production 1961 and 2018
 
@@ -89,7 +73,7 @@ ggsave("../../../myblog/content/posts_agdata/crops_world/featured.png", mp, widt
 
 ![](crops_world_01.png)
 
-\pagebreak
+---
 
 # Crop Area 1961 and 2018
 
@@ -118,7 +102,7 @@ ggsave("../../../myblog/content/graphs_agdata/crops_world/gallery/gallery/crops_
 
 ![](crops_world_02.png)
 
-\pagebreak
+---
 
 # Crop Yields
 
@@ -148,7 +132,7 @@ ggsave("../../../myblog/content/graphs_agdata/crops_world/gallery/gallery/crops_
 
 ![](crops_world_03.png)
 
-\pagebreak
+---
 
 # Major Crop Yields
 
@@ -176,3 +160,7 @@ ggsave("../../../myblog/content/graphs_agdata/crops_world/gallery/gallery/crops_
 ```
 
 ![](crops_world_04.png)
+
+---
+
+&copy; Derek Michael Wright 2020 [www.dblogr.com/](https://dblogr.netlify.com/)

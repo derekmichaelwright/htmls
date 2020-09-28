@@ -16,7 +16,7 @@ knitr::opts_chunk$set(echo = T, message = F, warning = F)
 library(agData) # Loads: tidyverse, ggpubr, ggbeeswarm, ggrepel
 ```
 
-\pagebreak
+---
 
 # Production by Country 2018
 
@@ -44,7 +44,7 @@ ggsave("../../../myblog/content/graphs_agdata/lentil/gallery/gallery/lentil_01.p
 
 ![](lentil_01.png)
 
-\pagebreak
+---
 
 # Yields by Country
 
@@ -74,7 +74,7 @@ ggsave("../../../myblog/content/graphs_agdata/lentil/gallery/gallery/lentil_02.p
 
 ![](lentil_02.png)
 
-\pagebreak
+---
 
 # Production by Country
 
@@ -102,7 +102,7 @@ ggsave("../../../myblog/content/graphs_agdata/lentil/gallery/gallery/lentil_03.p
 
 ![](lentil_03.png)
 
-\pagebreak
+---
 
 # Canada's Global Contribution
 
@@ -132,7 +132,7 @@ ggsave("../../../myblog/content/graphs_agdata/lentil/gallery/gallery/lentil_04.p
 
 ![](lentil_04.png)
 
-\pagebreak
+---
 
 # Import/Export Canada vs India
 
@@ -163,7 +163,7 @@ ggsave("../../../myblog/content/home/gallery/gallery/05_lentil_05.png", mp, widt
 
 ![](lentil_05.png)
 
-\pagebreak
+---
 
 # Import/Export by Region
 
@@ -192,7 +192,7 @@ ggsave("../../../myblog/content/graphs_agdata/lentil/gallery/gallery/lentil_06.p
 
 ![](lentil_06.png)
 
-\pagebreak
+---
 
 # Production Pie Charts
 
@@ -236,7 +236,7 @@ ggPie <- function(crop, measurement = "Production", year = 2018, other = 0.01) {
 }
 ```
 
-\pagebreak
+---
 
 ## 2017
 
@@ -254,7 +254,7 @@ ggsave("../../../myblog/content/posts_agdata/lentil/featured.png", mp, width = 6
 
 ![](lentil_07.png)
 
-\pagebreak
+---
 
 ## 1961
 
@@ -270,7 +270,7 @@ ggsave("../../../myblog/content/graphs_agdata/lentil/gallery/gallery/lentil_08.p
 
 ![](lentil_08.png)
 
-\pagebreak
+---
 
 # Heatmap
 
@@ -305,7 +305,9 @@ ggsave("../../../myblog/content/graphs_agdata/lentil/gallery/gallery/lentil_09.p
 
 ![](lentil_09.png)
 
-\pagebreak
+---
+
+# Yields
 
 ```{r}
 # Prep data
@@ -338,9 +340,11 @@ ggsave("../../../myblog/content/graphs_agdata/lentil/gallery/gallery/lentil_10.p
 
 ![](lentil_10.png)
 
+---
+
 # Country PDF
 
-```{r eval = F}
+```{r}
 # Prep data
 xx <- agData_FAO_Crops %>% 
   filter(Crop == "Lentils", Area %in% agData_FAO_Country_Table$Country) %>%
@@ -366,3 +370,7 @@ dev.off()
 ![](lentil_fao_pdf.png)
 
 [**PDF**: Lentil production by country.](https://github.com/derekmichaelwright/htmls/raw/master/agdata/lentil/lentil_fao.pdf)
+
+---
+
+&copy; Derek Michael Wright 2020 [www.dblogr.com/](https://dblogr.netlify.com/)

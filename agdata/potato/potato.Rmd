@@ -16,6 +16,8 @@ knitr::opts_chunk$set(echo = TRUE, message = F, warning = F)
 library(agData) # Loads: tidyverse, ggpubr, ggbeeswarm, ggrepel
 ```
 
+---
+
 # Global Production
 
 ```{r}
@@ -43,6 +45,8 @@ ggsave("../../../myblog/content/graphs_agdata/potato/gallery/gallery/potato_01.p
 
 ![](potato_01.png)
 
+---
+
 # Production by Region
 
 ```{r}
@@ -64,6 +68,8 @@ ggsave("../../../myblog/content/graphs_agdata/potato/gallery/gallery/potato_02.p
 ```
 
 ![](potato_02.png)
+
+---
 
 ```{r}
 # Prep data
@@ -87,6 +93,8 @@ ggsave("../../../myblog/content/graphs_agdata/potato/gallery/gallery/potato_03.p
 ```
 
 ![](potato_03.png)
+
+---
 
 # potato vs Wheat and Lentil
 
@@ -114,3 +122,7 @@ ggsave("../../../myblog/content/posts_agdata/potato/featured.png", mp, width = 6
 ```
 
 ![](potato_04.png)
+
+---
+
+&copy; Derek Michael Wright 2020 [www.dblogr.com/](https://dblogr.netlify.com/)

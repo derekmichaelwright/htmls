@@ -13,9 +13,11 @@ knitr::opts_chunk$set(echo = T, message = F, warning = F)
 
 All images are from [Wikipedia](http://www.wikipedia.org/)
 
+---
+
 # Create an Animation
 
-```{r eval = F}
+```{r}
 library(magick)
 # all images are in a folder called `maps`
 fnames <- list.files("maps")
@@ -23,10 +25,9 @@ mp <- image_read(paste("maps", fnames, sep = "/")) %>% image_scale("x967")
 image_write(image_animate(mp, fps = 2.5), "Candian_Federal_Elections.gif")
 ```
 
-```{r echo = F}
-library(magick)
-image_read("Candian_Federal_Elections.gif")
-```
+![](Candian_Federal_Elections.gif)
+
+---
 
 # 2000's
 
@@ -53,6 +54,8 @@ image_read("Candian_Federal_Elections.gif")
 ## 2000
 
 ![](maps/ElectionMap_2000.png)
+
+---
 
 # 1900's
 
@@ -168,6 +171,8 @@ image_read("Candian_Federal_Elections.gif")
 
 ![](maps/ElectionMap_1900.png)
 
+---
+
 # 1800's
 
 ## 1896
@@ -197,3 +202,7 @@ image_read("Candian_Federal_Elections.gif")
 ## 1867
 
 ![](maps/ElectionMap_1867.png)
+
+---
+
+&copy; Derek Michael Wright 2020 [www.dblogr.com/](https://dblogr.netlify.com/)

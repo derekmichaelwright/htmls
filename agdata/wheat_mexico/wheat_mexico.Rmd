@@ -16,6 +16,8 @@ knitr::opts_chunk$set(echo = T, message = F, warning = F)
 library(agData) # Loads: tidyverse, ggpubr, ggbeeswarm, ggrepel
 ```
 
+---
+
 # Yield 
 
 ```{r}
@@ -42,6 +44,8 @@ ggsave("../../../myblog/content/posts_agdata/wheat_mexico/featured.png", mp1, wi
 
 ![](wheat_mexico_01.png)
 
+---
+
 # Area and Production
 
 ```{r}
@@ -64,3 +68,7 @@ ggsave("../../../myblog/content/graphs_agdata/wheat_mexico/gallery/gallery/wheat
 ```
 
 ![](wheat_mexico_02.png)
+
+---
+
+&copy; Derek Michael Wright 2020 [www.dblogr.com/](https://dblogr.netlify.com/)

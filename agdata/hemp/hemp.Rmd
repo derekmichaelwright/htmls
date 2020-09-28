@@ -1,26 +1,8 @@
 ---
 title: "Hempseed Production"
 subtitle: "Graphs for hempseed production with FAO data"
-summary:  "Graphs for hempseed production with FAO data"
-author: "Derek Michael Wright"
-date: "2020-03-01"
-categories: [ "agData" ]
-tags: [ "agdata", "Hemp" ]
-image:
-  preview_only: true
-links: 
-  - icon_pack: fas
-    icon: chart-line
-    name: All Graphs
-    url: agdata_graphs/hemp
-  - icon_pack: far
-    icon: file-code
-    name: HTML
-    url: https://derekmichaelwright.github.io/htmls/agdata/hemp.html
-  - icon_pack: far
-    icon: file-pdf
-    name: PDF (Save/Print)
-    url: agdata_pdfs/hemp.pdf
+date: "2020-09-01"
+author: "Derek Michael Wright <wrightmderek@gmail.com> [www.dblogr.com/](https://dblogr.netlify.com/) [-Image Gallery-](https://dblogr.netlify.app/graphs_agdata/hemp/)"
 ---
 
 ```{r setup, include = FALSE}
@@ -33,6 +15,8 @@ knitr::opts_chunk$set(echo = T, warning = F, message = F)
 # devtools::install_github("derekmichaelwright/agData")
 library(agData) # Loads: tidyverse, ggpubr, ggbeeswarm, ggrepel
 ```
+
+---
 
 # SubRegions
 
@@ -64,6 +48,8 @@ ggsave("../../../myblog/content/posts_agdata/hemp/featured.png", mp, width = 6, 
 
 ![](hemp_01.png)
 
+---
+
 # Countries
 
 ```{r}
@@ -87,3 +73,7 @@ ggsave("../../../myblog/content/graphs_agdata/hemp/gallery/gallery/hemp_02.png",
 ```
 
 ![](hemp_02.png)
+
+---
+
+&copy; Derek Michael Wright 2020 [www.dblogr.com/](https://dblogr.netlify.com/)

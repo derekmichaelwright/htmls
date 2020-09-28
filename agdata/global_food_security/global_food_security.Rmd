@@ -1,26 +1,8 @@
 ---
 title: "Global Food Security"
 subtitle: "Graphs of of crop production per capita using FAO data"
-summary:  "Graphs of of crop production per capita using FAO data"
-author: "Derek Michael Wright <wrightmderek@gmail.com> [www.dblogr.com/](https://dblogr.netlify.com/)"
 date: "2020-03-01"
-categories: [ "agData" ]
-tags: [ "agData", "Regions", "Featured" ]
-image:
-  preview_only: true
-links:
-  - icon_pack: fas
-    icon: chart-line
-    name: All Graphs
-    url: agdata_graphs/global_food_security
-  - icon_pack: far
-    icon: file-code
-    name: HTML
-    url: https://derekmichaelwright.github.io/htmls/agdata/global_food_security.html
-  - icon_pack: far
-    icon: file-pdf
-    name: PDF (Save/Print)
-    url: agdata_pdfs/global_food_security.pdf
+author: "Derek Michael Wright <wrightmderek@gmail.com> [www.dblogr.com/](https://dblogr.netlify.com/) [-Image Gallery-](https://dblogr.netlify.app/graphs_agdata/global_food_security/)"
 ---
 
 ```{r setup, include = FALSE}
@@ -32,7 +14,10 @@ knitr::opts_chunk$set(echo = TRUE, message = F, warning = F)
 ```{r}
 # devtools::install_github("derekmichaelwright/agData")
 library(agData) # Loads: tidyverse, ggpubr, ggbeeswarm, ggrepel
+library(gganimate)
 ```
+
+---
 
 # Prep data
 
@@ -67,6 +52,8 @@ for(i in 1:nrow(dd)) {
 }
 ```
 
+---
+
 # Relative to Population
 
 ```{r}
@@ -88,6 +75,8 @@ ggsave("../../../myblog/content/graphs_agdata/global_food_security/gallery/galle
 ```
 
 ![](global_food_security_01.png)
+
+---
 
 ```{r}
 # Prep data
@@ -113,6 +102,10 @@ ggsave("../../../myblog/content/graphs_agdata/global_food_security/gallery/galle
 
 ![](global_food_security_02.png)
 
+---
+
+## Cereals
+
 ```{r}
 # Prep data
 xx <- dd %>% filter(Crop == "Cereals", Area == "World")
@@ -129,11 +122,14 @@ mp <- ggplot(xx, aes(x = Year)) +
   labs(title = "Relative to 1961 - Cereals", y = "%", x = NULL)
 ggsave("global_food_security_03.png", mp, width = 6, height = 4)
 ```
+
 ```{r echo = F}
 ggsave("../../../myblog/content/graphs_agdata/global_food_security/gallery/gallery/global_food_security_03.png", mp, width = 6, height = 4)
 ```
 
 ![](global_food_security_03.png)
+
+---
 
 # Regions
 
@@ -158,6 +154,30 @@ ggsave("../../../myblog/content/posts_agdata/global_food_security/featured.png",
 
 ![](global_food_security_04.png)
 
+---
+
+```{r}
+# Prep data
+xx <- dd %>% filter(Area != "World")
+# Plot
+mp <- ggplot(xx, aes(x = Area, y = TonnesPerPerson, fill = Region)) + 
+  geom_bar(stat = "identity", color = "black") +
+  facet_grid(Crop ~ Region, scales = "free") +
+  scale_fill_manual(values = agData_Colors[c(1,4,3,2,7)]) +
+  theme_agData(legend.position = "none", rotx = T) +
+  labs(title = "Food Security - {round(frame_time)}", 
+       y = "Tonnes Per Person", x = NULL,
+       caption = "\xa9 www.dblogr.com/  |  Data: FAOSTAT") +
+  # gganimate specific bits
+  transition_time(Year) +
+  ease_aes('linear')
+anim_save("global_food_security_gifs_01.gif", mp, width = 600, height = 400)
+```
+
+![](global_food_security_gifs_01.gif)
+
+---
+
 ```{r}
 # Prep Data
 xx <- dd %>% filter(Year == 2017, Area != "World") %>%
@@ -180,6 +200,31 @@ ggsave("../../../myblog/content/graphs_agdata/global_food_security/gallery/galle
 
 ![](global_food_security_05.png)
 
+---
+
+```{r}
+# Prep Data
+xx <- dd %>% filter(Area != "World") %>%
+  select(Area, Year, Region, Crop, TonnesPerPerson) %>%
+  spread(Crop, TonnesPerPerson)
+# Plot
+mp <- ggplot(xx, aes(x = Cereals, y = Pulses)) + 
+  geom_point(aes(size = Tubers, color = Region), alpha = 0.5) + 
+  #geom_text_repel(aes(label = Area), size = 3) +
+  scale_color_manual(values = agData_Colors[c(1,4,3,2,7)]) +
+  theme_agData(rotx = T) +
+  labs(title = "Food Security - {round(frame_time)}",
+       caption = "\xa9 www.dblogr.com/  |  Data: FAOSTAT") +
+  # gganimate specific bits
+  transition_time(Year) +
+  ease_aes('linear')
+anim_save("global_food_security_gifs_02.gif", mp, width = 600, height = 400)
+```
+
+![](global_food_security_gifs_02.gif)
+
+---
+
 ```{r}
 # Prep data
 xx <- dd %>% filter(Area != "World")
@@ -197,6 +242,8 @@ ggsave("../../../myblog/content/graphs_agdata/global_food_security/gallery/galle
 ```
 
 ![](global_food_security_06.png)
+
+---
 
 # Crops
 
@@ -227,6 +274,10 @@ ggsave("../../../myblog/content/graphs_agdata/global_food_security/gallery/galle
 
 ![](global_food_security_07.png)
 
+---
+
+# Import/Export
+
 ```{r}
 # Create plotting function
 netImportExport <- function(crop = "Wheat", year = 2017) {
@@ -253,6 +304,10 @@ netImportExport <- function(crop = "Wheat", year = 2017) {
 }
 ```
 
+---
+
+## Wheat
+
 ```{r}
 mp <- netImportExport(crop = "Wheat", year = 2017)
 ggsave("global_food_security_08.png", mp, width = 6, height = 3.75)
@@ -263,6 +318,10 @@ ggsave("../../../myblog/content/graphs_agdata/global_food_security/gallery/galle
 ```
 
 ![](global_food_security_08.png)
+
+---
+
+## Maize
 
 ```{r}
 mp <- netImportExport(crop = "Maize", year = 2017)
@@ -275,6 +334,10 @@ ggsave("../../../myblog/content/graphs_agdata/global_food_security/gallery/galle
 
 ![](global_food_security_09.png)
 
+---
+
+## Rice
+
 ```{r}
 mp <- netImportExport(crop = "Rice", year = 2017)
 ggsave("global_food_security_10.png", mp, width = 6, height = 3.75)
@@ -285,6 +348,10 @@ ggsave("../../../myblog/content/graphs_agdata/global_food_security/gallery/galle
 ```
 
 ![](global_food_security_10.png)
+
+---
+
+## Soybeans
 
 ```{r}
 mp <- netImportExport(crop = "Soybeans", year = 2017)
@@ -297,6 +364,10 @@ ggsave("../../../myblog/content/graphs_agdata/global_food_security/gallery/galle
 
 ![](global_food_security_11.png)
 
+---
+
+## Sorghum
+
 ```{r}
 mp <- netImportExport(crop = "Sorghum", year = 2017)
 ggsave("global_food_security_12.png", mp, width = 6, height = 3.75)
@@ -307,6 +378,10 @@ ggsave("../../../myblog/content/graphs_agdata/global_food_security/gallery/galle
 ```
 
 ![](global_food_security_12.png)
+
+---
+
+## Beans
 
 ```{r}
 mp <- netImportExport(crop = "Beans, dry", year = 2017)
@@ -319,6 +394,10 @@ ggsave("../../../myblog/content/graphs_agdata/global_food_security/gallery/galle
 
 ![](global_food_security_13.png)
 
+---
+
+## Chickpeas
+
 ```{r}
 mp <- netImportExport(crop = "Chick peas", year = 2017)
 ggsave("global_food_security_14.png", mp, width = 6, height = 3.75)
@@ -329,6 +408,10 @@ ggsave("../../../myblog/content/graphs_agdata/global_food_security/gallery/galle
 ```
 
 ![](global_food_security_14.png)
+
+---
+
+## Lentils
 
 ```{r}
 mp <- netImportExport(crop = "Lentils", year = 2017)
@@ -341,30 +424,6 @@ ggsave("../../../myblog/content/graphs_agdata/global_food_security/gallery/galle
 
 ![](global_food_security_15.png)
 
-```{r eval = F, echo = F}
-library(gganimate)
-# Plot
-mp <- ggplot(xx, aes(x = Area, y = TonnesPerPerson, fill = Region)) + 
-  geom_bar(stat = "identity", color = "black") +
-  facet_grid(Crop ~ Region, scales = "free") +
-  scale_fill_manual(values = agData_Colors[c(1,4,3,2,7)]) +
-  theme_agData(legend.position = "none", rotx = T) +
-  labs(title = "Food Security - {frame_time}", y = "Tonnes Per Person", x = NULL,
-       caption = "\xa9 www.dblogr.com/  |  Data: FAOSTAT") +
-  # Here comes the gganimate specific bits
-  transition_time(Year) +
-  ease_aes('linear')
-anim_save("global_food_security_gifs_01.gif", mp, width = 600, height = 400)
+---
 
-
-  
-  
-  geom_text_repel(aes(label = Area), size = 3) +
-  theme_agData(rotx = T) +
-  labs(caption = "\xa9 www.dblogr.com/  |  Data: FAOSTAT") +
-  # Here comes the gganimate specific bits
-  labs(title = 'Year: {frame_time}') +
-  transition_time(year) +
-  ease_aes('linear')
-anim_save("global_food_security_gifs_02.gif", mp, width = 600, height = 400)
-```
+&copy; Derek Michael Wright 2020 [www.dblogr.com/](https://dblogr.netlify.com/)

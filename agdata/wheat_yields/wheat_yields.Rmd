@@ -9,10 +9,14 @@ author: "Derek Michael Wright <wrightmderek@gmail.com> [www.dblogr.com/](https:/
 knitr::opts_chunk$set(echo = T, message = F, warning = F)
 ```
 
+---
+
 ```{r}
 # devtools::install_github("derekmichaelwright/agData")
 library(agData) # Loads: tidyverse, ggpubr, ggbeeswarm, ggrepel
 ```
+
+---
 
 ```{r}
 # Prep data
@@ -34,6 +38,8 @@ ggsave("../../../myblog/content/graphs_agdata/wheat_yields/gallery/gallery/wheat
 ```
 
 ![](wheat_yields_01.png)
+
+---
 
 ```{r}
 # Prep data
@@ -72,6 +78,8 @@ ggsave("../../../myblog/content/graphs_agdata/wheat_yields/gallery/gallery/wheat
 
 ![](wheat_yields_02.png)
 
+---
+
 ```{r}
 # Plot
 mp <- my_ggplot(x2) + labs(title = "Wheat Yields - Europe")
@@ -83,6 +91,8 @@ ggsave("../../../myblog/content/graphs_agdata/wheat_yields/gallery/gallery/wheat
 ```
 
 ![](wheat_yields_03.png)
+
+---
 
 ```{r}
 # Plot
@@ -96,6 +106,8 @@ ggsave("../../../myblog/content/graphs_agdata/wheat_yields/gallery/gallery/wheat
 
 ![](wheat_yields_04.png)
 
+---
+
 ```{r}
 # Plot
 mp <- my_ggplot(x4) + labs(title = "Wheat Yields - Asia + Oceania")
@@ -107,6 +119,8 @@ ggsave("../../../myblog/content/graphs_agdata/wheat_yields/gallery/gallery/wheat
 ```
 
 ![](wheat_yields_05.png)
+
+---
 
 ```{r}
 # Prep data
@@ -136,6 +150,8 @@ ggsave("../../../myblog/content/graphs_agdata/wheat_yields/gallery/gallery/wheat
 
 ![](wheat_yields_06.png)
 
+---
+
 ```{r}
 # Prep data
 xx <- agData_FAO_Crops %>% 
@@ -155,3 +171,7 @@ ggsave("../../../myblog/content/posts_agdata/wheat_yields/featured.png", mp, wid
 ```
 
 ![](wheat_yields_07.png)
+
+---
+
+&copy; Derek Michael Wright 2020 [www.dblogr.com/](https://dblogr.netlify.com/)

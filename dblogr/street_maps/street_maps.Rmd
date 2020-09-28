@@ -17,6 +17,8 @@ library(tidyverse)
 library(sf)
 ```
 
+---
+
 # Data
 
 STATCAN road network files
@@ -40,7 +42,7 @@ st_write(roads_regina,    "roads_regina.shp")
 s_roads <- st_read("railways.shp")
 ```
 
-\pagebreak
+---
 
 # Saskatoon
 
@@ -64,7 +66,7 @@ ggsave("../../../myblog/content/graphs_dblogr/street_maps/gallery/gallery/roads_
 
 ![](roads_saskatoon.png)
 
-\pagebreak
+---
 
 ```{r}
 # Crop
@@ -85,7 +87,7 @@ ggsave("../../../myblog/content/posts_dblogr/street_maps/featured.png", mp, bg =
 
 ![](roads_saskatoon_zoom.png)
 
-\pagebreak
+---
 
 # Regina
 
@@ -109,7 +111,7 @@ ggsave("../../../myblog/content/graphs_dblogr/street_maps/gallery/gallery/roads_
 
 ![](roads_regina.png)
 
-\pagebreak
+---
 
 # Germany Railroads
 
@@ -130,3 +132,7 @@ ggsave("../../../myblog/content/graphs_dblogr/street_maps/gallery/gallery/railro
 ```
 
 ![](railroads_germany.png)
+
+---
+
+&copy; Derek Michael Wright 2020 [www.dblogr.com/](https://dblogr.netlify.com/)

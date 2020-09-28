@@ -22,16 +22,22 @@ In some cases, a graph with two y-axes is desired for visualizing two different 
 
 With that said, there still are situations were dual y-axes are appropriate. This vignette will show you how to do this in `R` with `ggplot2`, despite [the package authors disagreements](https://stackoverflow.com/questions/3099219/ggplot-with-2-y-axes-on-each-side-and-different-scales/3101876#3101876).
 
+---
+
+# Prepare data
+
 ```{r}
 # devtools::install_github("derekmichaelwright/agData")
 library(agData) # Loads: tidyverse, ggpubr, ggbeeswarm, ggrepel
 ```
 
 ```{r}
-xx <- read.csv("mydata.csv") %>% 
+xx <- read.csv("data.csv") %>% 
   mutate(Date = as.Date(Date))
 DT::datatable(xx)
 ```
+
+---
 
 # Single y-axis
 
@@ -67,6 +73,8 @@ mp3 <- mp2 +
                      labels = c("Air Temp","Soil Temp","DayLength"))
 mp3
 ```
+
+---
 
 # Data Scaling
 
@@ -121,6 +129,9 @@ mp4
 That looks better. However, we still need to add the second y-axis, which will require some more math.
 
 $$y_{2i}=(y_{scaled}-min(y_1))*\frac{max(y_2)-min(y_2)}{max(y_1)-min(y_1)}+min(y_2)$$
+
+---
+
 # Double y-axis
 
 ```{r}
@@ -154,3 +165,7 @@ ggplot(xx, aes(x = x, y = y)) +
                         name = "y2", breaks = 5:10)) +
   labs(caption = "\xa9 www.dblogr.com/  |  Data: AGILE")
 ```
+
+---
+
+&copy; Derek Michael Wright 2020 [www.dblogr.com/](https://dblogr.netlify.com/)

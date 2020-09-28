@@ -15,7 +15,9 @@ knitr::opts_chunk$set(echo = T, message = F, warning = F)
 
 The [2019 Canadian federal election](https://en.wikipedia.org/wiki/2019_Canadian_federal_election) was won by the [**Liberal Party**](https://en.wikipedia.org/wiki/Liberal_Party_of_Canada) who won 157 seats (-20) and went from a *majority* to a *minority* government, meaning they must rely on support from other political parties to stay in power. Second place went to the [**Conservative Party**](https://en.wikipedia.org/wiki/Conservative_Party_of_Canada) who won 95 seats (+26). Third to the [**Bloc Québécois**](https://en.wikipedia.org/wiki/Bloc_Qu%C3%A9b%C3%A9cois) who won 32 seats (+22) surpassing the [**New Democratic Party**](https://en.wikipedia.org/wiki/New_Democratic_Party) who won only 24 seats (-20). Fifth place went to the [**Green Party**](https://en.wikipedia.org/wiki/Green_Party_of_Canada) who won 3 seats (+1) and last to the newly formed [**People's Party of Canada**](https://en.wikipedia.org/wiki/People%27s_Party_of_Canada) who did not win a seat.
 
-![](featured.png)
+![](canada/election_2019_00_map.png)
+
+---
 
 ```{r}
 # devtools::install_github("derekmichaelwright/agData")
@@ -24,11 +26,15 @@ library(mapcan) # mapcan()
 library(readxl) # read_xlsx()
 ```
 
+---
+
 # Data Source
 
 [Elections Canada Data (https://enr.elections.ca/National.aspx?lang=e)](https://enr.elections.ca/National.aspx?lang=e)
 
 [*Download: 2019 Federal Election Results.*](https://github.com/derekmichaelwright/myblog/tree/master/content/dblogr/2019_canadian_election_results/STATCAN_2019_Election.xlsx)
+
+---
 
 ## Prepare the Data
 
@@ -71,6 +77,8 @@ d2 <- read_xlsx("STATCAN_2019_Election.xlsx", "District") %>%
 DT::datatable(d2)
 ```
 
+---
+
 ```{r}
 # Summarise "Other" parties
 parties <- c("Libs", "Cons", "NDP", "Bloc", "Green", "PPC", "Other")
@@ -103,11 +111,9 @@ d3 <- d2 %>% filter(Party %in% other_parties) %>% group_by(Party) %>%
   mutate(Party = factor(Party, levels = other_parties))
 ```
 
+---
+
 ```{r}
-x <- d2a %>% filter(SubRegion == "Eastern Canada") %>%
-  reFactor() %>% summariseResults()
-# Plot
-mp <- gg_Votes(xx, "Eastern Canada", ymax = 61)
 # Create functions
 reFactor <- function(x, orderParty = "Conservative", myParties = parties) {
   district_order <- x %>% filter(Party == orderParty) %>% 
@@ -130,6 +136,8 @@ summariseResults <- function(x, myParties = parties, myWings = wings) {
             Party_Short = factor(Party_Short, levels = parties))
 }
 ```
+
+---
 
 # Provincial Results
 
@@ -162,6 +170,8 @@ ggsave("../../../myblog/content/posts_dblogr/2019_canadian_election_results/feat
 
 ![](canada/election_2019_00_map.png)
 
+---
+
 ## Districts
 
 ```{r}
@@ -186,6 +196,8 @@ ggsave("../../../myblog/content/graphs_dblogr/2019_canadian_election_results/can
 
 ![](canada/election_2019_00_provinces.png)
 
+---
+
 ```{r}
 # Prep data
 xx <- d2a %>% group_by(Area_Short, Party_Short) %>% 
@@ -208,6 +220,8 @@ ggsave("../../../myblog/content/graphs_dblogr/2019_canadian_election_results/can
 ```
 
 ![](canada/election_2019_00_provinces_votes.png)
+
+---
 
 ## West vs East
 
@@ -243,6 +257,8 @@ ggsave("../../../myblog/content/graphs_dblogr/2019_canadian_election_results/can
 
 ![](canada/election_2019_00_west_east_votes.png)
 
+---
+
 ### Districts
 
 ```{r}
@@ -275,6 +291,8 @@ ggsave("../../../myblog/content/graphs_dblogr/2019_canadian_election_results/can
 
 ![](canada/election_2019_00_west_east_districts.png)
 
+---
+
 # Votes
 
 ```{r}
@@ -292,6 +310,8 @@ gg_Votes <- function(x, title = NULL, ymax = 15) {
 }
 ```
 
+---
+
 ## Canada
 
 ```{r}
@@ -305,6 +325,8 @@ ggsave("../../../myblog/content/graphs_dblogr/2019_canadian_election_results/can
 ```
 
 ![](canada/election_2019_01_ca.png)
+
+---
 
 ## Eastern Canada
 
@@ -323,6 +345,8 @@ ggsave("../../../myblog/content/graphs_dblogr/2019_canadian_election_results/eas
 
 ![](eastern_canada/election_2019_01_ce.png)
 
+---
+
 ## Western Canada
 
 ```{r}
@@ -340,6 +364,8 @@ ggsave("../../../myblog/content/graphs_dblogr/2019_canadian_election_results/wes
 ```
 
 ![](western_canada/election_2019_01_cw.png)
+
+---
 
 ## Prairie Agricultureal Districts
 
@@ -366,6 +392,8 @@ ggsave("../../../myblog/content/graphs_dblogr/2019_canadian_election_results/pra
 
 ![](prairie_ag/election_2019_01_ag.png)
 
+---
+
 ## British Columbia
 
 ```{r}
@@ -382,6 +410,8 @@ ggsave("../../../myblog/content/graphs_dblogr/2019_canadian_election_results/bri
 ```
 
 ![](british_columbia/election_2019_01_bc.png)
+
+---
 
 ## Alberta
 
@@ -400,6 +430,8 @@ ggsave("../../../myblog/content/graphs_dblogr/2019_canadian_election_results/alb
 
 ![](alberta/election_2019_01_ab.png)
 
+---
+
 ## Saskatchewan
 
 ```{r}
@@ -416,6 +448,8 @@ ggsave("../../../myblog/content/graphs_dblogr/2019_canadian_election_results/sas
 ```
 
 ![](saskatchewan/election_2019_01_sk.png)
+
+---
 
 ## Manitoba
 
@@ -434,6 +468,8 @@ ggsave("../../../myblog/content/graphs_dblogr/2019_canadian_election_results/man
 
 ![](manitoba/election_2019_01_mb.png)
 
+---
+
 ## Ontario
 
 ```{r}
@@ -450,6 +486,8 @@ ggsave("../../../myblog/content/graphs_dblogr/2019_canadian_election_results/ont
 ```
 
 ![](ontario/election_2019_01_on.png)
+
+---
 
 ## Quebec
 
@@ -469,6 +507,8 @@ ggsave("../../../myblog/content/graphs_dblogr/2019_canadian_election_results/que
 
 ![](quebec/election_2019_01_qc.png)
 
+---
+
 ## New Brunswick
 
 ```{r}
@@ -487,6 +527,8 @@ ggsave("../../../myblog/content/graphs_dblogr/2019_canadian_election_results/new
 
 ![](new_brunswick/election_2019_01_nb.png)
 
+---
+
 ## Nova Scotia
 
 ```{r}
@@ -503,6 +545,8 @@ ggsave("../../../myblog/content/graphs_dblogr/2019_canadian_election_results/nov
 ```
 
 ![](nova_scotia/election_2019_01_ns.png)
+
+---
 
 ## Prince Edward Island
 
@@ -522,6 +566,8 @@ ggsave("../../../myblog/content/graphs_dblogr/2019_canadian_election_results/pri
 
 ![](prince_edward_island/election_2019_01_pe.png)
 
+---
+
 ## Newfoundland and Labrador
 
 ```{r}
@@ -540,6 +586,8 @@ ggsave("../../../myblog/content/graphs_dblogr/2019_canadian_election_results/new
 
 ![](newfoundland_Labrador/election_2019_01_nl.png)
 
+---
+
 ## Yukon
 
 ```{r}
@@ -556,6 +604,8 @@ ggsave("../../../myblog/content/graphs_dblogr/2019_canadian_election_results/yuk
 ```
 
 ![](yukon/election_2019_01_yt.png)
+
+---
 
 ## Northwest Territories
 
@@ -574,6 +624,8 @@ ggsave("../../../myblog/content/graphs_dblogr/2019_canadian_election_results/nor
 
 ![](northwest_territories/election_2019_01_nt.png)
 
+---
+
 ## Nunavut
 
 ```{r}
@@ -590,6 +642,8 @@ ggsave("../../../myblog/content/graphs_dblogr/2019_canadian_election_results/nun
 ```
 
 ![](nunavut/election_2019_01_nu.png)
+
+---
 
 # Left vs Right
 
@@ -617,6 +671,8 @@ gg_LeftRight <- function(x, title = NULL) {
 }
 ```
 
+---
+
 ## Canada
 
 ```{r}
@@ -631,6 +687,8 @@ ggsave("../../../myblog/content/graphs_dblogr/2019_canadian_election_results/can
 ```
 
 ![](canada/election_2019_02_ca.png)
+
+---
 
 ## Eastern Canada
 
@@ -649,6 +707,8 @@ ggsave("../../../myblog/content/graphs_dblogr/2019_canadian_election_results/eas
 
 ![](eastern_canada/election_2019_02_ce.png)
 
+---
+
 ## Western Canada
 
 ```{r}
@@ -666,6 +726,8 @@ ggsave("../../../myblog/content/graphs_dblogr/2019_canadian_election_results/wes
 ```
 
 ![](western_canada/election_2019_02_cw.png)
+
+---
 
 ## Prairie Agricultureal Districts
 
@@ -692,6 +754,8 @@ ggsave("../../../myblog/content/graphs_dblogr/2019_canadian_election_results/pra
 
 ![](prairie_ag/election_2019_02_ag.png)
 
+---
+
 ## British Columbia
 
 ```{r}
@@ -708,6 +772,8 @@ ggsave("../../../myblog/content/graphs_dblogr/2019_canadian_election_results/bri
 ```
 
 ![](british_columbia/election_2019_02_bc.png)
+
+---
 
 ## Alberta
 
@@ -726,6 +792,8 @@ ggsave("../../../myblog/content/graphs_dblogr/2019_canadian_election_results/alb
 
 ![](alberta/election_2019_02_ab.png)
 
+---
+
 ## Saskatchewan
 
 ```{r}
@@ -742,6 +810,8 @@ ggsave("../../../myblog/content/graphs_dblogr/2019_canadian_election_results/sas
 ```
 
 ![](saskatchewan/election_2019_02_sk.png)
+
+---
 
 ## Manitoba
 
@@ -760,6 +830,8 @@ ggsave("../../../myblog/content/graphs_dblogr/2019_canadian_election_results/man
 
 ![](manitoba/election_2019_02_mb.png)
 
+---
+
 ## Ontario
 
 ```{r}
@@ -776,6 +848,8 @@ ggsave("../../../myblog/content/graphs_dblogr/2019_canadian_election_results/ont
 ```
 
 ![](ontario/election_2019_02_on.png)
+
+---
 
 ## Quebec
 
@@ -795,6 +869,8 @@ ggsave("../../../myblog/content/graphs_dblogr/2019_canadian_election_results/que
 
 ![](quebec/election_2019_02_qc.png)
 
+---
+
 ## New Brunswick
 
 ```{r}
@@ -813,6 +889,8 @@ ggsave("../../../myblog/content/graphs_dblogr/2019_canadian_election_results/new
 
 ![](new_brunswick/election_2019_02_nb.png)
 
+---
+
 ## Nova Scotia
 
 ```{r}
@@ -829,6 +907,8 @@ ggsave("../../../myblog/content/graphs_dblogr/2019_canadian_election_results/nov
 ```
 
 ![](nova_scotia/election_2019_02_ns.png)
+
+---
 
 ## Prince Edward Island
 
@@ -848,6 +928,8 @@ ggsave("../../../myblog/content/graphs_dblogr/2019_canadian_election_results/pri
 
 ![](prince_edward_island/election_2019_02_pe.png)
 
+---
+
 ## Newfoundland and Labrador
 
 ```{r}
@@ -866,6 +948,8 @@ ggsave("../../../myblog/content/graphs_dblogr/2019_canadian_election_results/new
 
 ![](newfoundland_Labrador/election_2019_02_nl.png)
 
+---
+
 ## Yukon
 
 ```{r}
@@ -881,6 +965,8 @@ ggsave("../../../myblog/content/graphs_dblogr/2019_canadian_election_results/yuk
 ```
 
 ![](yukon/election_2019_02_yt.png)
+
+---
 
 ## Northwest Territories
 
@@ -899,6 +985,8 @@ ggsave("../../../myblog/content/graphs_dblogr/2019_canadian_election_results/nor
 
 ![](northwest_territories/election_2019_02_nt.png)
 
+---
+
 ## Nunavut
 
 ```{r}
@@ -915,6 +1003,8 @@ ggsave("../../../myblog/content/graphs_dblogr/2019_canadian_election_results/nun
 ```
 
 ![](nunavut/election_2019_02_nu.png)
+
+---
 
 # Districts
 
@@ -934,6 +1024,8 @@ gg_Districts <- function(x, title = NULL, ymax = 15) {
 }
 ```
 
+---
+
 ## Canada
 
 ```{r}
@@ -947,6 +1039,8 @@ ggsave("../../../myblog/content/graphs_dblogr/2019_canadian_election_results/can
 ```
 
 ![](canada/election_2019_03_ca.png)
+
+---
 
 ## Eastern Canada
 
@@ -965,6 +1059,8 @@ ggsave("../../../myblog/content/graphs_dblogr/2019_canadian_election_results/eas
 
 ![](eastern_canada/election_2019_40_03_ce.png)
 
+---
+
 ## Western Canada
 
 ```{r}
@@ -982,6 +1078,8 @@ ggsave("../../../myblog/content/graphs_dblogr/2019_canadian_election_results/wes
 ```
 
 ![](western_canada/election_2019_03_cw.png)
+
+---
 
 ## Prairie Agricultureal Districts
 
@@ -1008,6 +1106,8 @@ ggsave("../../../myblog/content/graphs_dblogr/2019_canadian_election_results/pra
 
 ![](prairie_ag/election_2019_03_ag.png)
 
+---
+
 ## British Columbia
 
 ```{r}
@@ -1024,6 +1124,8 @@ ggsave("../../../myblog/content/graphs_dblogr/2019_canadian_election_results/bri
 ```
 
 ![](british_columbia/election_2019_03_bc.png)
+
+---
 
 ## Alberta
 
@@ -1042,6 +1144,8 @@ ggsave("../../../myblog/content/graphs_dblogr/2019_canadian_election_results/alb
 
 ![](alberta/election_2019_03_ab.png)
 
+---
+
 ## Saskatchewan
 
 ```{r}
@@ -1058,6 +1162,8 @@ ggsave("../../../myblog/content/graphs_dblogr/2019_canadian_election_results/sas
 ```
 
 ![](saskatchewan/election_2019_03_sk.png)
+
+---
 
 ## Manitoba
 
@@ -1076,6 +1182,8 @@ ggsave("../../../myblog/content/graphs_dblogr/2019_canadian_election_results/man
 
 ![](manitoba/election_2019_03_mb.png)
 
+---
+
 ## Ontario
 
 ```{r}
@@ -1092,6 +1200,8 @@ ggsave("../../../myblog/content/graphs_dblogr/2019_canadian_election_results/ont
 ```
 
 ![](ontario/election_2019_03_on.png)
+
+---
 
 ## Quebec
 
@@ -1111,6 +1221,8 @@ ggsave("../../../myblog/content/graphs_dblogr/2019_canadian_election_results/que
 
 ![](quebec/election_2019_03_qc.png)
 
+---
+
 ## New Brunswick
 
 ```{r}
@@ -1129,6 +1241,8 @@ ggsave("../../../myblog/content/graphs_dblogr/2019_canadian_election_results/new
 
 ![](new_brunswick/election_2019_03_nb.png)
 
+---
+
 ## Nova Scotia
 
 ```{r}
@@ -1145,6 +1259,8 @@ ggsave("../../../myblog/content/graphs_dblogr/2019_canadian_election_results/nov
 ```
 
 ![](nova_scotia/election_2019_03_ns.png)
+
+---
 
 ## Prince Edward Island
 
@@ -1164,6 +1280,8 @@ ggsave("../../../myblog/content/graphs_dblogr/2019_canadian_election_results/pri
 
 ![](prince_edward_island/election_2019_03_pe.png)
 
+---
+
 ## Newfoundland and Labrador
 
 ```{r}
@@ -1181,6 +1299,8 @@ ggsave("../../../myblog/content/graphs_dblogr/2019_canadian_election_results/new
 ```
 
 ![](newfoundland_Labrador/election_2019_03_nl.png)
+
+---
 
 # By Districts
 
@@ -1203,6 +1323,8 @@ gg_ByDistrict <- function(x, title = NULL, ncol = 6) {
          caption = "\xa9 www.dblogr.com/  |  Data: Elections Canada")
 }
 ```
+
+---
 
 ## Prairie Agricultureal Districts
 
@@ -1243,6 +1365,8 @@ ggsave("../../../myblog/content/graphs_dblogr/2019_canadian_election_results/pra
 
 ![](prairie_ag/election_2019_04_ag.png)
 
+---
+
 ## British Columbia
 
 ```{r}
@@ -1260,6 +1384,8 @@ ggsave("../../../myblog/content/graphs_dblogr/2019_canadian_election_results/bri
 
 ![](british_columbia/election_2019_04_bc.png)
 
+---
+
 ```{r}
 x1 <- xx %>% filter(Locality == "Urban BC")
 mp <- gg_ByDistrict(x1, "Urban BC", ncol = 7)
@@ -1272,6 +1398,8 @@ ggsave("../../../myblog/content/graphs_dblogr/2019_canadian_election_results/bri
 
 ![](british_columbia/election_2019_04_bc_urban.png)
 
+---
+
 ```{r}
 x1 <- xx %>% filter(Locality == "Rural BC")
 mp <- gg_ByDistrict(x1, "Rural BC", ncol = 5)
@@ -1283,6 +1411,8 @@ ggsave("../../../myblog/content/graphs_dblogr/2019_canadian_election_results/bri
 ```
 
 ![](british_columbia/election_2019_04_bc_rural.png)
+
+---
 
 ## Alberta
 
@@ -1301,6 +1431,8 @@ ggsave("../../../myblog/content/graphs_dblogr/2019_canadian_election_results/alb
 
 ![](alberta/election_2019_04_ab.png)
 
+---
+
 ```{r}
 x1 <- xx %>% filter(Locality == "Calgary")
 mp <- gg_ByDistrict(x1, "Calgary", ncol = 5)
@@ -1312,6 +1444,8 @@ ggsave("../../../myblog/content/graphs_dblogr/2019_canadian_election_results/alb
 ```
 
 ![](alberta/election_2019_04_ab_calgary.png)
+
+---
 
 ```{r}
 x1 <- xx %>% filter(Locality == "Edmonton")
@@ -1325,6 +1459,8 @@ ggsave("../../../myblog/content/graphs_dblogr/2019_canadian_election_results/alb
 
 ![](alberta/election_2019_04_ab_edmonton.png)
 
+---
+
 ```{r}
 x1 <- xx %>% filter(Locality == "Rural Alberta")
 mp <- gg_ByDistrict(x1, "Rural Alberta", ncol = 5)
@@ -1336,6 +1472,8 @@ ggsave("../../../myblog/content/graphs_dblogr/2019_canadian_election_results/alb
 ```
 
 ![](alberta/election_2019_04_ab_rural.png)
+
+---
 
 ## Saskatchewan
 
@@ -1354,6 +1492,8 @@ ggsave("../../../myblog/content/graphs_dblogr/2019_canadian_election_results/sas
 
 ![](saskatchewan/election_2019_04_sk.png)
 
+---
+
 ```{r}
 x1 <- xx %>% filter(Locality == "Rural Saskatchewan")
 mp <- gg_ByDistrict(x1, "Rural Saskatchewan", ncol = 4)
@@ -1366,6 +1506,8 @@ ggsave("../../../myblog/content/graphs_dblogr/2019_canadian_election_results/sas
 
 ![](saskatchewan/election_2019_04_sk_rural.png)
 
+---
+
 ```{r}
 x1 <- xx %>% filter(Locality == "Urban Saskatchewan")
 mp <- gg_ByDistrict(x1, "Urban Saskatchewan", ncol = 3)
@@ -1377,6 +1519,8 @@ ggsave("../../../myblog/content/graphs_dblogr/2019_canadian_election_results/sas
 ```
 
 ![](saskatchewan/election_2019_04_sk_urban.png)
+
+---
 
 ## Manitoba
 
@@ -1395,6 +1539,8 @@ ggsave("../../../myblog/content/graphs_dblogr/2019_canadian_election_results/man
 
 ![](manitoba/election_2019_04_mb.png)
 
+---
+
 ```{r}
 # Plot
 x1 <- xx %>% filter(Locality == "Rural Manitoba")
@@ -1408,6 +1554,8 @@ ggsave("../../../myblog/content/graphs_dblogr/2019_canadian_election_results/man
 
 ![](manitoba/election_2019_05_mb_rural.png)
 
+---
+
 ```{r}
 x1 <- xx %>% filter(Locality == "Winnipeg")
 mp <- gg_ByDistrict(x1, "Winnipeg", ncol = 4)
@@ -1419,6 +1567,8 @@ ggsave("../../../myblog/content/graphs_dblogr/2019_canadian_election_results/man
 ```
 
 ![](manitoba/election_2019_06_mb_winnipeg.png)
+
+---
 
 ## Ontario
 
@@ -1436,6 +1586,8 @@ ggsave("../../../myblog/content/graphs_dblogr/2019_canadian_election_results/ont
 ```
 
 ![](ontario/election_2019_04_on.png)
+
+---
 
 ## Quebec
 
@@ -1455,6 +1607,8 @@ ggsave("../../../myblog/content/graphs_dblogr/2019_canadian_election_results/que
 
 ![](quebec/election_2019_04_qc.png)
 
+---
+
 ## New Brunswick
 
 ```{r}
@@ -1473,6 +1627,8 @@ ggsave("../../../myblog/content/graphs_dblogr/2019_canadian_election_results/new
 
 ![](new_brunswick/election_2019_04_nb.png)
 
+---
+
 ## Nova Scotia
 
 ```{r}
@@ -1489,6 +1645,8 @@ ggsave("../../../myblog/content/graphs_dblogr/2019_canadian_election_results/nov
 ```
 
 ![](nova_scotia/election_2019_04_ns.png)
+
+---
 
 ## Prince Edward Island
 
@@ -1508,6 +1666,8 @@ ggsave("../../../myblog/content/graphs_dblogr/2019_canadian_election_results/pri
 
 ![](prince_edward_island/election_2019_04_pe.png)
 
+---
+
 ## Newfoundland and Labrador
 
 ```{r}
@@ -1526,7 +1686,11 @@ ggsave("../../../myblog/content/graphs_dblogr/2019_canadian_election_results/new
 
 ![](newfoundland_Labrador/election_2019_04_nl.png)
 
+---
+
 ## Northern Canada
+
+---
 
 # Other Parties
 
@@ -1546,3 +1710,7 @@ ggsave("../../../myblog/content/graphs_dblogr/2019_canadian_election_results/can
 ```
 
 ![](canada/election_2019_00_Other.png)
+
+---
+
+&copy; Derek Michael Wright 2020 [www.dblogr.com/](https://dblogr.netlify.com/)

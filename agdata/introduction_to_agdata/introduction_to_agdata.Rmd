@@ -20,6 +20,8 @@ knitr::opts_chunk$set(echo = T, message = F, warning = F, fig.height = 3.5)
 - `USDA` United States Department of Agriculture [usda.gov/](usda.gov/)
 - `ISAAA` International Service for the Acquisition of Agri-biotech Applications [isaaa.org/](isaaa.org/)
 
+---
+
 # Instalation
 
 ```{r eval = F}
@@ -30,7 +32,9 @@ devtools::install_github("derekmichaelwright/agData")
 library(agData) # Loads: tidyverse, ggpubr, ggbeeswarm, ggrepel
 ```
 
-This will also the load the following packages: `tidyverse`, `ggarrange`, `ggpubr` & `ggrepel`.
+This will also the load the following packages: `tidyverse`, `ggpubr`, `ggbeeswarm`  & `ggrepel`.
+
+---
 
 # Data Sets & Functions
 
@@ -53,7 +57,7 @@ This will also the load the following packages: `tidyverse`, `ggarrange`, `ggpub
 - [agData_ISAAA_Value](#agdata_isaaa_value)
 - [agData_People](#agdata_people)
 
-\pagebreak
+---
 
 # theme_agData
 
@@ -70,7 +74,7 @@ mp + theme_agData(linesize = 1.5, rotx = T,
                   lineColor = "darkorange")
 ```
 
-\pagebreak
+---
 
 # agData_FAO_Crops
 
@@ -104,7 +108,7 @@ ggsave("../../../myblog/content/graphs_agdata/introduction_to_agdata/gallery/gal
 
 ![](introduction_to_agdata_01.png)
 
-\pagebreak
+---
 
 # agData_FAO_LandUse
 
@@ -118,8 +122,6 @@ xx %>% distinct(Measurement, Unit)
 xx %>% distinct(Item)
 ```
 
-\pagebreak
- 
 ```{r}
 # Prep data for an example plot
 xx <- xx %>% filter(Area == "World", Item == "Agricultural area")
@@ -138,7 +140,7 @@ ggsave("../../../myblog/content/graphs_agdata/introduction_to_agdata/gallery/gal
 
 ![](introduction_to_agdata_02.png)
 
-\pagebreak
+---
 
 # agData_FAO_Livestock
   
@@ -151,8 +153,6 @@ xx %>% distinct(Measurement, Unit)
 # List Crops
 xx %>% distinct(Animal)
 ```
-
-\pagebreak
 
 ```{r}
 # Prep data for an example plot
@@ -172,7 +172,7 @@ ggsave("../../../myblog/content/graphs_agdata/introduction_to_agdata/gallery/gal
 
 ![](introduction_to_agdata_03.png)
 
-\pagebreak
+---
 
 # agData_FAO_Trade
   
@@ -204,7 +204,7 @@ ggsave("../../../myblog/content/graphs_agdata/introduction_to_agdata/gallery/gal
 
 ![](introduction_to_agdata_04.png)
 
-\pagebreak
+---
 
 # agData_FAO_Fertilizers
 
@@ -238,7 +238,7 @@ ggsave("../../../myblog/content/graphs_agdata/introduction_to_agdata/gallery/gal
 
 ![](introduction_to_agdata_05.png)
 
-\pagebreak
+---
 
 # agData_FAO_Population
 
@@ -267,7 +267,7 @@ ggsave("../../../myblog/content/graphs_agdata/introduction_to_agdata/gallery/gal
 
 ![](introduction_to_agdata_06.png)
 
-\pagebreak
+---
 
 # agData_STATCAN_Beehives
   
@@ -300,7 +300,7 @@ ggsave("../../../myblog/content/graphs_agdata/introduction_to_agdata/gallery/gal
 
 ![](introduction_to_agdata_07.png)
 
-\pagebreak
+---
 
 # agData_STATCAN_Crops
   
@@ -332,7 +332,7 @@ ggsave("../../../myblog/content/graphs_agdata/introduction_to_agdata/gallery/gal
 
 ![](introduction_to_agdata_08.png)
 
-\pagebreak
+---
 
 # agData_STATCAN_Livestock
   
@@ -365,6 +365,8 @@ ggsave("../../../myblog/content/graphs_agdata/introduction_to_agdata/gallery/gal
 ```
 
 ![](introduction_to_agdata_09.png)
+
+---
 
 # agData_STATCAN_FarmUse_Land
 
@@ -400,7 +402,7 @@ ggsave("../../../myblog/content/graphs_agdata/introduction_to_agdata/gallery/gal
 
 ![](introduction_to_agdata_10.png)
 
-\pagebreak
+---
 
 # agData_USDA_Crops
   
@@ -436,7 +438,7 @@ ggsave("../../../myblog/content/graphs_agdata/introduction_to_agdata/gallery/gal
 
 ![](introduction_to_agdata_11.png)
 
-\pagebreak
+---
 
 # agData_USDA_TFP
   
@@ -460,7 +462,13 @@ mp <- ggplot(xx, aes(x = Year, y = Value / 1000000)) +
 ggsave("introduction_to_agdata_12.png", mp, width = 6, height = 4)
 ```
 
-\pagebreak
+```{r echo = F}
+ggsave("../../../myblog/content/graphs_agdata/introduction_to_agdata/gallery/gallery/introduction_to_agdata_12.png", mp, width = 6, height = 4)
+```
+
+![](introduction_to_agdata_12.png)
+
+---
 
 # agData_ISAAA_Area
 
@@ -487,7 +495,7 @@ ggsave("../../../myblog/content/graphs_agdata/introduction_to_agdata/gallery/gal
 
 ![](introduction_to_agdata_13.png)
 
-\pagebreak
+---
 
 # agData_ISAAA_Country
 
@@ -498,8 +506,6 @@ xx
 # List Area
 xx %>% distinct(Area)
 ```
-
-\pagebreak
 
 ```{r}
 # Prep data for an example plot
@@ -519,7 +525,7 @@ ggsave("../../../myblog/content/graphs_agdata/introduction_to_agdata/gallery/gal
 
 ![](introduction_to_agdata_14.png)
 
-\pagebreak
+---
 
 # agData_ISAAA_Crop
 
@@ -530,8 +536,6 @@ xx
 # List Crops
 xx %>% distinct(Crop)
 ```
-
-\pagebreak
 
 ```{r}
 # Prep data for an example plot
@@ -552,7 +556,7 @@ ggsave("../../../myblog/content/graphs_agdata/introduction_to_agdata/gallery/gal
 
 ![](introduction_to_agdata_15.png)
 
-\pagebreak
+---
 
 # agData_ISAAA_CropPercent
 
@@ -563,8 +567,6 @@ xx
 # List Crops
 xx %>% distinct(Crop)
 ```
-
-\pagebreak
 
 ```{r}
 # Prep data for an example plot
@@ -585,7 +587,7 @@ ggsave("../../../myblog/content/graphs_agdata/introduction_to_agdata/gallery/gal
 
 ![](introduction_to_agdata_16.png)
 
-\pagebreak
+---
 
 # agData_ISAAA_DVDDVG
 
@@ -613,7 +615,7 @@ ggsave("../../../myblog/content/graphs_agdata/introduction_to_agdata/gallery/gal
 
 ![](introduction_to_agdata_17.png)
 
-\pagebreak
+---
 
 # agData_ISAAA_Value
 
@@ -639,7 +641,7 @@ ggsave("../../../myblog/content/graphs_agdata/introduction_to_agdata/gallery/gal
 
 ![](introduction_to_agdata_18.png)
 
-\pagebreak
+---
 
 # agData_People
 
@@ -649,3 +651,6 @@ xx <- agData_People %>% as_tibble()
 xx
 ```
 
+---
+
+&copy; Derek Michael Wright 2020 [www.dblogr.com/](https://dblogr.netlify.com/)

@@ -1,26 +1,8 @@
 ---
 title: "USA Crop Production"
 subtitle: "Graphs for crop production in the USA with USDA data"
-summary:  "Graphs for crop production in the USA with USDA data"
+date: "2020-09-01"
 author: "Derek Michael Wright <wrightmderek@gmail.com> [www.dblogr.com/](https://dblogr.netlify.com/) [-Image Gallery-](https://dblogr.netlify.app/graphs_agdata/crops_usa/)"
-date: "2020-03-01"
-categories: [ "agData" ]
-tags: [ "agData", "Regions" ]
-image:
-  preview_only: true
-links: 
-  - icon_pack: fas
-    icon: chart-line
-    name: All Graphs
-    url: agdata_graphs/crops_usa
-  - icon_pack: far
-    icon: file-code
-    name: HTML
-    url: https://derekmichaelwright.github.io/htmls/agdata/crops_usa.html
-  - icon_pack: far
-    icon: file-pdf
-    name: Save/Print
-    url: agdata_pdfs/crops_usa.pdf
 ---
 
 ```{r setup, include = FALSE}
@@ -34,7 +16,7 @@ knitr::opts_chunk$set(echo = TRUE, message = F, warning = F)
 library(agData) # Loads: tidyverse, ggpubr, ggbeeswarm, ggrepel
 ```
 
-\pagebreak
+---
 
 # Maize vs Wheat Yields
 
@@ -74,7 +56,7 @@ ggsave("../../../myblog/content/posts_agdata/crops_usa/featured.png", mp, width 
 
 ![](crops_usa_01.png)
 
-\pagebreak
+---
 
 # Major Crops
 
@@ -111,7 +93,7 @@ ggsave("../../../myblog/content/home/gallery/gallery/03_crops_usa_02.png", mp, w
 
 ![](crops_usa_02.png)
 
-\pagebreak
+---
 
 # Agricultural total factor productivity 
 
@@ -134,3 +116,7 @@ ggsave("../../../myblog/content/graphs_agdata/crops_usa/gallery/gallery/crops_us
 ```
 
 ![](crops_usa_03.png)
+
+---
+
+&copy; Derek Michael Wright 2020 [www.dblogr.com/](https://dblogr.netlify.com/)

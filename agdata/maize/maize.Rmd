@@ -3,24 +3,6 @@ title: "World Maize Production"
 subtitle: "Graphs of maize yields using FAO data"
 date: "2020-09-01"
 author: "Derek Michael Wright <wrightmderek@gmail.com> [www.dblogr.com/](https://dblogr.netlify.com/) [-Image Gallery-](https://dblogr.netlify.app/graphs_agdata/maize/)"
-
-categories: [ "agData" ]
-tags: [ "agData", "Maize" ]
-image:
-  preview_only: true
-links:
-  - icon_pack: fas
-    icon: chart-line
-    name: All Graphs
-    url: agdata_graphs/maize
-  - icon_pack: far
-    icon: file-code
-    name: HTML
-    url: https://derekmichaelwright.github.io/htmls/agdata/maize.html
-  - icon_pack: far
-    icon: file-pdf
-    name: PDF (Save/Print)
-    url: agdata_pdfs/maize.pdf
 ---
 
 ```{r setup, include = FALSE}
@@ -33,6 +15,8 @@ knitr::opts_chunk$set(echo = T, message = F, warning = F, out.width = "100%")
 # devtools::install_github("derekmichaelwright/agData")
 library(agData) # Loads: tidyverse, ggpubr, ggbeeswarm, ggrepel
 ```
+
+---
 
 # Yields
 
@@ -61,6 +45,8 @@ ggsave("../../../myblog/content/graphs_agdata/maize/gallery/gallery/maize_01.png
 
 ![](maize_01.png)
 
+---
+
 # Yields by Country
 
 ```{r}
@@ -82,6 +68,8 @@ ggsave("../../../myblog/content/graphs_agdata/maize/gallery/gallery/maize_02.png
 ```
 
 ![](maize_02.png)
+
+---
 
 # USA, Germany, Mexico and Africa
 
@@ -113,6 +101,8 @@ ggsave("../../../myblog/content/posts_agdata/maize/featured.png", mp, width = 6,
 
 ![](maize_03.png)
 
+---
+
 # South Africa, Nigeria and Zimbabwe
 
 ```{r}
@@ -142,9 +132,11 @@ ggsave("../../../myblog/content/graphs_agdata/maize/gallery/gallery/maize_04.png
 
 ![](maize_04.png)
 
+---
+
 # Country PDF
 
-```{r eval = F}
+```{r}
 #Prep data
 xx <- agData_FAO_Crops %>% 
   filter(Crop == "Maize", Area %in% agData_FAO_Country_Table$Country) %>%
@@ -170,3 +162,7 @@ dev.off()
 ![](maize_fao_pdf.png)
 
 [**PDF**: Maize production by country.](https://github.com/derekmichaelwright/htmls/raw/master/agdata/maize/maize_fao.pdf)
+
+---
+
+&copy; Derek Michael Wright 2020 [www.dblogr.com/](https://dblogr.netlify.com/)

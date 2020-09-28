@@ -1,30 +1,8 @@
 ---
 title: "Canadian Crop Production Maps"
 subtitle: "Maps of crop production in Canada using STATCAN data"
-summary:  "Maps of crop production in Canada using STATCAN data"
+date: "2020-09-01"
 author: "Derek Michael Wright <wrightmderek@gmail.com> [www.dblogr.com/](https://dblogr.netlify.com/) [-Image Gallery-](https://dblogr.netlify.app/graphs_agdata/crops_canada_maps/)"
-date: "2020-03-01"
-categories: [ "agData" ]
-tags: [ "agData", "Regions", "Featured" ]
-image:
-  preview_only: true
-links:
-  - icon_pack: fas
-    icon: chart-line
-    name: All Graphs
-    url: agdata_graphs/crops_canada_maps
-  - icon_pack: far
-    icon: file-code
-    name: HTML
-    url: https://derekmichaelwright.github.io/htmls/agdata/crops_canada_maps.html
-  - icon_pack: far
-    icon: file-pdf
-    name: Save/Print
-    url: agdata_pdfs/crops_canada_maps.pdf
-  - icon_pack: far
-    icon: file-pdf
-    name: Canada - Crops
-    url: Maps_Canada_Crops.pdf
 ---
 
 ```{r setup, include = FALSE}
@@ -39,9 +17,11 @@ library(agData) # Loads: tidyverse, ggpubr, ggbeeswarm, ggrepel
 library(mapcan)
 ```
 
+---
+
 # PDF
 
-```{r eval = F}
+```{r}
 # Prep data
 xx <- agData_STATCAN_Crops
 # Plot
@@ -60,9 +40,9 @@ for(i in unique(xx$Crop)) {
 dev.off()
 ```
 
-[**pdf**: Crop production Canada.](maps_canada_crops.pdf)
+[**pdf**: Crop production Canada.](https://github.com/derekmichaelwright/htmls/raw/master/agdata/crops_canada_maps/maps_canada_crops.pdf)
 
-\pagebreak
+---
 
 # Plotting Function
 
@@ -83,7 +63,9 @@ cropMapCan <- function(crop, measurement, year) {
 }
 ```
 
-## Wheat
+---
+
+# Wheat
 
 ```{r}
 # Plot
@@ -97,9 +79,9 @@ ggsave("../../../myblog/content/graphs_agdata/crops_canada_maps/gallery/gallery/
 
 ![](maps_crops_canada_01.png)
 
-\pagebreak
+---
 
-## Canola
+# Canola
 
 ```{r}
 # Plot
@@ -114,9 +96,9 @@ ggsave("../../../myblog/content/posts_agdata/crops_canada_maps/featured.png", mp
 
 ![](maps_crops_canada_02.png)
 
-\pagebreak
+---
 
-## Soybeans
+# Soybeans
 
 ```{r}
 # Plot
@@ -130,9 +112,9 @@ ggsave("../../../myblog/content/graphs_agdata/crops_canada_maps/gallery/gallery/
 
 ![](maps_crops_canada_03.png)
 
-\pagebreak
+---
 
-## Barley
+# Barley
 
 ```{r}
 # Plot
@@ -146,9 +128,9 @@ ggsave("../../../myblog/content/graphs_agdata/crops_canada_maps/gallery/gallery/
 
 ![](maps_crops_canada_04.png)
 
-\pagebreak
+---
 
-## Peas
+# Peas
 
 ```{r}
 # Plot
@@ -162,9 +144,9 @@ ggsave("../../../myblog/content/graphs_agdata/crops_canada_maps/gallery/gallery/
 
 ![](maps_crops_canada_05.png)
 
-\pagebreak
+---
 
-## Oats
+# Oats
 
 ```{r}
 # Plot
@@ -178,9 +160,9 @@ ggsave("../../../myblog/content/graphs_agdata/crops_canada_maps/gallery/gallery/
 
 ![](maps_crops_canada_06.png)
 
-\pagebreak
+---
 
-## Lentils
+# Lentils
 
 ```{r}
 # Plot
@@ -194,9 +176,9 @@ ggsave("../../../myblog/content/graphs_agdata/crops_canada_maps/gallery/gallery/
 
 ![](maps_crops_canada_07.png)
 
-\pagebreak
+---
 
-## Beans
+# Beans
 
 ```{r}
 # Plot
@@ -210,9 +192,9 @@ ggsave("../../../myblog/content/graphs_agdata/crops_canada_maps/gallery/gallery/
 
 ![](maps_crops_canada_08.png)
 
-\pagebreak
+---
 
-## Chickpeas
+# Chickpeas
 
 ```{r}
 # Plot
@@ -225,3 +207,7 @@ ggsave("../../../myblog/content/graphs_agdata/crops_canada_maps/gallery/gallery/
 ```
 
 ![](maps_crops_canada_09.png)
+
+---
+
+&copy; Derek Michael Wright 2020 [www.dblogr.com/](https://dblogr.netlify.com/)

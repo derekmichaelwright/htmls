@@ -13,7 +13,7 @@ knitr::opts_chunk$set(echo = T, message = F, warning = F)
 
 # Introduction
 
-Using statistics to mislead can be a trivial thing. We will go through some examples of how to one can mislead people with improper graphs. Examples include:
+Using statistics to mislead can be a trivial thing. This vignette will go through some examples of how to one can mislead people with improper graphs. Examples include:
 
 1. Truncating the y-axis
 2. Using dual y-axes
@@ -54,13 +54,15 @@ ggsave("misleading_graphs_01.png", mp, width = 8, height = 4)
 ggsave("../../../myblog/content/graphs_dblogr/misleading_graphs/gallery/gallery/misleading_graphs_01.png", mp, width = 8, height = 4)
 ```
 
-![](misleading_graphs_01.png)
+![Figure 1: An illustration of how truncating the y-axis can be misleading.](misleading_graphs_01.png)
+
+---
 
 ```{r}
 # Prep data
 xx <- data.frame(Answer   = c("NO", "YES"),
-                 Percent  = c(1,    99),
-                 Position = c(99.5, 98.5))
+                 Percent  = c(5,    95),
+                 Position = c(97.5, 92.5))
 # Plot
 mp1 <- ggplot(xx, aes(x = "")) + 
   geom_bar(aes(y = Percent, fill = Answer), stat = "identity", color = "black") +
@@ -69,7 +71,7 @@ mp1 <- ggplot(xx, aes(x = "")) +
   labs(subtitle = "B) Correct", x = NULL)
 mp2 <- mp1 + 
   geom_label(aes(y = Position, label = Answer), size = 10) + 
-  coord_cartesian(ylim = c(98, 100)) +
+  coord_cartesian(ylim = c(90, 100)) +
   labs(title = "Is truncating the y-axis misleading?", 
        subtitle = "A) Incorrect", x = NULL, 
        caption = "\xa9 www.dblogr.com/")
@@ -82,7 +84,7 @@ ggsave("../../../myblog/content/graphs_dblogr/misleading_graphs/gallery/gallery/
 ggsave("../../../myblog/content/posts_dblogr/misleading_graphs/featured.png", mp, width = 8, height = 4)
 ```
 
-![](misleading_graphs_02.png)
+![Figure 2: An illustration of how truncating the y-axis can be misleading.](misleading_graphs_02.png)
 
 ---
 
@@ -138,7 +140,9 @@ ggsave("misleading_graphs_03.png", mp, width = 6, height = 4)
 ggsave("../../../myblog/content/graphs_dblogr/misleading_graphs/gallery/gallery/misleading_graphs_03.png", mp, width = 6, height = 4)
 ```
 
-![](misleading_graphs_03.png)
+![Figure 3: An illustration of how correlation does not nessesarily equal causation.](misleading_graphs_03.png)
+
+---
 
 ```{r}
 mp <- ggplot(xx, aes(x = Oranic_Area, y = Rate)) + 
@@ -157,7 +161,7 @@ ggsave("misleading_graphs_04.png", mp, width = 6, height = 4)
 ggsave("../../../myblog/content/graphs_dblogr/misleading_graphs/gallery/gallery/misleading_graphs_04.png", mp, width = 6, height = 4)
 ```
 
-![](misleading_graphs_04.png)
+![Figure 4: An illustration of how correlation does not nessesarily equal causation.](misleading_graphs_04.png)
 
 ---
 
@@ -171,9 +175,10 @@ xx <- agData_USDA_Crops %>%
   filter(Measurement == "Yield", Crop == "Maize") %>%
   mutate(CherryPicked = ifelse(Year > 1994 & Year < 2011, "Yes", "No"),
          CherryPicked = factor(CherryPicked, levels = c("Yes", "No")))
-yy <- xx %>% filter(Year > 1994, Year < 2010)
+y1 <- xx %>% filter(Year > 1994, Year < 2010)
+y2 <- xx %>% filter(Year > 1950)
 # Plot
-mp1 <- ggplot(yy, aes(x = Year, y = Value, color = CherryPicked)) +
+mp1 <- ggplot(y1, aes(x = Year, y = Value, color = CherryPicked)) +
   geom_smooth(method = "lm", se = F, color = "black") +
   geom_line(size = 1.25) + 
   geom_point(size = 3) +
@@ -181,6 +186,7 @@ mp1 <- ggplot(yy, aes(x = Year, y = Value, color = CherryPicked)) +
   theme_agData(legend.position = "none") +
   labs(subtitle = "A) Cherry picked", y = "tonnes / hectare", x = NULL)
 mp2 <- ggplot(xx, aes(x = Year, y = Value, color = CherryPicked)) + 
+  geom_smooth(data = y2, method = "lm", se = F, color = "black") +
   geom_line(aes(group = 1)) + 
   geom_point() +
   scale_color_manual(values = agData_Colors) +
@@ -195,4 +201,8 @@ ggsave("misleading_graphs_05.png", mp, width = 6, height = 4)
 ggsave("../../../myblog/content/graphs_dblogr/misleading_graphs/gallery/gallery/misleading_graphs_05.png", mp, width = 8, height = 4)
 ```
 
-![](misleading_graphs_05.png)
+![Figure 3: An illustration of how one can cherry pick data to tell a desired story.](misleading_graphs_05.png)
+
+---
+
+&copy; Derek Michael Wright 2020 [www.dblogr.com/](https://dblogr.netlify.com/)

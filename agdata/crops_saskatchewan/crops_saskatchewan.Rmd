@@ -1,26 +1,8 @@
 ---
 title: "Saskatchewan Crop Production"
 subtitle: "Graphs of crop production in Saskatchewan using STATCAN data"
-summary:  "Graphs of crop production in Saskatchewan using STATCAN data"
+date: "2020-09-01"
 author: "Derek Michael Wright <wrightmderek@gmail.com> [www.dblogr.com/](https://dblogr.netlify.com/) [-Image Gallery-](https://dblogr.netlify.app/graphs_agdata/crops_saskatchewan/)"
-date: "2020-03-01"
-categories: [ "agData" ]
-tags: [ "agData", "Regions" ]
-image:
-  preview_only: true
-links: 
-  - icon_pack: fas
-    icon: chart-line
-    name: All Graphs
-    url: agdata_graphs/crops_saskatchewan
-  - icon_pack: far
-    icon: file-code
-    name: HTML
-    url: https://derekmichaelwright.github.io/htmls/agdata/crops_saskatchewan.html
-  - icon_pack: far
-    icon: file-pdf
-    name: Save/Print
-    url: agdata_pdfs/crops_saskatchewan.pdf
 ---
 
 ```{r setup, include = FALSE}
@@ -33,6 +15,8 @@ knitr::opts_chunk$set(echo = TRUE, message = F, warning = F)
 # devtools::install_github("derekmichaelwright/agData")
 library(agData) # Loads: tidyverse, ggpubr, ggbeeswarm, ggrepel
 ```
+
+---
 
 ```{r}
 # Create function to determine top crops
@@ -57,7 +41,7 @@ cropList <- function(measurement = "Production") {
 }
 ```
 
-\pagebreak
+---
 
 # Crop Production 1908, 1961, 2017
 
@@ -86,7 +70,7 @@ ggsave("../../../myblog/content/posts_agdata/crops_saskatchewan/featured.png", m
 
 ![](crops_saskatchewan_01.png)
 
-\pagebreak
+---
 
 # Crop Area 1908, 1961, 2017
 
@@ -115,7 +99,7 @@ ggsave("../../../myblog/content/home/gallery/gallery/02_crops_saskatchewan_02.pn
 
 ![](crops_saskatchewan_02.png)
 
-\pagebreak
+---
 
 # All Crops
 
@@ -142,7 +126,7 @@ ggsave("../../../myblog/content/graphs_agdata/crops_saskatchewan/gallery/gallery
 
 ![](crops_saskatchewan_03.png)
 
-\pagebreak
+---
 
 # Farm Area
 
@@ -165,3 +149,7 @@ ggsave("../../../myblog/content/graphs_agdata/crops_saskatchewan/gallery/gallery
 ```
 
 ![](crops_saskatchewan_04.png)
+
+---
+
+&copy; Derek Michael Wright 2020 [www.dblogr.com/](https://dblogr.netlify.com/)

@@ -1,5 +1,5 @@
 ---
-title: "Rapeseed"
+title: "Rapeseed/Canola Production"
 subtitle: "Graphs for rapeseed production with FAO data"
 date: "2020-09-01"
 author: "Derek Michael Wright <wrightmderek@gmail.com> [www.dblogr.com/](https://dblogr.netlify.com/) [-Image Gallery-](https://dblogr.netlify.app/graphs_agdata/rapeseed/)"
@@ -8,11 +8,15 @@ author: "Derek Michael Wright <wrightmderek@gmail.com> [www.dblogr.com/](https:/
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(echo = T, message = F, warning = F, out.width = "100%")
 ```
- 
+
+---
+
 ```{r}
 # devtools::install_github("derekmichaelwright/agData")
 library(agData) # Loads: tidyverse, ggpubr, ggbeeswarm, ggrepel
 ```
+
+---
 
 # Yield
 
@@ -42,6 +46,8 @@ ggsave("../../../myblog/content/graphs_agdata/rapeseed/gallery/gallery/rapeseed_
 
 ![](rapeseed_01.png)
 
+---
+
 # Production
 
 ```{r}
@@ -68,3 +74,7 @@ ggsave("../../../myblog/content/posts_agdata/rapeseed/featured.png", mp, width =
 ```
 
 ![](rapeseed_02.png)
+
+---
+
+&copy; Derek Michael Wright 2020 [www.dblogr.com/](https://dblogr.netlify.com/)

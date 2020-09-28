@@ -3,24 +3,6 @@ title: "Nitrogen Use Efficiency"
 subtitle: "Graphs of nitrogen use efficiency (NUE) using data from FAO"
 date: "2020-09-01"
 author: "Derek Michael Wright <wrightmderek@gmail.com> [www.dblogr.com/](https://dblogr.netlify.com/) [-Image Gallery-](https://dblogr.netlify.app/graphs_agdata/nue/)"
-
-categories: [ "agData" ]
-tags: [ "agData", "Fertilizers" ]
-image:
-  preview_only: true
-links: 
-  - icon_pack: fas
-    icon: chart-line
-    name: All Graphs
-    url: agdata_graphs/nue
-  - icon_pack: far
-    icon: file-code
-    name: HTML
-    url: https://derekmichaelwright.github.io/htmls/agdata/nue.html
-  - icon_pack: far
-    icon: file-pdf
-    name: PDF (Save/Print)
-    url: agdata_pdfs/nue.pdf
 ---
 
 ```{r setup, include = FALSE}
@@ -34,11 +16,11 @@ knitr::opts_chunk$set(echo = TRUE, message = F, warning = F)
 library(agData) # Loads: tidyverse, ggpubr, ggbeeswarm, ggrepel
 ```
 
+---
+
 Formula 1: $NUE=N_{in Seed}/N_{Available}$
 
 Formula 2: $NUE=Yield/N_{Available}$
-
-\pagebreak
 
 # Prepare data
 
@@ -59,6 +41,8 @@ xx <- left_join(x1, x2, by = c("Area","Year")) %>%
          NUE = Yield / N_per_h)
 ```
 
+---
+
 # Global NUE
 
 ```{r}
@@ -78,7 +62,7 @@ ggsave("../../../myblog/content/graphs_agdata/nue/gallery/gallery/nue_01.png", m
 
 ![](nue_01.png)
 
-\pagebreak
+---
 
 # Countries
 
@@ -94,13 +78,13 @@ ggsave("nue_02.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("featured.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/posts_agdata/nue/featured.png", mp, width = 6, height = 4)
 ggsave("../../../myblog/content/graphs_agdata/nue/gallery/gallery/nue_02.png", mp, width = 6, height = 4)
 ```
 
 ![](nue_02.png)
 
-\pagebreak
+---
 
 # Plotting function
 
@@ -143,7 +127,7 @@ ggsave("../../../myblog/content/graphs_agdata/nue/gallery/gallery/nue_03_austral
 
 ![](nue_03_australia.png)
 
-\pagebreak
+---
 
 # Canada
 
@@ -158,7 +142,7 @@ ggsave("../../../myblog/content/graphs_agdata/nue/gallery/gallery/nue_04_canada.
 
 ![](nue_04_canada.png)
 
-\pagebreak
+---
 
 # China
 
@@ -173,7 +157,7 @@ ggsave("../../../myblog/content/graphs_agdata/nue/gallery/gallery/nue_05_china.p
 
 ![](nue_05_china.png)
 
-\pagebreak
+---
 
 # Germany
 
@@ -188,7 +172,7 @@ ggsave("../../../myblog/content/graphs_agdata/nue/gallery/gallery/nue_06_germany
 
 ![](nue_06_germany.png)
 
-\pagebreak
+---
 
 # India
 
@@ -203,7 +187,7 @@ ggsave("../../../myblog/content/graphs_agdata/nue/gallery/gallery/nue_07_india.p
 
 ![](nue_07_india.png)
 
-\pagebreak
+---
 
 # France
 
@@ -217,3 +201,7 @@ ggsave("../../../myblog/content/graphs_agdata/nue/gallery/gallery/nue_08_france.
 ```
 
 ![](nue_08_france.png)
+
+---
+
+&copy; Derek Michael Wright 2020 [www.dblogr.com/](https://dblogr.netlify.com/)

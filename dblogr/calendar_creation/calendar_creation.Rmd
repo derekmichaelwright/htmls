@@ -17,9 +17,11 @@ library(tidyverse); library(lubridate); library(magick); library(fs)
 library(extrafont); library(patchwork); library(sugrrants) 
 ```
 
-```{r eval = F}
+---
+
+```{r}
 # Prep data
-year <- 2020
+year <- 2021
 min_date <- make_date(year)
 days <- if_else(leap_year(min_date), 365, 364)
 week <- c("Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday")
@@ -42,9 +44,11 @@ year_cal$text[year_cal$date == "2020-08-10"] <- "My Birthday"
 year_cal$text[year_cal$date == "2020-12-25"] <- "Christmas"
 ```
 
+---
+
 # Create Year Calendar
 
-```{r eval = F}
+```{r}
 cal<-list()
 for (i in 1:12) {
   start_date <- make_date(year, i)
@@ -77,13 +81,15 @@ mp
 dev.off() #dev.set(dev.next())
 ```
 
-![](featured.png)
+![](img_calendar_year.png)
 
 [*Download PDF: Yearly Calendar.*](https://github.com/derekmichaelwright/htmls/raw/master/dblogr/calendar_creation/Calendar_Year.pdf)
 
+---
+
 # Create Monthly Calendar
 
-```{r eval = F}
+```{r}
 pdf(file = "Calendar_Monthly.pdf", width = 10.5, height = 8)
 par(mar = c(1,1,1,1))
 for (i in 1:12) {
@@ -127,9 +133,11 @@ dev.off()
 
 [*Download PDF: Monthly Calendar.*](https://github.com/derekmichaelwright/htmls/raw/master/dblogr/calendar_creation/Calendar_Monthly.pdf)
 
+---
+
 # Create Weekly Calendar
 
-```{r eval = F}
+```{r}
 pdf(file = "Calendar_Weekly.pdf", width = 8, height = 10.5)
 par(mar = c(1,1,1,1))
 for (i in 1:max(year_cal$week)) {
@@ -160,3 +168,7 @@ dev.off()
 ![](img_calendar_week.png)
 
 [*Download PDF: Weekly Calendar.*](https://github.com/derekmichaelwright/htmls/raw/master/dblogr/calendar_creation/Calendar_Weekly.pdf)
+
+---
+
+&copy; Derek Michael Wright 2020 [www.dblogr.com/](https://dblogr.netlify.com/)

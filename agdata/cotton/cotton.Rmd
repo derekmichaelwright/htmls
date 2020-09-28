@@ -1,26 +1,8 @@
 ---
 title: "Cotton Production"
 subtitle: "Graphs of cotton production using FAO data"
-summary:  "Graphs of cotton production using FAO data"
-author: "Derek Michael Wright <wrightmderek@gmail.com> [www.dblogr.com/](https://dblogr.netlify.com/) [-Image Gallery-](https://dblogr.netlify.app/graphs_agdata/cotton/)"
 date: "2020-03-01"
-categories: [ "agData" ]
-tags: [ "agData", "Cotton" ]
-image:
-  preview_only: true
-links:
-  - icon_pack: fas
-    icon: chart-line
-    name: All Graphs
-    url: agdata_graphs/cotton/
-  - icon_pack: far
-    icon: file-code
-    name: HTML
-    url: https://derekmichaelwright.github.io/htmls/agdata/cotton.html
-  - icon_pack: far
-    icon: file-pdf
-    name: PDF (Save/Print)
-    url: agdata_pdfs/cotton.pdf
+author: "Derek Michael Wright <wrightmderek@gmail.com> [www.dblogr.com/](https://dblogr.netlify.com/) [-Image Gallery-](https://dblogr.netlify.app/graphs_agdata/cotton/)"
 ---
 
 ```{r setup, include = FALSE}
@@ -34,7 +16,7 @@ knitr::opts_chunk$set(echo = TRUE, warning = F, message = F)
 library(agData) # Loads: tidyverse, ggpubr, ggbeeswarm, ggrepel
 ```
 
-\pagebreak
+---
 
 # India vs Pakistan
 
@@ -60,7 +42,7 @@ ggsave("../../../myblog/content/posts_agdata/cotton/featured.png", mp, width = 6
 
 ![](cotton_01.png)
 
-\pagebreak
+---
 
 # Burkina Faso
 
@@ -88,3 +70,7 @@ ggsave("../../../myblog/content/graphs_agdata/cotton/gallery/gallery/cotton_02.p
 ```
 
 ![](cotton_02.png)
+
+---
+
+&copy; Derek Michael Wright 2020 [www.dblogr.com/](https://dblogr.netlify.com/)

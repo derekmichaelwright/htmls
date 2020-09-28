@@ -3,34 +3,20 @@ title: "People in Ag"
 subtitle: "Graphs for people in Ag"
 date: "2020-09-01"
 author: "Derek Michael Wright <wrightmderek@gmail.com> [www.dblogr.com/](https://dblogr.netlify.com/) [-Image Gallery-](https://dblogr.netlify.app/graphs_agdata/people_in_ag/)"
-
-categories: [ "agData" ]
-tags: [ "agData", "Regions" ]
-image:
-  preview_only: true
-links: 
-  - icon_pack: fas
-    icon: chart-line
-    name: All Graphs
-    url: agdata_graphs/people_in_ag
-  - icon_pack: far
-    icon: file-code
-    name: HTML
-    url: https://derekmichaelwright.github.io/htmls/agdata/people_in_ag.html
-  - icon_pack: far
-    icon: file-pdf
-    name: PDF (Save/Print)
-    url: agdata_pdfs/people_in_ag.pdf
 ---
 
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(echo = T, message = F, warning = F)
 ```
 
+---
+
 ```{r}
 # devtools::install_github("derekmichaelwright/agData")
 library(agData) # Loads: tidyverse, ggpubr, ggbeeswarm, ggrepel
 ```
+
+---
 
 ```{r}
 # Prep data
@@ -52,6 +38,8 @@ ggsave("../../../myblog/content/graphs_agdata/people_in_ag/gallery/gallery/Peopl
 ```
 
 ![](People_in_Ag_01.png)
+
+---
 
 ```{r}
 # Prep data
@@ -77,6 +65,8 @@ ggsave("../../../myblog/content/graphs_agdata/people_in_ag/gallery/gallery/Peopl
 
 ![](People_in_Ag_02.png)
 
+---
+
 ```{r}
 # Prep data
 xx <- agData_People %>% 
@@ -99,6 +89,8 @@ ggsave("../../../myblog/content/graphs_agdata/people_in_ag/gallery/gallery/Peopl
 ```
 
 ![](People_in_Ag_03.png)
+
+---
 
 ```{r}
 # Prep data
@@ -134,3 +126,7 @@ ggsave("../../../myblog/content/posts_agdata/people_in_ag/featured.png", mp, wid
 ```
 
 ![](People_in_Ag_04.png)
+
+---
+
+&copy; Derek Michael Wright 2020 [www.dblogr.com/](https://dblogr.netlify.com/)

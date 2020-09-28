@@ -1,26 +1,8 @@
 ---
 title: "Genetically Engineered Crop Production"
 subtitle: "Graphs of GE crop production using ISAAA data"
-summary:  "Graphs of GE crop production using ISAAA data"
-author: "Derek Michael Wright <wrightmderek@gmail.com> [www.dblogr.com/](https://dblogr.netlify.com/)"
 date: "2020-03-01"
-categories: [ "agData" ]
-tags: [ "agData", "GE Crops" ]
-image:
-  preview_only: true
-links: 
-  - icon_pack: fas
-    icon: chart-line
-    name: All Graphs
-    url: agdata_graphs/ge_crops
-  - icon: file-code
-    icon_pack: far
-    name: HTML
-    url: https://derekmichaelwright.github.io/htmls/agdata/ge_crops.html
-  - icon: file-pdf
-    icon_pack: far
-    name: PDF (Save/Print)
-    url: agdata_pdfs/ge_crops.pdf
+author: "Derek Michael Wright <wrightmderek@gmail.com> [www.dblogr.com/](https://dblogr.netlify.com/) [-Image Gallery-](https://dblogr.netlify.app/graphs_agdata/ge_crops/)"
 ---
 
 ```{r setup, include = FALSE}
@@ -33,6 +15,8 @@ knitr::opts_chunk$set(echo = TRUE, message = F, warning = F)
 # devtools::install_github("derekmichaelwright/agData")
 library(agData) # Loads: tidyverse, ggpubr, ggbeeswarm, ggrepel
 ```
+
+---
 
 # Global Hectares
 
@@ -60,6 +44,8 @@ ggsave("../../../myblog/content/graphs_agdata/ge_crops/gallery/gallery/ge_crops_
 ```
 
 ![](ge_crops_01.png)
+
+---
 
 ## Year to Year Change
 
@@ -91,6 +77,8 @@ ggsave("../../../myblog/content/graphs_agdata/ge_crops/gallery/gallery/ge_crops_
 
 ![](ge_crops_02.png)
 
+---
+
 # Devloping vs Developed Countries
 
 ## Area
@@ -119,6 +107,8 @@ ggsave("../../../myblog/content/posts_agdata/ge_crops/featured.png", mp, width =
 
 ![](ge_crops_03.png)
 
+---
+
 ## Percentage
 
 ```{r}
@@ -143,6 +133,8 @@ ggsave("../../../myblog/content/graphs_agdata/ge_crops/gallery/gallery/ge_crops_
 ```
 
 ![](ge_crops_04.png)
+
+---
 
 # Crops
 
@@ -173,6 +165,8 @@ ggsave("../../../myblog/content/graphs_agdata/ge_crops/gallery/gallery/ge_crops_
 
 ![](ge_crops_05.png)
 
+---
+
 ## Percentage
 
 ```{r}
@@ -198,6 +192,8 @@ ggsave("../../../myblog/content/graphs_agdata/ge_crops/gallery/gallery/ge_crops_
 ```
 
 ![](ge_crops_06.png)
+
+---
 
 ## Year to Year Change
 
@@ -227,6 +223,8 @@ ggsave("../../../myblog/content/graphs_agdata/ge_crops/gallery/gallery/ge_crops_
 
 ![](ge_crops_07.png)
 
+---
+
 ## Year to Year Percentage Change
 
 ```{r}
@@ -254,6 +252,8 @@ ggsave("../../../myblog/content/graphs_agdata/ge_crops/gallery/gallery/ge_crops_
 ```
 
 ![](ge_crops_08.png)
+
+---
 
 # Adoption of Genetically Engineered Crops
 
@@ -283,6 +283,8 @@ ggsave("../../../myblog/content/home/gallery/gallery/06_ge_crops_09.png", mp, wi
 
 ![](ge_crops_09.png)
 
+---
+
 ## Area
 
 ```{r}
@@ -307,6 +309,8 @@ ggsave("../../../myblog/content/graphs_agdata/ge_crops/gallery/gallery/ge_crops_
 ```
 
 ![](ge_crops_10.png)
+
+---
 
 ## Top Countries
 
@@ -341,6 +345,8 @@ ggsave("../../../myblog/content/home/gallery/gallery/06_ge_crops_11.png", mp, wi
 
 ![](ge_crops_11.png)
 
+---
+
 ## Every Country  
 
 ```{r}
@@ -365,6 +371,8 @@ ggsave("../../../myblog/content/graphs_agdata/ge_crops/gallery/gallery/ge_crops_
 
 ![](ge_crops_12.png)
 
+---
+
 # Value of GE Seed
 
 ```{r}
@@ -386,6 +394,8 @@ ggsave("../../../myblog/content/graphs_agdata/ge_crops/gallery/gallery/ge_crops_
 ```
 
 ![](ge_crops_13.png)
+
+---
 
 # Regulations of New Breeding Technologies
 
@@ -421,3 +431,7 @@ ggplot(xx, aes(x = Year, y = Value, color = Crop)) +
   theme_agData() +
   scale_color_manual(values = agData_Colors)
 ```
+
+---
+
+&copy; Derek Michael Wright 2020 [www.dblogr.com/](https://dblogr.netlify.com/)
