@@ -14,12 +14,13 @@ knitr::opts_chunk$set(echo = TRUE, message = F, warning = F)
 
 # Introduction
 
-The correlation coefficient (*R^2^*), which indicates the proportion of variation explained by an independant variable or model, can be calculated in more than one way. The goal of this vignette is to help clear up this confusion, with a few different examples.
+The correlation coefficient (*R^2^*), which indicates the proportion of variation explained by an independent variable or model, can be calculated in more than one way. The goal of this vignette is to help clear up this confusion, with a few different examples.
 
 ```{r}
 # devtools::install_github("derekmichaelwright/agData")
-library(agData) # Loads: tidyverse, ggpubr, ggbeeswarm, ggrepel
+library(agData)  # Loads: tidyverse, ggpubr, ggbeeswarm, ggrepel
 library(ggpmisc) # stat_poly_eq()
+library(readxl)  # read_xlsx()
 ```
 
 ---
@@ -41,8 +42,8 @@ library(ggpmisc) # stat_poly_eq()
 
 ```{r}
 # Prep data
-d1 <- read.csv("data_1.csv") %>% 
-  mutate(RDTF = 1 / DTF) # Rate of progress towards fowering
+d1 <- read_xlsx("data.xlsx", "data_1") %>% 
+  mutate(RDTF = 1 / DTF) # Rate of progress towards flowering
 # Preview data
 DT::datatable(d1)
 ```
@@ -63,8 +64,8 @@ mp1 <- ggplot(d1, aes(x = DTF, y = DTS)) +
   scale_fill_manual(name = NULL, values = c("darkgreen","darkorange","darkblue")) +
   stat_poly_eq(aes(label = paste(..eq.label.., ..rr.label.., sep = "*\",\"~~")),
                formula = y ~ x, parse = T, rr.digits = 3) +
-  theme_agData(legend.position = "top") +
-  labs(x = "Days to Flower", y = "Days to Swollen Pods")
+  theme_agData() +
+  labs(title = "A)", x = "Days to Flower", y = "Days to Swollen Pods")
 # DTS - DTM
 mp2 <- ggplot(d1, aes(x = DTS, y = DTM)) + 
   geom_smooth(method = "lm", se = F, color = "red") + 
@@ -72,8 +73,8 @@ mp2 <- ggplot(d1, aes(x = DTS, y = DTM)) +
   scale_fill_manual(name = NULL, values = c("darkgreen","darkorange","darkblue")) +
   stat_poly_eq(aes(label = paste(..eq.label.., ..rr.label.., sep = "*\",\"~~")),
                formula = y ~ x, parse = T, rr.digits = 3) +
-  theme_agData(legend.position = "top") +
-  labs(x = "Days to Swollen Pods", y = "Days to Maturity")
+  theme_agData() +
+  labs(title = "B)", x = "Days to Swollen Pods", y = "Days to Maturity")
 # DTF - DTM
 mp3 <- ggplot(d1, aes(x = DTF, y = DTM)) + 
   geom_smooth(method = "lm", se = F, color = "red") + 
@@ -81,11 +82,12 @@ mp3 <- ggplot(d1, aes(x = DTF, y = DTM)) +
   scale_fill_manual(name = NULL, values = c("darkgreen","darkorange","darkblue")) +
   stat_poly_eq(aes(label = paste(..eq.label.., ..rr.label.., sep = "*\",\"~~")),
                formula = y ~ x, parse = T, rr.digits = 3) +
-  theme_agData(legend.position = "top") +
-  labs(x = "Days to Flower", y = "Days to Maturity",
+  theme_agData() +
+  labs(title = "C)", x = "Days to Flower", y = "Days to Maturity",
        caption = "\xa9 www.dblogr.com/  |  Data: AGILE")
 # Append and Save
-mp <- ggarrange(mp1, mp2, mp3, nrow = 1, common.legend = T, align = "h")
+mp <- ggarrange(mp1, mp2, mp3, nrow = 1, align = "h",
+                common.legend = T, legend = "bottom")
 ggsave("corr_coef_01.png", mp, width = 10, height = 4)
 ```
 
@@ -93,7 +95,7 @@ ggsave("corr_coef_01.png", mp, width = 10, height = 4)
 ggsave("../../../myblog/content/graphs_academic/correlation_coefficients/gallery/gallery/corr_coef_01.png", mp, width = 10, height = 4)
 ```
 
-![](corr_coef_01.png)
+![Figure 1: Correlations between A) DTF and DTS, B) DTS and DTM, and C) DTF and DTM.](corr_coef_01.png)
 
 **Interpretations**: 
 
@@ -206,7 +208,7 @@ mp1 <- ggplot(xx, aes(x = DTF, y = DTM)) +
   geom_point(size = 2, ) + 
   geom_point(data = d1,alpha = 0.3) +
   theme_agData() +
-  labs(title = "(a) Total Sum of Squares")
+  labs(title = "A) Total Sum of Squares")
 # Residual Sum of Squares Plot
 mp2 <- ggplot(xx, aes(x = DTF, y = DTM)) + 
   geom_text(x = 70, y = 120, size = 5, label = expression(italic("f")), parse = T) +
@@ -217,7 +219,7 @@ mp2 <- ggplot(xx, aes(x = DTF, y = DTM)) +
   geom_point(size = 2) + 
   geom_point(data = d1, alpha = 0.3) +
   theme_agData() +
-  labs(title = "(b) Residual Sum of Squares",
+  labs(title = "B) Residual Sum of Squares",
        caption = "\xa9 www.dblogr.com/  |  Data: AGILE")
 # Appened
 mp <- ggarrange(mp1, mp2, ncol = 2, align = "h")
@@ -229,7 +231,7 @@ ggsave("../../../myblog/content/graphs_academic/correlation_coefficients/gallery
 ggsave("../../../myblog/content/posts_academic/correlation_coefficients/featured.png", mp, width = 8, height = 4)
 ```
 
-![](corr_coef_02.png)
+![Figure 2: Visualization of A) Total Sum of Squares and B) Residual Sum of Squares.](corr_coef_02.png)
 
 In this case:
 
@@ -268,16 +270,19 @@ mp1 <- ggplot(d1, aes(y = DTM, x = Predicted_DTM)) +
   geom_abline(color = "blue") +
   geom_point(aes(fill = MacroEnv), size = 3, pch = 21, alpha = 0.7) +
   scale_fill_manual(values = c("darkgreen","darkorange","darkblue")) +
-  xlim(c(mymin, mymax)) + ylim(c(mymin, mymax)) +
-  theme_agData()
+  xlim(c(mymin, mymax)) + 
+  ylim(c(mymin, mymax)) +
+  theme_agData() +
+  labs(title = "A)")
 mp2 <- ggplot(d1, aes(x = DTM, y = Predicted_DTM)) + 
   geom_smooth(method = "lm", formula = y ~ x, se = F, size = 2, color = "red") + 
   geom_abline(color = "blue") + 
   geom_point(aes(fill = MacroEnv), size = 3, pch = 21, alpha = 0.7) +
   scale_fill_manual(values = c("darkgreen","darkorange","darkblue")) +
-  xlim(c(mymin, mymax)) + ylim(c(mymin, mymax)) +
+  xlim(c(mymin, mymax)) + 
+  ylim(c(mymin, mymax)) +
   theme_agData() +
-  labs(caption = "\xa9 www.dblogr.com/  |  Data: AGILE")
+  labs(title = "B)", caption = "\xa9 www.dblogr.com/  |  Data: AGILE")
 mp <- ggarrange(mp1, mp2, ncol = 2, legend = "none", align = "h")
 ggsave("corr_coef_03.png", mp, width = 8, height = 4)
 ```
@@ -286,7 +291,7 @@ ggsave("corr_coef_03.png", mp, width = 8, height = 4)
 ggsave("../../../myblog/content/graphs_academic/correlation_coefficients/gallery/gallery/corr_coef_03.png", mp, width = 8, height = 4)
 ```
 
-![](corr_coef_03.png)
+![Figure 3: Correlations between A) Predicted DTM and DTM and B) DTM and Predicted DTM.](corr_coef_03.png)
 
 **Why is this important?** Improper usage can lead to inncorrect interpretations. The example above involved inncorrectly calculating *R^2^* by swapping our observed and predicted variables within the *Sum of Squares* (*SS*) formula. Another example would be using the *Sum of Squares* formula without predictions vs. observations. *E.g.,* if we calculate *R^2^* using our `SumOfSquaresR2` function with `DTF` vs `DTM`.
 
@@ -326,7 +331,7 @@ ggsave("corr_coef_04.png", mp, width = 8, height = 4)
 ggsave("../../../myblog/content/graphs_academic/correlation_coefficients/gallery/gallery/corr_coef_04.png", mp, width = 8, height = 4)
 ```
 
-![](corr_coef_04.png)
+![Figure 4: Calculations of *R^2* using A) *Pearson's* formula and B) *Sum of Squares* formula.](corr_coef_04.png)
 
 However, the more common mistake happens when the *Pearson's* formula is used for evaluating the accuracy of a model used to predict values.
 
@@ -344,8 +349,8 @@ However, the more common mistake happens when the *Pearson's* formula is used fo
 
 ```{r}
 # Prep data
-d2 <- read.csv("data_2.csv") %>%
-  mutate(Expt = factor(Expt, levels = c("Su16", "Ne16", "It16")))
+d2 <- read_xlsx("data.xlsx", "data_2") %>%
+  mutate(Expt = factor(Expt, levels = c("Ca16", "Ne16", "It16")))
 # Preview data
 DT::datatable(d2)
 ```
@@ -371,7 +376,7 @@ ggsave("corr_coef_05.png", mp, width = 8, height = 4)
 ggsave("../../../myblog/content/graphs_academic/correlation_coefficients/gallery/gallery/corr_coef_05.png", mp, width = 8, height = 4)
 ```
 
-![](corr_coef_05.png)
+![Figure 5: Inncorrect usage of *Pearson's R^2* to calculate accuracy of a model predicting DTF accross 3 site-years. Ca16 = Saskatchewan, Canada 2016. Ne16 = Bardiya, Nepal 2016. It16 = Metaponto, Italy 2016..](corr_coef_05.png)
 
 ```{r}
 my_ggplot <- function(expt, color) {
@@ -407,7 +412,7 @@ my_ggplot <- function(expt, color) {
 ```
 
 ```{r}
-mp1 <- my_ggplot("Su16", color = "darkgreen")
+mp1 <- my_ggplot("Ca16", color = "darkgreen")
 mp2 <- my_ggplot("Ne16", color = "darkorange")
 mp3 <- my_ggplot("It16", color = "darkblue")
 mp <- ggarrange(mp1, mp2, mp3, ncol = 1)
@@ -418,7 +423,7 @@ ggsave("corr_coef_06.png", mp, width = 8, height = 10)
 ggsave("../../../myblog/content/graphs_academic/correlation_coefficients/gallery/gallery/corr_coef_06.png", mp, width = 8, height = 10)
 ```
 
-![](corr_coef_06.png)
+![Figure 6: Inncorrect vs correct usage of *R^2* formulas to calculate accuracy of a model predicting DTF accross 3 site-years. Ca16 = Saskatchewan, Canada 2016. Ne16 = Bardiya, Nepal 2016. It16 = Metaponto, Italy 2016.](corr_coef_06.png)
 
 ---
 
@@ -499,7 +504,7 @@ ggsave("corr_coef_07.png", mp, width = 8, height = 4)
 ggsave("../../../myblog/content/graphs_academic/correlation_coefficients/gallery/gallery/corr_coef_07.png", mp, width = 8, height = 4)
 ```
 
-![](corr_coef_07.png)
+![Figure 7: Visualization of A) Total Sum of Sqaures and B) Residual Sum of Squares for the predicted DTF values for Bardiya, Nepal 2016 (Ne16).](corr_coef_07.png)
 
 ---
 
@@ -528,7 +533,7 @@ ggsave("corr_coef_08.png", mp, width = 6, height = 4)
 ggsave("../../../myblog/content/graphs_academic/correlation_coefficients/gallery/gallery/corr_coef_08.png", mp, width = 6, height = 4)
 ```
 
-![](corr_coef_08.png)
+![Figure 8: Visualization of the effect of range on *R^2*.](corr_coef_08.png)
 
 ---
 
@@ -548,7 +553,7 @@ modelRMSE <- function(o, p) {
   sqrt(sum((o-p)^2) / (length(o)))
 }
 # Calculate RMSE for Ro17
-xx <- d2 %>% filter(Expt == "Su16")
+xx <- d2 %>% filter(Expt == "Ca16")
 modelRMSE(xx$DTF, xx$Predicted_DTF)
 # Calculate RMSE for Ne17
 xx <- d2 %>% filter(Expt == "Ne16")
@@ -584,7 +589,7 @@ my_ggplot <- function(expts, colors) {
            paste(italic("R")^2, " = ", r2, " | ", italic("RMSE"), " = ", rmse), 
            list(r2 = r2, rmse = rmse)))
 }
-mp1 <- my_ggplot("Su16", "darkgreen")  + facet_grid(.~Expt)
+mp1 <- my_ggplot("Ca16", "darkgreen")  + facet_grid(.~Expt)
 mp2 <- my_ggplot("Ne16", "darkorange") + facet_grid(.~Expt)
 mp3 <- my_ggplot("It16", "darkblue")   + facet_grid(.~Expt) +
   labs(caption = "\xa9 www.dblogr.com/  |  Data: AGILE")
@@ -596,10 +601,10 @@ ggsave("corr_coef_09.png", mp, width = 10, height = 4)
 ggsave("../../../myblog/content/graphs_academic/correlation_coefficients/gallery/gallery/corr_coef_09.png", mp, width = 10, height = 4)
 ```
 
-![](corr_coef_09.png)
+![Figure 9: Correct calculations of *R^2* for predicted DTF along with RMSE across 3 site-years. Ca16 = Saskatchewan, Canada 2016. Ne16 = Bardiya, Nepal 2016. It16 = Metaponto, Italy 2016.](corr_coef_09.png)
 
 ```{r}
-mp <- my_ggplot(c("Su16","Ne16","It16"), c("darkgreen","darkorange","darkblue")) + 
+mp <- my_ggplot(c("Ca16","Ne16","It16"), c("darkgreen","darkorange","darkblue")) + 
   theme(legend.position = "bottom")
 ggsave("corr_coef_10.png", mp, width = 6, height = 4)
 ```
@@ -608,7 +613,7 @@ ggsave("corr_coef_10.png", mp, width = 6, height = 4)
 ggsave("../../../myblog/content/graphs_academic/correlation_coefficients/gallery/gallery/corr_coef_10.png", mp, width = 6, height = 4)
 ```
 
-![](corr_coef_10.png)
+![Figure 10: Calculation of *R^2* for predicted DTF for all 3 site-years. Ca16 = Saskatchewan, Canada 2016. Ne16 = Bardiya, Nepal 2016. It16 = Metaponto, Italy 2016.](corr_coef_10.png)
 
 ---
 
@@ -655,12 +660,16 @@ SumOfSquaresR2(o = d1$RDTF, p = d1$Predicted_RDTF)
 Each formula gives the same *R^2^* result.
 
 ```{r}
+mymin <- min(c(d1$RDTF, d1$Predicted_RDTF))
+mymax <- max(c(d1$RDTF, d1$Predicted_RDTF))
 mp <- ggplot(d1, aes(x = Predicted_RDTF, y = RDTF)) +
   geom_smooth(method = "lm", se = F, size = 2, color = "red") +
   geom_abline(color = "blue") +
   geom_segment(aes(yend = Predicted_RDTF, xend = Predicted_RDTF)) +
   geom_point(aes(fill = MacroEnv, size = abs(Residuals_RDTF)), pch = 21, alpha = 0.7) +
   scale_fill_manual(values = c("darkgreen","darkorange","darkblue")) +
+  ylim(c(mymin, mymax)) +
+  xlim(c(mymin, mymax)) +
   theme_agData(legend.position = "none") +
   labs(title = substitute(paste(italic("R")^2, " = ", r2), 
          list(r2 = round(SumOfSquaresR2(o = d1$DTF, p = d1$Predicted_DTF), 3))),
@@ -672,7 +681,7 @@ ggsave("corr_coef_11.png", mp, width = 6, height = 4)
 ggsave("../../../myblog/content/graphs_academic/correlation_coefficients/gallery/gallery/corr_coef_11.png", mp, width = 6, height = 4)
 ```
 
-![](corr_coef_11.png)
+![Figure 11: Visualizing the accuracy of a model predicting RDTF (1/DTF). Red line represents the best-fit line.](corr_coef_11.png)
 
 However, we are interested in `DTF` and not `RDTF`. Let see how *R^2^* changes when we calculate it for `DTF` instead of `RDTF`.
 
@@ -694,11 +703,15 @@ SumOfSquaresR2(o = d1$DTF, p = d1$Predicted_DTF)
 Notice the how the values of *R^2^* from `cor` or `pearssonR2` and `SumOfSquaresR2` do not match. Why is this occuring?
 
 ```{r}
+mymin <- min(c(d1$DTF, d1$Predicted_DTF))
+mymax <- max(c(d1$DTF, d1$Predicted_DTF))
 mp <- ggplot(d1, aes(y = DTF, x = Predicted_DTF)) +
   geom_smooth(method = "lm", se = F, size = 2, color = "red") +
   geom_abline(color = "blue") + 
   geom_segment(aes(yend = Predicted_DTF, xend = Predicted_DTF)) +
   geom_point(aes(fill = Expt, size = abs(Residuals_DTF)), pch = 21, alpha = 0.7) + 
+  ylim(c(mymin, mymax)) +
+  xlim(c(mymin, mymax)) +
   theme_agData(legend.position = "none") + 
   labs(title = substitute(paste(italic("R")^2, " = ", r2), 
          list(r2 = round(SumOfSquaresR2(o = d1$DTF, p = d1$Predicted_DTF), 3))),
@@ -710,7 +723,7 @@ ggsave("corr_coef_12.png", mp, width = 6, height = 4)
 ggsave("../../../myblog/content/graphs_academic/correlation_coefficients/gallery/gallery/corr_coef_12.png", mp, width = 6, height = 4)
 ```
 
-![](corr_coef_12.png)
+![Figuyre 12: Visualizing the accuracy of a model predicting RDTF (1/DTF). Red line represents the best-fit line.](corr_coef_12.png)
 
 Now that we've transformed the data, the `geom_abline` and `geom_smooth` lines no longer perfectly overlap, which causes the slight difference in *R^2^*. 
 
@@ -754,7 +767,7 @@ ggsave("corr_coef_13.png", mp, width = 8, height = 4)
 ggsave("../../../myblog/content/graphs_academic/correlation_coefficients/gallery/gallery/corr_coef_13.png", mp, width = 8, height = 4)
 ```
 
-![](corr_coef_13.png)
+![Figure 13: Change in *R^2* due to data transformation.](corr_coef_13.png)
 
 Visualizing the Photothermal model
 
@@ -790,7 +803,7 @@ file.copy(from = "corr_coef_14.png", overwrite = T,
           to = "../../../myblog/content/graphs_academic/correlation_coefficients/gallery/gallery/")
 ```
 
-![](corr_coef_14.png)
+![Figure 14: Visualization of the photothermal model (1/DTF = *a* + *b*Temperature + *c*Photoperiod).](corr_coef_14.png)
 
 ---
 
