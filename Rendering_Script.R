@@ -10,8 +10,7 @@ mypdf2 <- pdf_document(toc = F, fig_caption = F)
 #
 ##########################################################################################
 # agile
-##########################################################################################
-#setwd("C:/gitfolder/htmls/academic/anova")
+###########################################################################################setwd("C:/gitfolder/htmls/academic/anova")
 #render(input = "anova.Rmd", output_format = myhtml2,
 #       output_file = "../anova.html")
 #render(input = "index.Rmd", output_format = mypdf1,
@@ -33,9 +32,9 @@ setwd("C:/gitfolder/htmls/academic/envdata")
 render(input = "envdata.Rmd", output_format = myhtml2,
        output_file = "../envdata.html")
 #
-#setwd("C:/gitfolder/htmls/academic/r_tutorial")
-#render(input = "r_tutorial.Rmd", output_format = myhtml1,
-#       output_file = "../r_tutorial.html")
+setwd("C:/gitfolder/htmls/academic/r_tutorial")
+render(input = "r_tutorial.Rmd", output_format = myhtml1,
+       output_file = "../r_tutorial.html")
 #
 ##########################################################################################
 # agData

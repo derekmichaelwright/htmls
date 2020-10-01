@@ -12,31 +12,43 @@ knitr::opts_chunk$set(echo = T, message = F, warning = F)
 
 ---
 
-# Download R
+# Introduction
 
-Download R here
-Download RStudio here
+This vignette will introduce the reader to `R`, a free, open-source statistical computing environment and `RStudio`, a integrated development environment for `R`.   
+
+![](logo_r.png){width=25%}
 
 ---
 
-# Introduction
+# Download R
+
+Download R [here](https://www.r-project.org/)
+Download RStudio [here](https://rstudio.com/products/rstudio/download/)
+
+![](rstudio.png)
+
+---
+
+# Calculator
 
 R can be used as a caclulator
 
 ```{r}
-5 + 3 # = 8
-24 / (1 + 2) # = 24 / 3 = 8
-2^3 # = 2 * 2 * 2 = 8
-sqrt(64) # 8 * 8 = 64
--log10(0.05 / 5000000) # = 8
+# 5 + 3 = 8
+5 + 3 
+# 24 / (1 + 2) = 8
+24 / (1 + 2) 
+# 2 * 2 * 2 = 8
+2^3 
+# 8 * 8 = 64
+sqrt(64) 
+# -log10(0.05 / 5000000) = 8
+-log10(0.05 / 5000000) 
 ```
 
-Information can be stored in user defined objects. e.g., xx
+---
 
-```{r}
-xx <- -log10(0.05 / 5000000)
-xx
-```
+# Functions
 
 R has many useful built in functions
 
@@ -50,11 +62,11 @@ rep(1:5, length.out = 7)
 help(rep)
 seq(5, 50, by = 5)
 seq(5, 50, length.out = 5)
-mean(1:10)
-sd(1:10)
 min(1:10)
 max(1:10)
 range(1:10)
+mean(1:10)
+sd(1:10)
 ```
 
 Users can also create their own functions
@@ -63,17 +75,71 @@ Users can also create their own functions
 customFunction <- function(x) {
   mean(x) + sd(x)
 }
-customFunction(1:10)
+customFunction(x = 1:10)
 ```
 
-Objects can be stored in multiple forms:
+---
 
-- c()
-- matrix()
-- data.frame()
-- list()
+# Objects
 
-Data can be saved in many forms:
+Information can be stored in user defined objects, in multiple forms:
+
+- `c()`: a string of values
+- `matrix()`: a two dimensional matrix in one format 
+- `data.frame()`: a two dimensional matrix where each column can be a different format 
+- `list()`:
+
+A string...
+
+```{r}
+xc <- 1:10
+xc
+xc <- c(1,2,3,4,5,6,7,8,9,10)
+xc
+```
+
+A matrix...
+
+```{r}
+xm <- matrix(1:100, nrow = 10, ncol = 10, byrow = T)
+xm
+xm <- matrix(1:100, nrow = 10, ncol = 10, byrow = F)
+xm
+```
+
+A data frame...
+
+```{r}
+xd <- data.frame(
+  x1 = c("aa","bb","cc","dd","ee",
+         "ff","gg","hh","ii","jj"),
+  x2 = 1:10,
+  x3 = c(1,1,1,1,1,2,2,2,3,3),
+  x4 = rep(c(1,2), times = 5),
+  x5 = rep(1:5, times = 2),
+  x6 = rep(1:5, each = 2),
+  x7 = seq(5, 50, by = 5),
+  x8 = log10(1:10),
+  x9 = (1:10)^3
+)
+xd
+```
+
+A list...
+
+```{r}
+xl <- list(xc, xm, xd)
+xl[[1]]
+xl[[2]]
+xl[[3]]
+xl[[3]]$x1
+```
+
+---
+
+# Data Formats
+
+Data can also be saved in many formats:
 
 - numeric
 - integer
@@ -81,48 +147,30 @@ Data can be saved in many forms:
 - factor
 
 ```{r}
-x1 <- 1:10
-x1
-x1 <- c(1,2,3,4,5,6,7,8,9,10)
-x1
-x2 <- matrix(1:100, nrow = 10, ncol = 10, byrow = T)
-x2
-x2 <- matrix(1:100, nrow = 10, ncol = 10, byrow = F)
-x2
-x3 <- data.frame(
-  y1 = 1:10,
-  y2 = rep(c("1","2"), times = 5),
-  y3 = c(1,1,1,1,1,2,2,2,3,3),
-  y4 = rep(1:5, times = 2),
-  y5 = rep(1:5, each = 2),
-  y6 = seq(5, 50, by = 5),
-  y7 = log10(1:10),
-  y8 = (1:10)^3
-)
-x3[1:5,1:5]
-x3[,"y3"]
-x3$y3
-x3$y3 <- as.character(x3$y3)
-x3$y3
-x3$y3 <- as.numeric(x3$y3)
-x3$y3
-x3$y3 <- as.factor(x3$y3)
-x3$y3
-x3$y3 <- factor(x3$y3, levels = c("3","2","1"))
-x3$y3
-x3$y2 <- factor(x3$y2)
-x3$y2
-xx <- list(x1, x2, x3)
+xd[,"x3"]
+xd$x3
+xd$x3 <- as.character(xd$x3)
+xd$x3
+xd$x3 <- as.numeric(xd$x3)
+xd$x3
+xd$x3 <- as.factor(xd$x3)
+xd$x3
+xd$x3 <- factor(xd$x3, levels = c("3","2","1"))
+xd$x3
 ```
 
-Internal structure of an object can be checked with str()
+Internal structure of an object can be checked with `str()`
 
 ```{r}
-str(x1)
-str(x2)
-str(x3)
-str(xx)
+str(xc) # c()
+str(xm) # matrix()
+str(xd) # data.frame()
+str(xl) # list()
 ```
+
+---
+
+# Installing Packages
 
 Additional libraries can be installed and loaded for use.
 
@@ -132,31 +180,90 @@ install.packages("scales")
 
 ```{r}
 library(scales)
-rescale(1:10, to = c(1,30))
+xx <- data.frame(Values = 1:10)
+xx$Rescaled <- rescale(x = xx$Values, to = c(1,30))
+xx
 ```
 
 ---
 
 # Plotting
 
+We will start with some basic plotting using the base function `plot()`
+
 ```{r}
-plot(x = x3$y1, y = x3$y5)
-plot(x = x3$y1, y = x3$y5, col = x3$y2)
-plot(x = x3$y7, y = x3$y8, type = "both")
+# A basic scatter plot
+plot(x = xd$x8, y = xd$x9)
+# Adjust color and shape of the points
+plot(x = xd$x8, y = xd$x9, col = "darkred", pch = 0)
+plot(x = xd$x8, y = xd$x9, col = xd$x4, pch = xd$x4)
+# Adjust plot type 
+plot(x = xd$x8, y = xd$x9, type = "line")
+# Adjust linetype
+plot(x = xd$x8, y = xd$x9, type = "line", lty = 2)
+# Plot lines and points
+plot(x = xd$x8, y = xd$x9, type = "both")
+```
+
+Now lets create some random and normally distributed data to make some more complicated plots
+
+```{r}
+# 100 random uniformly distributed numbers ranging from 0 - 100
+ru <- runif(100, min = 0, max = 100)
+ru
+plot(x = ru)
+order(ru)
+ru<- ru[order(ru)]
+ru
+plot(x = ru)
+# 100 normally distributed numbers with a mean of 50 and sd of 10
+nd <- rnorm(100, mean = 50, sd = 10)
+nd
+nd <- nd[order(nd)]
+nd
+plot(x = nd)
+hist(x = nd)
+hist(nd, breaks = 20, col = "darkgreen")
+plot(x = density(nd))
+boxplot(x = nd)
+boxplot(x = nd, horizontal = T)
+```
+
+## ggplot
+
+Lets be honest, the base plots are ugly! The `ggplot2` package gives the user to create a better, more visually appealing plots. Additional packages such as `ggbeeswarm` and `ggrepel` also contain useful functions to add to the functionality of `ggplot2`
+
+```{r}
 library(ggplot2)
-mp <- ggplot(x3, aes(x = y7, y = y8))
+mp <- ggplot(xd, aes(x = x8, y = x9))
 mp + geom_point()
-mp + geom_point(aes(color = y2))
-mp + geom_line()
-mp + geom_line(aes(color = y2))
-mp + geom_smooth()
+mp + geom_point(aes(color = x3, shape = x3), size = 4)
+mp + geom_line(size = 2)
+mp + geom_line(aes(color = x3), size = 2)
 mp + geom_smooth(method = "loess")
 mp + geom_smooth(method = "lm")
-mp <- ggplot(x3, aes(x = y2, y = y7))
-mp + geom_boxplot()
+xx <- data.frame(data = c(rnorm(50, mean = 40, sd = 10),
+                          rnorm(50, mean = 60, sd = 5)),
+                 group = factor(rep(1:2, each = 50)),
+                 label = c("Label1", rep(NA, 49), "Label2", rep(NA, 49)))
+mp <- ggplot(xx, aes(x = data, fill = group))
+mp + geom_histogram(color = "black")
+mp + geom_histogram(color = "black", position = "dodge")
+mp + geom_density(alpha = 0.5)
+mp <- ggplot(xx, aes(x = group, y = data, fill = group))
+mp + geom_boxplot(color = "black")
 mp + geom_boxplot() + geom_point()
-mp <- ggplot(x3, aes(x = y3))
-mp + geom_histogram(stat = "count")
+mp + geom_violin() 
+mp <- mp + 
+  geom_violin(alpha = 0.5) + 
+  geom_boxplot(width = 0.1, fill = "white")
+library(ggbeeswarm)
+mp + geom_quasirandom()
+mp + geom_quasirandom(aes(shape = group))
+mp <- mp + geom_beeswarm(alpha = 0.5)
+mp
+library(ggrepel)
+mp + geom_text_repel(aes(label = label), nudge_x = 0.4)
 ```
 
 ---
@@ -164,3 +271,31 @@ mp + geom_histogram(stat = "count")
 Statistics
 
 Under construction…
+
+---
+
+# pch Plot
+
+```{r}
+xx <- data.frame(x = rep(1:6, times = 5, length.out = 26),
+                 y = rep(5:1, each = 6, length.out = 26),
+                 pch = 0:25)
+mp <- ggplot(xx, aes(x = x, y = y, shape = as.factor(pch))) +
+  geom_point(color = "darkred", fill = "darkblue", size = 5) +
+  geom_text(aes(label = pch), nudge_x = -0.25) +
+  scale_shape_manual(values = xx$pch) +
+  scale_x_continuous(breaks = 6:1) +
+  scale_y_continuous(breaks = 6:1) +
+  theme_void() +
+  theme(legend.position = "none",
+        plot.title = element_text(hjust = 0.5),
+        plot.subtitle = element_text(hjust = 0.5),
+        axis.text = element_blank(),
+        axis.ticks = element_blank()) +
+  labs(title = "Plot symbols in R (pch)",
+       subtitle = "color = \"darkred\", fill = \"darkblue\"",
+       x = NULL, y = NULL)
+ggsave("pch.png", mp, width = 4.5, height = 3)
+```
+
+![](pch.png)
