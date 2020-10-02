@@ -124,7 +124,7 @@ xx %>% distinct(Item)
 
 ```{r}
 # Prep data for an example plot
-xx <- xx %>% filter(Area == "World", Item == "Agricultural area")
+xx <- xx %>% filter(Area == "World", Item == "Agricultural land")
 # Plot
 mp <- ggplot(xx, aes(x = Year, y = Value / 1000000, group = Area)) + 
   geom_line() + 
