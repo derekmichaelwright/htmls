@@ -10,7 +10,8 @@ mypdf2 <- pdf_document(toc = F, fig_caption = F)
 #
 ##########################################################################################
 # agile
-###########################################################################################setwd("C:/gitfolder/htmls/academic/anova")
+##########################################################################################
+#setwd("C:/gitfolder/htmls/academic/anova")
 #render(input = "anova.Rmd", output_format = myhtml2,
 #       output_file = "../anova.html")
 #render(input = "index.Rmd", output_format = mypdf1,
@@ -87,6 +88,10 @@ render(input = "honeybee.Rmd", output_format = myhtml1,
 setwd("C:/gitfolder/htmls/agdata/honeybee_canada")
 render(input = "honeybee_canada.Rmd", output_format = myhtml1,
        output_file = "../honeybee_canada.html")
+#
+setwd("C:/gitfolder/htmls/agdata/import_export")
+render(input = "import_export.Rmd", output_format = myhtml1,
+       output_file = "../import_export.html")
 #
 setwd("C:/gitfolder/htmls/agdata/introduction_to_agdata")
 render(input = "introduction_to_agdata.Rmd", output_format = myhtml1,
@@ -204,9 +209,6 @@ render(input = "street_maps.Rmd", output_format = myhtml1,
 # Special pdf cases
 ##########################################################################################
 # htmls
-
-
-
 #setwd("C:/gitfolder/htmls/dblogr/population_demographics_canada")
 #render(input = "index.Rmd", output_format = myhtml1,
 #       output_file = "../population_demographics_canada.html")
@@ -223,20 +225,20 @@ render(input = "street_maps.Rmd", output_format = myhtml1,
 ##########################################################################################
 # Bind pdfs
 ##########################################################################################
-setwd("C:/gitfolder/myblog/content")
+#setwd("C:/gitfolder/myblog/content")
 #
-fnames_dblogr <- list.files("dblogr_pdfs")
+#fnames_dblogr <- list.files("dblogr_pdfs")
 #
-staplr::staple_pdf(input_directory = "C:/gitfolder/myblog/content/dblogr_pdfs",
-                   output_filepath = "C:/gitfolder/myblog/content/dblogr.pdf", overwrite = TRUE)
+#staplr::staple_pdf(input_directory = "C:/gitfolder/myblog/content/dblogr_pdfs",
+#                   output_filepath = "C:/gitfolder/myblog/content/dblogr.pdf", overwrite = TRUE)
 #
-fnames_agdata <- c("agData/Crop_Production_Saskatchewan/Crop_Production_Saskatchewan.pdf",
-            "agData/Crop_Production_World/Crop_Production_World.pdf",
-            "agData/Introduction_to_agData/Introduction_to_agData.pdf",
-            "agData/Wheat_Production_India/Wheat_Production_India.pdf",
-            "agData/Wheat_Production_Mexico/Wheat_Production_Mexico.pdf"
-)
-staplr::staple_pdf(input_files = fnames_agdata,
-                   output_filepath = "agData.pdf", 
-                   overwrite = TRUE)
+#fnames_agdata <- c("agData/Crop_Production_Saskatchewan/Crop_Production_Saskatchewan.pdf",
+#            "agData/Crop_Production_World/Crop_Production_World.pdf",
+#            "agData/Introduction_to_agData/Introduction_to_agData.pdf",
+#            "agData/Wheat_Production_India/Wheat_Production_India.pdf",
+#            "agData/Wheat_Production_Mexico/Wheat_Production_Mexico.pdf"
+#)
+#staplr::staple_pdf(input_files = fnames_agdata,
+#                   output_filepath = "agData.pdf", 
+#                   overwrite = TRUE)
 ##########################################################################################

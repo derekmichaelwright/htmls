@@ -75,3 +75,7 @@ knitr::opts_chunk$set(echo = TRUE, message = F, warning = F)
 ![Figure 7](Figure_07.png)
 
 ![](../logo_agile.png)
+
+---
+
+&copy; Derek Michael Wright 2020 [www.dblogr.com/](https://dblogr.netlify.com/)

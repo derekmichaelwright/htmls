@@ -1,7 +1,6 @@
 ---
 title: "Genomic Selection"
 subtitle: "Genomic selection for lentil breeding: Empirical evidence"
-summary:  "Genomic selection for lentil breeding: Empirical evidence"
 author: "Teketel A. Haile,  Taryn Heidecker,  Derek Wright,  Sandesh Neupane,  Larissa Ramsay,  Albert Vandenberg & Kirstin E. Bett"
 date: "2020-03-01"
 categories: [ "AGILE" ]
@@ -35,3 +34,7 @@ Genomic selection (GS) is a marker-based selection initially suggested for lives
 ![Figure 2](Fig02.jpg)
 
 ![](../logo_agile.png)
+
+---
+
+&copy; Derek Michael Wright 2020 [www.dblogr.com/](https://dblogr.netlify.com/)

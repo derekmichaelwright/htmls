@@ -442,4 +442,6 @@ summary(aov(lm(DTF ~ 0 + Rep + Entry, data = r1)))
 
 ```
 
+---
 
+&copy; Derek Michael Wright 2020 [www.dblogr.com/](https://dblogr.netlify.com/)

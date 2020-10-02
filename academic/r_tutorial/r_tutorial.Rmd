@@ -299,3 +299,7 @@ ggsave("pch.png", mp, width = 4.5, height = 3)
 ```
 
 ![](pch.png)
+
+---
+
+&copy; Derek Michael Wright 2020 [www.dblogr.com/](https://dblogr.netlify.com/)

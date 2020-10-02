@@ -276,153 +276,25 @@ ggsave("../../../myblog/content/graphs_agdata/global_food_security/gallery/galle
 
 ---
 
-# Import/Export
+# Countries
 
-```{r}
-# Create plotting function
-netImportExport <- function(crop = "Wheat", year = 2017) {
-  # Prep data
-  xx <- agData_FAO_Trade %>% addRegionInfo() %>%
-    filter(Measurement %in% c("Import Quantity", "Export Quantity"), 
-           Area %in% unique(agData_FAO_Country_Table$Country),
-           Crop == crop, Year == year) %>%
-    spread(Measurement, Value) %>%
-    mutate(Net = `Export Quantity` - `Import Quantity`) %>%
-    filter(!is.na(Net)) %>% arrange(Net) %>%
-    mutate(Area = factor(Area, levels = rev(unique(.$Area))))
-  x1 <- top_n(xx, 10, Net) %>% mutate(Label = "Top 10")
-  x2 <- top_n(xx %>% mutate(Net = -Net), 10, Net) %>% mutate(Label = "Bottom 10", Net = -Net)
-  xx <- bind_rows(x1, x2) %>% mutate(Label = factor(Label, levels = c("Top 10", "Bottom 10")))
-  # Plot
-  ggplot(xx, aes(x = Area, y = Net / 1000000, fill = Region)) + 
-    geom_bar(stat = "identity", color = "black", alpha = 0.8) +
-    facet_grid(. ~ Label, scales = "free_x") +
-    scale_fill_manual(values = agData_Colors[c(1,4,3,2,7)]) +
-    theme_agData(rotx = T) + 
-    labs(title = crop, subtitle = "Export - Import", y = "Million Tonnes", x = NULL,
-         caption = "\xa9 www.dblogr.com/  |  Data: FAOSTAT")
-}
+under construction...
+
+```{r eval = F, echo = F}
+# Prep Data
+xx <- dd %>% filter(Year == 2017, Area %in% c("Canada","USA","India","China","Germany")) %>%
+  select(Area, Region, Crop, TonnesPerPerson) %>%
+  spread(Crop, TonnesPerPerson)
+# Plot
+mp <- ggplot(xx, aes(x = Cereals, y = Pulses)) + 
+  geom_point(aes(size = Tubers, color = Region), alpha = 0.5) + 
+  geom_text_repel(aes(label = Area), size = 3) +
+  scale_color_manual(values = agData_Colors[c(1,4,3,2,7)]) +
+  theme_agData(rotx = T) +
+  labs(title = "Food Security - 2017",
+       caption = "\xa9 www.dblogr.com/  |  Data: FAOSTAT")
+ggsave("global_food_security_07.png", mp, width = 6, height = 4)
 ```
-
----
-
-## Wheat
-
-```{r}
-mp <- netImportExport(crop = "Wheat", year = 2017)
-ggsave("global_food_security_08.png", mp, width = 6, height = 3.75)
-```
-
-```{r echo = F}
-ggsave("../../../myblog/content/graphs_agdata/global_food_security/gallery/gallery/global_food_security_08.png", mp, width = 6, height = 3.75)
-```
-
-![](global_food_security_08.png)
-
----
-
-## Maize
-
-```{r}
-mp <- netImportExport(crop = "Maize", year = 2017)
-ggsave("global_food_security_09.png", mp, width = 6, height = 3.75)
-```
-
-```{r echo = F}
-ggsave("../../../myblog/content/graphs_agdata/global_food_security/gallery/gallery/global_food_security_09.png", mp, width = 6, height = 3.75)
-```
-
-![](global_food_security_09.png)
-
----
-
-## Rice
-
-```{r}
-mp <- netImportExport(crop = "Rice", year = 2017)
-ggsave("global_food_security_10.png", mp, width = 6, height = 3.75)
-```
-
-```{r echo = F}
-ggsave("../../../myblog/content/graphs_agdata/global_food_security/gallery/gallery/global_food_security_10.png", mp, width = 6, height = 3.75)
-```
-
-![](global_food_security_10.png)
-
----
-
-## Soybeans
-
-```{r}
-mp <- netImportExport(crop = "Soybeans", year = 2017)
-ggsave("global_food_security_11.png", mp, width = 6, height = 3.75)
-```
-
-```{r echo = F}
-ggsave("../../../myblog/content/graphs_agdata/global_food_security/gallery/gallery/global_food_security_11.png", mp, width = 6, height = 3.75)
-```
-
-![](global_food_security_11.png)
-
----
-
-## Sorghum
-
-```{r}
-mp <- netImportExport(crop = "Sorghum", year = 2017)
-ggsave("global_food_security_12.png", mp, width = 6, height = 3.75)
-```
-
-```{r echo = F}
-ggsave("../../../myblog/content/graphs_agdata/global_food_security/gallery/gallery/global_food_security_12.png", mp, width = 6, height = 3.75)
-```
-
-![](global_food_security_12.png)
-
----
-
-## Beans
-
-```{r}
-mp <- netImportExport(crop = "Beans, dry", year = 2017)
-ggsave("global_food_security_13.png", mp, width = 6, height = 3.75)
-```
-
-```{r echo = F}
-ggsave("../../../myblog/content/graphs_agdata/global_food_security/gallery/gallery/global_food_security_13.png", mp, width = 6, height = 3.75)
-```
-
-![](global_food_security_13.png)
-
----
-
-## Chickpeas
-
-```{r}
-mp <- netImportExport(crop = "Chick peas", year = 2017)
-ggsave("global_food_security_14.png", mp, width = 6, height = 3.75)
-```
-
-```{r echo = F}
-ggsave("../../../myblog/content/graphs_agdata/global_food_security/gallery/gallery/global_food_security_14.png", mp, width = 6, height = 3.75)
-```
-
-![](global_food_security_14.png)
-
----
-
-## Lentils
-
-```{r}
-mp <- netImportExport(crop = "Lentils", year = 2017)
-ggsave("global_food_security_15.png", mp, width = 6, height = 3.75)
-```
-
-```{r echo = F}
-ggsave("../../../myblog/content/graphs_agdata/global_food_security/gallery/gallery/global_food_security_15.png", mp, width = 6, height = 3.75)
-```
-
-![](global_food_security_15.png)
 
 ---
 

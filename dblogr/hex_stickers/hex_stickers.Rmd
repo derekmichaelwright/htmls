@@ -2,7 +2,7 @@
 title: "Hex Stickers"
 subtitle: "Creation of hex stickers with R"
 date: "2020-03-01"
-author: "Derek Michael Wright <wrightmderek@gmail.com> [www.dblogr.com/](https://dblogr.netlify.com/)"
+author: "Derek Michael Wright <wrightmderek@gmail.com> [www.dblogr.com/](https://dblogr.netlify.com/) [-Image Gallery-](https://dblogr.netlify.app/graphs_dblogr/hex_stickers/)"
 ---
 
 ```{r setup, include = FALSE, warning = F, message = F}
@@ -107,21 +107,25 @@ sticker(filename="hex_mapleleaf_red.png", package="",
 ![](hex_mapleleaf_red.png){width=350px}
 
 ```{r echo = F, eval = F}
+# Copy to gallery
 file.copy(from = "hex_dblogr.png", to = "C:/gitfolder/myblog/content/graphs_dblogr/hex_stickers/gallery/gallery/hex_dblogr.png", overwrite = T)
 file.copy(from = "hex_agData.png", to = "C:/gitfolder/myblog/content/graphs_dblogr/hex_stickers/gallery/gallery/hex_agData.png", overwrite = T)
 file.copy(from = "hex_mapleleaf_green.png", to = "C:/gitfolder/myblog/content/graphs_dblogr/hex_stickers/gallery/gallery/hex_mapleleaf_green.png", overwrite = T)
 file.copy(from = "hex_mapleleaf_red.png", to = "C:/gitfolder/myblog/content/graphs_dblogr/hex_stickers/gallery/gallery/hex_mapleleaf_red.png", overwrite = T)
-#
+# Copy for feature.png
 file.copy(from = "hex_dblogr.png", to = "C:/gitfolder/myblog/content/posts_dblogr/hex_stickers/featured.png", overwrite = T)
-file.copy(from = "hex_dblogr.png", to = "C:/gitfolder/dblogr/hex_dblogr.png", overwrite = T)
-file.copy(from = "hex_dblogr.png", to = "C:/gitfolder/dblogr/docs/hex_dblogr.png", overwrite = T)
+# Copy for agData package
+file.copy(from = "hex_agData.png", to = "C:/gitfolder/agData/hex_agData.png", overwrite = T)
+file.copy(from = "hex_agData.png", to = "C:/gitfolder/agData/docs/hex_agData.png", overwrite = T)
+# Copy to other posts
+file.copy(from = "hex_agData.png", to = "C:/gitfolder/htmls/agdata/introduction_to_agdata/hex_agData.png", overwrite = T)
+file.copy(from = "hex_agData.png", to = "C:/gitfolder/myblog/content/posts_agdata/introduction_to_agdata/featured.png", overwrite = T)
+#
+#file.copy(from = "hex_dblogr.png", to = "C:/gitfolder/dblogr/hex_dblogr.png", overwrite = T)
+#file.copy(from = "hex_dblogr.png", to = "C:/gitfolder/dblogr/docs/hex_dblogr.png", overwrite = T)
 #file.copy(from = "hex_dblogr.png", to = "C:/gitfolder/personalblog/static/img/logo.png", overwrite = T)
 #file.copy(from = "hex_dblogr.png", to = "C:/gitfolder/personalblog/content/resume/hex_dblogr.png", overwrite = T)
 #
-file.copy(from = "hex_agData.png", to = "C:/gitfolder/agData/hex_agData.png", overwrite = T)
-file.copy(from = "hex_agData.png", to = "C:/gitfolder/agData/docs/hex_agData.png", overwrite = T)
-file.copy(from = "hex_agData.png", to = "C:/gitfolder/myblog/content/agdata/introduction_to_agdata/hex_agData.png", overwrite = T)
-file.copy(from = "hex_agData.png", to = "C:/gitfolder/myblog/content/agdata/introduction_to_agdata/featured.png", overwrite = T)
 #file.copy(from = "hex_agData.png", to = "C:/gitfolder/personalblog/content/resume/hex_agData.png", overwrite = T)
 #
 #file.copy(from = "hex_dblogr.png", to = "C:/gitfolder/myblog/content/dblogr/Hex_Wall/hex_files/dblogr.png", overwrite = T)
@@ -148,6 +152,7 @@ image_write(im, "C:/gitfolder/myblog/assets/images/icon.png")
 #
 im <- image_append(c(im1,im3,im2))
 image_write(im, "C:/gitfolder/myblog/assets/images/logo.png")
+image_write(im, "C:/gitfolder/htmls/css/logo_dblogr.png")
 #image_write(im, "C:/gitfolder/myblog/static/img/logo.png")
 ```
 
