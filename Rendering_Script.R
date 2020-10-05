@@ -5,8 +5,8 @@ myhtml1 <- readthedown(gallery = T, lightbox= T, self_contained = T, code_foldin
                        css = "../../css/custom_dblogr.css")
 myhtml2 <- readthedown(gallery = T, lightbox= T, self_contained = T, code_folding = "show",
                        css = "../../css/custom_agile.css")
-mypdf1 <- pdf_document(toc = T, fig_caption = F)
-mypdf2 <- pdf_document(toc = F, fig_caption = F)
+#mypdf1 <- pdf_document(toc = T, fig_caption = F)
+#mypdf2 <- pdf_document(toc = F, fig_caption = F)
 #
 ##########################################################################################
 # agile
