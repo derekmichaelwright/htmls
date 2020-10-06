@@ -98,9 +98,9 @@ ggsave("../../../myblog/content/graphs_dblogr/gapminder/gallery/gallery/gapminde
 
 ```{r}
 # gganimate example
-mp <- ggplot(gapminder, aes(x = gdpPercap / 1000, y = lifeExp, size = pop, colour = country)) +
-  geom_point(alpha = 0.7, show.legend = F) +
-  scale_colour_manual(values = country_colors) +
+mp <- ggplot(gapminder, aes(x = gdpPercap / 1000, y = lifeExp, size = pop, fill = country)) +
+  geom_point(alpha = 0.7, show.legend = F, pch = 21, color = "black") +
+  scale_fill_manual(values = country_colors) +
   scale_size(range = c(2, 12)) +
   scale_x_log10() +
   facet_wrap(. ~ continent, ncol = 5) +
@@ -108,7 +108,8 @@ mp <- ggplot(gapminder, aes(x = gdpPercap / 1000, y = lifeExp, size = pop, colou
   # Here comes the gganimate specific bits
   labs(title = 'Year: {frame_time}', x = 'GDP Per Capita ($1000)', y = 'Life Expectancy') +
   transition_time(year) +
-  ease_aes('linear')
+  shadow_wake(wake_length = 0.1, alpha = F)
+  #ease_aes('linear')
 anim_save("gapminder_gifs_01.gif", mp, width = 600, height = 400)
 ```
 
@@ -124,9 +125,9 @@ anim_save("../../../myblog/content/graphs_dblogr/gapminder/gallery/gallery/gapmi
 xx <- gapminder %>% arrange(rev(year), gdpPercap) %>% 
   mutate(country = factor(country, levels = unique(country)))
 #
-mp <- ggplot(xx, aes(x = country, y = gdpPercap / 1000, size = pop, colour = country)) +
-  geom_point(alpha = 0.7, show.legend = F) +
-  scale_colour_manual(values = country_colors) +
+mp <- ggplot(xx, aes(x = country, y = gdpPercap / 1000, size = pop, fill = country)) +
+  geom_point(alpha = 0.7, show.legend = F, pch = 21, color = "black") +
+  scale_fill_manual(values = country_colors) +
   scale_size(range = c(2, 12)) +
   scale_y_log10() +
   theme_agData(axis.text.x = element_blank(),
@@ -134,7 +135,7 @@ mp <- ggplot(xx, aes(x = country, y = gdpPercap / 1000, size = pop, colour = cou
   # Here comes the gganimate specific bits
   labs(title = 'Year: {frame_time}', x = NULL, y = 'GDP Per Capita ($1000)') +
   transition_time(year) +
-  ease_aes('linear')
+  shadow_wake(wake_length = 0.1, alpha = F)
 anim_save("gapminder_gifs_02.gif", mp, width = 600, height = 400)
 ```
 
@@ -150,9 +151,9 @@ anim_save("../../../myblog/content/graphs_dblogr/gapminder/gallery/gallery/gapmi
 xx <- gapminder %>% arrange(rev(year), lifeExp) %>% 
   mutate(country = factor(country, levels = unique(country)))
 #
-mp <- ggplot(xx, aes(x = country, y = lifeExp, size = pop, colour = country)) +
-  geom_point(alpha = 0.7, show.legend = F) +
-  scale_colour_manual(values = country_colors) +
+mp <- ggplot(xx, aes(x = country, y = lifeExp, size = pop, fill = country)) +
+  geom_point(alpha = 0.7, show.legend = F, pch = 21, color ="black") +
+  scale_fill_manual(values = country_colors) +
   scale_size(range = c(2, 12)) +
   scale_y_log10() +
   theme_agData(axis.text.x = element_blank(),
@@ -160,7 +161,7 @@ mp <- ggplot(xx, aes(x = country, y = lifeExp, size = pop, colour = country)) +
   # Here comes the gganimate specific bits
   labs(title = 'Year: {frame_time}', x = NULL, y = 'Life Expectancy') +
   transition_time(year) +
-  ease_aes('linear')
+  shadow_wake(wake_length = 0.1, alpha = F)
 anim_save("gapminder_gifs_03.gif", mp, width = 600, height = 400)
 ```
 
@@ -174,17 +175,17 @@ anim_save("../../../myblog/content/graphs_dblogr/gapminder/gallery/gallery/gapmi
 
 ```{r}
 gg_gapminder1 <- function(x) {
-  ggplot(x, aes(x = gdpPercap / 1000, y = lifeExp, size = pop, colour = country)) +
-    geom_point(alpha = 0.7) +
+  ggplot(x, aes(x = gdpPercap / 1000, y = lifeExp, size = pop, fill = country)) +
+    geom_point(alpha = 0.7, pch = 21, color = "black") +
     geom_text(aes(label = country), alpha = 0.7) +
-    scale_colour_manual(values = country_colors) +
+    scale_fill_manual(values = country_colors) +
     scale_size(range = c(2, 12)) +
     scale_x_log10() +
     theme_agData(legend.position = "none") +
     labs(title = "Year: {frame_time}", y = "Life Expectancy",
          x = "GDP Per Capita ($1000)") +
     transition_time(year) +
-    ease_aes('linear')
+    shadow_wake(wake_length = 0.1, alpha = F)
 }
 ```
 
@@ -262,15 +263,16 @@ anim_save("../../../myblog/content/graphs_dblogr/gapminder/gallery/gallery/gapmi
 ```{r}
 gg_gapminder2 <- function(mycountries) {
   x <- gapminder %>% filter(country %in% mycountries)
-  ggplot(x, aes(x = gdpPercap / 1000, y = lifeExp, colour = country)) +
-    geom_point(size = 3) +
+  ggplot(x, aes(x = gdpPercap / 1000, y = lifeExp, fill = country)) +
+    geom_point(size = 3, pch = 21, color = "black") +
     geom_line(alpha = 0.7) +
     scale_colour_manual(values = country_colors) +
     scale_x_log10() +
     theme_agData(legend.position = "bottom") +
     labs(title = "Year: {frame_along}", y = "Life Expectancy",
          x = "GDP Per Capita ($1000)") +
-    transition_reveal(year)
+    transition_reveal(year) +
+    shadow_wake(wake_length = 0.1, alpha = F)
 }
 ```
 

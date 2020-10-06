@@ -42,33 +42,49 @@ c4 <- round(summary(lm(data = c4, Value ~ Year))$coefficients[2], 3)
 cols <- c("darkcyan", "darkblue", "darkorange", "darkgreen")
 # Plot Yields
 mp <- ggplot(x1) +
-  geom_rect(data = x2, alpha = 0.1,
+  geom_rect(data = x2, alpha = 0.1, 
             aes(xmin = min-0.5, xmax = max+0.5, ymin = -Inf, ymax = Inf, fill = Era)) +
   geom_line(aes(x = Year, y = Value, color = Era), size = 1.5) + 
-  geom_smooth(aes(x = Year, y = Value, group = Era), 
-              method = "lm", se = F, colour = "Black") +
   scale_color_manual(name = "Era:", values = cols) +
   scale_fill_manual(name = "Era:",  values = cols) +
   scale_x_continuous(breaks = seq(1865, 2015, 10), minor_breaks = NULL) +
   coord_cartesian(xlim = c(1865, 2018), ylim = c(0, 11.5), expand = F) +
-  annotate("text", x = 1900,   y = 0.75, size = 4, label = paste("m =", c1)) +
-  annotate("text", x = 1947.5, y = 1,    size = 4, label = paste("m =", c2)) +
-  annotate("text", x = 1980,   y = 4,    size = 4, label = paste("m =", c3)) +
-  annotate("text", x = 2005,   y = 6.5,  size = 4, label = paste("m =", c4)) +
   theme_agData(legend.position = "bottom") + 
   labs(title = "Maize Yields in the United States", y = "Tonnes / Hectare", x = NULL,
        caption = "\xa9 www.dblogr.com/  |  Data: USDA")
-ggsave("maize_usa_01.png", mp, width = 6, height = 4)
+mp1 <- mp +
+  geom_smooth(aes(x = Year, y = Value, group = Era), method = "lm", se = F, colour = "Black") +
+  annotate("text", x = 1900,   y = 0.75, size = 4, label = paste("m =", c1)) +
+  annotate("text", x = 1947.5, y = 1,    size = 4, label = paste("m =", c2)) +
+  annotate("text", x = 1980,   y = 4,    size = 4, label = paste("m =", c3)) +
+  annotate("text", x = 2005,   y = 6.5,  size = 4, label = paste("m =", c4)) 
+ggsave("maize_usa_01.png", mp1, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../../myblog/content/graphs_agdata/maize_usa/gallery/gallery/maize_usa_01.png", mp, width = 6, height = 4)
-ggsave("../../../myblog/content/home/gallery/gallery/04_maize_usa_01.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_agdata/maize_usa/gallery/gallery/maize_usa_01.png", mp1, width = 6, height = 4)
+ggsave("../../../myblog/content/home/gallery/gallery/04_maize_usa_01.png", mp1, width = 6, height = 4)
 #ggsave("C:/gitfolder/personalblog/content/articles/A_Quick_History_of_Hybrid_Crops/maize_usa_01.png", width = 9, height = 5)
-ggsave("../../../myblog/content/posts_agdata/maize_usa/featured.png", mp, width = 8, height = 5)
+ggsave("../../../myblog/content/posts_agdata/maize_usa/featured.png", mp1, width = 8, height = 5)
 ```
 
 ![](maize_usa_01.png)
+
+---
+
+```{r}
+mp <- mp + 
+  # gganimate specific bits
+  transition_reveal(Year) +
+  ease_aes('linear')
+anim_save("maize_usa_gifs_01.gif", mp, width = 600, height = 400)
+```
+
+```{r echo = F}
+anim_save("../../../myblog/content/graphs_agdata/maize_usa/gallery/gallery/maize_usa_gifs_01.gif", mp, width = 600, height = 400)
+```
+
+![](maize_usa_gifs_01.gif)
 
 ---
 

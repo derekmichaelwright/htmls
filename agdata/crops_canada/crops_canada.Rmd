@@ -14,6 +14,7 @@ knitr::opts_chunk$set(echo = TRUE, message = F, warning = F)
 ```{r}
 # devtools::install_github("derekmichaelwright/agData")
 library(agData) # Loads: tidyverse, ggpubr, ggbeeswarm, ggrepel
+library(gganimate)
 ```
 
 ---
@@ -165,6 +166,37 @@ ggsave("../../../myblog/content/posts_agdata/crops_canada/featured.png", mp, wid
 ```
 
 ![](crops_canada_04.png)
+
+---
+
+```{r}
+# Prep data
+myCrops <- cropList(measurement = "Area seeded")
+xx <- agData_STATCAN_Crops %>% 
+    filter(Area == "Canada", 
+           Measurement == "Area seeded", Crop %in% myCrops) %>%
+  mutate(Crop = factor(Crop, levels = myCrops),
+         Crop = recode(Crop, "Beans, all dry (white and coloured)" = "Beans, all dry") )
+# Plot
+mp <- ggplot(xx, aes(x = Crop, y = Value / 1000000, fill = Crop)) + 
+  geom_bar(stat = "identity", color = "Black") + 
+  #facet_grid(Year~.) + 
+  scale_fill_manual(values = alpha(agData_Colors, 0.75)) +
+  theme_agData(legend.position = "none", rotx = T) + 
+  labs(title = "Canada - Area Seeded - {round(frame_time)}", 
+       y = "Million Hectares", x = NULL,
+       caption = "\xa9 www.dblogr.com/  |  Data: STATCAN") +
+  # gganimate specific bits
+  transition_time(Year) +
+  ease_aes('linear')
+anim_save("crops_canada_gifs_01.gif", mp, width = 600, height = 400)
+```
+
+```{r echo = F}
+anim_save("../../../myblog/content/graphs_agdata/crops_canada/gallery/gallery/crops_canada_gifs_01.gif", mp, width = 600, height = 500)
+```
+
+![](crops_canada_gifs_01.gif)
 
 ---
 

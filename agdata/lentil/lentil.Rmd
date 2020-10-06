@@ -14,6 +14,7 @@ knitr::opts_chunk$set(echo = T, message = F, warning = F)
 ```{r}
 # devtools::install_github("derekmichaelwright/agData")
 library(agData) # Loads: tidyverse, ggpubr, ggbeeswarm, ggrepel
+library(gganimate)
 ```
 
 ---
@@ -197,42 +198,81 @@ ggsave("../../../myblog/content/graphs_agdata/lentil/gallery/gallery/lentil_06.p
 # Production Pie Charts
 
 ```{r}
+blank_theme <- theme_minimal() +
+    theme(
+      axis.title   = element_blank(),
+      axis.ticks.y   = element_blank(),
+      axis.text.y    = element_blank(),
+      panel.border = element_blank(),
+      panel.grid   = element_blank(),
+      plot.title   = element_text(size = 14, face = "bold")
+  )
 # Plot function
 ggPie <- function(crop, measurement = "Production", year = 2018, other = 0.01) {
-  xx <- agData_FAO_Crops %>% 
+  xx <- agData_FAO_Crops %>% addRegionInfo() %>%
     filter(Crop == crop, Year == year, Measurement == measurement,
            Area %in% agData_FAO_Country_Table$Country)
   total <- agData_FAO_Crops %>% 
     filter(Area == "World", Year == year, Crop == crop, 
            Measurement == measurement) %>%
+    pull(Value)
+  limit <- total * other
+  x1 <- xx %>% filter(Value > limit) %>% arrange(desc(Value))
+  areas <- c(as.character(x1$Area), "Other")
+  x2 <- xx %>% filter(Value < limit) %>% 
+    group_by(Crop, Measurement, Unit, Year) %>%
+    summarise(Value = sum(Value)) %>% ungroup() %>%
+    mutate(Area = "Other")
+  xx <- bind_rows(x2, x1 %>% arrange(Value)) %>%
+    mutate(Percentage = round(100 * Value / total), 
+           Cummulative_P = cumsum(Percentage),
+           Label_y = Cummulative_P - (Percentage / 2),
+           Area = factor(Area, levels = areas),
+           ISO2 = ifelse(Area == "Other", "", ISO2))
+  #
+  ggplot(xx, aes(x = Crop, fill = Area)) +
+    geom_bar(aes(y = Percentage), stat = "identity", color = "black") +
+    coord_polar("y", start = 0) +
+    geom_text(aes(label = Percentage, y = Label_y), color = "white", nudge_x = 0.3) +
+    blank_theme +
+    scale_y_continuous(breaks = xx$Label_y, labels = xx$ISO2) +
+    scale_fill_manual(values = agData_Colors, 
+                      labels = paste0(xx$Area," (",xx$Percentage," %)")) +
+    labs(title = paste("Lentil |", year),
+         caption = "\xa9 www.dblogr.com/  |  Data: FAOSTAT")
+}
+#
+ggPie_anim <- function(crop, measurement = "Production", other = 0.01) {
+  xx <- agData_FAO_Crops %>% addRegionInfo() %>%
+    filter(Crop == crop, Measurement == measurement,
+           Area %in% agData_FAO_Country_Table$Country)
+  total <- agData_FAO_Crops %>% 
+    filter(Area == "World", Crop == crop, 
+           Measurement == measurement) %>%
     pull(Value) %>% max()
   limit <- total * other
-  x1 <- xx %>% filter(Value > limit)
+  x1 <- xx %>% filter(Value > limit) %>% arrange(desc(Value))
+  areas <- c(as.character(unique(x1$Area)), "Other")
   x2 <- xx %>% filter(Value < limit) %>% 
     group_by(Crop, Measurement, Unit, Year) %>%
     summarise(Value = sum(Value)) %>% ungroup() %>%
     mutate(Area = "Other")
   xx <- bind_rows(x1, x2) %>%
     arrange(Value) %>%
-    mutate(Percentage = round(100 * Value / total), 
-           Area = paste0(Area, " (", Percentage, " %)"),
-           Area = factor(Area, levels = rev(unique(Area))))
-  blank_theme <- theme_minimal() +
-    theme(
-      axis.title   = element_blank(),
-      axis.ticks   = element_blank(),
-      axis.text    = element_blank(),
-      panel.border = element_blank(),
-      panel.grid   = element_blank(),
-      plot.title   = element_text(size = 14, face = "bold")
-  )
+    mutate(Area = factor(Area, levels = areas),
+           ISO2 = ifelse(Area == "Other", "", ISO2))
   ggplot(xx, aes(x = Crop, y = Value, fill = Area)) +
-    geom_bar(stat = "identity") +
+    geom_bar(stat = "identity", color = "black") +
     coord_polar("y", start = 0) +
     blank_theme +
+    theme(axis.text = element_blank()) +
+    #scale_y_continuous(aes(breaks = Label_y, labels = ISO2)) +
     scale_fill_manual(values = agData_Colors) +
-    labs(title = paste("Lentil |", year),
-         caption = "\xa9 www.dblogr.com/  |  Data: FAOSTAT")
+    labs(title = "Lentil - {round(frame_time)}",
+         caption = "\xa9 www.dblogr.com/  |  Data: FAOSTAT") +
+  # gganimate specific bits
+  transition_time(Year) +
+  ease_aes('linear')
 }
 ```
 
@@ -269,6 +309,20 @@ ggsave("../../../myblog/content/graphs_agdata/lentil/gallery/gallery/lentil_08.p
 ```
 
 ![](lentil_08.png)
+
+---
+
+```{r}
+# Plot function
+mp <- ggPie_anim(crop = "Lentils")
+anim_save("lentil_gifs_01.gif", mp, width = 600, height = 400)
+```
+
+```{r echo = F}
+anim_save("../../../myblog/content/graphs_agdata/lentil/gallery/gallery/lentil_gifs_01.gif", mp, width = 600, height = 400)
+```
+
+![](lentil_gifs_01.gif)
 
 ---
 

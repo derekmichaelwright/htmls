@@ -14,6 +14,7 @@ knitr::opts_chunk$set(echo = TRUE, message = F, warning = F)
 ```{r}
 # devtools::install_github("derekmichaelwright/agData")
 library(agData) # Loads: tidyverse, ggpubr, ggbeeswarm, ggrepel
+library(gganimate)
 ```
 
 ---
@@ -72,6 +73,35 @@ ggsave("../../../myblog/content/posts_agdata/crops_saskatchewan/featured.png", m
 
 ---
 
+```{r}
+# Prep data
+myCrops <- cropList(measurement = "Production")
+xx <- agData_STATCAN_Crops %>% 
+  filter(Area == "Saskatchewan", Measurement == "Production", 
+         Crop %in% myCrops) %>%
+  mutate(Crop = factor(Crop, levels = myCrops) )
+# Plot
+mp <- ggplot(xx, aes(x = Crop, y = Value / 1000000, fill = Crop)) + 
+  geom_bar(stat = "identity", color = "Black") + 
+  scale_fill_manual(values = alpha(agData_Colors, 0.75)) +
+  theme_agData(legend.position = "none", rotx = T) + 
+  labs(title = "Saskatchewan - Crop Production - {round(frame_time)}", 
+       y = "Million Tonnes", x = NULL,
+       caption = "\xa9 www.dblogr.com/  |  Data: STATCAN") +
+  # gganimate specific bits
+  transition_time(Year) +
+  ease_aes('linear')
+anim_save("crops_saskatchewan_gifs_01.png", mp, width = 600, height = 400)
+```
+
+```{r echo = F}
+anim_save("../../../myblog/content/graphs_agdata/crops_saskatchewan/gallery/gallery/crops_saskatchewan_gifs_01.png", mp, width = 600, height = 400)
+```
+
+![](crops_saskatchewan_gifs_01.png)
+
+---
+
 # Crop Area 1908, 1961, 2017
 
 ```{r}
@@ -95,6 +125,35 @@ ggsave("crops_saskatchewan_02.png", mp, width = 6, height = 5)
 ```{r echo = F}
 ggsave("../../../myblog/content/graphs_agdata/crops_saskatchewan/gallery/gallery/crops_saskatchewan_02.png", mp, width = 6, height = 5)
 ggsave("../../../myblog/content/home/gallery/gallery/02_crops_saskatchewan_02.png", mp, width = 6, height = 5)
+```
+
+![](crops_saskatchewan_02.png)
+
+---
+
+```{r}
+# Prep data
+myCrops <- cropList(measurement = "Area seeded")
+xx <- agData_STATCAN_Crops %>% 
+  filter(Area == "Saskatchewan", Measurement == "Area seeded", 
+         Crop %in% myCrops) %>%
+  mutate(Crop = factor(Crop, levels = myCrops) )
+# Plot
+mp <- ggplot(xx, aes(x = Crop, y = Value / 1000000, fill = Crop)) + 
+  geom_bar(stat = "identity", color = "Black") + 
+  scale_fill_manual(values = alpha(agData_Colors, 0.75)) +
+  theme_agData(legend.position = "none", rotx = T) + 
+  labs(title = "Saskatchewan - Area Seeded - {round(frame_time)}", 
+       y = "Million Hectares", x = NULL,
+       caption = "\xa9 www.dblogr.com/  |  Data: STATCAN") +
+  # gganimate specific bits
+  transition_time(Year) +
+  ease_aes('linear')
+anim_save("crops_saskatchewan_gifs_02.png", mp, width = 600, height = 400)
+```
+
+```{r echo = F}
+anim_save("../../../myblog/content/graphs_agdata/crops_saskatchewan/gallery/gallery/crops_saskatchewan_gifs_02.png", mp, width = 600, height = 400)
 ```
 
 ![](crops_saskatchewan_02.png)

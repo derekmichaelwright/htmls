@@ -14,6 +14,7 @@ knitr::opts_chunk$set(echo = TRUE, message = F, warning = F)
 ```{r}
 # devtools::install_github("derekmichaelwright/agData")
 library(agData) # Loads: tidyverse, ggpubr, ggbeeswarm, ggrepel
+library(gganimate)
 ```
 
 ---
@@ -92,6 +93,21 @@ ggsave("../../../myblog/content/home/gallery/gallery/03_crops_usa_02.png", mp, w
 ```
 
 ![](crops_usa_02.png)
+
+---
+
+```{r}
+mp <- mp + # gganimate specific bits
+  transition_reveal(Year) +
+  ease_aes('linear')
+anim_save("crops_usa_gifs_01.gif", mp, width = 600, height = 400)
+```
+
+```{r echo = F}
+anim_save("../../../myblog/content/graphs_agdata/crops_usa/gallery/gallery/crops_usa_gifs_01.gif", mp, width = 600, height = 400)
+```
+
+![](crops_usa_gifs_01.gif)
 
 ---
 
