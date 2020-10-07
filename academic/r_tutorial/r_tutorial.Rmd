@@ -262,7 +262,7 @@ DT::datatable(xx)
 ```{r}
 xd$x11 <- NULL #creates and empty column
 for(i in 1:nrow(xd)) {
-  if(xx$x10 == T) { 
+  if(xd$x10[i] == T) { 
     xd$x11[i] <- "X" 
   } else{ xd$x11[i] <- "Y" }
 }

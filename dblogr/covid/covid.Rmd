@@ -47,13 +47,13 @@ mp <- ggplot(xx, aes(x = date, y = numtoday, color = prname)) +
   geom_line() + 
   facet_wrap(prname ~ ., ncol = 5) +
   theme_agData(legend.position = "none") +
-  labs(title = "COVID-19 Cases in Canada", y = NULL,
+  labs(title = "Daily COVID-19 Cases in Canada", y = NULL,
        caption = "\xa9 www.dblogr.com/  |  Data: Government of Canada")
-ggsave("Canada_COVID_01.png", mp, width = 6, height = 4)
+ggsave("Canada_COVID_01.png", mp, width = 10, height = 6)
 ```
 
 ```{r echo = F}
-ggsave("../../../myblog/content/graphs_dblogr/covid/gallery/gallery/Canada_COVID_01.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_dblogr/covid/gallery/gallery/Canada_COVID_01.png", mp, width = 10, height = 6)
 ```
 
 ![](Canada_COVID_01.png)
@@ -63,11 +63,11 @@ ggsave("../../../myblog/content/graphs_dblogr/covid/gallery/gallery/Canada_COVID
 ```{r}
 # Plot
 mp <- mp + facet_wrap(prname ~ ., ncol = 5, scales = "free_y") 
-ggsave("Canada_COVID_02.png", mp, width = 6, height = 4)
+ggsave("Canada_COVID_02.png", mp, width = 10, height = 6)
 ```
 
 ```{r echo = F}
-ggsave("../../../myblog/content/graphs_dblogr/covid/gallery/gallery/Canada_COVID_02.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_dblogr/covid/gallery/gallery/Canada_COVID_02.png", mp, width = 10, height = 6)
 ```
 
 ![](Canada_COVID_02.png)
@@ -82,12 +82,13 @@ mp <- ggplot(xx, aes(x = date, y = numdeathstoday, color = prname)) +
   geom_line() + 
   facet_wrap(prname ~ ., ncol = 5) +
   theme_agData(legend.position = "none") +
-  labs(caption = "\xa9 www.dblogr.com/  |  Data: Government of Canada")
-ggsave("Canada_COVID_03.png", mp, width = 6, height = 4)
+  labs(title = "Daily COVID-19 Deaths in Canada", y = NULL,
+       caption = "\xa9 www.dblogr.com/  |  Data: Government of Canada")
+ggsave("Canada_COVID_03.png", mp, width = 10, height = 6)
 ```
 
 ```{r echo = F}
-ggsave("../../../myblog/content/graphs_dblogr/covid/gallery/gallery/Canada_COVID_03.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_dblogr/covid/gallery/gallery/Canada_COVID_03.png", mp, width = 10, height = 6)
 ```
 
 ![](Canada_COVID_03.png)
@@ -97,11 +98,11 @@ ggsave("../../../myblog/content/graphs_dblogr/covid/gallery/gallery/Canada_COVID
 ```{r}
 # Plot
 mp <- mp + facet_wrap(prname ~ ., ncol = 5, scales = "free_y") 
-ggsave("Canada_COVID_04.png", mp, width = 6, height = 4)
+ggsave("Canada_COVID_04.png", mp, width = 12, height = 6)
 ```
 
 ```{r echo = F}
-ggsave("../../../myblog/content/graphs_dblogr/covid/gallery/gallery/Canada_COVID_04.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/graphs_dblogr/covid/gallery/gallery/Canada_COVID_04.png", mp, width = 12, height = 6)
 ```
 
 ![](Canada_COVID_04.png)
@@ -124,7 +125,7 @@ gg_COVID <- function(x, area) {
     facet_wrap(prname ~ ., ncol = 5) +
     scale_x_date(date_breaks = "1 month", date_labels = "%b") +
     theme_agData() +
-    labs(title = "COVID-19", y = NULL, x = NULL,
+    labs(title = "Daily COVID-19 Data", y = NULL, x = NULL,
          caption = "\xa9 www.dblogr.com/  |  Data: Government of Canada")
 }
 # Plot
