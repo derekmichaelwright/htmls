@@ -1,6 +1,6 @@
 ---
 title: "COVID-19"
-subtitle: "A quick death rate from COVID-19 in Canada"
+subtitle: "A quick look at COVID-19 data from Canada"
 date: "2020-10-07"
 author: "Derek Michael Wright <derek.wright@usask.ca> [www.dblogr.com/](https://dblogr.netlify.com/) [-Image Gallery-](https://dblogr.netlify.app/graphs_academic/correlation_coefficients/)"
 math: true
@@ -135,6 +135,7 @@ ggsave("Canada_COVID_05.png", mp, width = 6, height = 4)
 
 ```{r echo = F}
 ggsave("../../../myblog/content/graphs_dblogr/covid/gallery/gallery/Canada_COVID_05.png", mp, width = 6, height = 4)
+ggsave("../../../myblog/content/posts_dblogr/covid/featured.png", mp, width = 6, height = 4)
 ```
 
 ![](Canada_COVID_05.png)
