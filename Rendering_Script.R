@@ -177,6 +177,10 @@ setwd("C:/gitfolder/htmls/dblogr/cbc_finances")
 render(input = "cbc_finances.Rmd", output_format = myhtml1,
        output_file = "../cbc_finances.html")
 #
+setwd("C:/gitfolder/htmls/dblogr/covid")
+render(input = "covid.Rmd", output_format = myhtml1,
+       output_file = "../covid.html")
+#
 setwd("C:/gitfolder/htmls/dblogr/economics_of_canada")
 render(input = "economics_of_canada.Rmd", output_format = myhtml1,
        output_file = "../economics_of_canada.html")

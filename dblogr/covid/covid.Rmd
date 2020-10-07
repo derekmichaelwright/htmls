@@ -1,0 +1,175 @@
+---
+title: "COVID-19"
+subtitle: "A quick death rate from COVID-19 in Canada"
+date: "2020-10-07"
+author: "Derek Michael Wright <derek.wright@usask.ca> [www.dblogr.com/](https://dblogr.netlify.com/) [-Image Gallery-](https://dblogr.netlify.app/graphs_academic/correlation_coefficients/)"
+math: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = F, warning = F)
+```
+
+---
+
+# Introduction
+
+https://health-infobase.canada.ca/covid-19/dashboard/about.html
+
+```{r}
+# devtools::install_github("derekmichaelwright/agData")
+library(agData)  # Loads: tidyverse, ggpubr, ggbeeswarm, ggrepel
+```
+
+---
+
+```{r}
+# Prep data
+areas <- c("Quebec","Ontario","British Columbia","Nova Scotia","Alberta","Saskatchewan","Manitoba",
+           "Newfoundland and Labrador","New Brunswick","Prince Edward Island","Northwest Territories","Yukon","Nunavut")
+dd <- read.csv("covid19.csv") %>%
+  mutate(date = as.Date(date, format = "%d-%m-%Y"),
+         numdeathstoday = ifelse(numdeathstoday < 0, 0, numdeathstoday),
+         numtoday = ifelse(numtoday < 0, 0, numtoday))
+DT::datatable(dd)
+```
+
+---
+
+# Cases
+
+```{r}
+xx <- dd %>% 
+  filter(!prname %in% c("Canada", "Repatriated travellers")) %>%
+  mutate(prname = factor(prname, levels = areas))
+# Plot
+mp <- ggplot(xx, aes(x = date, y = numtoday, color = prname)) + 
+  geom_line() + 
+  facet_wrap(prname ~ ., ncol = 5) +
+  theme_agData(legend.position = "none") +
+  labs(title = "COVID-19 Cases in Canada", y = NULL,
+       caption = "\xa9 www.dblogr.com/  |  Data: Government of Canada")
+ggsave("Canada_COVID_01.png", mp, width = 6, height = 4)
+```
+
+```{r echo = F}
+ggsave("../../../myblog/content/graphs_dblogr/covid/gallery/gallery/Canada_COVID_01.png", mp, width = 6, height = 4)
+```
+
+![](Canada_COVID_01.png)
+
+---
+
+```{r}
+# Plot
+mp <- mp + facet_wrap(prname ~ ., ncol = 5, scales = "free_y") 
+ggsave("Canada_COVID_02.png", mp, width = 6, height = 4)
+```
+
+```{r echo = F}
+ggsave("../../../myblog/content/graphs_dblogr/covid/gallery/gallery/Canada_COVID_02.png", mp, width = 6, height = 4)
+```
+
+![](Canada_COVID_02.png)
+
+---
+
+# Deaths
+
+```{r}
+# Plot
+mp <- ggplot(xx, aes(x = date, y = numdeathstoday, color = prname)) + 
+  geom_line() + 
+  facet_wrap(prname ~ ., ncol = 5) +
+  theme_agData(legend.position = "none") +
+  labs(caption = "\xa9 www.dblogr.com/  |  Data: Government of Canada")
+ggsave("Canada_COVID_03.png", mp, width = 6, height = 4)
+```
+
+```{r echo = F}
+ggsave("../../../myblog/content/graphs_dblogr/covid/gallery/gallery/Canada_COVID_03.png", mp, width = 6, height = 4)
+```
+
+![](Canada_COVID_03.png)
+
+---
+
+```{r}
+# Plot
+mp <- mp + facet_wrap(prname ~ ., ncol = 5, scales = "free_y") 
+ggsave("Canada_COVID_04.png", mp, width = 6, height = 4)
+```
+
+```{r echo = F}
+ggsave("../../../myblog/content/graphs_dblogr/covid/gallery/gallery/Canada_COVID_04.png", mp, width = 6, height = 4)
+```
+
+![](Canada_COVID_04.png)
+
+---
+
+# Canada
+
+```{r}
+# Create Plotting Function
+gg_COVID <- function(x, area) {
+  x <- x %>% 
+    filter(prname == area) %>% 
+    select(prname, date, Cases=numtoday, Deaths=numdeathstoday) %>%
+    gather(Trait, Value, Cases, Deaths)
+  # Plot
+  ggplot(x, aes(x = date, y = Value, color = Trait)) + 
+    geom_line(size = 1) + 
+    scale_color_manual(name = NULL, values = c("darkgreen","darkred")) +
+    facet_wrap(prname ~ ., ncol = 5) +
+    scale_x_date(date_breaks = "1 month", date_labels = "%b") +
+    theme_agData() +
+    labs(title = "COVID-19", y = NULL, x = NULL,
+         caption = "\xa9 www.dblogr.com/  |  Data: Government of Canada")
+}
+# Plot
+mp <- gg_COVID(dd, "Canada")
+ggsave("Canada_COVID_05.png", mp, width = 6, height = 4)
+```
+
+```{r echo = F}
+ggsave("../../../myblog/content/graphs_dblogr/covid/gallery/gallery/Canada_COVID_05.png", mp, width = 6, height = 4)
+```
+
+![](Canada_COVID_05.png)
+
+---
+
+# Saskatchewan
+
+```{r}
+# Plot
+mp <- gg_COVID(xx, "Saskatchewan")
+ggsave("Canada_COVID_06.png", mp, width = 6, height = 4)
+```
+
+```{r echo = F}
+ggsave("../../../myblog/content/graphs_dblogr/covid/gallery/gallery/Canada_COVID_06.png", mp, width = 6, height = 4)
+```
+
+![](Canada_COVID_06.png)
+
+---
+
+# Quebec
+
+```{r}
+# Plot
+mp <- gg_COVID(xx, "Quebec")
+ggsave("Canada_COVID_07.png", mp, width = 6, height = 4)
+```
+
+```{r echo = F}
+ggsave("../../../myblog/content/graphs_dblogr/covid/gallery/gallery/Canada_COVID_07.png", mp, width = 6, height = 4)
+```
+
+![](Canada_COVID_07.png)
+
+---
+
+&copy; Derek Michael Wright 2020 [www.dblogr.com/](https://dblogr.netlify.com/)

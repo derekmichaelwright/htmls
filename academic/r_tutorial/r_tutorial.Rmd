@@ -36,7 +36,7 @@ https://bookdown.org/rdpeng/exdata/getting-started-with-r.html#installation
 
 # Calculator
 
-R can be used as a caclulator
+R can be used as a super awesome calculator
 
 ```{r}
 # 5 + 3 = 8
@@ -125,7 +125,8 @@ xd <- data.frame(
   x6 = rep(1:5, each = 2),
   x7 = seq(5, 50, by = 5),
   x8 = log10(1:10),
-  x9 = (1:10)^3
+  x9 = (1:10)^3,
+  x10 = c(T,T,T,F,F,T,T,F,F,F)
 )
 xd
 ```
@@ -150,6 +151,7 @@ Data can also be saved in many formats:
 - integer
 - character
 - factor
+- logical
 
 ```{r}
 xd[,"x3"]
@@ -162,6 +164,9 @@ xd$x3 <- as.factor(xd$x3)
 xd$x3
 xd$x3 <- factor(xd$x3, levels = c("3","2","1"))
 xd$x3
+xd$x10
+as.numeric(xd$x10)
+sum(xd$x10)
 ```
 
 Internal structure of an object can be checked with `str()`
@@ -188,6 +193,82 @@ library(scales)
 xx <- data.frame(Values = 1:10)
 xx$Rescaled <- rescale(x = xx$Values, to = c(1,30))
 xx
+```
+
+---
+
+# Data Wrangling
+
+[R for Data Science](https://r4ds.had.co.nz/)
+
+```{r}
+xx <- data.frame(Group = c("X","X","Y","Y","Y","X","X","X","Y","Y"),
+                 Data1 = 1:10, Data2 = seq(10, 100, by = 10))
+xx$NewData1 <- xx$Data1 + xx$Data2
+xx$NewData2 <- xx$Data1 * 1000
+xx
+xx[xx$Data1 < 5,]
+xx[xx$Group == "X", c("Group","Data2","NewData1")]
+```
+
+Data wrangling with `tidyverse` and pipes (`%>%`)
+
+```{r}
+library(tidyverse)
+xx <- data.frame(Group = c("X","X","Y","Y","Y","Y","Y","X","X","X")) %>%
+  mutate(Data1 = 1:10, 
+         Data2 = seq(10, 100, by = 10),
+         NewData1 = Data1 + Data2,
+         NewData2 = Data1 * 1000)
+xx
+filter(xx, Data1 < 5)
+xx %>% filter(Data1 < 5)
+xx %>% filter(Group == "X") %>% 
+  select(Group, NewColName=Data2, NewData1)
+xs <- xx %>% 
+  group_by(Group) %>% 
+  summarise(Data2_mean = mean(Data2),
+            Data2_sd = sd(Data2),
+            NewData2_mean = mean(NewData2),
+            NewData2_sd = sd(NewData2))
+xs
+xx %>% left_join(xs, by = "Group")
+```
+
+Read/Write data
+
+```{r}
+xx <- read.csv("Data.csv")
+DT::datatable(xx)
+write.csv(xx, "Data.csv", row.names = F)
+```
+
+For excel sheets, the package `readxl` can be used to read in sheets of data.
+
+```{r}
+library(readxl)
+xx <- read_xlsx("Data.xlsx", sheet = "Data")
+xx <- xx %>%
+  group_by(Name, Location) %>%
+  summarise(Mean_DTF = round(mean(DTF),1)) %>% 
+  arrange(Location)
+DT::datatable(xx)
+xx <- xx %>% spread(Location, Mean_DTF)
+DT::datatable(xx)
+```
+
+`for` loops and `if` `else` statements
+
+```{r}
+xd$x11 <- NULL #creates and empty column
+for(i in 1:nrow(xd)) {
+  if(xx$x10 == T) { 
+    xd$x11[i] <- "X" 
+  } else{ xd$x11[i] <- "Y" }
+}
+xd$x11
+xd <- xd %>% mutate(x11 = ifelse(x10 == T, "X", "Y"))
+xd$x11
 ```
 
 ---
@@ -266,6 +347,8 @@ xx <- data.frame(data = c(rnorm(50, mean = 40, sd = 10),
 mp <- ggplot(xx, aes(x = data, fill = group))
 mp + geom_histogram(color = "black")
 mp + geom_histogram(color = "black", position = "dodge")
+mp1 <- mp + geom_histogram(color = "black") + facet_grid(group~.)
+mp1
 mp + geom_density(alpha = 0.5)
 mp <- ggplot(xx, aes(x = group, y = data, fill = group))
 mp + geom_boxplot(color = "black")
@@ -277,17 +360,29 @@ mp <- mp +
 library(ggbeeswarm)
 mp + geom_quasirandom()
 mp + geom_quasirandom(aes(shape = group))
-mp <- mp + geom_beeswarm(alpha = 0.5)
-mp
+mp2 <- mp + geom_beeswarm(alpha = 0.5)
+mp2
 library(ggrepel)
 mp + geom_text_repel(aes(label = label), nudge_x = 0.4)
+library(ggpubr)
+ggarrange(mp1, mp2, ncol = 2, widths = c(2,1))
 ```
 
 ---
 
-Statistics
+# Statistics
 
 Under construction…
+
+```{r}
+xx <- read_xlsx("Data.xlsx", sheet = "Data")
+yy <- xx %>%
+  group_by(Name, Location) %>%
+  summarise(Mean_DTF = mean(DTF))
+ggplot(yy, aes(x = Location, y = Mean_DTF, color = Name, group = Name)) +
+  geom_point() + geom_line() +
+  theme(legend.position = "top")
+```
 
 ---
 
@@ -316,6 +411,16 @@ ggsave("pch.png", mp, width = 4.5, height = 3)
 ```
 
 ![](pch.png)
+
+---
+
+# R Markdown
+
+Tutorials on how to create an R markdown document like this one can be found here:
+
+ - https://rmarkdown.rstudio.com/articles_intro.html
+ - https://rmarkdown.rstudio.com/lesson-1.html
+ - https://alexd106.github.io/intro2R/Rmarkdown_intro.html
 
 ---
 
