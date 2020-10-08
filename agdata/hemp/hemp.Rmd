@@ -1,8 +1,8 @@
 ---
 title: "Hempseed Production"
 subtitle: "Graphs for hempseed production with FAO data"
-date: "2020-09-01"
-author: "Derek Michael Wright <wrightmderek@gmail.com> [www.dblogr.com/](https://dblogr.netlify.com/) [-Image Gallery-](https://dblogr.netlify.app/graphs_agdata/hemp/)"
+date: "2020-10-01"
+author: "Derek Michael Wright <wrightmderek@gmail.com> [www.dblogr.com/](https://dblogr.com/) [-Image Gallery-](https://dblogr.com/graphs_agdata/hemp/)"
 ---
 
 ```{r setup, include = FALSE}

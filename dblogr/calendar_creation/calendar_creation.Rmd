@@ -1,8 +1,8 @@
 ---
 title: "Calendar Creation"
 subtitle: "Create a custom calendar in R"
-date: "2020-09-01"
-author: "Derek Michael Wright <wrightmderek@gmail.com> [www.dblogr.com/](https://dblogr.netlify.com/)"
+date: "2020-10-01"
+author: "Derek Michael Wright <wrightmderek@gmail.com> [www.dblogr.com/](https://dblogr.com/)"
 ---
 
 ```{r setup, include = FALSE, warning = F, message = F}

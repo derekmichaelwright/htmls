@@ -1,8 +1,8 @@
 ---
 title: "COVID-19"
 subtitle: "A quick look at COVID-19 data from Canada"
-date: "2020-10-07"
-author: "Derek Michael Wright <derek.wright@usask.ca> [www.dblogr.com/](https://dblogr.netlify.com/) [-Image Gallery-](https://dblogr.netlify.app/graphs_academic/correlation_coefficients/)"
+date: "2020-10-08"
+author: "Derek Michael Wright <derek.wright@usask.ca> [www.dblogr.com/](https://dblogr.com/) [-Image Gallery-](https://dblogr.com/graphs_academic/correlation_coefficients/)"
 math: true
 ---
 
@@ -18,7 +18,7 @@ https://health-infobase.canada.ca/covid-19/dashboard/about.html
 
 ```{r}
 # devtools::install_github("derekmichaelwright/agData")
-library(agData)  # Loads: tidyverse, ggpubr, ggbeeswarm, ggrepel
+library(agData) # Loads: tidyverse, ggpubr, ggbeeswarm, ggrepel
 ```
 
 ---
@@ -171,6 +171,36 @@ ggsave("../../../myblog/content/graphs_dblogr/covid/gallery/gallery/Canada_COVID
 ```
 
 ![](Canada_COVID_07.png)
+
+---
+
+# Death Rate
+
+```{r}
+lastdate <- max(as.Date(dd$date))
+xx <- dd %>% filter(date == lastdate) %>%
+  select(prname, numtotal, numdeaths, numtested) %>%
+  mutate(prname = factor(prname, levels = c("Canada", areas)),
+         deathrate = numdeaths / numtotal,
+         testrate = numtotal / numtested) %>%
+  arrange(deathrate) %>% 
+  filter(!is.na(prname)) %>%
+  gather(Trait, Value, deathrate, testrate)
+mp <- ggplot(xx, aes(x = prname, y = Value, fill = Trait)) +
+  geom_bar(stat = "identity", color = "black") +
+  facet_grid(. ~ Trait) +
+  scale_fill_manual(values = c("darkred","darkgreen")) +
+  theme_agData(legend.position = "none", rotx = T) +
+  labs(title = "COVID-19 death and infection rates", y = NULL, x = NULL,
+       caption = "\xa9 www.dblogr.com/  |  Data: Government of Canada")
+ggsave("Canada_COVID_08.png", mp, width = 8, height = 4)
+```
+
+```{r echo = F}
+ggsave("../../../myblog/content/graphs_dblogr/covid/gallery/gallery/Canada_COVID_08.png", mp, width = 8, height = 4)
+```
+
+![](Canada_COVID_08.png)
 
 ---
 

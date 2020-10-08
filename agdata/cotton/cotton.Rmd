@@ -1,8 +1,8 @@
 ---
 title: "Cotton Production"
 subtitle: "Graphs of cotton production using FAO data"
-date: "2020-03-01"
-author: "Derek Michael Wright <wrightmderek@gmail.com> [www.dblogr.com/](https://dblogr.netlify.com/) [-Image Gallery-](https://dblogr.netlify.app/graphs_agdata/cotton/)"
+date: "2020-10-01"
+author: "Derek Michael Wright <wrightmderek@gmail.com> [www.dblogr.com/](https://dblogr.com/) [-Image Gallery-](https://dblogr.com/graphs_agdata/cotton/)"
 ---
 
 ```{r setup, include = FALSE}

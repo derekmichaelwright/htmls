@@ -1,8 +1,8 @@
 ---
 title: "Roy's Creed"
 subtitle: "A tribute to my grandfather Roy Wright and the words he lived by"
-date: "2020-09-01"
-author: "Derek Michael Wright <wrightmderek@gmail.com> [www.dblogr.com/](https://dblogr.netlify.com/)"
+date: "2020-10-01"
+author: "Derek Michael Wright <wrightmderek@gmail.com> [www.dblogr.com/](https://dblogr.com/)"
 ---
 
 ---

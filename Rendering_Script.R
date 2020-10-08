@@ -9,6 +9,58 @@ myhtml2 <- readthedown(gallery = T, lightbox= T, self_contained = T, code_foldin
 #mypdf2 <- pdf_document(toc = F, fig_caption = F)
 #
 ##########################################################################################
+# dblogr
+##########################################################################################
+#
+setwd("C:/gitfolder/htmls/dblogr/2019_canadian_election_results")
+render(input = "2019_canadian_election_results.Rmd", output_format = myhtml1,
+       output_file = "../2019_canadian_election_results.html")
+#
+setwd("C:/gitfolder/htmls/dblogr/amazon_fires")
+render(input = "amazon_fires.Rmd", output_format = myhtml1,
+       output_file = "../amazon_fires.html")
+#
+setwd("C:/gitfolder/htmls/dblogr/calendar_creation")
+render(input = "calendar_creation.Rmd", output_format = myhtml1,
+       output_file = "../calendar_creation.html")
+#
+setwd("C:/gitfolder/htmls/dblogr/canadian_federal_elections")
+render(input = "canadian_federal_elections.Rmd", output_format = myhtml1,
+       output_file = "../canadian_federal_elections.html")
+#
+setwd("C:/gitfolder/htmls/dblogr/cbc_finances")
+render(input = "cbc_finances.Rmd", output_format = myhtml1,
+       output_file = "../cbc_finances.html")
+#
+setwd("C:/gitfolder/htmls/dblogr/covid")
+render(input = "covid.Rmd", output_format = myhtml1,
+       output_file = "../covid.html")
+#
+setwd("C:/gitfolder/htmls/dblogr/economics_of_canada")
+render(input = "economics_of_canada.Rmd", output_format = myhtml1,
+       output_file = "../economics_of_canada.html")
+#
+setwd("C:/gitfolder/htmls/dblogr/gapminder")
+render(input = "gapminder.Rmd", output_format = myhtml1,
+       output_file = "../gapminder.html")
+#
+setwd("C:/gitfolder/htmls/dblogr/hex_stickers")
+render(input = "hex_stickers.Rmd", output_format = myhtml1,
+       output_file = "../hex_stickers.html")
+#
+setwd("C:/gitfolder/htmls/dblogr/misleading_graphs")
+render(input = "misleading_graphs.Rmd", output_format = myhtml1,
+       output_file = "../misleading_graphs.html")
+#
+setwd("C:/gitfolder/htmls/dblogr/roys_creed")
+render(input = "roys_creed.Rmd", output_format = myhtml1,
+       output_file = "../roys_creed.html")
+#
+setwd("C:/gitfolder/htmls/dblogr/street_maps") # restart R after running this one
+render(input = "street_maps.Rmd", output_format = myhtml1,
+       output_file = "../street_maps.html")
+#
+##########################################################################################
 # agile
 ##########################################################################################
 #setwd("C:/gitfolder/htmls/academic/anova")
@@ -153,58 +205,7 @@ setwd("C:/gitfolder/htmls/agdata/wheat_yields")
 render(input = "wheat_yields.Rmd", output_format = myhtml1,
        output_file = "../wheat_yields.html")
 #
-##########################################################################################
-# dblogr
-##########################################################################################
-#
-setwd("C:/gitfolder/htmls/dblogr/2019_canadian_election_results")
-render(input = "2019_canadian_election_results.Rmd", output_format = myhtml1,
-       output_file = "../2019_canadian_election_results.html")
-#
-setwd("C:/gitfolder/htmls/dblogr/amazon_fires")
-render(input = "amazon_fires.Rmd", output_format = myhtml1,
-       output_file = "../amazon_fires.html")
-#
-setwd("C:/gitfolder/htmls/dblogr/calendar_creation")
-render(input = "calendar_creation.Rmd", output_format = myhtml1,
-       output_file = "../calendar_creation.html")
-#
-setwd("C:/gitfolder/htmls/dblogr/canadian_federal_elections")
-render(input = "canadian_federal_elections.Rmd", output_format = myhtml1,
-       output_file = "../canadian_federal_elections.html")
-#
-setwd("C:/gitfolder/htmls/dblogr/cbc_finances")
-render(input = "cbc_finances.Rmd", output_format = myhtml1,
-       output_file = "../cbc_finances.html")
-#
-setwd("C:/gitfolder/htmls/dblogr/covid")
-render(input = "covid.Rmd", output_format = myhtml1,
-       output_file = "../covid.html")
-#
-setwd("C:/gitfolder/htmls/dblogr/economics_of_canada")
-render(input = "economics_of_canada.Rmd", output_format = myhtml1,
-       output_file = "../economics_of_canada.html")
-#
-setwd("C:/gitfolder/htmls/dblogr/gapminder")
-render(input = "gapminder.Rmd", output_format = myhtml1,
-       output_file = "../gapminder.html")
-#
-setwd("C:/gitfolder/htmls/dblogr/hex_stickers")
-render(input = "hex_stickers.Rmd", output_format = myhtml1,
-       output_file = "../hex_stickers.html")
-#
-setwd("C:/gitfolder/htmls/dblogr/misleading_graphs")
-render(input = "misleading_graphs.Rmd", output_format = myhtml1,
-       output_file = "../misleading_graphs.html")
-#
-setwd("C:/gitfolder/htmls/dblogr/roys_creed")
-render(input = "roys_creed.Rmd", output_format = myhtml1,
-       output_file = "../roys_creed.html")
-#
-setwd("C:/gitfolder/htmls/dblogr/street_maps") # restart R after running this one
-render(input = "street_maps.Rmd", output_format = myhtml1,
-       output_file = "../street_maps.html")
-#
+
 ##########################################################################################
 
 ##########################################################################################

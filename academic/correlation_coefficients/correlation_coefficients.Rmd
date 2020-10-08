@@ -1,8 +1,8 @@
 ---
 title: "Explaining Correlation Coefficients"
 subtitle: "A quick explanation of how to properly use correlation coefficients when evaluating models"
-date: "2020-09-01"
-author: "Derek Michael Wright <derek.wright@usask.ca> [www.dblogr.com/](https://dblogr.netlify.com/) [-Image Gallery-](https://dblogr.netlify.app/graphs_academic/correlation_coefficients/)"
+date: "2020-10-01"
+author: "Derek Michael Wright <derek.wright@usask.ca> [www.dblogr.com/](https://dblogr.com/) [-Image Gallery-](https://dblogr.com/graphs_academic/correlation_coefficients/)"
 math: true
 ---
 

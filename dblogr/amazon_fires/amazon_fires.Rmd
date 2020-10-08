@@ -1,8 +1,8 @@
 ---
 title: "Amazon Fires"
 subtitle: "An analysis of science journalism by the CBC"
-date: "2020-09-01"
-author: "Derek Michael Wright <wrightmderek@gmail.com> [www.dblogr.com/](https://dblogr.netlify.com/) [-Image Gallery-](https://dblogr.netlify.app/graphs_dblogr/amazon_fires/)"
+date: "2020-10-01"
+author: "Derek Michael Wright <wrightmderek@gmail.com> [www.dblogr.com/](https://dblogr.com/) [-Image Gallery-](https://dblogr.com/graphs_dblogr/amazon_fires/)"
 ---
 
 ```{r setup, include=FALSE}

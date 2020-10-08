@@ -1,8 +1,8 @@
 ---
 title: "People in Ag"
 subtitle: "Graphs for people in Ag"
-date: "2020-09-01"
-author: "Derek Michael Wright <wrightmderek@gmail.com> [www.dblogr.com/](https://dblogr.netlify.com/) [-Image Gallery-](https://dblogr.netlify.app/graphs_agdata/people_in_ag/)"
+date: "2020-10-01"
+author: "Derek Michael Wright <wrightmderek@gmail.com> [www.dblogr.com/](https://dblogr.com/) [-Image Gallery-](https://dblogr.com/graphs_agdata/people_in_ag/)"
 ---
 
 ```{r setup, include = FALSE}

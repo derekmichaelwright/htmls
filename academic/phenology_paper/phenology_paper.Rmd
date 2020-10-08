@@ -3,7 +3,7 @@ title: "Phenology"
 subtitle: "Variable responses of lentil (Lens culinaris Medik.) germplasm to changes in photoperiod and temperature"
 summary:  "Variable responses of lentil (Lens culinaris Medik.) germplasm to changes in photoperiod and temperature"
 author: "Derek Michael Wright <derek.wright@usask.ca>"
-date: "2020-03-01"
+date: "2020-10-01"
 categories: [ "AGILE" ]
 tags: [ "AGILE", "Literature", "Featured" ]
 math: true

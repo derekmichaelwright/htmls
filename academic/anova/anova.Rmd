@@ -1,9 +1,8 @@
 ---
 title: "ANOVA Vignette"
 subtitle: "A tutorial on how running an ANOVA in R"
-summary:  "A tutorial on how running an ANOVA in R"
-author: "Derek Michael Wright <derek.wright@usask.com> [www.dblogr.com/](https://dblogr.netlify.com/)"
-date: "2020-03-02"
+author: "Derek Michael Wright <derek.wright@usask.com> [www.dblogr.com/](https://dblogr.com/)"
+date: "2020-10-01"
 categories: [ "Academic" ]
 tags: [ "Academic", "Tutorials" ]
 draft: true

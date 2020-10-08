@@ -1,8 +1,8 @@
 ---
 title: "R Tutorial"
 subtitle: "An introduction to R"
-date: "2020-09-01"
-author: "Derek Michael Wright <wrightmderek@gmail.com> [www.dblogr.com/](https://dblogr.netlify.com/)"
+date: "2020-10-01"
+author: "Derek Michael Wright <wrightmderek@gmail.com> [www.dblogr.com/](https://dblogr.com/)"
 math: true
 ---
 
@@ -365,7 +365,8 @@ mp2
 library(ggrepel)
 mp + geom_text_repel(aes(label = label), nudge_x = 0.4)
 library(ggpubr)
-ggarrange(mp1, mp2, ncol = 2, widths = c(2,1))
+ggarrange(mp1, mp2, ncol = 2, widths = c(2,1),
+          common.legnend = T, legend = "bottom")
 ```
 
 ---

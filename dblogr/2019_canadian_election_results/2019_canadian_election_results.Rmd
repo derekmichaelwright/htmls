@@ -1,8 +1,8 @@
 ---
 title: "2019 Canadian Election Results"
 subtitle: "A regional look at how Canadians voted"
-date: "2020-09-01"
-author: "Derek Michael Wright <wrightmderek@gmail.com> [www.dblogr.com/](https://dblogr.netlify.com/) [<<Image Gallery>>](https://dblogr.netlify.app/graphs_dblogr/2019_canadian_election_results/)"
+date: "2020-10-01"
+author: "Derek Michael Wright <wrightmderek@gmail.com> [www.dblogr.com/](https://dblogr.com/) [-Image Gallery-](https://dblogr.com/graphs_dblogr/2019_canadian_election_results/)"
 ---
 
 ```{r setup, include=FALSE}
