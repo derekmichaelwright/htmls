@@ -142,11 +142,13 @@ ggsave("../../../myblog/content/posts_dblogr/covid/featured.png", mp, width = 6,
 
 ---
 
+# Ontario
+
 # Saskatchewan
 
 ```{r}
 # Plot
-mp <- gg_COVID(xx, "Saskatchewan")
+mp <- gg_COVID(xx, "Ontario")
 ggsave("Canada_COVID_06.png", mp, width = 6, height = 4)
 ```
 
@@ -174,6 +176,38 @@ ggsave("../../../myblog/content/graphs_dblogr/covid/gallery/gallery/Canada_COVID
 
 ---
 
+# Alberta
+
+```{r}
+# Plot
+mp <- gg_COVID(xx, "Alberta")
+ggsave("Canada_COVID_08.png", mp, width = 6, height = 4)
+```
+
+```{r echo = F}
+ggsave("../../../myblog/content/graphs_dblogr/covid/gallery/gallery/Canada_COVID_08.png", mp, width = 6, height = 4)
+```
+
+![](Canada_COVID_08.png)
+
+---
+
+# Saskatchewan
+
+```{r}
+# Plot
+mp <- gg_COVID(xx, "Saskatchewan")
+ggsave("Canada_COVID_09.png", mp, width = 6, height = 4)
+```
+
+```{r echo = F}
+ggsave("../../../myblog/content/graphs_dblogr/covid/gallery/gallery/Canada_COVID_09.png", mp, width = 6, height = 4)
+```
+
+![](Canada_COVID_09.png)
+
+---
+
 # Death Rate
 
 ```{r}
@@ -193,14 +227,14 @@ mp <- ggplot(xx, aes(x = prname, y = Value, fill = Trait)) +
   theme_agData(legend.position = "none", rotx = T) +
   labs(title = "COVID-19 death and infection rates", y = NULL, x = NULL,
        caption = "\xa9 www.dblogr.com/  |  Data: Government of Canada")
-ggsave("Canada_COVID_08.png", mp, width = 8, height = 4)
+ggsave("Canada_COVID_10.png", mp, width = 8, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../../myblog/content/graphs_dblogr/covid/gallery/gallery/Canada_COVID_08.png", mp, width = 8, height = 4)
+ggsave("../../../myblog/content/graphs_dblogr/covid/gallery/gallery/Canada_COVID_10.png", mp, width = 8, height = 4)
 ```
 
-![](Canada_COVID_08.png)
+![](Canada_COVID_10.png)
 
 ---
 

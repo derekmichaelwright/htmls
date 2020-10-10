@@ -67,6 +67,9 @@ rep(1:5, length.out = 7)
 help(rep)
 seq(5, 50, by = 5)
 seq(5, 50, length.out = 5)
+paste(1:10, 20:30, sep = "-")
+paste(1:10, collapse = "-")
+paste0("x", 1:10)
 min(1:10)
 max(1:10)
 range(1:10)
@@ -81,6 +84,26 @@ customFunction <- function(x) {
   mean(x) + sd(x)
 }
 customFunction(x = 1:10)
+```
+`for` loops and `if` `else` statements
+
+```{r}
+xx <- NULL #creates and empty object
+for(i in 1:10) {
+  xx[i] <- i*3
+}
+xx
+xx %% 2 #gives the remainder when divided by 2
+for(i in 1:length(xx)) {
+  if((xx[i] %% 2) == 0) {
+    print(paste(xx[i],"is Even"))
+  } else { 
+      print(paste(xx[i],"is Odd")) 
+    }
+}
+# or
+ifelse(xx %% 2 == 0, "Even", "Odd")
+paste(xx, ifelse(xx %% 2 == 0, "is Even", "is Odd"))
 ```
 
 ---
@@ -180,7 +203,7 @@ str(xl) # list()
 
 ---
 
-# Installing Packages
+# Packages
 
 Additional libraries can be installed and loaded for use.
 
@@ -235,7 +258,7 @@ xs
 xx %>% left_join(xs, by = "Group")
 ```
 
-Read/Write data
+# Read/Write data
 
 ```{r}
 xx <- read.csv("Data.csv")
@@ -252,28 +275,14 @@ xx <- xx %>%
   group_by(Name, Location) %>%
   summarise(Mean_DTF = round(mean(DTF),1)) %>% 
   arrange(Location)
-DT::datatable(xx)
+xx
 xx <- xx %>% spread(Location, Mean_DTF)
-DT::datatable(xx)
-```
-
-`for` loops and `if` `else` statements
-
-```{r}
-xd$x11 <- NULL #creates and empty column
-for(i in 1:nrow(xd)) {
-  if(xd$x10[i] == T) { 
-    xd$x11[i] <- "X" 
-  } else{ xd$x11[i] <- "Y" }
-}
-xd$x11
-xd <- xd %>% mutate(x11 = ifelse(x10 == T, "X", "Y"))
-xd$x11
+xx
 ```
 
 ---
 
-# Plotting
+# Base Plotting
 
 We will start with some basic plotting using the base function `plot()`
 
@@ -319,7 +328,7 @@ boxplot(x = nd)
 boxplot(x = nd, horizontal = T)
 ```
 
-## ggplot
+# ggplot2
 
 Lets be honest, the base plots are ugly! The `ggplot2` package gives the user to create a better, more visually appealing plots. Additional packages such as `ggbeeswarm` and `ggrepel` also contain useful functions to add to the functionality of `ggplot2`.
 
@@ -353,20 +362,18 @@ mp + geom_density(alpha = 0.5)
 mp <- ggplot(xx, aes(x = group, y = data, fill = group))
 mp + geom_boxplot(color = "black")
 mp + geom_boxplot() + geom_point()
-mp + geom_violin() 
-mp <- mp + 
-  geom_violin(alpha = 0.5) + 
-  geom_boxplot(width = 0.1, fill = "white")
+mp + geom_violin() + geom_boxplot(width = 0.1, fill = "white")
 library(ggbeeswarm)
 mp + geom_quasirandom()
 mp + geom_quasirandom(aes(shape = group))
-mp2 <- mp + geom_beeswarm(alpha = 0.5)
-mp2
+mp2 <- mp + geom_violin() + 
+  geom_boxplot(width = 0.1, fill = "white") +
+  geom_beeswarm(alpha = 0.5)
 library(ggrepel)
-mp + geom_text_repel(aes(label = label), nudge_x = 0.4)
+mp2 + geom_text_repel(aes(label = label), nudge_x = 0.4)
 library(ggpubr)
 ggarrange(mp1, mp2, ncol = 2, widths = c(2,1),
-          common.legnend = T, legend = "bottom")
+          common.legend = T, legend = "bottom")
 ```
 
 ---
