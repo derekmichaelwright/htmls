@@ -144,8 +144,6 @@ ggsave("../../../myblog/content/posts_dblogr/covid/featured.png", mp, width = 6,
 
 # Ontario
 
-# Saskatchewan
-
 ```{r}
 # Plot
 mp <- gg_COVID(xx, "Ontario")
@@ -215,14 +213,12 @@ lastdate <- max(as.Date(dd$date))
 xx <- dd %>% filter(date == lastdate) %>%
   select(prname, numtotal, numdeaths, numtested) %>%
   mutate(prname = factor(prname, levels = c("Canada", areas)),
-         deathrate = numdeaths / numtotal,
-         testrate = numtotal / numtested) %>%
-  arrange(deathrate) %>% 
+         Deathrate = numdeaths / numtotal) %>%
   filter(!is.na(prname)) %>%
-  gather(Trait, Value, deathrate, testrate)
+  gather(Trait, Value, Deathrate)
 mp <- ggplot(xx, aes(x = prname, y = Value, fill = Trait)) +
   geom_bar(stat = "identity", color = "black") +
-  facet_grid(. ~ Trait) +
+  facet_grid(. ~ Trait + " = deaths / cases") +
   scale_fill_manual(values = c("darkred","darkgreen")) +
   theme_agData(legend.position = "none", rotx = T) +
   labs(title = "COVID-19 death and infection rates", y = NULL, x = NULL,

@@ -81,7 +81,10 @@ Users can also create their own functions
 
 ```{r}
 customFunction <- function(x) {
-  mean(x) + sd(x)
+  mymin <- mean(x - sd(x))
+  mymax <- mean(x) + sd(x)
+  print(paste("Min =", mymin))
+  print(paste("Max =", mymax))
 }
 customFunction(x = 1:10)
 ```
