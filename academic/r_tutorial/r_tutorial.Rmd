@@ -164,7 +164,17 @@ xl <- list(xc, xm, xd)
 xl[[1]]
 xl[[2]]
 xl[[3]]
+```
+
+Selecting data...
+
+```{r}
 xl[[3]]$x1
+xd[,"x3"]
+xd$x3
+xd$x3[5]
+xd[5,"x3"]
+xd[c(2,4),c("x4","x5")]
 ```
 
 ---
@@ -180,8 +190,7 @@ Data can also be saved in many formats:
 - logical
 
 ```{r}
-xd[,"x3"]
-xd$x3
+
 xd$x3 <- as.character(xd$x3)
 xd$x3
 xd$x3 <- as.numeric(xd$x3)

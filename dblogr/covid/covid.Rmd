@@ -223,11 +223,11 @@ mp <- ggplot(xx, aes(x = prname, y = Value, fill = Trait)) +
   theme_agData(legend.position = "none", rotx = T) +
   labs(title = "COVID-19 death and infection rates", y = NULL, x = NULL,
        caption = "\xa9 www.dblogr.com/  |  Data: Government of Canada")
-ggsave("Canada_COVID_10.png", mp, width = 8, height = 4)
+ggsave("Canada_COVID_10.png", mp, width = 6, height = 4)
 ```
 
 ```{r echo = F}
-ggsave("../../../myblog/content/graphs_dblogr/covid/gallery/gallery/Canada_COVID_10.png", mp, width = 8, height = 4)
+ggsave("../../../myblog/content/graphs_dblogr/covid/gallery/gallery/Canada_COVID_10.png", mp, width = 6, height = 4)
 ```
 
 ![](Canada_COVID_10.png)
