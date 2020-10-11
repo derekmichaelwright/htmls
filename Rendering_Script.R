@@ -6,8 +6,7 @@ myhtml1 <- readthedown(gallery = T, lightbox= T, self_contained = T, code_foldin
 myhtml2 <- readthedown(gallery = T, lightbox= T, self_contained = T, code_folding = "show",
                        css = "../../css/custom_agile.css")
 #
-myhtml3 <- readthedown(gallery = T, lightbox= T, self_contained = T, code_folding = "hide",
-                       toc_float = list(collapsed = F), 
+myhtml3 <- readthedown(gallery = T, lightbox= T, self_contained = T, code_folding = "hide", 
                        css = "../../css/custom_dblogr.css")
 #mypdf1 <- pdf_document(toc = T, fig_caption = F)
 #mypdf2 <- pdf_document(toc = F, fig_caption = F)
@@ -21,7 +20,7 @@ render(input = "2019_canadian_election_results.Rmd", output_format = myhtml3,
        output_file = "../2019_canadian_election_results.html")
 #
 setwd("C:/gitfolder/htmls/dblogr/amazon_fires")
-render(input = "amazon_fires.Rmd", output_format = myhtml1,
+render(input = "amazon_fires.Rmd", output_format = myhtml3,
        output_file = "../amazon_fires.html")
 #
 setwd("C:/gitfolder/htmls/dblogr/calendar_creation")
@@ -53,7 +52,7 @@ render(input = "hex_stickers.Rmd", output_format = myhtml1,
        output_file = "../hex_stickers.html")
 #
 setwd("C:/gitfolder/htmls/dblogr/misleading_graphs")
-render(input = "misleading_graphs.Rmd", output_format = myhtml1,
+render(input = "misleading_graphs.Rmd", output_format = myhtml3,
        output_file = "../misleading_graphs.html")
 #
 setwd("C:/gitfolder/htmls/dblogr/roys_creed")
