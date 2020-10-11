@@ -5,6 +5,10 @@ myhtml1 <- readthedown(gallery = T, lightbox= T, self_contained = T, code_foldin
                        css = "../../css/custom_dblogr.css")
 myhtml2 <- readthedown(gallery = T, lightbox= T, self_contained = T, code_folding = "show",
                        css = "../../css/custom_agile.css")
+#
+myhtml3 <- readthedown(gallery = T, lightbox= T, self_contained = T, code_folding = "hide",
+                       toc_float = list(collapsed = F), 
+                       css = "../../css/custom_dblogr.css")
 #mypdf1 <- pdf_document(toc = T, fig_caption = F)
 #mypdf2 <- pdf_document(toc = F, fig_caption = F)
 #
@@ -13,7 +17,7 @@ myhtml2 <- readthedown(gallery = T, lightbox= T, self_contained = T, code_foldin
 ##########################################################################################
 #
 setwd("C:/gitfolder/htmls/dblogr/2019_canadian_election_results")
-render(input = "2019_canadian_election_results.Rmd", output_format = myhtml1,
+render(input = "2019_canadian_election_results.Rmd", output_format = myhtml3,
        output_file = "../2019_canadian_election_results.html")
 #
 setwd("C:/gitfolder/htmls/dblogr/amazon_fires")
