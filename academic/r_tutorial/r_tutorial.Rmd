@@ -438,17 +438,28 @@ ggarrange(mp1, mp2, ncol = 2, common.legend = T, legend = "top")
 From first glace, it is clear there are differences between genotypes, locations, and genotype x environment (GxE) interactions. Now let's do a few statistical tests.
 
 ```{r}
+summary(aov(DTF ~ Name * Location, data = dd))
+```
+
+As expected, an ANOVA shows statistical significance for genotype (p-value = 0.0395), Location (p-value < 2e-16) and GxE interactions (p-value < 2.52e-06). However, all this tells us is that one genotype is different from the rest, one location is different from the others and that there is GxE interactions. If we want to be more specific, we can filter the data and perform say a *t-test* to compare two groups.
+
+```{r}
 xx <- dd %>% 
   filter(Location %in% c("Saskatoon, Canada", "Jessore, Bangladesh")) %>%
   spread(Location, DTF)
 t.test(x = xx$`Saskatoon, Canada`, y = xx$`Jessore, Bangladesh`)
 ```
-DTF in Saskatoon, Canada is significantly different from DTF in Jessore, Bangladesh.
+DTF in Saskatoon, Canada is significantly different (p-value < 2.2e-16) from DTF in Jessore, Bangladesh.
 
 ```{r}
-summary(aov(DTF ~ Name * Location, data = dd))
+xx <- dd %>% 
+  filter(Name %in% c("ILL 618 AGL", "Laird AGL"),
+         Location == "Metaponto, Italy") %>%
+  spread(Name, DTF)
+t.test(x = xx$`ILL 618 AGL`, y = xx$`Laird AGL`)
 ```
-As expected, an ANOVA tells show statistical significance for genotype (\*), Location (\*\*\*) and GxE (\*\*\*).
+
+DTF between ILL 618 AGL and Laird AGL are not significantly different (p-value = 0.7137).
 
 ---
 
