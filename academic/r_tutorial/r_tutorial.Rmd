@@ -298,6 +298,10 @@ DT::datatable(xx)
 
 # Tidy Data
 
+https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html
+
+https://r4ds.had.co.nz/tidy-data.html
+
 ```{r}
 yy <- xx %>%
   group_by(Name, Location) %>%
@@ -411,6 +415,10 @@ ggarrange(mp1, mp2, ncol = 2, widths = c(2,1),
 ---
 
 # Statistics
+
+http://biostathandbook.com/
+
+https://rcompanion.org/rcompanion/a_02.html
 
 ```{r}
 # Prep data
