@@ -1,9 +1,8 @@
 ---
-title: "R Tutorial"
+title: "R Tutorial Vignette"
 subtitle: "An introduction to R"
-date: "2020-10-01"
+date: "2020-10-12"
 author: "Derek Michael Wright <wrightmderek@gmail.com> [www.dblogr.com/](https://dblogr.com/)"
-math: true
 ---
 
 ```{r setup, include=FALSE}
@@ -80,13 +79,18 @@ sd(1:10)
 Users can also create their own functions
 
 ```{r}
-customFunction <- function(x) {
+customFunction1 <- function(x, y) {
+  z <- 100 * x / (x + y)
+  paste(z, "%")
+}
+customFunction1(x = 10, y = 90)
+customFunction2 <- function(x) {
   mymin <- mean(x - sd(x))
   mymax <- mean(x) + sd(x)
   print(paste("Min =", mymin))
   print(paste("Max =", mymax))
 }
-customFunction(x = 1:10)
+customFunction2(x = 1:10)
 ```
 `for` loops and `if` `else` statements
 
@@ -169,12 +173,14 @@ xl[[3]]
 Selecting data...
 
 ```{r}
-xl[[3]]$x1
-xd[,"x3"]
-xd$x3
-xd$x3[5]
-xd[5,"x3"]
-xd[c(2,4),c("x4","x5")]
+xc[5] # 5th element in xc
+xd$x3[5] # 5th element in col "x3"
+xd[5,"x3"] # row 5, col "x3"
+xd$x3 # all of col "x3"
+xd[,"x3"] # all rows, col "x3"
+xd[3,] # row 3, all cols
+xd[c(2,4),c("x4","x5")] # rows 2 & 4, cols "x4" & "x5"
+xl[[3]]$x1 # 3rd object in the list, col "x1
 ```
 
 ---
@@ -200,7 +206,7 @@ xd$x3
 xd$x3 <- factor(xd$x3, levels = c("3","2","1"))
 xd$x3
 xd$x10
-as.numeric(xd$x10)
+as.numeric(xd$x10) # TRUE = 1, FALSE = 0
 sum(xd$x10)
 ```
 
@@ -238,10 +244,12 @@ xx
 
 ```{r}
 xx <- data.frame(Group = c("X","X","Y","Y","Y","X","X","X","Y","Y"),
-                 Data1 = 1:10, Data2 = seq(10, 100, by = 10))
+                 Data1 = 1:10, 
+                 Data2 = seq(10, 100, by = 10))
 xx$NewData1 <- xx$Data1 + xx$Data2
 xx$NewData2 <- xx$Data1 * 1000
 xx
+xx$Data1 < 5 # which are less than 5
 xx[xx$Data1 < 5,]
 xx[xx$Group == "X", c("Group","Data2","NewData1")]
 ```
@@ -249,7 +257,7 @@ xx[xx$Group == "X", c("Group","Data2","NewData1")]
 Data wrangling with `tidyverse` and pipes (`%>%`)
 
 ```{r}
-library(tidyverse)
+library(tidyverse) # install.packages("tidyverse")
 xx <- data.frame(Group = c("X","X","Y","Y","Y","Y","Y","X","X","X")) %>%
   mutate(Data1 = 1:10, 
          Data2 = seq(10, 100, by = 10),
@@ -274,22 +282,34 @@ xx %>% left_join(xs, by = "Group")
 
 ```{r}
 xx <- read.csv("Data.csv")
-DT::datatable(xx)
 write.csv(xx, "Data.csv", row.names = F)
 ```
 
 For excel sheets, the package `readxl` can be used to read in sheets of data.
 
 ```{r}
-library(readxl)
+library(readxl) # install.packages("readxl")
 xx <- read_xlsx("Data.xlsx", sheet = "Data")
-xx <- xx %>%
+```
+
+```{r echo = F}
+DT::datatable(xx)
+```
+
+# Tidy Data
+
+```{r}
+yy <- xx %>%
   group_by(Name, Location) %>%
   summarise(Mean_DTF = round(mean(DTF),1)) %>% 
   arrange(Location)
-xx
-xx <- xx %>% spread(Location, Mean_DTF)
-xx
+yy
+yy <- yy %>% spread(key = Location, value = Mean_DTF)
+yy
+yy <- yy %>% gather(key = TraitName, value = Value, 2:4)
+yy
+yy <- yy %>% spread(key = Name, value = Value)
+yy
 ```
 
 ---
@@ -395,14 +415,40 @@ ggarrange(mp1, mp2, ncol = 2, widths = c(2,1),
 Under construction…
 
 ```{r}
-xx <- read_xlsx("Data.xlsx", sheet = "Data")
-yy <- xx %>%
+# Prep data
+lev_Loc  <- c("Saskatoon, Canada", "Jessore, Bangladesh", "Metaponto, Italy")
+lev_Name <- c("ILL 618 AGL", "CDC Maxim AGL", "Laird AGL")
+dd <- read_xlsx("Data.xlsx", sheet = "Data") %>%
+  mutate(Location = factor(Location, levels = lev_Loc),
+         Name = factor(Name, levels = lev_Name))
+xx <- dd %>%
   group_by(Name, Location) %>%
   summarise(Mean_DTF = mean(DTF))
-ggplot(yy, aes(x = Location, y = Mean_DTF, color = Name, group = Name)) +
-  geom_point() + geom_line() +
+xx %>% spread(Location, Mean_DTF)
+# Plot
+mp1 <- ggplot(dd, aes(x = Location, y = DTF, color = Name, shape = Name)) +
+  geom_point(size = 2, alpha = 0.7, position = position_dodge(width=0.5))
+mp2 <- ggplot(xx, aes(x = Location, y = Mean_DTF, color = Name, group = Name, shape = Name)) +
+  geom_point(size = 2.5, alpha = 0.7) + 
+  geom_line(size = 1, alpha = 0.7) +
   theme(legend.position = "top")
+ggarrange(mp1, mp2, ncol = 2, common.legend = T, legend = "top")
 ```
+
+From first glace, it is clear there are differences between genotypes, locations, and genotype x environment (GxE) interactions. Now let's do a few statistical tests.
+
+```{r}
+xx <- dd %>% 
+  filter(Location %in% c("Saskatoon, Canada", "Jessore, Bangladesh")) %>%
+  spread(Location, DTF)
+t.test(x = xx$`Saskatoon, Canada`, y = xx$`Jessore, Bangladesh`)
+```
+DTF in Saskatoon, Canada is significantly different from DTF in Jessore, Bangladesh.
+
+```{r}
+summary(aov(DTF ~ Name * Location, data = dd))
+```
+As expected, an ANOVA tells show statistical significance for genotype (\*), Location (\*\*\*) and GxE (\*\*\*).
 
 ---
 
