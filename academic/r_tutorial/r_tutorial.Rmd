@@ -2,7 +2,7 @@
 title: "R Tutorial Vignette"
 subtitle: "An introduction to R"
 date: "2020-10-12"
-author: "Derek Michael Wright <wrightmderek@gmail.com> [www.dblogr.com/](https://dblogr.com/)"
+author: "Derek Michael Wright <derek.wright@usask.ca> [www.dblogr.com/](https://dblogr.com/)"
 ---
 
 ```{r setup, include=FALSE}

@@ -2,7 +2,7 @@
 title: "Dual y-Axis"
 subtitle: "How to create a plot with dual y-axes in R"
 date: "2020-10-01"
-author: "Derek Michael Wright <wrightmderek@gmail.com> [www.dblogr.com/](https://dblogr.com/)"
+author: "Derek Michael Wright <derek.wright@usask.ca> [www.dblogr.com/](https://dblogr.com/)"
 math: true
 ---
 
