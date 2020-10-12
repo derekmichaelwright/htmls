@@ -81,7 +81,7 @@ render(input = "correlation_coefficients.Rmd", output_format = myhtml2,
        output_file = "../correlation_coefficients.html")
 #
 setwd("C:/gitfolder/htmls/academic/dual_y_axis")
-render(input = "dual_y_axis.Rmd", output_format = myhtml1,
+render(input = "dual_y_axis.Rmd", output_format = myhtml2,
        output_file = "../dual_y_axis.html")
 #
 setwd("C:/gitfolder/htmls/academic/envdata")
@@ -89,7 +89,7 @@ render(input = "envdata.Rmd", output_format = myhtml2,
        output_file = "../envdata.html")
 #
 setwd("C:/gitfolder/htmls/academic/r_tutorial")
-render(input = "r_tutorial.Rmd", output_format = myhtml1,
+render(input = "r_tutorial.Rmd", output_format = myhtml2,
        output_file = "../r_tutorial.html")
 #
 ##########################################################################################
