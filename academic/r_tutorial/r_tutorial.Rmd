@@ -412,8 +412,6 @@ ggarrange(mp1, mp2, ncol = 2, widths = c(2,1),
 
 # Statistics
 
-Under construction…
-
 ```{r}
 # Prep data
 lev_Loc  <- c("Saskatoon, Canada", "Jessore, Bangladesh", "Metaponto, Italy")
@@ -459,7 +457,7 @@ xx <- dd %>%
 t.test(x = xx$`ILL 618 AGL`, y = xx$`Laird AGL`)
 ```
 
-DTF between ILL 618 AGL and Laird AGL are not significantly different (p-value = 0.7137).
+DTF between ILL 618 AGL and Laird AGL are not significantly different (p-value = 0.7137) in Metaponto, Italy.
 
 ---
 
