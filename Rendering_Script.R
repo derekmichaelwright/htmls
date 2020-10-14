@@ -15,53 +15,53 @@ myhtml3 <- readthedown(gallery = T, lightbox= T, self_contained = T, code_foldin
 # dblogr
 ##########################################################################################
 #
-setwd("C:/gitfolder/htmls/dblogr/2019_canadian_election_results")
+setwd("C:/gitfolder/htmls_scripts/dblogr/2019_canadian_election_results")
 render(input = "2019_canadian_election_results.Rmd", output_format = myhtml3,
-       output_file = "../2019_canadian_election_results.html")
+       output_file = "C:/gitfolder/htmls/dblogr/2019_canadian_election_results.html")
 #
-setwd("C:/gitfolder/htmls/dblogr/amazon_fires")
+setwd("C:/gitfolder/htmls_scripts/dblogr/amazon_fires")
 render(input = "amazon_fires.Rmd", output_format = myhtml3,
-       output_file = "../amazon_fires.html")
+       output_file = "C:/gitfolder/htmls/dblogr/amazon_fires.html")
 #
-setwd("C:/gitfolder/htmls/dblogr/calendar_creation")
+setwd("C:/gitfolder/htmls_scripts/dblogr/calendar_creation")
 render(input = "calendar_creation.Rmd", output_format = myhtml1,
-       output_file = "../calendar_creation.html")
+       output_file = "C:/gitfolder/htmls/dblogr/calendar_creation.html")
 #
-setwd("C:/gitfolder/htmls/dblogr/canadian_federal_elections")
+setwd("C:/gitfolder/htmls_scripts/dblogr/canadian_federal_elections")
 render(input = "canadian_federal_elections.Rmd", output_format = myhtml1,
-       output_file = "../canadian_federal_elections.html")
+       output_file = "C:/gitfolder/htmls/dblogr/canadian_federal_elections.html")
 #
-setwd("C:/gitfolder/htmls/dblogr/cbc_finances")
+setwd("C:/gitfolder/htmls_scripts/dblogr/cbc_finances")
 render(input = "cbc_finances.Rmd", output_format = myhtml1,
-       output_file = "../cbc_finances.html")
+       output_file = "C:/gitfolder/htmls/dblogr/cbc_finances.html")
 #
-setwd("C:/gitfolder/htmls/dblogr/covid")
+setwd("C:/gitfolder/htmls_scripts/dblogr/covid")
 render(input = "covid.Rmd", output_format = myhtml1,
-       output_file = "../covid.html")
+       output_file = "C:/gitfolder/htmls/dblogr/covid.html")
 #
-setwd("C:/gitfolder/htmls/dblogr/economics_of_canada")
+setwd("C:/gitfolder/htmls_scripts/dblogr/economics_of_canada")
 render(input = "economics_of_canada.Rmd", output_format = myhtml1,
-       output_file = "../economics_of_canada.html")
+       output_file = "C:/gitfolder/htmls/dblogr/economics_of_canada.html")
 #
-setwd("C:/gitfolder/htmls/dblogr/gapminder")
+setwd("C:/gitfolder/htmls_scripts/dblogr/gapminder")
 render(input = "gapminder.Rmd", output_format = myhtml1,
-       output_file = "../gapminder.html")
+       output_file = "C:/gitfolder/htmls/dblogr/gapminder.html")
 #
-setwd("C:/gitfolder/htmls/dblogr/hex_stickers")
+setwd("C:/gitfolder/htmls_scripts/dblogr/hex_stickers")
 render(input = "hex_stickers.Rmd", output_format = myhtml1,
-       output_file = "../hex_stickers.html")
+       output_file = "C:/gitfolder/htmls/dblogr/hex_stickers.html")
 #
-setwd("C:/gitfolder/htmls/dblogr/misleading_graphs")
+setwd("C:/gitfolder/htmls_scripts/dblogr/misleading_graphs")
 render(input = "misleading_graphs.Rmd", output_format = myhtml3,
-       output_file = "../misleading_graphs.html")
+       output_file = "C:/gitfolder/htmls/dblogr/misleading_graphs.html")
 #
-setwd("C:/gitfolder/htmls/dblogr/roys_creed")
+setwd("C:/gitfolder/htmls_scripts/dblogr/roys_creed")
 render(input = "roys_creed.Rmd", output_format = myhtml1,
-       output_file = "../roys_creed.html")
+       output_file = "C:/gitfolder/htmls/dblogr/roys_creed.html")
 #
-setwd("C:/gitfolder/htmls/dblogr/street_maps") # restart R after running this one
+setwd("C:/gitfolder/htmls_scripts/dblogr/street_maps") # restart R after running this one
 render(input = "street_maps.Rmd", output_format = myhtml1,
-       output_file = "../street_maps.html")
+       output_file = "C:/gitfolder/htmls/dblogr/street_maps.html")
 #
 ##########################################################################################
 # agile
@@ -78,135 +78,135 @@ render(input = "street_maps.Rmd", output_format = myhtml1,
 #
 setwd("C:/gitfolder/htmls/academic/correlation_coefficients")
 render(input = "correlation_coefficients.Rmd", output_format = myhtml2,
-       output_file = "../correlation_coefficients.html")
+       output_file = "C:/gitfolder/htmls/academic/correlation_coefficients.html")
 #
 setwd("C:/gitfolder/htmls/academic/dual_y_axis")
 render(input = "dual_y_axis.Rmd", output_format = myhtml2,
-       output_file = "../dual_y_axis.html")
+       output_file = "C:/gitfolder/htmls/academic/dual_y_axis.html")
 #
 setwd("C:/gitfolder/htmls/academic/envdata")
 render(input = "envdata.Rmd", output_format = myhtml2,
-       output_file = "../envdata.html")
+       output_file = "C:/gitfolder/htmls/academic/envdata.html")
 #
 setwd("C:/gitfolder/htmls/academic/r_tutorial")
 render(input = "r_tutorial.Rmd", output_format = myhtml2,
-       output_file = "../r_tutorial.html")
+       output_file = "C:/gitfolder/htmls/academic/r_tutorial.html")
 #
 ##########################################################################################
 # agData
 ##########################################################################################
 #
-setwd("C:/gitfolder/htmls/agdata/cotton")
+setwd("C:/gitfolder/htmls_scripts/agdata/cotton")
 render(input = "cotton.Rmd", output_format = myhtml1,
-       output_file = "../cotton.html")
+       output_file = "C:/gitfolder/htmls/agdata/cotton.html")
 #
-setwd("C:/gitfolder/htmls/agdata/crops_canada")
+setwd("C:/gitfolder/htmls_scripts/agdata/crops_canada")
 render(input = "crops_canada.Rmd", output_format = myhtml1,
-       output_file = "../crops_canada.html")
+       output_file = "C:/gitfolder/htmls/agdata/crops_canada.html")
 #
-setwd("C:/gitfolder/htmls/agdata/crops_canada_maps")
+setwd("C:/gitfolder/htmls_scripts/agdata/crops_canada_maps")
 render(input = "crops_canada_maps.Rmd", output_format = myhtml1,
-       output_file = "../crops_canada_maps.html")
+       output_file = "C:/gitfolder/htmls/agdata/crops_canada_maps.html")
 #
-setwd("C:/gitfolder/htmls/agdata/crops_saskatchewan")
+setwd("C:/gitfolder/htmls_scripts/agdata/crops_saskatchewan")
 render(input = "crops_saskatchewan.Rmd", output_format = myhtml1,
-       output_file = "../crops_saskatchewan.html")
+       output_file = "C:/gitfolder/htmls/agdata/crops_saskatchewan.html")
 #
-setwd("C:/gitfolder/htmls/agdata/crops_usa")
+setwd("C:/gitfolder/htmls_scripts/agdata/crops_usa")
 render(input = "crops_usa.Rmd", output_format = myhtml1,
-       output_file = "../crops_usa.html")
+       output_file = "C:/gitfolder/htmls/agdata/crops_usa.html")
 #
-setwd("C:/gitfolder/htmls/agdata/crops_world")
+setwd("C:/gitfolder/htmls_scripts/agdata/crops_world")
 render(input = "crops_world.Rmd", output_format = myhtml1,
-       output_file = "../crops_world.html")
+       output_file = "C:/gitfolder/htmls/agdata/crops_world.html")
 #
-setwd("C:/gitfolder/htmls/agdata/fertilizers")
+setwd("C:/gitfolder/htmls_scripts/agdata/fertilizers")
 render(input = "fertilizers.Rmd", output_format = myhtml1,
-       output_file = "../fertilizers.html")
+       output_file = "C:/gitfolder/htmls/agdata/fertilizers.html")
 #
-setwd("C:/gitfolder/htmls/agdata/ge_crops")
+setwd("C:/gitfolder/htmls_scripts/agdata/ge_crops")
 render(input = "ge_crops.Rmd", output_format = myhtml1,
-       output_file = "../ge_crops.html")
+       output_file = "C:/gitfolder/htmls/agdata/ge_crops.html")
 #
-setwd("C:/gitfolder/htmls/agdata/global_food_security")
+setwd("C:/gitfolder/htmls_scripts/agdata/global_food_security")
 render(input = "global_food_security.Rmd", output_format = myhtml1,
-       output_file = "../global_food_security.html")
+       output_file = "C:/gitfolder/htmls/agdata/global_food_security.html")
 #
-setwd("C:/gitfolder/htmls/agdata/hemp")
+setwd("C:/gitfolder/htmls_scripts/agdata/hemp")
 render(input = "hemp.Rmd", output_format = myhtml1,
-       output_file = "../hemp.html")
+       output_file = "C:/gitfolder/htmls/agdata/hemp.html")
 #
-setwd("C:/gitfolder/htmls/agdata/honeybee")
+setwd("C:/gitfolder/htmls_scripts/agdata/honeybee")
 render(input = "honeybee.Rmd", output_format = myhtml1,
-       output_file = "../honeybee.html")
+       output_file = "C:/gitfolder/htmls/agdata/honeybee.html")
 #
-setwd("C:/gitfolder/htmls/agdata/honeybee_canada")
+setwd("C:/gitfolder/htmls_scripts/agdata/honeybee_canada")
 render(input = "honeybee_canada.Rmd", output_format = myhtml1,
-       output_file = "../honeybee_canada.html")
+       output_file = "C:/gitfolder/htmls/agdata/honeybee_canada.html")
 #
-setwd("C:/gitfolder/htmls/agdata/import_export")
+setwd("C:/gitfolder/htmls_scripts/agdata/import_export")
 render(input = "import_export.Rmd", output_format = myhtml1,
-       output_file = "../import_export.html")
+       output_file = "C:/gitfolder/htmls/agdata/import_export.html")
 #
-setwd("C:/gitfolder/htmls/agdata/introduction_to_agdata")
+setwd("C:/gitfolder/htmls_scripts/agdata/introduction_to_agdata")
 render(input = "introduction_to_agdata.Rmd", output_format = myhtml1,
-       output_file = "../introduction_to_agdata.html")
+       output_file = "C:/gitfolder/htmls/agdata/introduction_to_agdata.html")
 #
-setwd("C:/gitfolder/htmls/agdata/land_use")
+setwd("C:/gitfolder/htmls_scripts/agdata/land_use")
 render(input = "land_use.Rmd", output_format = myhtml1,
-       output_file = "../land_use.html")
+       output_file = "C:/gitfolder/htmls/agdata/land_use.html")
 #
-setwd("C:/gitfolder/htmls/agdata/lentil")
+setwd("C:/gitfolder/htmls_scripts/agdata/lentil")
 render(input = "lentil.Rmd", output_format = myhtml1,
-       output_file = "../lentil.html")
+       output_file = "C:/gitfolder/htmls/agdata/lentil.html")
 #
-setwd("C:/gitfolder/htmls/agdata/livestock")
+setwd("C:/gitfolder/htmls_scripts/agdata/livestock")
 render(input = "livestock.Rmd", output_format = myhtml1,
-       output_file = "../livestock.html")
+       output_file = "C:/gitfolder/htmls/agdata/livestock.html")
 #
-setwd("C:/gitfolder/htmls/agdata/maize")
+setwd("C:/gitfolder/htmls_scripts/agdata/maize")
 render(input = "maize.Rmd", output_format = myhtml1,
-       output_file = "../maize.html")
+       output_file = "C:/gitfolder/htmls/agdata/maize.html")
 #
-setwd("C:/gitfolder/htmls/agdata/maize_usa")
+setwd("C:/gitfolder/htmls_scripts/agdata/maize_usa")
 render(input = "maize_usa.Rmd", output_format = myhtml1,
-       output_file = "../maize_usa.html")
+       output_file = "C:/gitfolder/htmls/agdata/maize_usa.html")
 #
-setwd("C:/gitfolder/htmls/agdata/nue")
+setwd("C:/gitfolder/htmls_scripts/agdata/nue")
 render(input = "nue.Rmd", output_format = myhtml1,
-       output_file = "../neu.html")
+       output_file = "C:/gitfolder/htmls/agdata/neu.html")
 #
-setwd("C:/gitfolder/htmls/agdata/people_in_ag")
+setwd("C:/gitfolder/htmls_scripts/agdata/people_in_ag")
 render(input = "people_in_ag.Rmd", output_format = myhtml1,
-       output_file = "../people_in_ag.html")
+       output_file = "C:/gitfolder/htmls/agdata/people_in_ag.html")
 #
 setwd("C:/gitfolder/htmls/agdata/potato")
 render(input = "potato.Rmd", output_format = myhtml1,
-       output_file = "../potato.html")
+       output_file = "C:/gitfolder/htmls/agdata/potato.html")
 #
-setwd("C:/gitfolder/htmls/agdata/rapeseed")
+setwd("C:/gitfolder/htmls_scripts/agdata/rapeseed")
 render(input = "rapeseed.Rmd", output_format = myhtml1,
-       output_file = "../rapeseed.html")
+       output_file = "C:/gitfolder/htmls/agdata/rapeseed.html")
 #
-setwd("C:/gitfolder/htmls/agdata/rapeseed_canada")
+setwd("C:/gitfolder/htmls_scripts/agdata/rapeseed_canada")
 render(input = "rapeseed_canada.Rmd", output_format = myhtml1,
-       output_file = "../rapeseed_canada.html")
+       output_file = "C:/gitfolder/htmls/agdata/rapeseed_canada.html")
 #
-setwd("C:/gitfolder/htmls/agdata/soybean")
+setwd("C:/gitfolder/htmls_scripts/agdata/soybean")
 render(input = "soybean.Rmd", output_format = myhtml1,
-       output_file = "../soybean.html")
+       output_file = "C:/gitfolder/htmls/agdata/soybean.html")
 #
-setwd("C:/gitfolder/htmls/agdata/wheat_india")
+setwd("C:/gitfolder/htmls_scripts/agdata/wheat_india")
 render(input = "wheat_india.Rmd", output_format = myhtml1,
-       output_file = "../wheat_india.html")
+       output_file = "C:/gitfolder/htmls/agdata/wheat_india.html")
 #
-setwd("C:/gitfolder/htmls/agdata/wheat_mexico")
+setwd("C:/gitfolder/htmls_scripts/agdata/wheat_mexico")
 render(input = "wheat_mexico.Rmd", output_format = myhtml1,
-       output_file = "../wheat_mexico.html")
+       output_file = "C:/gitfolder/htmls/agdata/wheat_mexico.html")
 #
-setwd("C:/gitfolder/htmls/agdata/wheat_yields")
+setwd("C:/gitfolder/htmls_scripts/agdata/wheat_yields")
 render(input = "wheat_yields.Rmd", output_format = myhtml1,
-       output_file = "../wheat_yields.html")
+       output_file = "C:/gitfolder/htmls/agdata/wheat_yields.html")
 #
 
 ##########################################################################################
