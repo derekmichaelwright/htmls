@@ -76,19 +76,23 @@ render(input = "street_maps.Rmd", output_format = myhtml1,
 #render(input = "augmented_designs.Rmd", output_format = myhtml2,
 #       output_file = "../augmented_designs.html")
 #
-setwd("C:/gitfolder/htmls/academic/correlation_coefficients")
+setwd("C:/gitfolder/htmls_scripts/academic/correlation_coefficients")
 render(input = "correlation_coefficients.Rmd", output_format = myhtml2,
        output_file = "C:/gitfolder/htmls/academic/correlation_coefficients.html")
 #
-setwd("C:/gitfolder/htmls/academic/dual_y_axis")
+setwd("C:/gitfolder/htmls_scripts/academic/dual_y_axis")
 render(input = "dual_y_axis.Rmd", output_format = myhtml2,
        output_file = "C:/gitfolder/htmls/academic/dual_y_axis.html")
 #
-setwd("C:/gitfolder/htmls/academic/envdata")
+setwd("C:/gitfolder/htmls_scripts/academic/envdata")
 render(input = "envdata.Rmd", output_format = myhtml2,
        output_file = "C:/gitfolder/htmls/academic/envdata.html")
 #
-setwd("C:/gitfolder/htmls/academic/r_tutorial")
+setwd("C:/gitfolder/htmls_scripts/academic/gwas_tutorial")
+render(input = "gwas_tutorial.Rmd", output_format = myhtml2,
+       output_file = "C:/gitfolder/htmls/academic/gwas_tutorial.html")
+#
+setwd("C:/gitfolder/htmls_scripts/academic/r_tutorial")
 render(input = "r_tutorial.Rmd", output_format = myhtml2,
        output_file = "C:/gitfolder/htmls/academic/r_tutorial.html")
 #
@@ -180,7 +184,7 @@ setwd("C:/gitfolder/htmls_scripts/agdata/people_in_ag")
 render(input = "people_in_ag.Rmd", output_format = myhtml1,
        output_file = "C:/gitfolder/htmls/agdata/people_in_ag.html")
 #
-setwd("C:/gitfolder/htmls/agdata/potato")
+setwd("C:/gitfolder/htmls_scripts/agdata/potato")
 render(input = "potato.Rmd", output_format = myhtml1,
        output_file = "C:/gitfolder/htmls/agdata/potato.html")
 #
@@ -208,7 +212,6 @@ setwd("C:/gitfolder/htmls_scripts/agdata/wheat_yields")
 render(input = "wheat_yields.Rmd", output_format = myhtml1,
        output_file = "C:/gitfolder/htmls/agdata/wheat_yields.html")
 #
-
 ##########################################################################################
 
 ##########################################################################################
