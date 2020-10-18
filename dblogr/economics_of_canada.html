@@ -1660,14 +1660,8 @@ $(document).ready(function () {
 <span id="cb2-16"><a href="#cb2-16"></a><span class="st">  </span><span class="kw">select</span>(Area, Area_Short, <span class="kw">everything</span>()) <span class="co">#%&gt;%</span></span>
 <span id="cb2-17"><a href="#cb2-17"></a>  <span class="co">#gather(Industry, Percent, 4:ncol(.))</span></span>
 <span id="cb2-18"><a href="#cb2-18"></a><span class="co"># Population by province</span></span>
-<span id="cb2-19"><a href="#cb2-19"></a>d3 &lt;-<span class="st"> </span><span class="kw">read_xlsx</span>(<span class="st">&quot;STATCAN_Population.xlsx&quot;</span>, <span class="st">&quot;1710000901&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb2-20"><a href="#cb2-20"></a><span class="st">  </span><span class="kw">gather</span>(Year, Number, <span class="dv">2</span><span class="op">:</span><span class="kw">ncol</span>(.)) <span class="op">%&gt;%</span></span>
-<span id="cb2-21"><a href="#cb2-21"></a><span class="st">  </span><span class="kw">separate</span>(Year, <span class="kw">c</span>(<span class="st">&quot;Quarter&quot;</span>,<span class="st">&quot;Year&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb2-22"><a href="#cb2-22"></a><span class="st">  </span><span class="kw">group_by</span>(Area, Year) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb2-23"><a href="#cb2-23"></a><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">Number =</span> <span class="kw">round</span>(<span class="kw">mean</span>(Number, <span class="dt">na.rm =</span> F))) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb2-24"><a href="#cb2-24"></a><span class="st">  </span><span class="kw">ungroup</span>() <span class="op">%&gt;%</span></span>
-<span id="cb2-25"><a href="#cb2-25"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Area =</span> <span class="kw">factor</span>(Area, <span class="dt">levels =</span> provinces),</span>
-<span id="cb2-26"><a href="#cb2-26"></a>         <span class="dt">Year =</span> <span class="kw">as.numeric</span>(Year))</span></code></pre></div>
+<span id="cb2-19"><a href="#cb2-19"></a>d3 &lt;-<span class="st"> </span>agData_STATCAN_Population <span class="op">%&gt;%</span></span>
+<span id="cb2-20"><a href="#cb2-20"></a><span class="st">  </span><span class="kw">rename</span>(<span class="dt">Number =</span> Value)</span></code></pre></div>
 <hr />
 </div>
 <div id="gdp-by-province" class="section level1">
