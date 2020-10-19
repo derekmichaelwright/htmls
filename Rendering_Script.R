@@ -56,7 +56,7 @@ render(input = "misleading_graphs.Rmd", output_format = myhtml3,
        output_file = "C:/gitfolder/htmls/dblogr/misleading_graphs.html")
 #
 setwd("C:/gitfolder/htmls_scripts/dblogr/population_demographics_canada")
-render(input = "population_demographics_canada.Rmd", output_format = myhtml3,
+render(input = "population_demographics_canada.Rmd", output_format = myhtml1,
        output_file = "C:/gitfolder/htmls/dblogr/population_demographics_canada.html")
 #
 setwd("C:/gitfolder/htmls_scripts/dblogr/roys_creed")
