@@ -35,9 +35,13 @@ setwd("C:/gitfolder/htmls_scripts/dblogr/cbc_finances")
 render(input = "cbc_finances.Rmd", output_format = myhtml1,
        output_file = "C:/gitfolder/htmls/dblogr/cbc_finances.html")
 #
-setwd("C:/gitfolder/htmls_scripts/dblogr/covid")
-render(input = "covid.Rmd", output_format = myhtml1,
-       output_file = "C:/gitfolder/htmls/dblogr/covid.html")
+setwd("C:/gitfolder/htmls_scripts/dblogr/covid_canada")
+render(input = "covid_canada.Rmd", output_format = myhtml1,
+       output_file = "C:/gitfolder/htmls/dblogr/covid_canada.html")
+#
+setwd("C:/gitfolder/htmls_scripts/dblogr/covid_usa")
+render(input = "covid_usa.Rmd", output_format = myhtml1,
+       output_file = "C:/gitfolder/htmls/dblogr/covid_usa.html")
 #
 setwd("C:/gitfolder/htmls_scripts/dblogr/economics_of_canada")
 render(input = "economics_of_canada.Rmd", output_format = myhtml1,
