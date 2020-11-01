@@ -19,6 +19,10 @@ setwd("C:/gitfolder/htmls_scripts/dblogr/2019_canadian_election_results")
 render(input = "2019_canadian_election_results.Rmd", output_format = myhtml3,
        output_file = "C:/gitfolder/htmls/dblogr/2019_canadian_election_results.html")
 #
+setwd("C:/gitfolder/htmls_scripts/dblogr/2020_saskatchewan_election_results")
+render(input = "2020_saskatchewan_election_results.Rmd", output_format = myhtml3,
+       output_file = "C:/gitfolder/htmls/dblogr/2020_saskatchewan_election_results.html")
+#
 setwd("C:/gitfolder/htmls_scripts/dblogr/amazon_fires")
 render(input = "amazon_fires.Rmd", output_format = myhtml3,
        output_file = "C:/gitfolder/htmls/dblogr/amazon_fires.html")
@@ -42,6 +46,10 @@ render(input = "covid_canada.Rmd", output_format = myhtml1,
 setwd("C:/gitfolder/htmls_scripts/dblogr/covid_usa")
 render(input = "covid_usa.Rmd", output_format = myhtml1,
        output_file = "C:/gitfolder/htmls/dblogr/covid_usa.html")
+#
+setwd("C:/gitfolder/htmls_scripts/dblogr/covid_world")
+render(input = "covid_world.Rmd", output_format = myhtml1,
+       output_file = "C:/gitfolder/htmls/dblogr/covid_world.html")
 #
 setwd("C:/gitfolder/htmls_scripts/dblogr/economics_of_canada")
 render(input = "economics_of_canada.Rmd", output_format = myhtml1,
