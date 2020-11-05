@@ -75,6 +75,10 @@ setwd("C:/gitfolder/htmls_scripts/dblogr/roys_creed")
 render(input = "roys_creed.Rmd", output_format = myhtml1,
        output_file = "C:/gitfolder/htmls/dblogr/roys_creed.html")
 #
+setwd("C:/gitfolder/htmls_scripts/dblogr/saskatchewan_provincial_elections")
+render(input = "saskatchewan_provincial_elections.Rmd", output_format = myhtml1,
+       output_file = "C:/gitfolder/htmls/dblogr/saskatchewan_provincial_elections.html")
+#
 setwd("C:/gitfolder/htmls_scripts/dblogr/street_maps") # restart R after running this one
 render(input = "street_maps.Rmd", output_format = myhtml1,
        output_file = "C:/gitfolder/htmls/dblogr/street_maps.html")
