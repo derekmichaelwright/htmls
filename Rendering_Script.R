@@ -16,11 +16,11 @@ myhtml3 <- readthedown(gallery = T, lightbox= T, self_contained = T, code_foldin
 ##########################################################################################
 #
 setwd("C:/gitfolder/htmls_scripts/dblogr/2019_canadian_election_results")
-render(input = "2019_canadian_election_results.Rmd", output_format = myhtml3,
+render(input = "2019_canadian_election_results.Rmd", output_format = myhtml1,
        output_file = "C:/gitfolder/htmls/dblogr/2019_canadian_election_results.html")
 #
 setwd("C:/gitfolder/htmls_scripts/dblogr/2020_saskatchewan_election_results")
-render(input = "2020_saskatchewan_election_results.Rmd", output_format = myhtml3,
+render(input = "2020_saskatchewan_election_results.Rmd", output_format = myhtml1,
        output_file = "C:/gitfolder/htmls/dblogr/2020_saskatchewan_election_results.html")
 #
 setwd("C:/gitfolder/htmls_scripts/dblogr/amazon_fires")
