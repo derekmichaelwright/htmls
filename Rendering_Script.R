@@ -198,7 +198,7 @@ render(input = "maize_usa.Rmd", output_format = myhtml1,
 #
 setwd("C:/gitfolder/htmls_scripts/agdata/nue")
 render(input = "nue.Rmd", output_format = myhtml1,
-       output_file = "C:/gitfolder/htmls/agdata/neu.html")
+       output_file = "C:/gitfolder/htmls/agdata/nue.html")
 #
 setwd("C:/gitfolder/htmls_scripts/agdata/people_in_ag")
 render(input = "people_in_ag.Rmd", output_format = myhtml1,
