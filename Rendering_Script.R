@@ -92,9 +92,9 @@ render(input = "street_maps.Rmd", output_format = myhtml1,
 #render(input = "index.Rmd", output_format = mypdf1,
 #       output_file = "../../academic_pdfs/anova.pdf")
 #
-#setwd("C:/gitfolder/htmls/academic/augmented_designs")
-#render(input = "augmented_designs.Rmd", output_format = myhtml2,
-#       output_file = "../augmented_designs.html")
+setwd("C:/gitfolder/htmls_scripts/academic/augmented_designs")
+render(input = "augmented_designs.Rmd", output_format = myhtml2,
+       output_file = "C:/gitfolder/htmls/academic/augmented_designs.html")
 #
 setwd("C:/gitfolder/htmls_scripts/academic/correlation_coefficients")
 render(input = "correlation_coefficients.Rmd", output_format = myhtml2,
