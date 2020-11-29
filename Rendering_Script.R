@@ -15,13 +15,13 @@ myhtml3 <- readthedown(gallery = T, lightbox= T, self_contained = T, code_foldin
 # dblogr
 ##########################################################################################
 #
-setwd("C:/gitfolder/htmls_scripts/dblogr/2019_canadian_election_results")
-render(input = "2019_canadian_election_results.Rmd", output_format = myhtml1,
-       output_file = "C:/gitfolder/htmls/dblogr/2019_canadian_election_results.html")
+setwd("C:/gitfolder/htmls_scripts/dblogr/2019_canadian_election")
+render(input = "2019_canadian_election.Rmd", output_format = myhtml1,
+       output_file = "C:/gitfolder/htmls/dblogr/2019_canadian_election.html")
 #
-setwd("C:/gitfolder/htmls_scripts/dblogr/2020_saskatchewan_election_results")
-render(input = "2020_saskatchewan_election_results.Rmd", output_format = myhtml1,
-       output_file = "C:/gitfolder/htmls/dblogr/2020_saskatchewan_election_results.html")
+setwd("C:/gitfolder/htmls_scripts/dblogr/2020_saskatchewan_election")
+render(input = "2020_saskatchewan_election.Rmd", output_format = myhtml1,
+       output_file = "C:/gitfolder/htmls/dblogr/2020_saskatchewan_election.html")
 #
 setwd("C:/gitfolder/htmls_scripts/dblogr/amazon_fires")
 render(input = "amazon_fires.Rmd", output_format = myhtml3,
@@ -50,6 +50,10 @@ render(input = "covid_usa.Rmd", output_format = myhtml1,
 setwd("C:/gitfolder/htmls_scripts/dblogr/covid_world")
 render(input = "covid_world.Rmd", output_format = myhtml1,
        output_file = "C:/gitfolder/htmls/dblogr/covid_world.html")
+#
+setwd("C:/gitfolder/htmls_scripts/dblogr/deaths_canada")
+render(input = "deaths_canada.Rmd", output_format = myhtml1,
+       output_file = "C:/gitfolder/htmls/dblogr/deaths_canada.html")
 #
 setwd("C:/gitfolder/htmls_scripts/dblogr/economics_of_canada")
 render(input = "economics_of_canada.Rmd", output_format = myhtml1,
@@ -83,6 +87,9 @@ setwd("C:/gitfolder/htmls_scripts/dblogr/street_maps") # restart R after running
 render(input = "street_maps.Rmd", output_format = myhtml1,
        output_file = "C:/gitfolder/htmls/dblogr/street_maps.html")
 #
+setwd("C:/gitfolder/htmls_scripts/dblogr/unemployment_canada") # restart R after running this one
+render(input = "unemployment_canada.Rmd", output_format = myhtml1,
+       output_file = "C:/gitfolder/htmls/dblogr/unemployment_canada.html")
 ##########################################################################################
 # agile
 ##########################################################################################
@@ -143,6 +150,10 @@ render(input = "crops_usa.Rmd", output_format = myhtml1,
 setwd("C:/gitfolder/htmls_scripts/agdata/crops_world")
 render(input = "crops_world.Rmd", output_format = myhtml1,
        output_file = "C:/gitfolder/htmls/agdata/crops_world.html")
+#
+#setwd("C:/gitfolder/htmls_scripts/agdata/farms_saskatchewan")
+#render(input = "farms_saskatchewan.Rmd", output_format = myhtml1,
+#       output_file = "C:/gitfolder/htmls/agdata/farms_saskatchewan.html")
 #
 setwd("C:/gitfolder/htmls_scripts/agdata/fertilizers")
 render(input = "fertilizers.Rmd", output_format = myhtml1,
