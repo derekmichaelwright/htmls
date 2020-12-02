@@ -103,6 +103,10 @@ setwd("C:/gitfolder/htmls_scripts/academic/augmented_designs")
 render(input = "augmented_designs.Rmd", output_format = myhtml2,
        output_file = "C:/gitfolder/htmls/academic/augmented_designs.html")
 #
+setwd("C:/gitfolder/htmls_scripts/academic/canola_nue")
+render(input = "canola_nue.Rmd", output_format = myhtml2,
+       output_file = "C:/gitfolder/htmls/academic/canola_nue.html")
+#
 setwd("C:/gitfolder/htmls_scripts/academic/correlation_coefficients")
 render(input = "correlation_coefficients.Rmd", output_format = myhtml2,
        output_file = "C:/gitfolder/htmls/academic/correlation_coefficients.html")
