@@ -63,10 +63,6 @@ setwd("C:/gitfolder/htmls_scripts/dblogr/gapminder")
 render(input = "gapminder.Rmd", output_format = myhtml1,
        output_file = "C:/gitfolder/htmls/dblogr/gapminder.html")
 #
-setwd("C:/gitfolder/htmls_scripts/dblogr/hex_stickers")
-render(input = "hex_stickers.Rmd", output_format = myhtml1,
-       output_file = "C:/gitfolder/htmls/dblogr/hex_stickers.html")
-#
 setwd("C:/gitfolder/htmls_scripts/dblogr/misleading_graphs")
 render(input = "misleading_graphs.Rmd", output_format = myhtml3,
        output_file = "C:/gitfolder/htmls/dblogr/misleading_graphs.html")
@@ -83,13 +79,18 @@ setwd("C:/gitfolder/htmls_scripts/dblogr/saskatchewan_provincial_elections")
 render(input = "saskatchewan_provincial_elections.Rmd", output_format = myhtml1,
        output_file = "C:/gitfolder/htmls/dblogr/saskatchewan_provincial_elections.html")
 #
+setwd("C:/gitfolder/htmls_scripts/dblogr/unemployment_canada") # restart R after running this one
+render(input = "unemployment_canada.Rmd", output_format = myhtml1,
+       output_file = "C:/gitfolder/htmls/dblogr/unemployment_canada.html")
+#
 setwd("C:/gitfolder/htmls_scripts/dblogr/street_maps") # restart R after running this one
 render(input = "street_maps.Rmd", output_format = myhtml1,
        output_file = "C:/gitfolder/htmls/dblogr/street_maps.html")
 #
-setwd("C:/gitfolder/htmls_scripts/dblogr/unemployment_canada") # restart R after running this one
-render(input = "unemployment_canada.Rmd", output_format = myhtml1,
-       output_file = "C:/gitfolder/htmls/dblogr/unemployment_canada.html")
+setwd("C:/gitfolder/htmls_scripts/dblogr/hex_stickers")
+render(input = "hex_stickers.Rmd", output_format = myhtml1,
+       output_file = "C:/gitfolder/htmls/dblogr/hex_stickers.html")
+#
 ##########################################################################################
 # agile
 ##########################################################################################
