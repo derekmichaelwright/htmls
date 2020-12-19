@@ -136,6 +136,10 @@ setwd("C:/gitfolder/htmls_scripts/agdata/cotton")
 render(input = "cotton.Rmd", output_format = myhtml1,
        output_file = "C:/gitfolder/htmls/agdata/cotton.html")
 #
+setwd("C:/gitfolder/htmls_scripts/agdata/country_treemaps")
+render(input = "country_treemaps.Rmd", output_format = myhtml1,
+       output_file = "C:/gitfolder/htmls/agdata/country_treemaps.html")
+#
 setwd("C:/gitfolder/htmls_scripts/agdata/crops_canada")
 render(input = "crops_canada.Rmd", output_format = myhtml1,
        output_file = "C:/gitfolder/htmls/agdata/crops_canada.html")
@@ -147,6 +151,10 @@ render(input = "crops_canada_maps.Rmd", output_format = myhtml1,
 setwd("C:/gitfolder/htmls_scripts/agdata/crops_saskatchewan")
 render(input = "crops_saskatchewan.Rmd", output_format = myhtml1,
        output_file = "C:/gitfolder/htmls/agdata/crops_saskatchewan.html")
+#
+setwd("C:/gitfolder/htmls_scripts/agdata/crops_treemaps")
+render(input = "crops_treemaps.Rmd", output_format = myhtml1,
+       output_file = "C:/gitfolder/htmls/agdata/crops_treemaps.html")
 #
 setwd("C:/gitfolder/htmls_scripts/agdata/crops_usa")
 render(input = "crops_usa.Rmd", output_format = myhtml1,
