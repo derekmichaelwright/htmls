@@ -92,7 +92,7 @@ render(input = "hex_stickers.Rmd", output_format = myhtml1,
        output_file = "C:/gitfolder/htmls/dblogr/hex_stickers.html")
 #
 ##########################################################################################
-# agile
+# academic
 ##########################################################################################
 #setwd("C:/gitfolder/htmls/academic/anova")
 #render(input = "anova.Rmd", output_format = myhtml2,
